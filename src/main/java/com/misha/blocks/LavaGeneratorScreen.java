@@ -18,7 +18,7 @@ public class LavaGeneratorScreen extends AbstractContainerScreen<LavaGeneratorCo
     private ResourceLocation FLAME= new ResourceLocation(LavaPlus.MODID, "textures/gui/flame.png");
 
     public static int active=0;
-    public static int generate=20;
+    public static int generate=40;
     public LavaGeneratorScreen(LavaGeneratorContainer container, Inventory inv, Component name) {
 
         super(container, inv, name);
