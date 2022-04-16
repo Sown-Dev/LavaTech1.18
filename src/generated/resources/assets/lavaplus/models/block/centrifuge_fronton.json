@@ -6,6 +6,7 @@
     "north": "lavaplus:block/centrifuge_fronton",
     "south": "lavaplus:block/centrifuge_sideon",
     "east": "lavaplus:block/centrifuge_sideon",
-    "west": "lavaplus:block/centrifuge_sideon"
+    "west": "lavaplus:block/centrifuge_sideon",
+    "particle": "lavaplus:block/centrifuge_sideon"
   }
 }

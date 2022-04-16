@@ -16,6 +16,7 @@ public class Recipes extends RecipeProvider {
 
     public Recipes(DataGenerator generatorIn) {
         super(generatorIn);
+
     }
 
     @Override

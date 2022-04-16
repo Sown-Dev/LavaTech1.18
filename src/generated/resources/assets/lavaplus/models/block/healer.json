@@ -6,6 +6,7 @@
     "north": "lavaplus:block/healer_side",
     "south": "lavaplus:block/healer_side",
     "east": "lavaplus:block/healer_side",
-    "west": "lavaplus:block/healer_side"
+    "west": "lavaplus:block/healer_side",
+    "particle": "lavaplus:block/healer_side"
   }
 }

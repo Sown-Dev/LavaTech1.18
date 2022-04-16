@@ -48,6 +48,6 @@ public class Tags extends BlockTagsProvider {
 
     @Override
     public String getName(){
-        return "Lava+ tags";
+        return "LavaTech tags";
     }
 }

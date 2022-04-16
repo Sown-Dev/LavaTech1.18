@@ -7,12 +7,13 @@ public class LootTables extends BaseLootTableProvider {
 
     public LootTables(DataGenerator dataGeneratorIn) {
         super(dataGeneratorIn);
+
     }
 
     @Override
     protected void addTables() {
 
-        lootTables.put(Registration.MACHINEFRAME.get(), createStandardTable("machineframe", Registration.MACHINEFRAME.get(), Registration.BLOCKBURNER_BE.get()));
+        //lootTables.put(Registration.MACHINEFRAME.get(), createStandardTable("machineframe", Registration.MACHINEFRAME.get(), Registration.BLOCKBURNER_BE.get()));
 
 
         lootTables.put(Registration.BLOCKBURNER.get(), createStandardTable("blockburner", Registration.BLOCKBURNER.get(), Registration.BLOCKBURNER_BE.get()));

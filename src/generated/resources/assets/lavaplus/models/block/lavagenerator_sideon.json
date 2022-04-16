@@ -6,6 +6,7 @@
     "north": "lavaplus:block/lavagenerator_sideon",
     "south": "lavaplus:block/lavagenerator_sideon",
     "east": "lavaplus:block/lavagenerator_sideon",
-    "west": "lavaplus:block/lavagenerator_sideon"
+    "west": "lavaplus:block/lavagenerator_sideon",
+    "particle": "lavaplus:block/lavagenerator_side"
   }
 }

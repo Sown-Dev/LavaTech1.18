@@ -6,6 +6,7 @@
     "north": "lavaplus:block/inductionfurnace_front",
     "south": "lavaplus:block/inductionfurnace_side",
     "east": "lavaplus:block/inductionfurnace_side",
-    "west": "lavaplus:block/inductionfurnace_side"
+    "west": "lavaplus:block/inductionfurnace_side",
+    "particle": "lavaplus:block/inductionfurnace_side"
   }
 }

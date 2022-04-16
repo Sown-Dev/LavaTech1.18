@@ -6,6 +6,7 @@
     "north": "lavaplus:block/battery_side",
     "south": "lavaplus:block/battery_side",
     "east": "lavaplus:block/battery_side",
-    "west": "lavaplus:block/battery_side"
+    "west": "lavaplus:block/battery_side",
+    "particle": "lavaplus:block/battery_side"
   }
 }

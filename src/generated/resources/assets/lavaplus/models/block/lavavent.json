@@ -6,6 +6,7 @@
     "north": "lavaplus:block/lavavent_side",
     "south": "lavaplus:block/lavavent_side",
     "east": "lavaplus:block/lavavent_side",
-    "west": "lavaplus:block/lavavent_side"
+    "west": "lavaplus:block/lavavent_side",
+    "particle": "lavaplus:block/lavavent_side"
   }
 }

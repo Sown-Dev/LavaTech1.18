@@ -31,6 +31,7 @@
             },
             {
               "function": "minecraft:set_contents",
+              "type": "lavaplus:crate",
               "entries": [
                 {
                   "type": "minecraft:dynamic",

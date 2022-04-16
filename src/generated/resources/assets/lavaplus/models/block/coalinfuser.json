@@ -6,6 +6,7 @@
     "north": "lavaplus:block/coalinfuser_front",
     "south": "lavaplus:block/coalinfuser_side",
     "east": "lavaplus:block/coalinfuser_side",
-    "west": "lavaplus:block/coalinfuser_side"
+    "west": "lavaplus:block/coalinfuser_side",
+    "particle": "lavaplus:block/coalinfuser_side"
   }
 }
