@@ -206,7 +206,7 @@ public class UpgraderBE extends BlockEntity {
                 if (!stack.isEmpty() && stack.getItem() == Registration.LAVABRICK.get().asItem()
                         && stack.getCount()>=9
                         && ingot.getItem() == Items.NETHERITE_INGOT.asItem()
-                        && (output.isEmpty()) ) {
+                        && (output.getCount()<64) ) {
                     energyStorage.consumeEnergy(usage);
                     if (counter == baseTime / active) {
                         if (output.isEmpty()) {
@@ -240,7 +240,7 @@ public class UpgraderBE extends BlockEntity {
         CompoundTag tag = new CompoundTag();
         tag.putInt("counter", counter);
         tag.putInt("active", active);
-        return new ClientboundBlockEntityDataPacket(worldPosition, 1, tag);
+        return ClientboundBlockEntityDataPacket.create(this);
     }
 
     @Override
@@ -333,7 +333,7 @@ public class UpgraderBE extends BlockEntity {
                 boolean newHasPower = hasEnoughPowerToWork();
                 if (newHasPower != hasPower) {
                     hasPower = newHasPower;
-                    level.sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), Constants.BlockFlags.BLOCK_UPDATE);
+                    level.sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), Block.UPDATE_CLIENTS);
                 }
                 setChanged();
             }

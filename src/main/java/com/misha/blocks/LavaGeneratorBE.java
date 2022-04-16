@@ -61,7 +61,7 @@ int active=0;
         CompoundTag tag = new CompoundTag();
 
         tag.putInt("active", active);
-        return new ClientboundBlockEntityDataPacket(worldPosition, 1, tag);
+        return  ClientboundBlockEntityDataPacket.create(this);
     }
 
     @Override

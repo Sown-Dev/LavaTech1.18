@@ -198,7 +198,7 @@ public class CentrifugeBE extends BlockEntity implements IFluidTank {
         tag.putInt("counter", counter);
         tag.putInt("active", active);
         tag.putInt("filled", filled);
-        return new ClientboundBlockEntityDataPacket(worldPosition, 1, tag);
+        return ClientboundBlockEntityDataPacket.create(this);
     }
 
     @Override

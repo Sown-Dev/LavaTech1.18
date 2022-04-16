@@ -18,6 +18,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.AbstractCookingRecipe;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.item.crafting.SmeltingRecipe;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.AbstractFurnaceBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -103,10 +104,10 @@ static int baseTime=2000;
 
 
             level.setBlock(worldPosition, blockState.setValue(BlockStateProperties.POWERED, true),
-                    Constants.BlockFlags.NOTIFY_NEIGHBORS + Constants.BlockFlags.BLOCK_UPDATE);
+                    Block.UPDATE_ALL);
         } else {
             level.setBlock(worldPosition, blockState.setValue(BlockStateProperties.POWERED, false),
-                    Constants.BlockFlags.NOTIFY_NEIGHBORS + Constants.BlockFlags.BLOCK_UPDATE);
+                    Block.UPDATE_ALL);
         }
 
     }
@@ -116,7 +117,7 @@ static int baseTime=2000;
         CompoundTag tag = new CompoundTag();
         tag.putInt("counter", counter);
         tag.putInt("active", active);
-        return new ClientboundBlockEntityDataPacket(worldPosition, 1, tag);
+        return ClientboundBlockEntityDataPacket.create(this);
     }
 
     @Override

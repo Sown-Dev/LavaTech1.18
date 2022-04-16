@@ -302,7 +302,7 @@ int ctime=time;
         tag.putInt("counter", counter);
         tag.putInt("active", active);
         tag.putInt("time",time);
-        return new ClientboundBlockEntityDataPacket(worldPosition, 1, tag);
+        return ClientboundBlockEntityDataPacket.create(this);
     }
 
     @Override

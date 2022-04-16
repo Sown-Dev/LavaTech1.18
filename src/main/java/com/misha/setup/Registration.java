@@ -10,7 +10,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
-import net.minecraftforge.common.extensions.IForgeContainerType;
+import net.minecraftforge.common.extensions.IForgeMenuType;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.RegistryObject;
@@ -115,49 +115,49 @@ public class Registration {
 
 
 
-    public static final RegistryObject<MenuType<BlockBurnerContainer>> BLOCKBURNER_CONTAINER = CONTAINERS.register("blockburner", () -> IForgeContainerType.create((windowId, inv, data) -> {
+    public static final RegistryObject<MenuType<BlockBurnerContainer>> BLOCKBURNER_CONTAINER = CONTAINERS.register("blockburner", () -> IForgeMenuType.create((windowId, inv, data) -> {
         BlockPos pos = data.readBlockPos();
         Level world = inv.player.getCommandSenderWorld();
         return new BlockBurnerContainer(windowId, world, pos, inv, inv.player);
     }));
-    public static final RegistryObject<MenuType<CoalInfuserContainer>> COALINFUSER_CONTAINER = CONTAINERS.register("coalinfuser", () -> IForgeContainerType.create((windowId, inv, data) -> {
+    public static final RegistryObject<MenuType<CoalInfuserContainer>> COALINFUSER_CONTAINER = CONTAINERS.register("coalinfuser", () -> IForgeMenuType.create((windowId, inv, data) -> {
         BlockPos pos = data.readBlockPos();
         Level world = inv.player.getCommandSenderWorld();
         return new CoalInfuserContainer(windowId, world, pos, inv, inv.player);
     }));
 
-    public static final RegistryObject<MenuType<InductionFurnaceContainer>> INDUCTIONFURNACE_CONTAINER = CONTAINERS.register("inductionfurnace", () -> IForgeContainerType.create((windowId, inv, data) -> {
+    public static final RegistryObject<MenuType<InductionFurnaceContainer>> INDUCTIONFURNACE_CONTAINER = CONTAINERS.register("inductionfurnace", () -> IForgeMenuType.create((windowId, inv, data) -> {
         BlockPos pos = data.readBlockPos();
         Level world = inv.player.getCommandSenderWorld();
         return new InductionFurnaceContainer(windowId, world, pos, inv, inv.player);
     }));
 
-    public static final RegistryObject<MenuType<LavaGeneratorContainer>> LAVAGENERATOR_CONTAINER = CONTAINERS.register("lavagenerator", () -> IForgeContainerType.create((windowId, inv, data) -> {
+    public static final RegistryObject<MenuType<LavaGeneratorContainer>> LAVAGENERATOR_CONTAINER = CONTAINERS.register("lavagenerator", () -> IForgeMenuType.create((windowId, inv, data) -> {
         BlockPos pos = data.readBlockPos();
         Level world = inv.player.getCommandSenderWorld();
         return new LavaGeneratorContainer(windowId, world, pos, inv, inv.player);
     }));
-    public static final RegistryObject<MenuType<BatteryContainer>> BATTERY_CONTAINER = CONTAINERS.register("battery", () -> IForgeContainerType.create((windowId, inv, data) -> {
+    public static final RegistryObject<MenuType<BatteryContainer>> BATTERY_CONTAINER = CONTAINERS.register("battery", () -> IForgeMenuType.create((windowId, inv, data) -> {
         BlockPos pos = data.readBlockPos();
         Level world = inv.player.getCommandSenderWorld();
         return new BatteryContainer(windowId, world, pos, inv, inv.player);
     }));
-    public static final RegistryObject<MenuType<CentrifugeContainer>> CENTRIFUGE_CONTAINER = CONTAINERS.register("centrifuge", () -> IForgeContainerType.create((windowId, inv, data) -> {
+    public static final RegistryObject<MenuType<CentrifugeContainer>> CENTRIFUGE_CONTAINER = CONTAINERS.register("centrifuge", () -> IForgeMenuType.create((windowId, inv, data) -> {
         BlockPos pos = data.readBlockPos();
         Level world = inv.player.getCommandSenderWorld();
         return new CentrifugeContainer(windowId, world, pos, inv, inv.player);
     }));
-    public static final RegistryObject<MenuType<CompressorContainer>> COMPRESSOR_CONTAINER = CONTAINERS.register("compressor", () -> IForgeContainerType.create((windowId, inv, data) -> {
+    public static final RegistryObject<MenuType<CompressorContainer>> COMPRESSOR_CONTAINER = CONTAINERS.register("compressor", () -> IForgeMenuType.create((windowId, inv, data) -> {
         BlockPos pos = data.readBlockPos();
         Level world = inv.player.getCommandSenderWorld();
         return new CompressorContainer(windowId, world, pos, inv, inv.player);
     }));
-    public static final RegistryObject<MenuType<UpgraderContainer>> UPGRADER_CONTAINER = CONTAINERS.register("upgrader", () -> IForgeContainerType.create((windowId, inv, data) -> {
+    public static final RegistryObject<MenuType<UpgraderContainer>> UPGRADER_CONTAINER = CONTAINERS.register("upgrader", () -> IForgeMenuType.create((windowId, inv, data) -> {
         BlockPos pos = data.readBlockPos();
         Level world = inv.player.getCommandSenderWorld();
         return new UpgraderContainer(windowId, world, pos, inv, inv.player);
     }));
-    public static final RegistryObject<MenuType<CrateContainer>> CRATE_CONTAINER = CONTAINERS.register("crate", () -> IForgeContainerType.create((windowId, inv, data) -> {
+    public static final RegistryObject<MenuType<CrateContainer>> CRATE_CONTAINER = CONTAINERS.register("crate", () -> IForgeMenuType.create((windowId, inv, data) -> {
         BlockPos pos = data.readBlockPos();
         Level world = inv.player.getCommandSenderWorld();
         return new CrateContainer(windowId, world, pos, inv, inv.player);
