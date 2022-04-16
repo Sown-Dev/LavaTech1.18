@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "blockburner",
+  "pattern": [
+    "shs",
+    "x x",
+    "sxs"
+  ],
+  "key": {
+    "s": {
+      "tag": "forge:stone"
+    },
+    "x": {
+      "item": "lavaplus:machineframe"
+    },
+    "h": {
+      "item": "minecraft:hopper"
+    }
+  },
+  "result": {
+    "item": "lavaplus:blockburner"
+  }
+}

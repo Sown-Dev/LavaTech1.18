@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "inductionfurnace",
+  "pattern": [
+    "mnm",
+    "idi",
+    "mnm"
+  ],
+  "key": {
+    "n": {
+      "item": "lavaplus:magmacoal"
+    },
+    "i": {
+      "item": "minecraft:iron_ingot"
+    },
+    "d": {
+      "item": "minecraft:diamond"
+    },
+    "m": {
+      "item": "lavaplus:machineframe"
+    }
+  },
+  "result": {
+    "item": "lavaplus:inductionfurnace"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "lavaplus:block/coalinfuser_top",
+    "up": "lavaplus:block/coalinfuser_top",
+    "north": "lavaplus:block/inductionfurnace_fronton",
+    "south": "lavaplus:block/inductionfurnace_side",
+    "east": "lavaplus:block/inductionfurnace_side",
+    "west": "lavaplus:block/inductionfurnace_side"
+  }
+}

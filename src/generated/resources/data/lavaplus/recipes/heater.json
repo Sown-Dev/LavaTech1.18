@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "heater",
+  "pattern": [
+    "mgm",
+    "chc",
+    "mgm"
+  ],
+  "key": {
+    "h": {
+      "item": "lavaplus:heatedmagmablock"
+    },
+    "c": {
+      "item": "minecraft:copper_block"
+    },
+    "g": {
+      "item": "minecraft:tinted_glass"
+    },
+    "m": {
+      "item": "lavaplus:machineframe"
+    }
+  },
+  "result": {
+    "item": "lavaplus:heater"
+  }
+}

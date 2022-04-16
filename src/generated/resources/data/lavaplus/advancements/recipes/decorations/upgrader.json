@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "lavaplus:upgrader"
+    ]
+  },
+  "criteria": {
+    "lavabrick": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "lavaplus:lavabrick"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "lavaplus:upgrader"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "lavabrick",
+      "has_the_recipe"
+    ]
+  ]
+}

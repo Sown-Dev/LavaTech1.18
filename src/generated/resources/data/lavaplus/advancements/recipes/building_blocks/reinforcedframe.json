@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "lavaplus:reinforcedframe"
+    ]
+  },
+  "criteria": {
+    "obsidian": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:obsidian"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "lavaplus:reinforcedframe"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "obsidian",
+      "has_the_recipe"
+    ]
+  ]
+}

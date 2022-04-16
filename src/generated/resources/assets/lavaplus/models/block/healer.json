@@ -1,0 +1,11 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "lavaplus:block/healer_top",
+    "up": "lavaplus:block/healer_top",
+    "north": "lavaplus:block/healer_side",
+    "south": "lavaplus:block/healer_side",
+    "east": "lavaplus:block/healer_side",
+    "west": "lavaplus:block/healer_side"
+  }
+}

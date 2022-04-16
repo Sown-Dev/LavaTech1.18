@@ -1,0 +1,11 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "lavaplus:block/lavavent_top",
+    "up": "lavaplus:block/lavavent_top",
+    "north": "lavaplus:block/lavavent_side",
+    "south": "lavaplus:block/lavavent_side",
+    "east": "lavaplus:block/lavavent_side",
+    "west": "lavaplus:block/lavavent_side"
+  }
+}

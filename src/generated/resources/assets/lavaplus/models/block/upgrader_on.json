@@ -1,0 +1,11 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "lavaplus:block/machineframe",
+    "up": "lavaplus:block/machineframe",
+    "north": "lavaplus:block/upgrader_fronton",
+    "south": "lavaplus:block/upgrader_fronton",
+    "east": "lavaplus:block/upgrader_fronton",
+    "west": "lavaplus:block/upgrader_fronton"
+  }
+}

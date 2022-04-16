@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "healer",
+  "pattern": [
+    "mdm",
+    "sgs",
+    "msm"
+  ],
+  "key": {
+    "d": {
+      "item": "minecraft:dispenser"
+    },
+    "g": {
+      "item": "minecraft:golden_apple"
+    },
+    "s": {
+      "item": "minecraft:iron_ingot"
+    },
+    "m": {
+      "item": "lavaplus:machineframe"
+    }
+  },
+  "result": {
+    "item": "lavaplus:healer"
+  }
+}

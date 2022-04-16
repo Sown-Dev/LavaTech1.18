@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "coalinf",
+  "pattern": [
+    "mim",
+    "ici",
+    "mfm"
+  ],
+  "key": {
+    "c": {
+      "item": "minecraft:coal_block"
+    },
+    "i": {
+      "item": "minecraft:iron_ingot"
+    },
+    "f": {
+      "item": "minecraft:flint_and_steel"
+    },
+    "m": {
+      "item": "lavaplus:machineframe"
+    }
+  },
+  "result": {
+    "item": "lavaplus:coalinfuser"
+  }
+}

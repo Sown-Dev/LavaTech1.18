@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "lavaplus:battery"
+    ]
+  },
+  "criteria": {
+    "conduit": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "lavaplus:conduit"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "lavaplus:battery"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "conduit",
+      "has_the_recipe"
+    ]
+  ]
+}

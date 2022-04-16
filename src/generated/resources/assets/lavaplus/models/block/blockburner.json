@@ -1,0 +1,11 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "lavaplus:block/blockburner_top",
+    "up": "lavaplus:block/blockburner_top",
+    "north": "lavaplus:block/blockburner_front",
+    "south": "lavaplus:block/blockburner_side",
+    "east": "lavaplus:block/blockburner_side",
+    "west": "lavaplus:block/blockburner_side"
+  }
+}

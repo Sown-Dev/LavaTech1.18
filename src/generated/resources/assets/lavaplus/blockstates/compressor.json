@@ -1,0 +1,50 @@
+{
+  "variants": {
+    "facing=down,powered=false": {
+      "model": "lavaplus:block/compressor",
+      "x": 90
+    },
+    "facing=up,powered=false": {
+      "model": "lavaplus:block/compressor",
+      "x": -90
+    },
+    "facing=north,powered=false": {
+      "model": "lavaplus:block/compressor"
+    },
+    "facing=south,powered=false": {
+      "model": "lavaplus:block/compressor",
+      "y": 180
+    },
+    "facing=west,powered=false": {
+      "model": "lavaplus:block/compressor",
+      "y": 270
+    },
+    "facing=east,powered=false": {
+      "model": "lavaplus:block/compressor",
+      "y": 90
+    },
+    "facing=down,powered=true": {
+      "model": "lavaplus:block/compressor_fronton",
+      "x": 90
+    },
+    "facing=up,powered=true": {
+      "model": "lavaplus:block/compressor_fronton",
+      "x": -90
+    },
+    "facing=north,powered=true": {
+      "model": "lavaplus:block/compressor_fronton"
+    },
+    "facing=south,powered=true": {
+      "model": "lavaplus:block/compressor_fronton",
+      "y": 180
+    },
+    "facing=west,powered=true": {
+      "model": "lavaplus:block/compressor_fronton",
+      "y": 270
+    },
+    "facing=east,powered=true": {
+      "model": "lavaplus:block/compressor_fronton",
+      "y": 90
+    }
+  }
+}

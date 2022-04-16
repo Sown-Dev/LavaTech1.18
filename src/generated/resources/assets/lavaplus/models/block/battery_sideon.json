@@ -1,0 +1,11 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "lavaplus:block/battery_top",
+    "up": "lavaplus:block/battery_top",
+    "north": "lavaplus:block/battery_side",
+    "south": "lavaplus:block/battery_side",
+    "east": "lavaplus:block/battery_side",
+    "west": "lavaplus:block/battery_side"
+  }
+}

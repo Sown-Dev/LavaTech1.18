@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "heatedmagma",
+  "pattern": [
+    "cxc",
+    "xix",
+    "cxc"
+  ],
+  "key": {
+    "x": {
+      "item": "minecraft:magma_block"
+    },
+    "i": {
+      "item": "minecraft:diamond"
+    },
+    "c": {
+      "item": "lavaplus:magmacoal"
+    }
+  },
+  "result": {
+    "item": "lavaplus:heatedmagmablock"
+  }
+}

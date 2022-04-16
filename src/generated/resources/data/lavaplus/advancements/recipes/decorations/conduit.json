@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "lavaplus:conduit"
+    ]
+  },
+  "criteria": {
+    "machineframe": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "lavaplus:machineframe"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "lavaplus:conduit"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "machineframe",
+      "has_the_recipe"
+    ]
+  ]
+}

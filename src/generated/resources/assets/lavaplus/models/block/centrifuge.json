@@ -1,0 +1,11 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "lavaplus:block/centrifuge_topon",
+    "up": "lavaplus:block/centrifuge_topon",
+    "north": "lavaplus:block/centrifuge_fronton",
+    "south": "lavaplus:block/centrifuge_sideon",
+    "east": "lavaplus:block/centrifuge_sideon",
+    "west": "lavaplus:block/centrifuge_sideon"
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "variants": {
+    "facing=down,powered=false": {
+      "model": "lavaplus:block/upgrader",
+      "x": 90
+    },
+    "facing=up,powered=false": {
+      "model": "lavaplus:block/upgrader",
+      "x": -90
+    },
+    "facing=north,powered=false": {
+      "model": "lavaplus:block/upgrader"
+    },
+    "facing=south,powered=false": {
+      "model": "lavaplus:block/upgrader",
+      "y": 180
+    },
+    "facing=west,powered=false": {
+      "model": "lavaplus:block/upgrader",
+      "y": 270
+    },
+    "facing=east,powered=false": {
+      "model": "lavaplus:block/upgrader",
+      "y": 90
+    },
+    "facing=down,powered=true": {
+      "model": "lavaplus:block/upgrader_on",
+      "x": 90
+    },
+    "facing=up,powered=true": {
+      "model": "lavaplus:block/upgrader_on",
+      "x": -90
+    },
+    "facing=north,powered=true": {
+      "model": "lavaplus:block/upgrader_on"
+    },
+    "facing=south,powered=true": {
+      "model": "lavaplus:block/upgrader_on",
+      "y": 180
+    },
+    "facing=west,powered=true": {
+      "model": "lavaplus:block/upgrader_on",
+      "y": 270
+    },
+    "facing=east,powered=true": {
+      "model": "lavaplus:block/upgrader_on",
+      "y": 90
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "lavaplus:block/conduit"
+    }
+  }
+}

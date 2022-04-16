@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "stuff",
+  "pattern": [
+    " x ",
+    "xix",
+    " x "
+  ],
+  "key": {
+    "x": {
+      "tag": "forge:dusts/redstone"
+    },
+    "i": {
+      "item": "lavaplus:machineframe"
+    }
+  },
+  "result": {
+    "item": "lavaplus:conduit"
+  }
+}

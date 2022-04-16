@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "misha",
+  "pattern": [
+    "xix",
+    "lol",
+    "xlx"
+  ],
+  "key": {
+    "x": {
+      "item": "lavaplus:machineframe"
+    },
+    "l": {
+      "item": "minecraft:copper_ingot"
+    },
+    "o": {
+      "tag": "forge:obsidian"
+    },
+    "i": {
+      "tag": "forge:ingots/iron"
+    }
+  },
+  "result": {
+    "item": "lavaplus:lavavent"
+  }
+}

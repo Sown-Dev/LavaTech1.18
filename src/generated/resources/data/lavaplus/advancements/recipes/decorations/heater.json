@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "lavaplus:heater"
+    ]
+  },
+  "criteria": {
+    "heatedmagma": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "lavaplus:heatedmagmablock"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "lavaplus:heater"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "heatedmagma",
+      "has_the_recipe"
+    ]
+  ]
+}

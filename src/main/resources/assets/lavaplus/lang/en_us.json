@@ -1,0 +1,90 @@
+{
+  "item.lavaplus.lavabrick": "Lava Brick",
+  "message.lavabrick":"A warm brick made of diamonds, copper, and nether brick. Used to make machines and infernal ingots in the upgrader.",
+
+  "item.lavaplus.infernalpickaxe": "Infernal Pickaxe",
+  "message.infernalpickaxe":"A strong pickaxe that places torches when used.",
+
+  "item.lavaplus.infernalsword": "Infernal Sword",
+  "message.infernalsword":"A sword that ignites targets.",
+
+  "item.lavaplus.infernalbrick": "Infernal Ingot",
+  "message.infernalbrick":"Very hot! Made in upgrader using 9 lava bricks and netherite.",
+
+  "item.lavaplus.magmacoal": "Magmatic Coal",
+  "message.magmacoal":"Burns twice as long as coal. Made in a Coal Infuser",
+
+  "item.lavaplus.copperpickaxe": "Copper Pickaxe",
+  "message.copperpickaxe":"A pickaxe made of copper. Slightly slower than iron, but better than stone",
+
+  "item.lavaplus.coppersword": "Copper Sword",
+  "message.coppersword":"Being lighter than iron, this sword swings faster, but also deals less damage.",
+
+  "item.lavaplus.infernalboots": "Infernal Boots",
+  "message.infernalboots":"Very strong and durable boots that increase your max health.",
+
+  "item.lavaplus.lavaguide": "Guide to thermal technology [DOESNT WORK]",
+  "message.lavaguide":"A guide for this mod. Doesn't currently work",
+
+  "block.lavaplus.crate": "Wooden Crate",
+  "message.crate":"A small crate for storage",
+
+  "block.lavaplus.blockburner": "Block Burner",
+  "message.blockburner":"Converts blocks into energy, creating 60FE per block.",
+
+  "block.lavaplus.inductionfurnace": "Induction Furnace",
+  "message.inductionfurnace":"Smelts Blocks of raw ore into ingots. Uses 10FE/Tick for every level of heat, with a maximum of 40FE/T",
+
+  "block.lavaplus.healer": "Healer",
+  "message.healer":"Automatically heals players on top of it, using 1000FE per half heart every 10 ticks.",
+
+
+  "block.lavaplus.machineframe": "Machine Frame",
+  "message.machineframe":"Used to make complex machines, or to decorate.",
+
+  "block.lavaplus.heatedmagmablock": "Superheated Magma",
+  "message.heatedmagmablock":"Used to heat the lava vent, giving twice as much heat as a lava source",
+
+  "block.lavaplus.lavavent": "Lava Vent",
+  "message.lavavent":"Used to power lava-based machines. Increase heat by surrounding with lava sources, up to 4 on all sides. More heat means faster machines, but faster energy consumption. Place machines on top",
+
+  "block.lavaplus.coalinfuser": "Coal Infuser",
+  "message.coalinfuser":"Infuses coal with lava, making it burn longer.",
+
+  "block.lavaplus.coalinfuser": "Ben Block",
+  "message.coalinfuser":"The Ben Block was created in honor of Benjamin Thaler for getting a 100 on MY essay. Definitely not an explosive device",
+
+  "block.lavaplus.lavagenerator": "Lave Generator",
+  "message.lavagenerator":"Generates energy when heated by a lava vent. Generates 40FE/Tick for every level of heat.",
+
+  "block.lavaplus.conduit": "Energy Conduit",
+  "message.conduit":"Used to transfer power between machines.",
+
+  "block.lavaplus.battery": "Battery",
+  "message.battery":"Used to store power. Will only output if given a redstone pulse.",
+
+  "block.lavaplus.centrifuge": "Lava Centrifuge",
+  "message.centrifuge":"Seperates Lava into its base materials, producing iron, quartz, sand, and other materials",
+
+  "block.lavaplus.compressor": "Heated Compressor",
+  "message.compressor":"Compresses materials and blocks, turning them into more valuable ones.",
+
+  "block.lavaplus.upgrader": "Upgrader",
+  "message.upgrader":"Upgrades Netherrite tools and armor into better ones using Infernal Ingots. Also creates infernal ingots out of netherite and lava bricks",
+
+  "block.lavaplus.heater": "Electric Heater",
+  "message.heater":"Uses 60FE/t to create heat for the Lava Vent. Generates as much heat as 4 lava sources or 2 superheated magma blocks.",
+
+
+  "screen.lavaplus.blockburner":"Block Burner",
+  "screen.lavaplus.coalinfuser":"Coal Infuser",
+  "screen.lavaplus.inductionfurnace":"Induction Furnace",
+  "screen.lavaplus.lavagenerator":"Lava Generator",
+  "screen.lavaplus.battery":"Battery",
+  "screen.lavaplus.centrifuge":"Centrifuge",
+  "screen.lavaplus.upgrader":"Upgrader",
+  "screen.lavaplus.compressor":"Compressor"
+
+
+
+}

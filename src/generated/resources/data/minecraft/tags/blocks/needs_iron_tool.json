@@ -1,0 +1,17 @@
+{
+  "replace": false,
+  "values": [
+    "lavaplus:blockburner",
+    "lavaplus:lavavent",
+    "lavaplus:machineframe",
+    "lavaplus:compressor",
+    "lavaplus:inductionfurnace",
+    "lavaplus:centrifuge",
+    "lavaplus:heater",
+    "lavaplus:heatedmagmablock",
+    "lavaplus:lavagenerator",
+    "lavaplus:conduit",
+    "lavaplus:battery",
+    "lavaplus:coalinfuser"
+  ]
+}

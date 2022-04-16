@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "lavagen",
+  "pattern": [
+    "mim",
+    "gfg",
+    "mcm"
+  ],
+  "key": {
+    "g": {
+      "item": "minecraft:tinted_glass"
+    },
+    "f": {
+      "item": "minecraft:blast_furnace"
+    },
+    "i": {
+      "item": "minecraft:redstone"
+    },
+    "c": {
+      "item": "minecraft:copper_ingot"
+    },
+    "m": {
+      "item": "lavaplus:machineframe"
+    }
+  },
+  "result": {
+    "item": "lavaplus:lavagenerator"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "battery",
+  "pattern": [
+    " c ",
+    "mrm",
+    " c "
+  ],
+  "key": {
+    "r": {
+      "item": "minecraft:redstone_block"
+    },
+    "c": {
+      "item": "lavaplus:conduit"
+    },
+    "m": {
+      "item": "lavaplus:machineframe"
+    }
+  },
+  "result": {
+    "item": "lavaplus:battery"
+  }
+}
