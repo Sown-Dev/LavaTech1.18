@@ -9,6 +9,7 @@ import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraftforge.common.Tags;
+import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.function.Consumer;
 
@@ -188,7 +189,7 @@ public class Recipes extends RecipeProvider {
                 .pattern("sps")
                 .pattern(" s ")
                 .define('p', Blocks.OAK_PLANKS)
-                .define('s', Items.STICK)
+                .define('s', Tags.Items.RODS_WOODEN)
                 .group("crate")
                 .unlockedBy("stick", InventoryChangeTrigger.TriggerInstance.hasItems(Items.STICK))
                 .save(consumer);
@@ -198,7 +199,7 @@ public class Recipes extends RecipeProvider {
                 .pattern(" s ")
                 .pattern(" s ")
                 .define('c',Items.COPPER_INGOT)
-                .define('s', Items.STICK)
+                .define('s', Tags.Items.RODS_WOODEN)
                 .group("cpick")
                 .unlockedBy("copper", InventoryChangeTrigger.TriggerInstance.hasItems(Items.COPPER_INGOT))
                 .save(consumer);
@@ -208,7 +209,7 @@ public class Recipes extends RecipeProvider {
                 .pattern(" c ")
                 .pattern(" s ")
                 .define('c',Items.COPPER_INGOT)
-                .define('s', Items.STICK)
+                .define('s', Tags.Items.RODS_WOODEN)
                 .group("csowrd")
                 .unlockedBy("copper", InventoryChangeTrigger.TriggerInstance.hasItems(Items.COPPER_INGOT))
                 .save(consumer);

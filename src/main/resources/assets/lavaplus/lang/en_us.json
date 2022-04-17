@@ -42,6 +42,9 @@
   "block.lavaplus.machineframe": "Machine Frame",
   "message.machineframe":"Used to make complex machines, or to decorate.",
 
+  "block.lavaplus.reinforcedframe": "Reinforced Machine Frame",
+  "message.reinforcedframe":"Stronger and more durable machine frame used for end-game technology.",
+
   "block.lavaplus.heatedmagmablock": "Superheated Magma",
   "message.heatedmagmablock":"Used to heat the lava vent, giving twice as much heat as a lava source",
 

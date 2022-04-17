@@ -8,10 +8,10 @@
   ],
   "key": {
     "p": {
-      "item": "minecraft:oak_planks"
+      "item": "minecraft:planks"
     },
     "s": {
-      "item": "minecraft:stick"
+      "tag": "forge:rods/wooden"
     }
   },
   "result": {
