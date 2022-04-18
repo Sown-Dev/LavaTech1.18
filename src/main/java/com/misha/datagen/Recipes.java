@@ -2,6 +2,7 @@ package com.misha.datagen;
 
 import com.misha.setup.Registration;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.item.Items;
 import net.minecraft.data.DataGenerator;
@@ -188,7 +189,7 @@ public class Recipes extends RecipeProvider {
                 .pattern(" s ")
                 .pattern("sps")
                 .pattern(" s ")
-                .define('p', Blocks.OAK_PLANKS)
+                .define('p', ItemTags.PLANKS)
                 .define('s', Tags.Items.RODS_WOODEN)
                 .group("crate")
                 .unlockedBy("stick", InventoryChangeTrigger.TriggerInstance.hasItems(Items.STICK))
