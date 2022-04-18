@@ -96,7 +96,9 @@ if(redstone) {
 
     @Override
     public void load(CompoundTag tag) {
-        energyStorage.deserializeNBT(tag.get("energy"));
+        if (tag.contains("energy")) {
+            energyStorage.deserializeNBT(tag.get("energy"));
+        }
 
         counter = tag.getInt("counter");
         super.load(tag);

@@ -231,7 +231,11 @@ public class CentrifugeBE extends BlockEntity implements IFluidTank {
     @Override
     public void load(CompoundTag tag) {
         itemHandler.deserializeNBT(tag.getCompound("inv"));
-        energyStorage.deserializeNBT(tag.get("energy"));
+        
+        if (tag.contains("energy")) {
+            energyStorage.deserializeNBT(tag.get("energy"));
+        }
+        
         filled = tag.getInt("filled");
         counter = tag.getInt("counter");
         super.load(tag);
