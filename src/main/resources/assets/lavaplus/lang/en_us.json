@@ -54,8 +54,8 @@
   "block.lavaplus.coalinfuser": "Coal Infuser",
   "message.coalinfuser":"Infuses coal with lava, making it burn longer.",
 
-  "block.lavaplus.coalinfuser": "Ben Block",
-  "message.coalinfuser":"The Ben Block was created in honor of Benjamin Thaler for getting a 100 on MY essay. Definitely not an explosive device",
+  "block.lavaplus.benblock": "Ben Block",
+  "message.benblock":"The Ben Block was created in honor of Benjamin Thaler for getting a 100 on MY essay. Definitely not an explosive device",
 
   "block.lavaplus.lavagenerator": "Lave Generator",
   "message.lavagenerator":"Generates energy when heated by a lava vent. Generates 40FE/Tick for every level of heat.",
