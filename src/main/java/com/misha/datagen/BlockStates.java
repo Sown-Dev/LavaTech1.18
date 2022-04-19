@@ -35,6 +35,7 @@ public class BlockStates extends BlockStateProvider {
         registerCompressorBlock();
         registerHealerBlock();
         registerUpgraderBlock();
+        registerCopperDrillBlock();
         simpleBlock(Registration.MACHINEFRAME.get());
         simpleBlock(Registration.CONDUIT.get());
         simpleBlock(Registration.HEATEDMAGMABLOCK.get());
@@ -54,6 +55,22 @@ public class BlockStates extends BlockStateProvider {
         BlockModelBuilder modelUpgraderPowered = models().cube("upgrader_on", top, top, new ResourceLocation(LavaPlus.MODID, "block/upgrader_fronton"), sideon,sideon, sideon)
                 .texture("particle",side);
         orientedBlock(Registration.UPGRADER.get(), state -> {
+            if (state.getValue(BlockStateProperties.POWERED)) {
+                return modelUpgraderPowered;
+            } else {
+                return modelUpgrader;
+            }
+        });
+    }
+    private void registerCopperDrillBlock() {
+        ResourceLocation side = new ResourceLocation(LavaPlus.MODID, "block/copperdrill_side");
+        ResourceLocation sideon = side;
+        ResourceLocation top= new ResourceLocation(LavaPlus.MODID, "block/copperdrill_top");
+        BlockModelBuilder modelUpgrader = models().cube("copperdrill", top, top, side, side,side,side )
+                .texture("particle",side);
+        BlockModelBuilder modelUpgraderPowered = models().cube("copperdrill_on", top, top, sideon, sideon,sideon, sideon)
+                .texture("particle",side);
+        orientedBlock(Registration.COPPERDRILL.get(), state -> {
             if (state.getValue(BlockStateProperties.POWERED)) {
                 return modelUpgraderPowered;
             } else {

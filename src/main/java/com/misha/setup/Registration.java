@@ -10,8 +10,12 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.extensions.IForgeMenuType;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
@@ -34,6 +38,14 @@ public class Registration {
         CONTAINERS.register(bus);
     }
 
+    @Mod.EventBusSubscriber(bus= Mod.EventBusSubscriber.Bus.MOD, value= Dist.CLIENT)
+    public static class ClientSideHandler{
+        @SubscribeEvent
+        public static void clientSetup(FMLClientSetupEvent event){
+            Hydroponics.registerRenderLayer();
+        }
+    }
+
     //items:
     public static final RegistryObject<LavaBrick> LAVABRICK = ITEMS.register("lavabrick", () -> new LavaBrick(new Item.Properties().tab(CreativeModeTab.TAB_MISC)));
     public static final RegistryObject<InfernalBrick> INFERNALBRICK = ITEMS.register("infernalbrick", () -> new InfernalBrick(new Item.Properties().tab(CreativeModeTab.TAB_MISC)));
@@ -46,7 +58,7 @@ public class Registration {
     public static final RegistryObject<Item> COPPERSWORD= ITEMS.register("coppersword", () -> new CopperSword(new Item.Properties().tab(CreativeModeTab.TAB_COMBAT)));
 
     //blocks:
-    public static final RegistryObject<BlockBurner> BLOCKBURNER = BLOCKS.register("blockburner",BlockBurner::new);
+    public static final RegistryObject<Block> BLOCKBURNER = BLOCKS.register("blockburner",BlockBurner::new);
     public static final RegistryObject<Block> MACHINEFRAME = BLOCKS.register("machineframe", MachineFrame::new);
     public static final RegistryObject<Block> LAVAVENT = BLOCKS.register("lavavent", LavaVent::new);
     public static final RegistryObject<Block> COALINFUSER = BLOCKS.register("coalinfuser", CoalInfuser::new);
@@ -63,6 +75,9 @@ public class Registration {
     public static final RegistryObject<Block> HEALER= BLOCKS.register("healer", Healer::new);
     public static final RegistryObject<Block> BENBLOCK= BLOCKS.register("benblock", BenBlock::new);
     public static final RegistryObject<Block> REINFORCEDFRAME= BLOCKS.register("reinforcedframe", ReinforcedFrame::new);
+
+    public static final RegistryObject<Block> COPPERDRILL= BLOCKS.register("copperdrill", CopperDrill::new);
+    public static final RegistryObject<Block> HYDROPONICS= BLOCKS.register("hydroponics", Hydroponics::new);
 
 
     //block items:
@@ -84,6 +99,8 @@ public class Registration {
     public static final RegistryObject<Item> HEALER_ITEM = ITEMS.register("healer", () -> new BlockItem(HEALER.get(), new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)));
     public static final RegistryObject<Item> BENBLOCK_ITEM = ITEMS.register("benblock", () -> new BlockItem(BENBLOCK.get(), new Item.Properties()));
     public static final RegistryObject<Item> REINFORCEDFRAME_ITEM = ITEMS.register("reinforcedframe", () -> new BlockItem(REINFORCEDFRAME.get(), new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS)));
+    public static final RegistryObject<Item> COPPERDRILL_ITEM = ITEMS.register("copperdrill", () -> new BlockItem(COPPERDRILL.get(), new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)));
+    public static final RegistryObject<Item> HYDROPONICS_ITEM = ITEMS.register("hydroponics", () -> new BlockItem(HYDROPONICS.get(), new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)));
 
 
     public static final RegistryObject<BlockEntityType<BlockBurnerBE>> BLOCKBURNER_BE = BLOCKENTITIES.register("blockburner",

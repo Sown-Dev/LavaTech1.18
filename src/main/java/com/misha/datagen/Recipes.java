@@ -152,12 +152,12 @@ public class Recipes extends RecipeProvider {
                 .pattern("mgm")
                 .pattern("chc")
                 .pattern("mgm")
-                .define('h', Registration.HEATEDMAGMABLOCK.get().asItem())
+                .define('h', Items.REDSTONE)
                 .define('c', Blocks.COPPER_BLOCK)
-                .define('g', Blocks.TINTED_GLASS)
+                .define('g', Blocks.MAGMA_BLOCK)
                 .define('m',  Registration.MACHINEFRAME.get().asItem())
                 .group("heater")
-                .unlockedBy("heatedmagma", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.HEATEDMAGMABLOCK.get().asItem()))
+                .unlockedBy("heatedmagma", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.LAVAVENT.get().asItem()))
                 .save(consumer);
 
         ShapedRecipeBuilder.shaped(Registration.COALINFUSER.get())

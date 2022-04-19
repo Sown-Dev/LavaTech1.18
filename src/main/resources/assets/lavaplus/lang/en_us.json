@@ -30,7 +30,7 @@
   "message.crate":"A small crate for storage",
 
   "block.lavaplus.blockburner": "Block Burner",
-  "message.blockburner":"Converts blocks into energy, creating 60FE per block.",
+  "message.blockburner":"Converts blocks into energy, creating 160FE per block.",
 
   "block.lavaplus.inductionfurnace": "Induction Furnace",
   "message.inductionfurnace":"Smelts Blocks of raw ore into ingots. Uses 10FE/Tick for every level of heat, with a maximum of 40FE/T",
@@ -48,17 +48,21 @@
   "block.lavaplus.heatedmagmablock": "Superheated Magma",
   "message.heatedmagmablock":"Used to heat the lava vent, giving twice as much heat as a lava source",
 
-  "block.lavaplus.lavavent": "Lava Vent",
-  "message.lavavent":"Used to power lava-based machines. Increase heat by surrounding with lava sources, up to 4 on all sides. More heat means faster machines, but faster energy consumption. Place machines on top",
+  "block.lavaplus.lavavent": "Heat Vent",
+  "message.lavavent":"Used to power heat-based machines. Increase heat by surrounding with lava sources, heated magam, or electric heaters, up to 4 on all sides. More heat means faster machines, but faster energy consumption. Place machines on top",
 
   "block.lavaplus.coalinfuser": "Coal Infuser",
   "message.coalinfuser":"Infuses coal with lava, making it burn longer.",
 
   "block.lavaplus.benblock": "Ben Block",
-  "message.benblock":"The Ben Block was created in honor of Benjamin Thaler for getting a 100 on MY essay. Definitely not an explosive device",
+  "message.benblock":"May or may not be an explosive device",
 
-  "block.lavaplus.lavagenerator": "Lave Generator",
+  "block.lavaplus.lavagenerator": "Thermal Generator",
   "message.lavagenerator":"Generates energy when heated by a lava vent. Generates 40FE/Tick for every level of heat.",
+
+  "block.lavaplus.copperdrill": "Copper Drill",
+  "message.copperdrill":"Drills in a 1x1 area below when supplied with energy.",
+
 
   "block.lavaplus.conduit": "Energy Conduit",
   "message.conduit":"Used to transfer power between machines.",

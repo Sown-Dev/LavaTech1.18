@@ -5,6 +5,7 @@
 727001ade2d2bf3697e7893979c7c9fdda9e3a7d assets/lavaplus/blockstates/coalinfuser.json
 b1e81098f357b8eecb1d8be95edd39fdbc3cea21 assets/lavaplus/blockstates/compressor.json
 a0549dd9c7e2349812d3e943f6a126966bb61080 assets/lavaplus/blockstates/conduit.json
+4ce45f74de8e527e202f6363d4fc6719710e82b3 assets/lavaplus/blockstates/copperdrill.json
 cb760d368c8aba7b8c5a21672428123e7f017b32 assets/lavaplus/blockstates/crate.json
 a3cc50ff25a963af50cfef9ace46c55f5206d652 assets/lavaplus/blockstates/healer.json
 b2fc5252f681f0f822ead5a5295c6a3121eda249 assets/lavaplus/blockstates/heatedmagmablock.json
@@ -27,6 +28,8 @@ dab6e795cb69d01bdbefc6295ccd0e69701f79ed assets/lavaplus/models/block/coalinfuse
 76574d05e71fd80931919497ea1e6f3d8fab5d35 assets/lavaplus/models/block/compressor.json
 76574d05e71fd80931919497ea1e6f3d8fab5d35 assets/lavaplus/models/block/compressor_fronton.json
 e9d5012deca894b49bd1e88b3fcb3639170e3179 assets/lavaplus/models/block/conduit.json
+164aec94f93a7e75eac94403f0bbcf616151c3ec assets/lavaplus/models/block/copperdrill.json
+164aec94f93a7e75eac94403f0bbcf616151c3ec assets/lavaplus/models/block/copperdrill_on.json
 4110cca2acb123c0c0b55cc3acc0d1cc5ab51d58 assets/lavaplus/models/block/crate.json
 b95c96e705aa51727eb1a275e81397fc6cc65903 assets/lavaplus/models/block/healer.json
 b95c96e705aa51727eb1a275e81397fc6cc65903 assets/lavaplus/models/block/healer_on.json
@@ -49,6 +52,7 @@ d57bff083d9df3a890ad70470ea25a0861300321 assets/lavaplus/models/block/upgrader_o
 205b3d247117adee7df40e116274cf17236f4f66 assets/lavaplus/models/item/coalinfuser.json
 870f2732ffb01e221927291f74f5c37ca2ee0065 assets/lavaplus/models/item/compressor.json
 d5a34d1573530f9c07a1456ae853e60c1fcadb24 assets/lavaplus/models/item/conduit.json
+6e7a9167e09a62071703f42b346f3a346e55965a assets/lavaplus/models/item/copperdrill.json
 f6f708315631394befb65c330a4452300d3f4013 assets/lavaplus/models/item/copperpickaxe.json
 1a21d722239f011d3d37b3d8dc7ce62bdf40d62d assets/lavaplus/models/item/coppersword.json
 6312eba65660dbb176bb07a16c4351b307196977 assets/lavaplus/models/item/crate.json
@@ -80,7 +84,7 @@ be15710686042e9b0d53d33ab1838e3fa8f39f81 data/lavaplus/advancements/recipes/deco
 b2c537088e810a620cefd014e296560b07177376 data/lavaplus/advancements/recipes/decorations/crate.json
 55ebee62ebd21a4d7d7342901dcebf58a0013625 data/lavaplus/advancements/recipes/decorations/healer.json
 2450fefaae18e34fb91a27c2291e5f833b943e47 data/lavaplus/advancements/recipes/decorations/heatedmagmablock.json
-11591f95113d9d1c0d375dcc904e4c9178b93eef data/lavaplus/advancements/recipes/decorations/heater.json
+309be5e911f4f21a64237f56b697e1c9a19523eb data/lavaplus/advancements/recipes/decorations/heater.json
 9ffe3acc0805fa9ea789fcd2de7693cc2fa8efbf data/lavaplus/advancements/recipes/decorations/inductionfurnace.json
 8d25cafd8b7c6bfdae82b530e244e3dbc3089479 data/lavaplus/advancements/recipes/decorations/lavagenerator.json
 c8c51fb67c634bd4853e7824d2ca9331b6e04157 data/lavaplus/advancements/recipes/decorations/lavavent.json
@@ -111,7 +115,7 @@ e54496e8057ba66185ce217e366afcc3e93eb8a1 data/lavaplus/recipes/copperpickaxe.jso
 17a0e0ddd99a08f36475d9267914dc5b38210aa7 data/lavaplus/recipes/crate.json
 f25d832a9fb271cbcd83cb7d6ea8ffb0a9be1b98 data/lavaplus/recipes/healer.json
 4fc0122de0896b3d2a31dbd32958ed65ba45596b data/lavaplus/recipes/heatedmagmablock.json
-9214a8354eb469964d8072ef2b46139fc9483ee2 data/lavaplus/recipes/heater.json
+a8ef7b1cf387a8e054f9a71f9f68e35dde6c7772 data/lavaplus/recipes/heater.json
 e891bf8974b52b6f4e784fff64676db2cbaa0fd8 data/lavaplus/recipes/inductionfurnace.json
 46bd3e48f78df8fd8ac38758c9d6a651060449aa data/lavaplus/recipes/lavabrick.json
 85c04a5e5f34028b92185066376d7dab960c9282 data/lavaplus/recipes/lavagenerator.json

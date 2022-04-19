@@ -53,7 +53,7 @@ public class InductionFurnaceBE extends BlockEntity {
     boolean hasPower = false;
     public static final int baseUsage = 40;
     public static int baseTime = 500;
-    int products = 12;
+    int products = 16;
 
     private final ItemStackHandler itemHandler = createHandler();
     private final CustomEnergyStorage energyStorage = createEnergy();

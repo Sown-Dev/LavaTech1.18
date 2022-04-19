@@ -8,13 +8,13 @@
   ],
   "key": {
     "h": {
-      "item": "lavaplus:heatedmagmablock"
+      "item": "minecraft:redstone"
     },
     "c": {
       "item": "minecraft:copper_block"
     },
     "g": {
-      "item": "minecraft:tinted_glass"
+      "item": "minecraft:magma_block"
     },
     "m": {
       "item": "lavaplus:machineframe"

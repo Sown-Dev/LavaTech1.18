@@ -56,7 +56,7 @@ public class BlockBurnerBE extends BlockEntity {
         if(energyStorage.getEnergyStored()<capacity-49) {
             if (counter > 0) {
                 counter--;
-                energyStorage.addEnergy(60);
+                energyStorage.addEnergy(160);
                 setChanged();
             }
 

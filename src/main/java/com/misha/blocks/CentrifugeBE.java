@@ -50,12 +50,12 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class CentrifugeBE extends BlockEntity implements IFluidTank {
 
     int active = 0;
-    public static int capacity = 50000;
+    public static int capacity = 100000;
     public int usage = 20;
     int transfer = 200;
     boolean hasPower = false;
     public static final int baseUsage = 30;
-    static int basetime = 1500;
+    static int basetime = 1200;
 
     int time = basetime;
 
@@ -101,7 +101,7 @@ public class CentrifugeBE extends BlockEntity implements IFluidTank {
                         int random = (int) ((Math.random() * (double) 100) + 1);
                         System.out.println(random);
                         //the numbers indicate the chances of recieving an item
-                        if (46 >= random && random > 27) {
+                        if (50 >= random && random > 22) {
                             ItemStack newItem = new ItemStack(Items.RAW_IRON.asItem(), 1);
                             int num = itemHandler.getStackInSlot(findNext(newItem)).getCount();
                             newItem.setCount(num + 1);
@@ -113,10 +113,10 @@ public class CentrifugeBE extends BlockEntity implements IFluidTank {
                             newItem.setCount(num + 1);
                             itemHandler.setStackInSlot(findNext(newItem), newItem);
                         }
-                        if (60 > random && random > 52) {
+                        if (61 > random && random > 50) {
                             ItemStack newItem = new ItemStack(Items.IRON_NUGGET.asItem(), 1);
                             int num = itemHandler.getStackInSlot(findNext(newItem)).getCount();
-                            int ran = (int) ((Math.random() * 3.0) + 1.5);
+                            int ran = (int) ((Math.random() * 4.0) + 3);
                             newItem.setCount(num + ran);
                             itemHandler.setStackInSlot(findNext(newItem), newItem);
                         }
@@ -231,7 +231,7 @@ public class CentrifugeBE extends BlockEntity implements IFluidTank {
     @Override
     public void load(CompoundTag tag) {
         itemHandler.deserializeNBT(tag.getCompound("inv"));
-        
+
         if (tag.contains("energy")) {
             energyStorage.deserializeNBT(tag.get("energy"));
         }

@@ -36,7 +36,6 @@ public class HeaterBE extends BlockEntity {
     boolean active = false;
     private final CustomEnergyStorage energyStorage = createEnergy();
 
-    // Never create lazy optionals in getCapability. Always place them as fields in the tile entity:
 
     private final LazyOptional<IEnergyStorage> energy = LazyOptional.of(() -> energyStorage);
 
