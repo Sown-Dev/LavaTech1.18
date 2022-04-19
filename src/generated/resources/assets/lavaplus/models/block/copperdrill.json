@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "lavaplus:block/copperdrill_top",
+    "up": "lavaplus:block/copperdrill_top",
+    "north": "lavaplus:block/copperdrill_side",
+    "south": "lavaplus:block/copperdrill_side",
+    "east": "lavaplus:block/copperdrill_side",
+    "west": "lavaplus:block/copperdrill_side",
+    "particle": "lavaplus:block/copperdrill_side"
+  }
+}

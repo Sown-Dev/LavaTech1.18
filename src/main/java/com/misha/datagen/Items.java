@@ -116,6 +116,12 @@ public class Items extends ItemModelProvider {
         withExistingParent(Registration.REINFORCEDFRAME.get().getRegistryName().getPath(),
                 new ResourceLocation(LavaPlus.MODID, "block/reinforcedframe"));
 
+        withExistingParent(Registration.COPPERDRILL.get().getRegistryName().getPath(),
+                new ResourceLocation(LavaPlus.MODID, "block/copperdrill"));
+
+        withExistingParent(Registration.HYDROPONICS.get().getRegistryName().getPath(),
+                new ResourceLocation(LavaPlus.MODID, "block/hydroponics"));
+
 
 
 
