@@ -256,6 +256,27 @@ public class Recipes extends RecipeProvider {
                 .unlockedBy("frame", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.MACHINEFRAME.get().asItem()))
                 .save(consumer);
 */
+        ShapedRecipeBuilder.shaped(Registration.BASICFRAME.get())
+                .pattern(" f ")
+                .pattern("fcf")
+                .pattern(" f ")
+                .define('f', ItemTags.PLANKS)
+                .define('c', Items.COPPER_INGOT)
+                .group("bframe")
+                .unlockedBy("frame", InventoryChangeTrigger.TriggerInstance.hasItems(Items.COPPER_INGOT))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(Registration.HYDROPONICS.get())
+                .pattern("mgm")
+                .pattern("ccc")
+                .pattern("msm")
+                .define('g', Blocks.GLASS)
+                .define('c', Items.COPPER_INGOT)
+                .define('s', Blocks.COMPOSTER)
+                .define('m', Registration.BASICFRAME.get().asItem())
+                .group("hydro1")
+                .unlockedBy("frame", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.BASICFRAME.get().asItem()))
+                .save(consumer);
 
 
 

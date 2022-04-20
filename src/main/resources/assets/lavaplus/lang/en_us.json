@@ -63,6 +63,12 @@
   "block.lavaplus.copperdrill": "Copper Drill",
   "message.copperdrill":"Drills in a 1x1 area below when supplied with energy.",
 
+   "block.lavaplus.hydroponics": "Automated Garden",
+   "message.hydroponics":"Grows plants during the day when supplied with power",
+
+   "block.lavaplus.basicframe": "Basic Frame",
+   "message.hydroponics":"Primitive frame used for basic machines.",
+
 
   "block.lavaplus.conduit": "Energy Conduit",
   "message.conduit":"Used to transfer power between machines.",
@@ -90,7 +96,8 @@
   "screen.lavaplus.battery":"Battery",
   "screen.lavaplus.centrifuge":"Centrifuge",
   "screen.lavaplus.upgrader":"Upgrader",
-  "screen.lavaplus.compressor":"Compressor"
+  "screen.lavaplus.compressor":"Compressor",
+  "screen.lavaplus.hydroponics":"Hydroponics"
 
 
 

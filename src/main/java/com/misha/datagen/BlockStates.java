@@ -43,6 +43,8 @@ public class BlockStates extends BlockStateProvider {
         simpleBlock(Registration.CRATE.get());
         simpleBlock(Registration.BENBLOCK.get());
         simpleBlock(Registration.REINFORCEDFRAME.get());
+        simpleBlock(Registration.BASICFRAME.get());
+        registerBlock("alloysmelter",Registration.ALLOYSMELTER.get());
 
     }
 
@@ -224,6 +226,23 @@ public class BlockStates extends BlockStateProvider {
                 return modelInductionFurnacePowered;
             } else {
                 return modelInductionFurnace;
+            }
+        });
+    }
+
+    private void registerBlock(String name, Block block) {
+
+        ResourceLocation side = new ResourceLocation(LavaPlus.MODID, "block/"+name+"_side");
+        ResourceLocation top= new ResourceLocation(LavaPlus.MODID, "block/"+name+"_top");
+        BlockModelBuilder modelBlock= models().cube(name, top,top,new ResourceLocation(LavaPlus.MODID, "block/"+name+"_front"), side, side, side)
+                .texture("particle",side);
+        BlockModelBuilder modelBlockPowered = models().cube(name+"on", top,top, new ResourceLocation(LavaPlus.MODID, "block/"+name+"_fronton"), side, side,side)
+                .texture("particle",side);
+        orientedBlock(block, state -> {
+            if (state.getValue(BlockStateProperties.POWERED)) {
+                return modelBlockPowered;
+            } else {
+                return modelBlock;
             }
         });
     }

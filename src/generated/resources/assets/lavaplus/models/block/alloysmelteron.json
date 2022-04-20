@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "lavaplus:block/alloysmelter_top",
+    "up": "lavaplus:block/alloysmelter_top",
+    "north": "lavaplus:block/alloysmelter_fronton",
+    "south": "lavaplus:block/alloysmelter_side",
+    "east": "lavaplus:block/alloysmelter_side",
+    "west": "lavaplus:block/alloysmelter_side",
+    "particle": "lavaplus:block/alloysmelter_side"
+  }
+}

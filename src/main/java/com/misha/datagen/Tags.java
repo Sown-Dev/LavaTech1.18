@@ -30,7 +30,7 @@ public class Tags extends BlockTagsProvider {
                 .add(Registration.CONDUIT.get())
                 .add(Registration.BATTERY.get())
                 .add(Registration.MACHINEFRAME.get());
-        tag(BlockTags.NEEDS_IRON_TOOL)
+        tag(BlockTags.NEEDS_STONE_TOOL)
                 .add(Registration.BLOCKBURNER.get())
                 .add(Registration.LAVAVENT.get())
                 .add(Registration.MACHINEFRAME.get())

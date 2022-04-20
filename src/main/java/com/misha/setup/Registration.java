@@ -78,6 +78,8 @@ public class Registration {
 
     public static final RegistryObject<Block> COPPERDRILL= BLOCKS.register("copperdrill", CopperDrill::new);
     public static final RegistryObject<Block> HYDROPONICS= BLOCKS.register("hydroponics", Hydroponics::new);
+    public static final RegistryObject<Block> BASICFRAME= BLOCKS.register("basicframe", BasicFrame::new);
+    public static final RegistryObject<Block> ALLOYSMELTER= BLOCKS.register("alloysmelter", AlloySmelter::new);
 
 
     //block items:
@@ -101,6 +103,9 @@ public class Registration {
     public static final RegistryObject<Item> REINFORCEDFRAME_ITEM = ITEMS.register("reinforcedframe", () -> new BlockItem(REINFORCEDFRAME.get(), new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS)));
     public static final RegistryObject<Item> COPPERDRILL_ITEM = ITEMS.register("copperdrill", () -> new BlockItem(COPPERDRILL.get(), new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)));
     public static final RegistryObject<Item> HYDROPONICS_ITEM = ITEMS.register("hydroponics", () -> new BlockItem(HYDROPONICS.get(), new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)));
+    public static final RegistryObject<Item> BASICFRAME_ITEM = ITEMS.register("basicframe", () -> new BlockItem(BASICFRAME.get(), new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS)));
+    public static final RegistryObject<Item> ALLOYSMELTER_ITEM = ITEMS.register("alloysmelter", () -> new BlockItem(ALLOYSMELTER.get(), new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS)));
+
 
 
     public static final RegistryObject<BlockEntityType<BlockBurnerBE>> BLOCKBURNER_BE = BLOCKENTITIES.register("blockburner",
@@ -129,6 +134,9 @@ public class Registration {
             () -> BlockEntityType.Builder.of(CrateBE::new, CRATE.get()).build(null));
     public static final RegistryObject<BlockEntityType<HealerBE>> HEALER_BE = BLOCKENTITIES.register("healer",
             () -> BlockEntityType.Builder.of(HealerBE::new, HEALER.get()).build(null));
+
+    public static final RegistryObject<BlockEntityType<HydroponicsBE>> HYDROPONICS_BE = BLOCKENTITIES.register("hydroponics",
+            () -> BlockEntityType.Builder.of(HydroponicsBE::new, HYDROPONICS.get()).build(null));
 
 
 
@@ -178,6 +186,11 @@ public class Registration {
         BlockPos pos = data.readBlockPos();
         Level world = inv.player.getCommandSenderWorld();
         return new CrateContainer(windowId, world, pos, inv, inv.player);
+    }));
+    public static final RegistryObject<MenuType<HydroponicsContainer>> HYDROPONICS_CONTAINER = CONTAINERS.register("hydroponics", () -> IForgeMenuType.create((windowId, inv, data) -> {
+        BlockPos pos = data.readBlockPos();
+        Level world = inv.player.getCommandSenderWorld();
+        return new HydroponicsContainer(windowId, world, pos, inv, inv.player);
     }));
 
 

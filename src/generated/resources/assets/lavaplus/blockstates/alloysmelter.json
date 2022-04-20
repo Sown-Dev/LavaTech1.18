@@ -1,0 +1,50 @@
+{
+  "variants": {
+    "facing=down,powered=false": {
+      "model": "lavaplus:block/alloysmelter",
+      "x": 90
+    },
+    "facing=up,powered=false": {
+      "model": "lavaplus:block/alloysmelter",
+      "x": -90
+    },
+    "facing=north,powered=false": {
+      "model": "lavaplus:block/alloysmelter"
+    },
+    "facing=south,powered=false": {
+      "model": "lavaplus:block/alloysmelter",
+      "y": 180
+    },
+    "facing=west,powered=false": {
+      "model": "lavaplus:block/alloysmelter",
+      "y": 270
+    },
+    "facing=east,powered=false": {
+      "model": "lavaplus:block/alloysmelter",
+      "y": 90
+    },
+    "facing=down,powered=true": {
+      "model": "lavaplus:block/alloysmelteron",
+      "x": 90
+    },
+    "facing=up,powered=true": {
+      "model": "lavaplus:block/alloysmelteron",
+      "x": -90
+    },
+    "facing=north,powered=true": {
+      "model": "lavaplus:block/alloysmelteron"
+    },
+    "facing=south,powered=true": {
+      "model": "lavaplus:block/alloysmelteron",
+      "y": 180
+    },
+    "facing=west,powered=true": {
+      "model": "lavaplus:block/alloysmelteron",
+      "y": 270
+    },
+    "facing=east,powered=true": {
+      "model": "lavaplus:block/alloysmelteron",
+      "y": 90
+    }
+  }
+}

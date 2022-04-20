@@ -3,6 +3,8 @@ package com.misha.blocks;
 import com.misha.setup.Registration;
 import com.misha.tools.CustomEnergyStorage;
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.Connection;
+import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.world.Container;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
@@ -12,6 +14,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.Tags;
@@ -22,42 +25,41 @@ import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
 import net.minecraftforge.items.wrapper.InvWrapper;
 
-public class CrateContainer extends AbstractContainerMenu {
+public class HydroponicsContainer extends AbstractContainerMenu {
 
-    private BlockEntity blockEntity;
+    HydroponicsBE blockEntity;
     private Player playerEntity;
     private IItemHandler playerInventory;
+    boolean active=false;
+    int counter = 0;
 
 
-    public CrateContainer(int windowId, Level world, BlockPos pos, Inventory playerInventory, Player player) {
-        super(Registration.CRATE_CONTAINER.get(), windowId);
-        blockEntity = world.getBlockEntity(pos);
+
+    public HydroponicsContainer(int windowId, Level world, BlockPos pos, Inventory playerInventory, Player player) {
+        super(Registration.HYDROPONICS_CONTAINER.get(), windowId);
+        blockEntity = (HydroponicsBE) world.getBlockEntity(pos);
         this.playerEntity = player;
         this.playerInventory = new InvWrapper(playerInventory);
 
         if (blockEntity != null) {
             blockEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(h -> {
-                for(int i =0;i<12; i++){
-                    addSlot(new SlotItemHandler(h, i, 51+((i%4) *18), 18+((i/4)*18)));
+                addSlot(new SlotItemHandler(h, 0, 20, 20));
+                for(int i =0;i<9; i++){
+                    addSlot(new SlotItemHandler(h, i+1, 115+((i%3) *18), 7+((i/3)*18)));
                 }
 
             });
         }
-        layoutPlayerInventorySlots(8, 84);
+        layoutPlayerInventorySlots(8, 70);
+        trackPower();
     }
 
-    public int getActive(){
-        return ((CrateBE)this.blockEntity).cactive;
-    }
-    public int getCounter(){
-        return ((CrateBE)this.blockEntity).ccounter;
-    }
 
 
 
     @Override
     public boolean stillValid(Player playerIn) {
-        return stillValid(ContainerLevelAccess.create(blockEntity.getLevel(), blockEntity.getBlockPos()), playerEntity, Registration.CRATE.get());
+        return stillValid(ContainerLevelAccess.create(blockEntity.getLevel(), blockEntity.getBlockPos()), playerEntity, Registration.HYDROPONICS.get());
     }
 
     @Override
@@ -67,15 +69,14 @@ public class CrateContainer extends AbstractContainerMenu {
         if (slot != null && slot.hasItem()) {
             ItemStack stack = slot.getItem();
             itemstack = stack.copy();
-            //this doesn't seem right... but it works
-            if (index >= 0 && index<=12) {
-                if (!this.moveItemStackTo(stack, 12, 37, true)) {
+            if (index == 0) {
+                if (!this.moveItemStackTo(stack, 1, 37, true)) {
                     return ItemStack.EMPTY;
                 }
                 slot.onQuickCraft(stack, itemstack);
             } else {
-                if (index>12) {
-                    if (!this.moveItemStackTo(stack, 0, 12, false)) {
+                if (true) {
+                    if (!this.moveItemStackTo(stack, 0, 1, false)) {
                         return ItemStack.EMPTY;
                     }
                 } else if (index < 28) {
@@ -104,7 +105,6 @@ public class CrateContainer extends AbstractContainerMenu {
     }
 
 
-
     private int addSlotRange(IItemHandler handler, int index, int x, int y, int amount, int dx) {
         for (int i = 0 ; i < amount ; i++) {
             addSlot(new SlotItemHandler(handler, index, x, y));
@@ -120,6 +120,41 @@ public class CrateContainer extends AbstractContainerMenu {
             y += dy;
         }
         return index;
+    }
+    private void trackPower() {
+        // Unfortunatelly on a dedicated server ints are actually truncated to short so we need
+        // to split our integer here (split our 32 bit integer into two 16 bit integers)
+        addDataSlot(new DataSlot() {
+            @Override
+            public int get() {
+                return getEnergy() & 0xffff;
+            }
+
+            @Override
+            public void set(int value) {
+                blockEntity.getCapability(CapabilityEnergy.ENERGY).ifPresent(h -> {
+                    int energyStored = h.getEnergyStored() & 0xffff0000;
+                    ((CustomEnergyStorage)h).setEnergy(energyStored + (value & 0xffff));
+                });
+            }
+        });
+        addDataSlot(new DataSlot() {
+            @Override
+            public int get() {
+                return (getEnergy() >> 16) & 0xffff;
+            }
+
+            @Override
+            public void set(int value) {
+                blockEntity.getCapability(CapabilityEnergy.ENERGY).ifPresent(h -> {
+                    int energyStored = h.getEnergyStored() & 0x0000ffff;
+                    ((CustomEnergyStorage)h).setEnergy(energyStored | (value << 16));
+                });
+            }
+        });
+    }
+    public int getEnergy() {
+        return blockEntity.getCapability(CapabilityEnergy.ENERGY).map(IEnergyStorage::getEnergyStored).orElse(0);
     }
 
     private void layoutPlayerInventorySlots(int leftCol, int topRow) {
