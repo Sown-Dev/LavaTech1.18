@@ -138,6 +138,9 @@ public class Registration {
     public static final RegistryObject<BlockEntityType<HydroponicsBE>> HYDROPONICS_BE = BLOCKENTITIES.register("hydroponics",
             () -> BlockEntityType.Builder.of(HydroponicsBE::new, HYDROPONICS.get()).build(null));
 
+    public static final RegistryObject<BlockEntityType<CopperDrillBE>> COPPERDRILL_BE = BLOCKENTITIES.register("copperdrill",
+            () -> BlockEntityType.Builder.of(CopperDrillBE::new, COPPERDRILL.get()).build(null));
+
 
 
     public static final RegistryObject<MenuType<BlockBurnerContainer>> BLOCKBURNER_CONTAINER = CONTAINERS.register("blockburner", () -> IForgeMenuType.create((windowId, inv, data) -> {
@@ -191,6 +194,12 @@ public class Registration {
         BlockPos pos = data.readBlockPos();
         Level world = inv.player.getCommandSenderWorld();
         return new HydroponicsContainer(windowId, world, pos, inv, inv.player);
+    }));
+
+    public static final RegistryObject<MenuType<CopperDrillContainer>>COPPERDRILL_CONTAINER = CONTAINERS.register("copperdrill", () -> IForgeMenuType.create((windowId, inv, data) -> {
+        BlockPos pos = data.readBlockPos();
+        Level world = inv.player.getCommandSenderWorld();
+        return new CopperDrillContainer(windowId, world, pos, inv, inv.player);
     }));
 
 

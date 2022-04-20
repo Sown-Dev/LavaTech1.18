@@ -37,7 +37,6 @@ public class BlockStates extends BlockStateProvider {
         registerUpgraderBlock();
         registerCopperDrillBlock();
         simpleBlock(Registration.MACHINEFRAME.get());
-        simpleBlock(Registration.CONDUIT.get());
         simpleBlock(Registration.HEATEDMAGMABLOCK.get());
         simpleBlock(Registration.HEATER.get());
         simpleBlock(Registration.CRATE.get());

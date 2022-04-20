@@ -83,9 +83,6 @@ public class Items extends ItemModelProvider {
         withExistingParent(Registration.LAVAGENERATOR_ITEM.get().getRegistryName().getPath(),
                 new ResourceLocation(LavaPlus.MODID, "block/lavagenerator"));
 
-        withExistingParent(Registration.CONDUIT_ITEM.get().getRegistryName().getPath(),
-                new ResourceLocation(LavaPlus.MODID, "block/conduit"));
-
         withExistingParent(Registration.HEATEDMAGMABLOCK_ITEM.get().getRegistryName().getPath(),
                 new ResourceLocation(LavaPlus.MODID, "block/heatedmagmablock"));
 
