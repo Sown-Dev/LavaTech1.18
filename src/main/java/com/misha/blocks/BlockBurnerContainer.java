@@ -38,7 +38,7 @@ public class BlockBurnerContainer extends AbstractContainerMenu {
                 addSlot(new SlotItemHandler(h, 0, 64, 24));
             });
         }
-        
+
         layoutPlayerInventorySlots(10, 70);
         trackPower();
     }
@@ -57,7 +57,7 @@ public class BlockBurnerContainer extends AbstractContainerMenu {
             public void set(int value) {
                 blockEntity.getCapability(CapabilityEnergy.ENERGY).ifPresent(h -> {
                     int energyStored = h.getEnergyStored() & 0xffff0000;
-                    ((CustomEnergyStorage)h).setEnergy(energyStored + (value & 0xffff));
+                    ((CustomEnergyStorage) h).setEnergy(energyStored + (value & 0xffff));
                 });
             }
         });
@@ -71,7 +71,7 @@ public class BlockBurnerContainer extends AbstractContainerMenu {
             public void set(int value) {
                 blockEntity.getCapability(CapabilityEnergy.ENERGY).ifPresent(h -> {
                     int energyStored = h.getEnergyStored() & 0x0000ffff;
-                    ((CustomEnergyStorage)h).setEnergy(energyStored | (value << 16));
+                    ((CustomEnergyStorage) h).setEnergy(energyStored | (value << 16));
                 });
             }
         });
@@ -129,9 +129,8 @@ public class BlockBurnerContainer extends AbstractContainerMenu {
     }
 
 
-
     private int addSlotRange(IItemHandler handler, int index, int x, int y, int amount, int dx) {
-        for (int i = 0 ; i < amount ; i++) {
+        for (int i = 0; i < amount; i++) {
             addSlot(new SlotItemHandler(handler, index, x, y));
             x += dx;
             index++;
@@ -140,7 +139,7 @@ public class BlockBurnerContainer extends AbstractContainerMenu {
     }
 
     private int addSlotBox(IItemHandler handler, int index, int x, int y, int horAmount, int dx, int verAmount, int dy) {
-        for (int j = 0 ; j < verAmount ; j++) {
+        for (int j = 0; j < verAmount; j++) {
             index = addSlotRange(handler, index, x, y, horAmount, dx);
             y += dy;
         }

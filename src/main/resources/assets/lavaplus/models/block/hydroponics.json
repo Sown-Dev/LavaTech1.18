@@ -1,9 +1,10 @@
 {
+    "parent": "minecraft:block/cube",
 	"credit": "Made with Blockbench",
 	"textures": {
 		"0": "lavaplus:block/smallglass",
 		"1": "lavaplus:block/grass",
-		"2": "lavaplus:block/hydroside",
+		"2": "lavaplus:block/hydroside4",
 		"3": "minecraft:block/copper_block",
 		"4": "lavaplus:block/hydrobottom",
 		"5": "minecraft:block/cactus_side",

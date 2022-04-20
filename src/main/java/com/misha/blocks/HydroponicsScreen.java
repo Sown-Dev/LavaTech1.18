@@ -14,6 +14,7 @@ public class HydroponicsScreen extends AbstractContainerScreen<HydroponicsContai
     private ResourceLocation FLAME= new ResourceLocation(LavaPlus.MODID, "textures/gui/flame.png");
     private ResourceLocation ARROW= new ResourceLocation(LavaPlus.MODID, "textures/gui/arrow.png");
     private ResourceLocation BAR= new ResourceLocation(LavaPlus.MODID, "textures/gui/bar2.png");
+    private ResourceLocation SUN= new ResourceLocation(LavaPlus.MODID, "textures/gui/sun.png");
 
     public static int counter=0;
     public static int active =0;
@@ -31,7 +32,10 @@ public class HydroponicsScreen extends AbstractContainerScreen<HydroponicsContai
 
         int relX = (this.width - this.imageWidth) / 2;
         int relY = (this.height - this.imageHeight) / 2;
+
         if(mouseX>relX+8 && mouseX< relX+25 && mouseY>relY+6 && mouseY<relY+58){
+            matrixStack.pushPose();
+            matrixStack.translate(0,0,30);
             drawString(matrixStack, Minecraft.getInstance().font,   + menu.getEnergy()+"FE/"+HydroponicsBE.capacity+"FE", mouseX+9, mouseY, 0xffffff);
 
         }
@@ -53,13 +57,19 @@ public class HydroponicsScreen extends AbstractContainerScreen<HydroponicsContai
 
         //System.out.println(counter+""+ active);
 
-        if(menu.blockEntity.ccounter>0){
+        if(menu.getCounter()>0){
             RenderSystem.setShaderTexture(0, ARROW);
-            int bwidth=(int)(30*((double) menu.blockEntity.ccounter/((double)menu.blockEntity.time)));
+            int bwidth=(int)(30*((double) menu.getCounter()/((double)menu.blockEntity.time)));
 
-            this.blit(matrixStack, relX + 71, relY + 21, 0, 0, bwidth, 17);
+            this.blit(matrixStack, relX + 72, relY + 23, 0, 0, bwidth, 17);
 
         }
+        if(menu.blockEntity.sunlight()){
+            RenderSystem.setShaderTexture(0, SUN);
+            this.blit(matrixStack, relX + 45, relY + 7, 0, 0, 14, 14);
+
+        }
+
 
         int energy=menu.getEnergy();
         int cap = HydroponicsBE.capacity;

@@ -33,7 +33,7 @@ public class HydroponicsContainer extends AbstractContainerMenu {
     boolean active=false;
     int counter = 0;
 
-
+short dat = (short) counter;
 
     public HydroponicsContainer(int windowId, Level world, BlockPos pos, Inventory playerInventory, Player player) {
         super(Registration.HYDROPONICS_CONTAINER.get(), windowId);
@@ -43,7 +43,7 @@ public class HydroponicsContainer extends AbstractContainerMenu {
 
         if (blockEntity != null) {
             blockEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(h -> {
-                addSlot(new SlotItemHandler(h, 0, 20, 20));
+                addSlot(new SlotItemHandler(h, 0, 44, 25));
                 for(int i =0;i<9; i++){
                     addSlot(new SlotItemHandler(h, i+1, 115+((i%3) *18), 7+((i/3)*18)));
                 }
@@ -52,6 +52,7 @@ public class HydroponicsContainer extends AbstractContainerMenu {
         }
         layoutPlayerInventorySlots(8, 70);
         trackPower();
+        trackCounter();
     }
 
 
@@ -70,12 +71,17 @@ public class HydroponicsContainer extends AbstractContainerMenu {
             ItemStack stack = slot.getItem();
             itemstack = stack.copy();
             if (index == 0) {
-                if (!this.moveItemStackTo(stack, 1, 37, true)) {
+                if (!this.moveItemStackTo(stack, 10, 37, true)) {
                     return ItemStack.EMPTY;
                 }
                 slot.onQuickCraft(stack, itemstack);
             } else {
-                if (true) {
+                if(index>0 && index<10){
+                    if (!this.moveItemStackTo(stack, 10, 37, true)) {
+                        return ItemStack.EMPTY;
+                    }
+                }
+                if (HydroponicsBE.isValid(stack)) {
                     if (!this.moveItemStackTo(stack, 0, 1, false)) {
                         return ItemStack.EMPTY;
                     }
@@ -153,8 +159,12 @@ public class HydroponicsContainer extends AbstractContainerMenu {
             }
         });
     }
+
     public int getEnergy() {
         return blockEntity.getCapability(CapabilityEnergy.ENERGY).map(IEnergyStorage::getEnergyStored).orElse(0);
+    }
+    public int getCounter(){
+        return blockEntity.counter;
     }
 
     private void layoutPlayerInventorySlots(int leftCol, int topRow) {
@@ -164,5 +174,34 @@ public class HydroponicsContainer extends AbstractContainerMenu {
         // Hotbar
         topRow += 58;
         addSlotRange(playerInventory, 0, leftCol, topRow, 9, 18);
+    }
+
+    private void trackCounter() {
+        // Unfortunatelly on a dedicated server ints are actually truncated to short so we need
+        // to split our integer here (split our 32 bit integer into two 16 bit integers)
+        addDataSlot(new DataSlot() {
+            @Override
+            public int get() {
+                return getCounter() & 0xffff;
+            }
+
+            @Override
+            public void set(int value) {
+                int counter = blockEntity.counter & 0xffff0000;
+                blockEntity.counter = counter+ (value & 0xffff);
+            }
+        });
+        addDataSlot(new DataSlot() {
+            @Override
+            public int get() {
+                return (getCounter() >> 16) & 0xffff;
+            }
+
+            @Override
+            public void set(int value) {
+                int counter = blockEntity.counter & 0x0000ffff;
+                blockEntity.counter = counter+ (value <<16);
+            }
+        });
     }
 }

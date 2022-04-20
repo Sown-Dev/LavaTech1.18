@@ -53,13 +53,13 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class HydroponicsBE extends BlockEntity {
 
     public static int capacity = 25000;
-    public int usage = 20;
+    public int usage = 5;
     int transfer = 200;
     boolean hasPower = false;
     public static final int baseUsage = 30;
-    static int basetime = 200;
-    boolean sun=false;
-
+    static int basetime = 500;
+    boolean sun = false;
+    int yield = 1;
     int time = basetime;
 
     //private final TileFluidHandler fluidHandler= createFluid();
@@ -82,40 +82,126 @@ public class HydroponicsBE extends BlockEntity {
         handler.invalidate();
         energy.invalidate();
     }
-public static boolean isValid(ItemStack i){
-            return i.is(ItemTags.SAPLINGS)||i.is(Tags.Items.SEEDS) ||i.is(Items.SUGAR_CANE);
 
-}
+    public static boolean isValid(ItemStack i) {
+        return i.is(ItemTags.SAPLINGS)
+                || i.is(Tags.Items.SEEDS)
+                || i.is(Items.SUGAR_CANE)
+                || i.is(Items.CARROT)
+                || i.is(Items.POTATO);
+
+    }
+
+    public static boolean random(int chance) {
+        int rand = (int) Math.round(Math.random() * 100);
+        return rand < chance;
+    }
+
+    public boolean sunlight() {
+        float time = level.getDayTime();
+        return ((time > 23450 || time < 12540.0F) && level.canSeeSky(worldPosition));
+    }
+
     public void tickServer(BlockState state) {
-        ItemStack input= itemHandler.getStackInSlot(0);
-        if(level.isDay() && level.canSeeSky(worldPosition)) {
-            sun=true;
+        ItemStack input = itemHandler.getStackInSlot(0);
+        //System.out.println(level.isDay());
+        if (level.isDay() && level.canSeeSky(worldPosition)) {
+            sun = true;
             if (hasEnoughPowerToWork() && isValid(input)) {
                 energyStorage.consumeEnergy(usage);
                 if (counter >= basetime) {
+
+                    // TREES
+
                     if (input.getItem() == Items.OAK_SAPLING) {
-                        ItemStack newItem = new ItemStack(Blocks.OAK_LOG.asItem(), 1);
+                        ItemStack newItem = new ItemStack(Blocks.OAK_LOG.asItem(), yield);
+                        int num = itemHandler.getStackInSlot(findNext(newItem)).getCount();
+                        newItem.setCount(num + newItem.getCount());
+                        itemHandler.setStackInSlot(findNext(newItem), newItem);
+                        if (random(20)) {
+                            newItem = new ItemStack(Items.APPLE, 1);
+                            num = itemHandler.getStackInSlot(findNext(newItem)).getCount();
+                            newItem.setCount(num + newItem.getCount());
+                            itemHandler.setStackInSlot(findNext(newItem), newItem);
+                        }
+
+                    } else if (input.getItem() == Items.DARK_OAK_SAPLING) {
+                        ItemStack newItem = new ItemStack(Blocks.DARK_OAK_LOG.asItem(), yield);
+                        int num = itemHandler.getStackInSlot(findNext(newItem)).getCount();
+                        newItem.setCount(num + newItem.getCount());
+                        itemHandler.setStackInSlot(findNext(newItem), newItem);
+                    } else if (input.getItem() == Items.JUNGLE_SAPLING) {
+                        ItemStack newItem = new ItemStack(Blocks.JUNGLE_LOG.asItem(), yield);
+                        int num = itemHandler.getStackInSlot(findNext(newItem)).getCount();
+                        newItem.setCount(num + newItem.getCount());
+                        itemHandler.setStackInSlot(findNext(newItem), newItem);
+                        if (random(15)) {
+                            newItem = new ItemStack(Items.COCOA_BEANS, 1);
+                            num = itemHandler.getStackInSlot(findNext(newItem)).getCount();
+                            newItem.setCount(num + newItem.getCount());
+                            itemHandler.setStackInSlot(findNext(newItem), newItem);
+                        }
+                    } else if (input.getItem() == Items.SPRUCE_SAPLING) {
+                        ItemStack newItem = new ItemStack(Blocks.SPRUCE_LOG.asItem(), yield);
+                        int num = itemHandler.getStackInSlot(findNext(newItem)).getCount();
+                        newItem.setCount(num + newItem.getCount());
+                        itemHandler.setStackInSlot(findNext(newItem), newItem);
+                    } else if (input.getItem() == Items.ACACIA_SAPLING) {
+                        ItemStack newItem = new ItemStack(Blocks.ACACIA_LOG.asItem(), yield);
+                        int num = itemHandler.getStackInSlot(findNext(newItem)).getCount();
+                        newItem.setCount(num + newItem.getCount());
+                        itemHandler.setStackInSlot(findNext(newItem), newItem);
+                    } else if (input.getItem() == Items.BIRCH_SAPLING) {
+                        ItemStack newItem = new ItemStack(Blocks.BIRCH_LOG.asItem(), yield);
                         int num = itemHandler.getStackInSlot(findNext(newItem)).getCount();
                         newItem.setCount(num + newItem.getCount());
                         itemHandler.setStackInSlot(findNext(newItem), newItem);
 
-                        newItem = new ItemStack(Blocks.OAK_SAPLING.asItem(), 1);
-                        num = itemHandler.getStackInSlot(findNext(newItem)).getCount();
+                    }
+                    //PLANTS
+
+                    else if (input.getItem() == Items.WHEAT_SEEDS) {
+                        ItemStack newItem = new ItemStack(Items.WHEAT, yield);
+                        int num = itemHandler.getStackInSlot(findNext(newItem)).getCount();
                         newItem.setCount(num + newItem.getCount());
                         itemHandler.setStackInSlot(findNext(newItem), newItem);
+                    } else if (input.getItem() == Items.POTATO) {
+                        ItemStack newItem = new ItemStack(Items.POTATO, yield);
+                        int num = itemHandler.getStackInSlot(findNext(newItem)).getCount();
+                        newItem.setCount(num + newItem.getCount());
+                        itemHandler.setStackInSlot(findNext(newItem), newItem);
+                        if (random(5)) {
+                            newItem = new ItemStack(Items.POISONOUS_POTATO, 1);
+                            num = itemHandler.getStackInSlot(findNext(newItem)).getCount();
+                            newItem.setCount(num + newItem.getCount());
+                            itemHandler.setStackInSlot(findNext(newItem), newItem);
+                        }
                     }
-                    if (input.getItem() == Items.WHEAT_SEEDS) {
-                        ItemStack newItem = new ItemStack(Items.WHEAT, 1);
+
+                    // IF none of those work, first give oak wood for trees, then simply double the seed
+
+                    else if (input.is(ItemTags.SAPLINGS)) {
+                        ItemStack newItem = new ItemStack(Items.OAK_LOG, yield);
                         int num = itemHandler.getStackInSlot(findNext(newItem)).getCount();
                         newItem.setCount(num + newItem.getCount());
                         itemHandler.setStackInSlot(findNext(newItem), newItem);
                     }
-                    if (input.getItem() == Items.CARROT) {
-                        ItemStack newItem = new ItemStack(Items.CARROT, 2);
+
+                    //simply give another seed if it doesn't work (BASED ON YIELD)
+                    else {
+                        ItemStack newItem = new ItemStack(input.getItem(), yield);
                         int num = itemHandler.getStackInSlot(findNext(newItem)).getCount();
                         newItem.setCount(num + newItem.getCount());
                         itemHandler.setStackInSlot(findNext(newItem), newItem);
                     }
+
+                    //After all this, give another seed,
+
+                    ItemStack newItem = new ItemStack(input.getItem(), 1);
+                    int num = itemHandler.getStackInSlot(findNext(newItem)).getCount();
+                    newItem.setCount(num + newItem.getCount());
+                    itemHandler.setStackInSlot(findNext(newItem), newItem);
+
 
                     itemHandler.extractItem(0, 1, false);
                     counter = 0;
@@ -125,9 +211,9 @@ public static boolean isValid(ItemStack i){
                 }
             }
 
-        }else{
+        } else {
             //simple code used to enable/disable sun icon in GUI
-            sun=false;
+            sun = false;
         }
 
 
@@ -135,8 +221,8 @@ public static boolean isValid(ItemStack i){
 
     public int findNext(ItemStack stack) {
         for (int i = 0; i < 9; i++) {
-            if (itemHandler.getStackInSlot(i+1).getItem() == stack.getItem()) {
-                return i+1;
+            if (itemHandler.getStackInSlot(i + 1).getItem() == stack.getItem()) {
+                return i + 1;
             }
         }
         return nextEmpty();
@@ -144,8 +230,8 @@ public static boolean isValid(ItemStack i){
 
     public int nextEmpty() {
         for (int i = 0; i < 9; i++) {
-            if (itemHandler.getStackInSlot(i+1).isEmpty()) {
-                return i+1;
+            if (itemHandler.getStackInSlot(i + 1).isEmpty()) {
+                return i + 1;
             }
         }
         return -1;
@@ -198,7 +284,7 @@ public static boolean isValid(ItemStack i){
     }
 
     @Override
-    public   void saveAdditional(CompoundTag tag) {
+    public void saveAdditional(CompoundTag tag) {
         tag.put("inv", itemHandler.serializeNBT());
         tag.put("energy", energyStorage.serializeNBT());
         tag.putInt("counter", counter);
@@ -232,7 +318,6 @@ public static boolean isValid(ItemStack i){
             }
         };
     }
-
 
 
     private CustomEnergyStorage createEnergy() {
