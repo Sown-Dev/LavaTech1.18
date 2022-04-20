@@ -10,12 +10,10 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 
 public class HydroponicsScreen extends AbstractContainerScreen<HydroponicsContainer> {
-    private ResourceLocation GUI = new ResourceLocation(LavaPlus.MODID, "textures/gui/centrifuge_gui.png");
+    private ResourceLocation GUI = new ResourceLocation(LavaPlus.MODID, "textures/gui/hydroponics_gui.png");
     private ResourceLocation FLAME= new ResourceLocation(LavaPlus.MODID, "textures/gui/flame.png");
     private ResourceLocation ARROW= new ResourceLocation(LavaPlus.MODID, "textures/gui/arrow.png");
     private ResourceLocation BAR= new ResourceLocation(LavaPlus.MODID, "textures/gui/bar2.png");
-
-    private ResourceLocation LAVABAR= new ResourceLocation(LavaPlus.MODID, "textures/gui/lavabar.png");
 
     public static int counter=0;
     public static int active =0;
@@ -70,9 +68,6 @@ public class HydroponicsScreen extends AbstractContainerScreen<HydroponicsContai
         RenderSystem.setShaderTexture(0, BAR);
         this.blit(matrixStack, barX,barY, 0, 0, 17, (int)(((double) energy/ (double) cap)*52));
 
-        ResourceLocation FLUIDBARS= new ResourceLocation(LavaPlus.MODID, "textures/gui/centrifuge_bars.png");
-        RenderSystem.setShaderTexture(0, FLUIDBARS);
-        this.blit(matrixStack, relX-2,relY, 0, 0, 170,100);
 
     }
 }
