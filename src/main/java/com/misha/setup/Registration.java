@@ -82,6 +82,7 @@ public class Registration {
     public static final RegistryObject<Block> HYDROPONICS= BLOCKS.register("hydroponics", Hydroponics::new);
     public static final RegistryObject<Block> BASICFRAME= BLOCKS.register("basicframe", BasicFrame::new);
     public static final RegistryObject<Block> ALLOYSMELTER= BLOCKS.register("alloysmelter", AlloySmelter::new);
+    public static final RegistryObject<Block> BASICCONDUIT= BLOCKS.register("basicconduit", BasicConduit::new);
 
 
     //block items:
@@ -106,7 +107,8 @@ public class Registration {
     public static final RegistryObject<Item> COPPERDRILL_ITEM = ITEMS.register("copperdrill", () -> new BlockItem(COPPERDRILL.get(), new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)));
     public static final RegistryObject<Item> HYDROPONICS_ITEM = ITEMS.register("hydroponics", () -> new BlockItem(HYDROPONICS.get(), new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)));
     public static final RegistryObject<Item> BASICFRAME_ITEM = ITEMS.register("basicframe", () -> new BlockItem(BASICFRAME.get(), new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS)));
-    public static final RegistryObject<Item> ALLOYSMELTER_ITEM = ITEMS.register("alloysmelter", () -> new BlockItem(ALLOYSMELTER.get(), new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS)));
+    public static final RegistryObject<Item> ALLOYSMELTER_ITEM = ITEMS.register("alloysmelter", () -> new BlockItem(ALLOYSMELTER.get(), new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)));
+    public static final RegistryObject<Item> BASICCONDUIT_ITEM = ITEMS.register("basicconduit", () -> new BlockItem(BASICCONDUIT.get(), new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)));
 
 
 
@@ -142,6 +144,9 @@ public class Registration {
 
     public static final RegistryObject<BlockEntityType<CopperDrillBE>> COPPERDRILL_BE = BLOCKENTITIES.register("copperdrill",
             () -> BlockEntityType.Builder.of(CopperDrillBE::new, COPPERDRILL.get()).build(null));
+
+    public static final RegistryObject<BlockEntityType<BasicConduitBE>> BASICCONDUIT_BE = BLOCKENTITIES.register("basicconduit",
+            () -> BlockEntityType.Builder.of(BasicConduitBE::new, BASICCONDUIT.get()).build(null));
 
 
 

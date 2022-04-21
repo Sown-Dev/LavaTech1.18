@@ -88,6 +88,7 @@
   "block.lavaplus.heater": "Electric Heater",
   "message.heater":"Uses 60FE/t to create heat for the Lava Vent. Generates as much heat as 4 lava sources or 2 superheated magma blocks.",
 
+  "item.lavaplus.copperdrillbit": "Copper Drill",
 
   "screen.lavaplus.blockburner":"Block Burner",
   "screen.lavaplus.coalinfuser":"Coal Infuser",

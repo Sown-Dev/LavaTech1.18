@@ -13,7 +13,7 @@ public class LootTables extends BaseLootTableProvider {
     @Override
     protected void addTables() {
 
-        //lootTables.put(Registration.MACHINEFRAME.get(), createStandardTable("machineframe", Registration.MACHINEFRAME.get(), Registration.BLOCKBURNER_BE.get()));
+        lootTables.put(Registration.MACHINEFRAME.get(), createStandardTable("machineframe", Registration.MACHINEFRAME.get(), Registration.BLOCKBURNER_BE.get()));
 
 
         lootTables.put(Registration.BLOCKBURNER.get(), createStandardTable("blockburner", Registration.BLOCKBURNER.get(), Registration.BLOCKBURNER_BE.get()));
@@ -29,6 +29,7 @@ public class LootTables extends BaseLootTableProvider {
         lootTables.put(Registration.UPGRADER.get(), createStandardTable("conduit", Registration.UPGRADER.get(), Registration.UPGRADER_BE.get()));
         lootTables.put(Registration.CRATE.get(), createStandardTable("crate", Registration.CRATE.get(), Registration.CRATE_BE.get()));
         lootTables.put(Registration.HEALER.get(), createStandardTable("healer", Registration.HEALER.get(), Registration.HEALER_BE.get()));
+        lootTables.put(Registration.BASICCONDUIT.get(), createStandardTable("basicconduit", Registration.BASICCONDUIT.get(), Registration.BASICCONDUIT_BE.get()));
 
     }
 }

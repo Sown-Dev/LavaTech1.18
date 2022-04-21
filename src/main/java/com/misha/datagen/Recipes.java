@@ -278,6 +278,25 @@ public class Recipes extends RecipeProvider {
                 .unlockedBy("frame", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.BASICFRAME.get().asItem()))
                 .save(consumer);
 
+        ShapedRecipeBuilder.shaped(Registration.BASICCONDUIT.get())
+                .pattern(" p ")
+                .pattern("prp")
+                .pattern(" p ")
+                .define('p', ItemTags.PLANKS)
+                .define('r', Items.REDSTONE)
+                .group("bconduit")
+                .unlockedBy("plank", InventoryChangeTrigger.TriggerInstance.hasItems(Items.REDSTONE))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(Registration.COPPERDRILLBIT.get())
+                .pattern("ccc")
+                .pattern("ccc")
+                .pattern(" c ")
+                .define('c', Items.COPPER_INGOT)
+                .group("copperdrillbit")
+                .unlockedBy("copper", InventoryChangeTrigger.TriggerInstance.hasItems(Items.COPPER_INGOT))
+                .save(consumer);
+
 
 
     }

@@ -52,7 +52,6 @@ public class CompressorBE extends BlockEntity {
     int transfer = 200;
     boolean hasPower = false;
     public static final int baseUsage=20;
-    int products=11;
     private final ItemStackHandler itemHandler = createHandler();
     private final CustomEnergyStorage energyStorage = createEnergy();
     // Never create lazy optionals in getCapability. Always place them as fields in the tile entity:
@@ -100,17 +99,18 @@ int ctime=time;
                 ItemStack output = itemHandler.getStackInSlot(1);
 
                 if (!stack.isEmpty() && stack.getItem() == Blocks.COAL_BLOCK.asItem()
-                        && stack.getCount()>=16
+                        && stack.getCount()>=10
                         && (output.isEmpty() || output.getItem() == Items.DIAMOND.asItem())
                         && output.getCount() <= 63) {
                     energyStorage.consumeEnergy(usage);
+
                     //how long the recipe takes
                     time=baseTime*4;
                     if (counter >= time / active) {
                         if (output.isEmpty()) {
                             ItemStack item = new ItemStack(Items.DIAMOND.asItem(), 1);
                             itemHandler.setStackInSlot(1, item);
-                            itemHandler.extractItem(0, 16, false);
+                            itemHandler.extractItem(0, 10, false);
                         } else {
                             ItemStack item = output;
                             item.setCount(output.getCount() + 1);
