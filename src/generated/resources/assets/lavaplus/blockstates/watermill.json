@@ -1,0 +1,50 @@
+{
+  "variants": {
+    "facing=down,powered=false": {
+      "model": "lavaplus:block/watermill",
+      "x": 90
+    },
+    "facing=up,powered=false": {
+      "model": "lavaplus:block/watermill",
+      "x": -90
+    },
+    "facing=north,powered=false": {
+      "model": "lavaplus:block/watermill"
+    },
+    "facing=south,powered=false": {
+      "model": "lavaplus:block/watermill",
+      "y": 180
+    },
+    "facing=west,powered=false": {
+      "model": "lavaplus:block/watermill",
+      "y": 270
+    },
+    "facing=east,powered=false": {
+      "model": "lavaplus:block/watermill",
+      "y": 90
+    },
+    "facing=down,powered=true": {
+      "model": "lavaplus:block/watermillon",
+      "x": 90
+    },
+    "facing=up,powered=true": {
+      "model": "lavaplus:block/watermillon",
+      "x": -90
+    },
+    "facing=north,powered=true": {
+      "model": "lavaplus:block/watermillon"
+    },
+    "facing=south,powered=true": {
+      "model": "lavaplus:block/watermillon",
+      "y": 180
+    },
+    "facing=west,powered=true": {
+      "model": "lavaplus:block/watermillon",
+      "y": 270
+    },
+    "facing=east,powered=true": {
+      "model": "lavaplus:block/watermillon",
+      "y": 90
+    }
+  }
+}

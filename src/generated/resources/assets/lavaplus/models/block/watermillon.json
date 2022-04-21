@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "lavaplus:block/watermill_top",
+    "up": "lavaplus:block/watermill_top",
+    "north": "lavaplus:block/watermill_fronton",
+    "south": "lavaplus:block/watermill_side",
+    "east": "lavaplus:block/watermill_side",
+    "west": "lavaplus:block/watermill_side",
+    "particle": "lavaplus:block/watermill_side"
+  }
+}

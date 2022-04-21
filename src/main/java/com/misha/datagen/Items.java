@@ -128,6 +128,9 @@ public class Items extends ItemModelProvider {
         withExistingParent(Registration.ALLOYSMELTER.get().getRegistryName().getPath(),
                 new ResourceLocation(LavaPlus.MODID, "block/alloysmelter"));
 
+        withExistingParent(Registration.WATERMILL.get().getRegistryName().getPath(),
+                new ResourceLocation(LavaPlus.MODID, "block/watermill"));
+
 
 
 
