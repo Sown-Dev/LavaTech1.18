@@ -56,8 +56,8 @@ public class CopperDrillBE extends BlockEntity {
     public static int capacity = 40000;
     int transfer = 200;
     boolean hasPower = false;
-    public static final int baseUsage = 5;
-    int usage = 30;
+    public static final int baseUsage = 30;
+    int usage = baseUsage;
 
     static int basetime = 160;
     int time = basetime;

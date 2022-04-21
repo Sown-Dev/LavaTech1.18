@@ -57,6 +57,8 @@ public class Registration {
     public static final RegistryObject<Item> COPPERPICKAXE= ITEMS.register("copperpickaxe", () -> new CopperPickaxe(new Item.Properties().tab(CreativeModeTab.TAB_TOOLS)));
     public static final RegistryObject<Item> COPPERSWORD= ITEMS.register("coppersword", () -> new CopperSword(new Item.Properties().tab(CreativeModeTab.TAB_COMBAT)));
 
+    public static final RegistryObject<Item> COPPERDRILLBIT= ITEMS.register("copperdrillbit", () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_MISC)));
+
     //blocks:
     public static final RegistryObject<Block> BLOCKBURNER = BLOCKS.register("blockburner",BlockBurner::new);
     public static final RegistryObject<Block> MACHINEFRAME = BLOCKS.register("machineframe", MachineFrame::new);

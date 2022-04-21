@@ -64,6 +64,12 @@ public class Items extends ItemModelProvider {
                 new ResourceLocation(LavaPlus.MODID, "item/copperpickaxe"));
 
 
+        singleTexture(
+                Registration.COPPERDRILLBIT.get().getRegistryName().getPath(),
+                new ResourceLocation("item/generated"),
+                "layer0",
+                new ResourceLocation(LavaPlus.MODID, "item/copperdrillbit"));
+
 
 
         withExistingParent(Registration.BLOCKBURNER_ITEM.get().getRegistryName().getPath(),

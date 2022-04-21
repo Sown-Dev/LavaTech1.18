@@ -6,7 +6,6 @@ c720809f22714506b9ec5b646aae0b48d15793be assets/lavaplus/blockstates/alloysmelte
 541626fde85a1df1b403be5e56f5c117718be8eb assets/lavaplus/blockstates/centrifuge.json
 727001ade2d2bf3697e7893979c7c9fdda9e3a7d assets/lavaplus/blockstates/coalinfuser.json
 b1e81098f357b8eecb1d8be95edd39fdbc3cea21 assets/lavaplus/blockstates/compressor.json
-a0549dd9c7e2349812d3e943f6a126966bb61080 assets/lavaplus/blockstates/conduit.json
 4ce45f74de8e527e202f6363d4fc6719710e82b3 assets/lavaplus/blockstates/copperdrill.json
 cb760d368c8aba7b8c5a21672428123e7f017b32 assets/lavaplus/blockstates/crate.json
 a3cc50ff25a963af50cfef9ace46c55f5206d652 assets/lavaplus/blockstates/healer.json
@@ -32,7 +31,6 @@ d26d3c95c369f9305ff964215bf18496454a2ee7 assets/lavaplus/models/block/blockburne
 dab6e795cb69d01bdbefc6295ccd0e69701f79ed assets/lavaplus/models/block/coalinfuser_fronton.json
 76574d05e71fd80931919497ea1e6f3d8fab5d35 assets/lavaplus/models/block/compressor.json
 76574d05e71fd80931919497ea1e6f3d8fab5d35 assets/lavaplus/models/block/compressor_fronton.json
-e9d5012deca894b49bd1e88b3fcb3639170e3179 assets/lavaplus/models/block/conduit.json
 164aec94f93a7e75eac94403f0bbcf616151c3ec assets/lavaplus/models/block/copperdrill.json
 164aec94f93a7e75eac94403f0bbcf616151c3ec assets/lavaplus/models/block/copperdrill_on.json
 4110cca2acb123c0c0b55cc3acc0d1cc5ab51d58 assets/lavaplus/models/block/crate.json
@@ -58,8 +56,8 @@ d57bff083d9df3a890ad70470ea25a0861300321 assets/lavaplus/models/block/upgrader_o
 6b0375d1e264c26397aba5b572ac0889b3aa9c33 assets/lavaplus/models/item/centrifuge.json
 205b3d247117adee7df40e116274cf17236f4f66 assets/lavaplus/models/item/coalinfuser.json
 870f2732ffb01e221927291f74f5c37ca2ee0065 assets/lavaplus/models/item/compressor.json
-d5a34d1573530f9c07a1456ae853e60c1fcadb24 assets/lavaplus/models/item/conduit.json
 6e7a9167e09a62071703f42b346f3a346e55965a assets/lavaplus/models/item/copperdrill.json
+725dbb7c3da99fc0c484293d3f72f1aa0d6919ba assets/lavaplus/models/item/copperdrillbit.json
 f6f708315631394befb65c330a4452300d3f4013 assets/lavaplus/models/item/copperpickaxe.json
 1a21d722239f011d3d37b3d8dc7ce62bdf40d62d assets/lavaplus/models/item/coppersword.json
 6312eba65660dbb176bb07a16c4351b307196977 assets/lavaplus/models/item/crate.json
@@ -135,4 +133,4 @@ e891bf8974b52b6f4e784fff64676db2cbaa0fd8 data/lavaplus/recipes/inductionfurnace.
 bf4c6b85627f2c31e04fd6aa2cce676b014d6edd data/lavaplus/recipes/reinforcedframe.json
 33efb8f8a86c05fc44f5409f978f3330950ef1e6 data/lavaplus/recipes/upgrader.json
 6232e749b32a6d8f2da5a148ad74b55c333991ab data/minecraft/tags/blocks/mineable/pickaxe.json
-d6b645516ce28d611d5927ecb1c48785984392de data/minecraft/tags/blocks/needs_iron_tool.json
+d6b645516ce28d611d5927ecb1c48785984392de data/minecraft/tags/blocks/needs_stone_tool.json
