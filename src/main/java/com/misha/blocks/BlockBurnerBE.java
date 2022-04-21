@@ -34,10 +34,13 @@ public class BlockBurnerBE extends BlockEntity {
     private final ItemStackHandler itemHandler = createHandler();
     private final CustomEnergyStorage energyStorage = createEnergy();
 
-    // Never create lazy optionals in getCapability. Always place them as fields in the tile entity:
     private final LazyOptional<IItemHandler> handler = LazyOptional.of(() -> itemHandler);
     private final LazyOptional<IEnergyStorage> energy = LazyOptional.of(() -> energyStorage);
 
+    int transfer=500;
+
+    //how much power per block
+    int generate= 160;
     private int counter;
 
     public BlockBurnerBE(BlockPos pos, BlockState state) {
@@ -56,7 +59,7 @@ public class BlockBurnerBE extends BlockEntity {
         if(energyStorage.getEnergyStored()<capacity-49) {
             if (counter > 0) {
                 counter--;
-                energyStorage.addEnergy(160);
+                energyStorage.addEnergy(generate);
                 setChanged();
             }
 
@@ -90,7 +93,7 @@ public class BlockBurnerBE extends BlockEntity {
                 if (te != null) {
                     boolean doContinue = te.getCapability(CapabilityEnergy.ENERGY, direction.getOpposite()).map(handler -> {
                                 if (handler.canReceive()) {
-                                    int received = handler.receiveEnergy(Math.min(capacity.get(),100), false);
+                                    int received = handler.receiveEnergy(Math.min(capacity.get(),transfer), false);
                                     capacity.addAndGet(-received);
                                     energyStorage.consumeEnergy(received);
                                     setChanged();
