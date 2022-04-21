@@ -26,6 +26,7 @@ public class ClientSetup {
             MenuScreens.register(Registration.UPGRADER_CONTAINER.get(), UpgraderScreen::new);
             MenuScreens.register(Registration.CRATE_CONTAINER.get(), CrateScreen::new);
             MenuScreens.register(Registration.HYDROPONICS_CONTAINER.get(), HydroponicsScreen::new);
+            MenuScreens.register(Registration.COPPERDRILL_CONTAINER.get(), CopperDrillScreen::new);
 
         });
     }
