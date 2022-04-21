@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "copperdrillbit",
+  "pattern": [
+    "ccc",
+    "ccc",
+    " c "
+  ],
+  "key": {
+    "c": {
+      "item": "minecraft:copper_ingot"
+    }
+  },
+  "result": {
+    "item": "lavaplus:copperdrillbit"
+  }
+}

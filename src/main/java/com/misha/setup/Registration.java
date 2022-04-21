@@ -148,6 +148,9 @@ public class Registration {
     public static final RegistryObject<BlockEntityType<BasicConduitBE>> BASICCONDUIT_BE = BLOCKENTITIES.register("basicconduit",
             () -> BlockEntityType.Builder.of(BasicConduitBE::new, BASICCONDUIT.get()).build(null));
 
+    public static final RegistryObject<BlockEntityType<AlloySmelterBE>> ALLOYSMELTER_BE = BLOCKENTITIES.register("alloysmelter",
+            () -> BlockEntityType.Builder.of(AlloySmelterBE::new, ALLOYSMELTER.get()).build(null));
+
 
 
     public static final RegistryObject<MenuType<BlockBurnerContainer>> BLOCKBURNER_CONTAINER = CONTAINERS.register("blockburner", () -> IForgeMenuType.create((windowId, inv, data) -> {
@@ -202,11 +205,15 @@ public class Registration {
         Level world = inv.player.getCommandSenderWorld();
         return new HydroponicsContainer(windowId, world, pos, inv, inv.player);
     }));
-
     public static final RegistryObject<MenuType<CopperDrillContainer>>COPPERDRILL_CONTAINER = CONTAINERS.register("copperdrill", () -> IForgeMenuType.create((windowId, inv, data) -> {
         BlockPos pos = data.readBlockPos();
         Level world = inv.player.getCommandSenderWorld();
         return new CopperDrillContainer(windowId, world, pos, inv, inv.player);
+    }));
+    public static final RegistryObject<MenuType<AlloySmelterContainer>>ALLOYSMELTER_CONTAINER = CONTAINERS.register("alloysmelter", () -> IForgeMenuType.create((windowId, inv, data) -> {
+        BlockPos pos = data.readBlockPos();
+        Level world = inv.player.getCommandSenderWorld();
+        return new AlloySmelterContainer(windowId, world, pos, inv, inv.player);
     }));
 
 

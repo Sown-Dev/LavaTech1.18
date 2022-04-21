@@ -297,6 +297,17 @@ public class Recipes extends RecipeProvider {
                 .unlockedBy("copper", InventoryChangeTrigger.TriggerInstance.hasItems(Items.COPPER_INGOT))
                 .save(consumer);
 
+        ShapedRecipeBuilder.shaped(Registration.COPPERDRILL.get())
+                .pattern("f f")
+                .pattern("   ")
+                .pattern("fcf")
+                .define('c', Registration.COPPERDRILLBIT.get().asItem())
+                .define('f', Registration.BASICFRAME.get().asItem())
+                .group("copperdrillbit")
+                .unlockedBy("copper", InventoryChangeTrigger.TriggerInstance.hasItems(Items.COPPER_INGOT))
+                .save(consumer);
+
+
 
 
     }

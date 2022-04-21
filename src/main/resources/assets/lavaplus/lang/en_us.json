@@ -67,8 +67,13 @@
    "message.hydroponics":"Grows plants during the day when supplied with power",
 
    "block.lavaplus.basicframe": "Basic Frame",
-   "message.hydroponics":"Primitive frame used for basic machines.",
+     "message.basicframe":"Primitive frame used for basic machines.",
 
+    "block.lavaplus.basicconduit": "Basic Conduit",
+      "message.basicconduit":"A Simple wooden energy conduit. Cannot be placed next to other basic conduits.",
+
+    "block.lavaplus.alloysmelter": "Alloy Smelter",
+    "message.alloysmelter":"Smelts Alloys",
 
   "block.lavaplus.conduit": "Energy Conduit",
   "message.conduit":"Used to transfer power between machines.",
@@ -99,7 +104,8 @@
   "screen.lavaplus.upgrader":"Upgrader",
   "screen.lavaplus.compressor":"Compressor",
   "screen.lavaplus.hydroponics":"Hydroponics",
-  "screen.lavaplus.hydroponics":"CopperDrill"
+  "screen.lavaplus.copperdrill":"Copper Drill",
+  "screen.lavaplus.alloysmelter":"Alloy Smelter"
 
 
 

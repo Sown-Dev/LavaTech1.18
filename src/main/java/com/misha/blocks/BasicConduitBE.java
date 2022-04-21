@@ -30,7 +30,7 @@ import javax.annotation.Nullable;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class BasicConduitBE extends BlockEntity {
-    int capacity = 4000;
+    int capacity = 2000;
     int transfer=200;
     private final CustomEnergyStorage energyStorage = createEnergy();
 
@@ -66,7 +66,7 @@ public class BasicConduitBE extends BlockEntity {
                 || level.getBlockState(side4).getBlock()==Registration.BASICCONDUIT.get()
                 || level.getBlockState(side5).getBlock()==Registration.BASICCONDUIT.get()
                 || level.getBlockState(side6).getBlock()==Registration.BASICCONDUIT.get()){
-            level.destroyBlock(worldPosition,false);
+            level.destroyBlock(worldPosition,true);
         }
 
         sendOutPower();

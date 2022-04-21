@@ -67,15 +67,14 @@ public class CrateContainer extends AbstractContainerMenu {
         if (slot != null && slot.hasItem()) {
             ItemStack stack = slot.getItem();
             itemstack = stack.copy();
-            //this doesn't seem right... but it works
-            if (index >= 0 && index<=12) {
+            if (index >= 0 && index<12) {
                 if (!this.moveItemStackTo(stack, 12, 37, true)) {
                     return ItemStack.EMPTY;
                 }
                 slot.onQuickCraft(stack, itemstack);
             } else {
-                if (index>12) {
-                    if (!this.moveItemStackTo(stack, 0, 12, false)) {
+                if (index>=12) {
+                    if (!this.moveItemStackTo(stack, 0, 11, false)) {
                         return ItemStack.EMPTY;
                     }
                 } else if (index < 28) {
