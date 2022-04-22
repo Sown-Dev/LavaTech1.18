@@ -42,13 +42,11 @@ short dat = (short) counter;
         this.playerInventory = new InvWrapper(playerInventory);
 
         if (blockEntity != null) {
-            blockEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(h -> {
-                addSlot(new SlotItemHandler(h, 0, 44, 25));
-                for(int i =0;i<9; i++){
-                    addSlot(new SlotItemHandler(h, i+1, 115+((i%3) *18), 7+((i/3)*18)));
-                }
-
-            });
+            IItemHandler h = blockEntity.getItemHandler();
+            addSlot(new SlotItemHandler(h, 0, 44, 25));
+            for(int i =0;i<9; i++){
+                addSlot(new SlotItemHandler(h, i+1, 115+((i%3) *18), 7+((i/3)*18)));
+            }
         }
         layoutPlayerInventorySlots(8, 70);
         trackPower();

@@ -32,6 +32,7 @@ import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.common.util.INBTSerializable;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.energy.CapabilityEnergy;
 import net.minecraftforge.energy.EnergyStorage;
@@ -44,7 +45,9 @@ import net.minecraftforge.fluids.capability.TileFluidHandler;
 import net.minecraftforge.fluids.capability.templates.FluidHandlerItemStack;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
+import net.minecraftforge.items.IItemHandlerModifiable;
 import net.minecraftforge.items.ItemStackHandler;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -64,9 +67,11 @@ public class HydroponicsBE extends BlockEntity {
 
     //private final TileFluidHandler fluidHandler= createFluid();
     private final ItemStackHandler itemHandler = createHandler();
+
+    private final ItemHandlerProxy proxyHandler = new ItemHandlerProxy();
     private final CustomEnergyStorage energyStorage = createEnergy();
     // Never create lazy optionals in getCapability. Always place them as fields in the tile entity:
-    private final LazyOptional<IItemHandler> handler = LazyOptional.of(() -> itemHandler);
+    private final LazyOptional<IItemHandler> handler = LazyOptional.of(() -> proxyHandler);
     private final LazyOptional<IEnergyStorage> energy = LazyOptional.of(() -> energyStorage);
 
     public int counter = 0;
@@ -291,6 +296,9 @@ public class HydroponicsBE extends BlockEntity {
 
     }
 
+    public ItemStackHandler getItemHandler(){
+        return this.itemHandler;
+    }
 
     private ItemStackHandler createHandler() {
         return new ItemStackHandler(10) {
@@ -348,5 +356,57 @@ public class HydroponicsBE extends BlockEntity {
         return super.getCapability(cap, side);
     }
 
+    private class ItemHandlerProxy implements IItemHandler, IItemHandlerModifiable, INBTSerializable<CompoundTag>{
 
+        @Override
+        public CompoundTag serializeNBT() {
+            return itemHandler.serializeNBT();
+        }
+
+        @Override
+        public void deserializeNBT(CompoundTag nbt) {
+            itemHandler.deserializeNBT(nbt);
+        }
+
+        @Override
+        public void setStackInSlot(int slot, @NotNull ItemStack stack) {
+            itemHandler.setStackInSlot(slot, stack);
+        }
+
+        @Override
+        public int getSlots() {
+            return itemHandler.getSlots();
+        }
+
+        @NotNull
+        @Override
+        public ItemStack getStackInSlot(int slot) {
+            return itemHandler.getStackInSlot(slot);
+        }
+
+        @NotNull
+        @Override
+        public ItemStack insertItem(int slot, @NotNull ItemStack stack, boolean simulate) {
+            return itemHandler.insertItem(slot, stack, simulate);
+        }
+
+        @NotNull
+        @Override
+        public ItemStack extractItem(int slot, int amount, boolean simulate) {
+            if(slot == 0){
+                return ItemStack.EMPTY;
+            }
+            return itemHandler.extractItem(slot, amount, simulate);
+        }
+
+        @Override
+        public int getSlotLimit(int slot) {
+            return itemHandler.getSlotLimit(slot);
+        }
+
+        @Override
+        public boolean isItemValid(int slot, @NotNull ItemStack stack) {
+            return itemHandler.isItemValid(slot, stack);
+        }
+    }
 }
