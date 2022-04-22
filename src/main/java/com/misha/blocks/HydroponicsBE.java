@@ -45,6 +45,7 @@ import net.minecraftforge.fluids.capability.templates.FluidHandlerItemStack;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -63,7 +64,7 @@ public class HydroponicsBE extends BlockEntity {
     int time = basetime;
 
     //private final TileFluidHandler fluidHandler= createFluid();
-    private final ItemStackHandler itemHandler = createHandler();
+    private final HydroponicsInventory itemHandler = createHandler();
     private final CustomEnergyStorage energyStorage = createEnergy();
     // Never create lazy optionals in getCapability. Always place them as fields in the tile entity:
     private final LazyOptional<IItemHandler> handler = LazyOptional.of(() -> itemHandler);
@@ -203,7 +204,7 @@ public class HydroponicsBE extends BlockEntity {
                     itemHandler.setStackInSlot(findNext(newItem), newItem);
 
 
-                    itemHandler.extractItem(0, 1, false);
+                    itemHandler.popInput();
                     counter = 0;
                 } else {
                     counter++;
@@ -292,31 +293,8 @@ public class HydroponicsBE extends BlockEntity {
     }
 
 
-    private ItemStackHandler createHandler() {
-        return new ItemStackHandler(10) {
-
-            @Override
-            protected void onContentsChanged(int slot) {
-                // To make sure the TE persists when the chunk is saved later we need to
-                // mark it dirty every time the item handler changes
-                setChanged();
-            }
-
-            @Override
-            public boolean isItemValid(int slot, @Nonnull ItemStack stack) {
-                return isValid(stack);
-
-            }
-
-            @Nonnull
-            @Override
-            public ItemStack insertItem(int slot, @Nonnull ItemStack stack, boolean simulate) {
-                if ((stack.isEmpty())) {
-                    return stack;
-                }
-                return super.insertItem(slot, stack, simulate);
-            }
-        };
+    private HydroponicsInventory createHandler() {
+        return new HydroponicsInventory();
     }
 
 
@@ -335,7 +313,6 @@ public class HydroponicsBE extends BlockEntity {
         };
     }
 
-
     @Nonnull
     @Override
     public <T> LazyOptional<T> getCapability(@Nonnull Capability<T> cap, @Nullable Direction side) {
@@ -348,5 +325,44 @@ public class HydroponicsBE extends BlockEntity {
         return super.getCapability(cap, side);
     }
 
+    private class HydroponicsInventory extends ItemStackHandler {
 
+        HydroponicsInventory(){
+            super(10);
+        }
+
+        @Override
+        protected void onContentsChanged(int slot) {
+            // To make sure the TE persists when the chunk is saved later we need to
+            // mark it dirty every time the item handler changes
+            setChanged();
+        }
+
+        @Override
+        public boolean isItemValid(int slot, @Nonnull ItemStack stack) {
+            return isValid(stack);
+        }
+
+        @Nonnull
+        @Override
+        public ItemStack insertItem(int slot, @Nonnull ItemStack stack, boolean simulate) {
+            if ((stack.isEmpty())) {
+                return stack;
+            }
+            return super.insertItem(slot, stack, simulate);
+        }
+
+        @NotNull
+        @Override
+        public ItemStack extractItem(int slot, int amount, boolean simulate) {
+            if(slot == 0){
+                return ItemStack.EMPTY;
+            }
+            return super.extractItem(slot, amount, simulate);
+        }
+
+        public void popInput(){
+            super.extractItem(0, 1, false);
+        }
+    }
 }
