@@ -70,6 +70,17 @@ public class Items extends ItemModelProvider {
                 "layer0",
                 new ResourceLocation(LavaPlus.MODID, "item/copperdrillbit"));
 
+        singleTexture(
+                Registration.FERROUSALLOY.get().getRegistryName().getPath(),
+                new ResourceLocation("item/generated"),
+                "layer0",
+                new ResourceLocation(LavaPlus.MODID, "item/ferrousalloy"));
+        singleTexture(
+                Registration.STEEL.get().getRegistryName().getPath(),
+                new ResourceLocation("item/generated"),
+                "layer0",
+                new ResourceLocation(LavaPlus.MODID, "item/steel"));
+
 
 
         withExistingParent(Registration.BLOCKBURNER_ITEM.get().getRegistryName().getPath(),

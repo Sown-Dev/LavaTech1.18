@@ -58,6 +58,8 @@ public class Registration {
     public static final RegistryObject<Item> COPPERSWORD= ITEMS.register("coppersword", () -> new CopperSword(new Item.Properties().tab(CreativeModeTab.TAB_COMBAT)));
 
     public static final RegistryObject<Item> COPPERDRILLBIT= ITEMS.register("copperdrillbit", () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_MISC)));
+    public static final RegistryObject<Item> STEEL= ITEMS.register("steel", () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_MISC)));
+
 
     public static final RegistryObject<Item> FERROUSALLOY= ITEMS.register("ferrousalloy", () -> new FerrousAlloy(new Item.Properties().tab(CreativeModeTab.TAB_MISC)));
 

@@ -64,7 +64,7 @@ public class CarbonInfuserRecipe implements Recipe<Container> {
 
     @Override
     public RecipeType<?> getType() {
-        return LavaPlus.CARBONINFUSING;
+        return null; //LavaPlus.CARBONINFUSING;
     }
 
 

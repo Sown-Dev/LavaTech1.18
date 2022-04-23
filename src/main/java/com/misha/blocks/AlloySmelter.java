@@ -76,7 +76,7 @@ public class AlloySmelter extends Block  implements EntityBlock {
 
     @Override
     public void appendHoverText(ItemStack stack, @Nullable BlockGetter reader, List<Component> list, TooltipFlag flags) {
-        list.add(new TranslatableComponent("message.AlloySmelter").withStyle(ChatFormatting.DARK_GRAY));
+        list.add(new TranslatableComponent("message.alloysmelter").withStyle(ChatFormatting.DARK_GRAY));
     }
     @Override
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult trace) {

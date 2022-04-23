@@ -11,7 +11,7 @@
       "tag": "forge:ingots/nether_brick"
     },
     "c": {
-      "item": "minecraft:copper_ingot"
+      "tag": "forge:ingots/copper"
     },
     "d": {
       "tag": "forge:gems/diamond"

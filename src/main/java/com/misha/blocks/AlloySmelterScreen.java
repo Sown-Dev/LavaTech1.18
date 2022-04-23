@@ -48,18 +48,20 @@ public class AlloySmelterScreen extends AbstractContainerScreen<AlloySmelterCont
         RenderSystem.setShaderTexture(0, GUI);
         int relX = (this.width - this.imageWidth) / 2;
         int relY = (this.height - this.imageHeight) / 2;
-        this.blit(matrixStack, relX, relY, 0, 0, this.imageWidth+2, this.imageHeight);
+        this.blit(matrixStack, relX, relY, 0, 0, this.imageWidth+2, this.imageHeight+10);
 
 
-        if(menu.blockEntity.cactive>0) {
+        if(menu.blockEntity.fuel>0) {
+            int fbarY = relY+40-(int)(((double)menu.getFuel()/(double) AlloySmelterBE.baseTime)*16);
             RenderSystem.setShaderTexture(0, FLAME);
-            this.blit(matrixStack, relX + 45, relY + 42, 0, 0, 16, 16);
+            this.blit(matrixStack, relX+26,fbarY, 0, 0, 17, (int)(((double) menu.getFuel()/ (double)AlloySmelterBE.baseTime)*16));
+
         }
         //System.out.println(counter+""+ active);
 
-        if(menu.blockEntity.ccounter>0 && menu.blockEntity.cactive>0){
+        if(menu.getCounter()>0){
             RenderSystem.setShaderTexture(0, ARROW);
-            int bwidth=(int)(30*((double) menu.blockEntity.ccounter/((double)AlloySmelterBE.baseTime/(double)menu.blockEntity.cactive)));
+            int bwidth=(int)(30*((double) menu.blockEntity.counter/((double)AlloySmelterBE.baseTime)));
 
             this.blit(matrixStack, relX + 71, relY + 21, 0, 0, bwidth, 17);
 

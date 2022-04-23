@@ -11,7 +11,7 @@
       "item": "lavaplus:magmacoal"
     },
     "i": {
-      "item": "minecraft:iron_ingot"
+      "tag": "forge:ingots/iron"
     },
     "d": {
       "item": "minecraft:diamond"

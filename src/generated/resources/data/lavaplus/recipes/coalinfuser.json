@@ -11,7 +11,7 @@
       "item": "minecraft:coal_block"
     },
     "i": {
-      "item": "minecraft:iron_ingot"
+      "tag": "forge:ingots/iron"
     },
     "f": {
       "item": "minecraft:flint_and_steel"

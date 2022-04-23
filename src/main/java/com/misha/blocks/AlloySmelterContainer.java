@@ -43,11 +43,15 @@ public class AlloySmelterContainer extends AbstractContainerMenu {
 
         if (blockEntity != null) {
             blockEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(h -> {
-                addSlot(new SlotItemHandler(h, 0, 44, 22));
-                addSlot(new SlotItemHandler(h, 1, 116, 22));
+                addSlot(new SlotItemHandler(h, 0, 14, 19));
+                addSlot(new SlotItemHandler(h, 1, 36, 19));
+                addSlot(new SlotItemHandler(h, 2, 58, 19));
+                addSlot(new SlotItemHandler(h, 3, 36, 55));
+                addSlot(new SlotItemHandler(h, 4, 125, 35));
+
             });
         }
-        layoutPlayerInventorySlots(8, 84);
+        layoutPlayerInventorySlots(8, 90);
         trackPower();
     }
 
@@ -149,9 +153,40 @@ public class AlloySmelterContainer extends AbstractContainerMenu {
                 });
             }
         });
+
+        // Counter
+        addDataSlot(new DataSlot() {
+            @Override
+            public int get() {
+                return getCounter();
+            }
+
+            @Override
+            public void set(int value) {
+                blockEntity.counter=(short)value;
+            }
+        });
+
+        addDataSlot(new DataSlot() {
+            @Override
+            public int get() {
+                return getFuel();
+            }
+
+            @Override
+            public void set(int value) {
+                blockEntity.fuel=(short)value;
+            }
+        });
     }
     public int getEnergy() {
         return blockEntity.getCapability(CapabilityEnergy.ENERGY).map(IEnergyStorage::getEnergyStored).orElse(0);
+    }
+    public short getCounter(){
+        return blockEntity.counter;
+    }
+    public short getFuel(){
+        return blockEntity.fuel;
     }
 
     private void layoutPlayerInventorySlots(int leftCol, int topRow) {

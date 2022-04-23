@@ -14,7 +14,7 @@
       "item": "minecraft:golden_apple"
     },
     "s": {
-      "item": "minecraft:iron_ingot"
+      "tag": "forge:ingots/iron"
     },
     "m": {
       "item": "lavaplus:machineframe"
