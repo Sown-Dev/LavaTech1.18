@@ -71,10 +71,29 @@ public class WaterMillContainer extends AbstractContainerMenu {
                 });
             }
         });
+
+        // OTHER VARIABLES:
+
+        //flows
+        addDataSlot(new DataSlot() {
+            @Override
+            public int get() {
+                return getFlows();
+            }
+
+            @Override
+            public void set(int value) {
+                short flowStored= blockEntity.flows;
+                blockEntity.flows=(short) (value);
+            }
+        });
     }
 
     public int getEnergy() {
         return blockEntity.getCapability(CapabilityEnergy.ENERGY).map(IEnergyStorage::getEnergyStored).orElse(0);
+    }
+    public short getFlows() {
+        return blockEntity.flows;
     }
 
     @Override

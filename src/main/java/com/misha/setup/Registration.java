@@ -59,6 +59,8 @@ public class Registration {
 
     public static final RegistryObject<Item> COPPERDRILLBIT= ITEMS.register("copperdrillbit", () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_MISC)));
 
+    public static final RegistryObject<Item> FERROUSALLOY= ITEMS.register("ferrousalloy", () -> new FerrousAlloy(new Item.Properties().tab(CreativeModeTab.TAB_MISC)));
+
     //blocks:
     public static final RegistryObject<Block> BLOCKBURNER = BLOCKS.register("blockburner",BlockBurner::new);
     public static final RegistryObject<Block> MACHINEFRAME = BLOCKS.register("machineframe", MachineFrame::new);
@@ -84,6 +86,7 @@ public class Registration {
     public static final RegistryObject<Block> ALLOYSMELTER= BLOCKS.register("alloysmelter", AlloySmelter::new);
     public static final RegistryObject<Block> BASICCONDUIT= BLOCKS.register("basicconduit", BasicConduit::new);
     public static final RegistryObject<Block> WATERMILL= BLOCKS.register("watermill", WaterMill::new);
+    public static final RegistryObject<Block> CARBONINFUSER= BLOCKS.register("carboninfuser", CarbonInfuser::new);
 
 
     //block items:
@@ -111,6 +114,7 @@ public class Registration {
     public static final RegistryObject<Item> ALLOYSMELTER_ITEM = ITEMS.register("alloysmelter", () -> new BlockItem(ALLOYSMELTER.get(), new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)));
     public static final RegistryObject<Item> BASICCONDUIT_ITEM = ITEMS.register("basicconduit", () -> new BlockItem(BASICCONDUIT.get(), new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)));
     public static final RegistryObject<Item> WATERMILL_ITEM = ITEMS.register("watermill", () -> new BlockItem(WATERMILL.get(), new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)));
+    public static final RegistryObject<Item> CARBONINFUSER_ITEM = ITEMS.register("carboninfuser", () -> new BlockItem(CARBONINFUSER.get(), new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)));
 
 
 
@@ -155,6 +159,9 @@ public class Registration {
 
     public static final RegistryObject<BlockEntityType<WaterMillBE>> WATERMILL_BE = BLOCKENTITIES.register("watermill",
             () -> BlockEntityType.Builder.of(WaterMillBE::new, WATERMILL.get()).build(null));
+
+    public static final RegistryObject<BlockEntityType<CarbonInfuserBE>> CARBONINFUSER_BE = BLOCKENTITIES.register("carboninfuser",
+            () -> BlockEntityType.Builder.of(CarbonInfuserBE::new, CARBONINFUSER.get()).build(null));
 
 
 
@@ -224,6 +231,11 @@ public class Registration {
         BlockPos pos = data.readBlockPos();
         Level world = inv.player.getCommandSenderWorld();
         return new WaterMillContainer(windowId, world, pos, inv, inv.player);
+    }));
+    public static final RegistryObject<MenuType<CarbonInfuserContainer>>CARBONINFUSER_CONTAINER = CONTAINERS.register("carboninfuser", () -> IForgeMenuType.create((windowId, inv, data) -> {
+        BlockPos pos = data.readBlockPos();
+        Level world = inv.player.getCommandSenderWorld();
+        return new CarbonInfuserContainer(windowId, world, pos, inv, inv.player);
     }));
 
 

@@ -10,7 +10,9 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.Connection;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.BlockItem;
@@ -30,6 +32,8 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.Fluids;
+import net.minecraft.world.level.material.LavaFluid;
+import net.minecraft.world.level.material.WaterFluid;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.capabilities.Capability;
@@ -46,6 +50,7 @@ import net.minecraftforge.fluids.capability.templates.FluidHandlerItemStack;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
+import net.minecraftforge.registries.ForgeRegistries;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -108,10 +113,13 @@ public class CopperDrillBE extends BlockEntity {
     public void tickServer(BlockState state) {
 
         BlockPos drillPos = new BlockPos(worldPosition.getX(), worldPosition.getY() - depth, worldPosition.getZ());
-        if (level.getBlockState(drillPos).isAir() && drillPos.getY()>-65) {
+        if ((level.getBlockState(drillPos).isAir()
+                || level.getFluidState(drillPos).getType() instanceof LavaFluid
+                || level.getFluidState(drillPos).getType() instanceof WaterFluid)&& drillPos.getY()>-65) {
             depth++;
             drillPos = new BlockPos(worldPosition.getX(), worldPosition.getY() + depth, worldPosition.getZ());
         }
+        ItemTags.create(new ResourceLocation("forge/ingots/iron"));
 
         boolean canWork = true;
 

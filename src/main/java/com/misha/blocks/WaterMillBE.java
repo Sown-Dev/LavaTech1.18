@@ -35,7 +35,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class WaterMillBE extends BlockEntity {
     public static int capacity = 50000;
     int transfer=200;
-    int generate=5;
+
+    static int generate=5;
 
     private final CustomEnergyStorage energyStorage = createEnergy();
 
@@ -48,7 +49,7 @@ public class WaterMillBE extends BlockEntity {
     int cgenerate=0;
 
     //how much flowing water is around it
-    int flows=0;
+    short flows=0;
 
     public WaterMillBE(BlockPos pos, BlockState state) {
         super(Registration.WATERMILL_BE.get(), pos, state);
@@ -107,7 +108,7 @@ public class WaterMillBE extends BlockEntity {
         }
 
         if(flows != flowing){
-            flows = flowing;
+            flows =(short) flowing;
         }
 
         if(flows>0){

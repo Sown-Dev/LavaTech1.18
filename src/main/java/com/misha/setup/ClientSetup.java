@@ -29,6 +29,7 @@ public class ClientSetup {
             MenuScreens.register(Registration.COPPERDRILL_CONTAINER.get(), CopperDrillScreen::new);
             MenuScreens.register(Registration.ALLOYSMELTER_CONTAINER.get(), AlloySmelterScreen::new);
             MenuScreens.register(Registration.WATERMILL_CONTAINER.get(), WaterMillScreen::new);
+            MenuScreens.register(Registration.CARBONINFUSER_CONTAINER.get(), CarbonInfuserScreen::new);
 
         });
     }

@@ -38,7 +38,7 @@ public class Compressor extends Block  implements EntityBlock {
     public Compressor() {
         super(BlockBehaviour.Properties.of(Material.METAL)
                 .sound(SoundType.METAL)
-                .lightLevel(state -> state.getValue(BlockStateProperties.POWERED) ? 14: 0)
+                .lightLevel(state -> state.getValue(BlockStateProperties.POWERED) ? 12: 0)
                 .strength(1.0f));
     }
 

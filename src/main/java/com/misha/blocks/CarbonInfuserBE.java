@@ -10,6 +10,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.Connection;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.BlockItem;
@@ -26,16 +27,20 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.entity.FurnaceBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.material.Fluid;
+import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.capabilities.Capability;
-
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.energy.CapabilityEnergy;
+import net.minecraftforge.energy.EnergyStorage;
 import net.minecraftforge.energy.IEnergyStorage;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.IFluidTank;
+import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
 import net.minecraftforge.fluids.capability.IFluidHandler;
+import net.minecraftforge.fluids.capability.TileFluidHandler;
 import net.minecraftforge.fluids.capability.templates.FluidHandlerItemStack;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
@@ -45,30 +50,33 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class AlloySmelterBE extends BlockEntity {
+public class CarbonInfuserBE extends BlockEntity {
 
-    int active = 0;
-    public static int capacity = 50000;
-    public int usage = 20;
+    public static int capacity = 25000;
+    public int usage = 5;
     int transfer = 200;
     boolean hasPower = false;
-    public static final int baseUsage = 40;
-    public static int baseTime = 500;
-    int products = 16;
+    public static final int baseUsage = 30;
+    static int basetime = 500;
+    boolean sun = false;
+    int yield = 1;
+    int time = basetime;
 
+    //private final TileFluidHandler fluidHandler= createFluid();
     private final ItemStackHandler itemHandler = createHandler();
     private final CustomEnergyStorage energyStorage = createEnergy();
     // Never create lazy optionals in getCapability. Always place them as fields in the tile entity:
     private final LazyOptional<IItemHandler> handler = LazyOptional.of(() -> itemHandler);
     private final LazyOptional<IEnergyStorage> energy = LazyOptional.of(() -> energyStorage);
 
-
     public int counter = 0;
     public int ccounter = 0;
-    public int cactive = 0;
 
-    public AlloySmelterBE(BlockPos pos, BlockState state) {
-        super(Registration.ALLOYSMELTER_BE.get(), pos, state);
+    int carbon=0;
+    public static int carbonCap=5000;
+
+    public CarbonInfuserBE(BlockPos pos, BlockState state) {
+        super(Registration.CARBONINFUSER_BE.get(), pos, state);
     }
 
     public void setRemoved() {
@@ -76,11 +84,87 @@ public class AlloySmelterBE extends BlockEntity {
         // Don't forget to invalidate your caps when your block entity is removed
         handler.invalidate();
         energy.invalidate();
+    }
+
+    public static boolean isValid(ItemStack i) {
+        return true;
 
     }
 
-    public void tickServer(BlockState state) {
+    public static boolean random(int chance) {
+        int rand = (int) Math.round(Math.random() * 100);
+        return rand < chance;
+    }
 
+    public boolean sunlight() {
+        float time = level.getDayTime();
+        return ((time > 23450 || time < 12540.0F) && level.canSeeSky(worldPosition));
+    }
+
+    public void tickServer(BlockState state) {
+        ItemStack input = itemHandler.getStackInSlot(0);
+        ItemStack coal = itemHandler.getStackInSlot(1);
+        ItemStack output=itemHandler.getStackInSlot(2);
+
+        if(!coal.isEmpty()){
+            if(coal.getItem()==Items.COAL){
+                if(carbon<=carbonCap-100) {
+                    carbon += 100;
+                    itemHandler.extractItem(1, 1, false);
+                }
+            }
+            if(coal.getItem()==Blocks.COAL_BLOCK.asItem()){
+                if(carbon<=carbonCap-900) {
+                    carbon += 900;
+                    itemHandler.extractItem(1, 1, false);
+                }
+            }
+        }
+        if(hasEnoughPowerToWork()){
+            if(input.is(ItemTags.COALS)){
+                if(counter>=time && (output.getItem()==Items.COAL ||output.isEmpty()) && carbon>=100){
+                    if(output.getItem()==Items.COAL){
+                        ItemStack newItem = new ItemStack(Items.COAL, 2);
+                        itemHandler.insertItem(2, newItem, false);
+
+                    }
+                    if(output.isEmpty()){
+                        ItemStack newItem = new ItemStack(Items.COAL, 2);
+                        itemHandler.setStackInSlot(2,newItem);
+
+                    }
+                    itemHandler.extractItem(0,1,false);
+                    carbon-=100;
+                    counter=0;
+                }else{
+                    counter++;
+                }
+            }
+        }
+
+
+    }
+
+    public int findNext(ItemStack stack) {
+        for (int i = 0; i < 9; i++) {
+            if (itemHandler.getStackInSlot(i + 1).getItem() == stack.getItem()) {
+                return i + 1;
+            }
+        }
+        return nextEmpty();
+    }
+
+    public int nextEmpty() {
+        for (int i = 0; i < 9; i++) {
+            if (itemHandler.getStackInSlot(i + 1).isEmpty()) {
+                return i + 1;
+            }
+        }
+        return -1;
+    }
+
+    public boolean isEmpty() {
+        return nextEmpty() != -1;
     }
 
     private boolean hasEnoughPowerToWork() {
@@ -90,7 +174,6 @@ public class AlloySmelterBE extends BlockEntity {
     public ClientboundBlockEntityDataPacket getUpdatePacket() {
         CompoundTag tag = new CompoundTag();
         tag.putInt("counter", counter);
-        tag.putInt("active", active);
         return ClientboundBlockEntityDataPacket.create(this);
     }
 
@@ -99,14 +182,12 @@ public class AlloySmelterBE extends BlockEntity {
         CompoundTag tag = pkt.getTag();
 
         ccounter = tag.getInt("counter");
-        cactive = tag.getInt("active");
     }
 
     @Override
     public CompoundTag getUpdateTag() {
         CompoundTag tag = super.getUpdateTag();
         tag.putInt("counter", counter);
-        tag.putInt("active", active);
         return tag;
     }
 
@@ -114,32 +195,31 @@ public class AlloySmelterBE extends BlockEntity {
     public void handleUpdateTag(CompoundTag tag) {
         super.handleUpdateTag(tag);
         ccounter = tag.getInt("counter");
-        cactive = tag.getInt("active");
     }
+
 
     @Override
     public void load(CompoundTag tag) {
         itemHandler.deserializeNBT(tag.getCompound("inv"));
+
         if (tag.contains("energy")) {
             energyStorage.deserializeNBT(tag.get("energy"));
         }
-
         counter = tag.getInt("counter");
         super.load(tag);
     }
 
     @Override
-    public   void saveAdditional(CompoundTag tag) {
+    public void saveAdditional(CompoundTag tag) {
         tag.put("inv", itemHandler.serializeNBT());
         tag.put("energy", energyStorage.serializeNBT());
-
         tag.putInt("counter", counter);
 
     }
 
 
     private ItemStackHandler createHandler() {
-        return new ItemStackHandler(2) {
+        return new ItemStackHandler(10) {
 
             @Override
             protected void onContentsChanged(int slot) {
@@ -150,14 +230,8 @@ public class AlloySmelterBE extends BlockEntity {
 
             @Override
             public boolean isItemValid(int slot, @Nonnull ItemStack stack) {
-                if (slot == 1) {
-                    return false;
-                }
-                if (slot == 0) {
-                    return (stack.getItem() == Blocks.RAW_IRON_BLOCK.asItem() || stack.getItem() == Blocks.RAW_COPPER_BLOCK.asItem() || stack.getItem() == Blocks.RAW_GOLD_BLOCK.asItem());
-                } else {
-                    return true;
-                }
+                return isValid(stack);
+
             }
 
             @Nonnull
@@ -180,12 +254,13 @@ public class AlloySmelterBE extends BlockEntity {
                 boolean newHasPower = hasEnoughPowerToWork();
                 if (newHasPower != hasPower) {
                     hasPower = newHasPower;
-                    level.sendBlockUpdated(worldPosition, getBlockState(), getBlockState(),Block.UPDATE_CLIENTS);
+                    level.sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), Block.UPDATE_CLIENTS);
                 }
                 setChanged();
             }
         };
     }
+
 
     @Nonnull
     @Override
@@ -198,4 +273,6 @@ public class AlloySmelterBE extends BlockEntity {
         }
         return super.getCapability(cap, side);
     }
+
+
 }
