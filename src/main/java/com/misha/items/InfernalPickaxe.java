@@ -18,8 +18,8 @@ import java.util.List;
 
 public class InfernalPickaxe extends PickaxeItem {
 
-    public InfernalPickaxe(Properties p_42964_) {
-        super(Tiers.NETHERITE,1, -2.8F, p_42964_);
+    public InfernalPickaxe(Properties p) {
+        super(Tiers.NETHERITE,1, -2.8F, p);
     }
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> list , TooltipFlag flags){

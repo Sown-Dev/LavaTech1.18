@@ -57,6 +57,8 @@ minecraft {
             // Please read: https://stackoverflow.com/questions/2031163/when-to-use-the-different-log-levels
             property 'forge.logging.console.level', 'debug'
 
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
             mods {
                 lavaplus {
                     source sourceSets.main
@@ -120,6 +122,7 @@ repositories {
     // Put repositories for dependencies here
     // ForgeGradle automatically adds the Forge maven and Maven Central for you
 
+    maven { url 'https://maven.blamejared.com' }
     /*maven { // JEI
         url "https://dvs1.progwml6.com/files/maven"
     }
@@ -134,6 +137,9 @@ dependencies {
     // The userdev artifact is a special name and will get all sorts of transformations applied to it.
     minecraft 'net.minecraftforge:forge:1.18.2-40.0.45'
 
+
+    compileOnly fg.deobf("vazkii.patchouli:Patchouli:1.18.2-67:api")
+    runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:1.18.2-67")
     /*
     compileOnly fg.deobf("mezz.jei:jei-${jei_version}:api")
     implementation fg.deobf("mezz.jei:jei-${jei_version}")
