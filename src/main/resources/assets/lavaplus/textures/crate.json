@@ -2,8 +2,8 @@
 	"credit": "Made with Blockbench",
 	"parent": "minecraft:block/cube",
 	"textures": {
-		"0": "lavaplus:block/crate",
-		"particle": "lavaplus:block/crate"
+		"0": "lavaplus assets:block/crate",
+		"particle": "lavaplus assets:block/crate"
 	},
 	"elements": [
 		{
