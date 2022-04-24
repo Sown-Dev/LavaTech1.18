@@ -142,15 +142,15 @@ public class CarbonInfuserBE extends BlockEntity {
                 }
             }
 
-            if(input.is(Tags.Items.INGOTS_IRON)){
+            if(input.is(Items.IRON_INGOT)){
                 if(counter>=time && (output.getItem()==Items.COAL ||output.isEmpty()) && carbon>=100){
                     if(output.getItem()==Items.COAL){
-                        ItemStack newItem = new ItemStack(Items.COAL, 2);
+                        ItemStack newItem = new ItemStack(Registration.STEEL.get(), 1);
                         itemHandler.insertItem(2, newItem, false);
 
                     }
                     if(output.isEmpty()){
-                        ItemStack newItem = new ItemStack(Items.COAL, 2);
+                        ItemStack newItem = new ItemStack(Registration.STEEL.get(), 1);
                         itemHandler.setStackInSlot(2,newItem);
 
                     }
@@ -166,14 +166,6 @@ public class CarbonInfuserBE extends BlockEntity {
 
     }
 
-    public int findNext(ItemStack stack) {
-        for (int i = 0; i < 9; i++) {
-            if (itemHandler.getStackInSlot(i + 1).getItem() == stack.getItem()) {
-                return i + 1;
-            }
-        }
-        return nextEmpty();
-    }
 
     public int nextEmpty() {
         for (int i = 0; i < 9; i++) {

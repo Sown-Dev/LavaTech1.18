@@ -4,7 +4,7 @@
   "pattern": [
     " ii",
     "plp",
-    "sgs"
+    "pgp"
   ],
   "key": {
     "g": {
@@ -12,9 +12,6 @@
     },
     "p": {
       "tag": "minecraft:planks"
-    },
-    "s": {
-      "tag": "forge:stone"
     },
     "l": {
       "tag": "minecraft:logs"

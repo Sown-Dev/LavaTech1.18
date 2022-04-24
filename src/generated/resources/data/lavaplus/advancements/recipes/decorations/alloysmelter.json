@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "lavaplus:alloysmelter"
+    ]
+  },
+  "criteria": {
+    "bfurnace": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:blast_furnace"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "lavaplus:alloysmelter"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "bfurnace",
+      "has_the_recipe"
+    ]
+  ]
+}

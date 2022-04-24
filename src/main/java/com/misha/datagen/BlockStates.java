@@ -39,7 +39,7 @@ public class BlockStates extends BlockStateProvider {
         simpleBlock(Registration.MACHINEFRAME.get());
         simpleBlock(Registration.HEATEDMAGMABLOCK.get());
         simpleBlock(Registration.HEATER.get());
-        simpleBlock(Registration.CRATE.get());
+        //simpleBlock(Registration.CRATE.get());
         simpleBlock(Registration.BENBLOCK.get());
         simpleBlock(Registration.REINFORCEDFRAME.get());
         simpleBlock(Registration.BASICFRAME.get());
