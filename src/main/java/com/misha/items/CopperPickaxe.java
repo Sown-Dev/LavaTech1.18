@@ -15,7 +15,7 @@ import java.util.List;
 public class CopperPickaxe extends PickaxeItem {
 
     public CopperPickaxe(Properties p) {
-        super(Tiers.IRON,2, -4.0F, p);
+        super(Tiers.IRON,3, -3.0F, p);
     }
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> list , TooltipFlag flags){

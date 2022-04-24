@@ -63,7 +63,7 @@
   "block.lavaplus.copperdrill": "Copper Drill",
   "message.copperdrill":"Drills in a 1x1 area below when supplied with energy. Due to the weak nature of the copper drill bit, the drill isn't able to mine deepslate.",
 
-   "block.lavaplus.hydroponics": "Automated Garden",
+   "block.lavaplus.hydroponics": "Growth Chamber",
    "message.hydroponics":"Grows plants during the day when supplied with power",
 
    "block.lavaplus.basicframe": "Basic Frame",
