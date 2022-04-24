@@ -12,7 +12,7 @@
   "message.infernalbrick":"Very hot! Made in upgrader using 9 lava bricks and netherite.",
 
   "item.lavaplus.magmacoal": "Magmatic Coal",
-  "message.magmacoal":"Burns twice as long as coal. Made in a Coal Infuser",
+  "message.magmacoal":"Burns twice as long as coal. Made in a Coal Reprocessor. Can be used as a substitute for coke coal.",
 
   "item.lavaplus.copperpickaxe": "Copper Pickaxe",
   "message.copperpickaxe":"A pickaxe made of copper. Slightly slower than iron, but better than stone",
@@ -51,7 +51,7 @@
   "block.lavaplus.lavavent": "Heat Vent",
   "message.lavavent":"Used to power heat-based machines. Increase heat by surrounding with lava sources, heated magam, or electric heaters, up to 4 on all sides. More heat means faster machines, but faster energy consumption. Place machines on top",
 
-  "block.lavaplus.coalinfuser": "Coal Infuser",
+  "block.lavaplus.coalinfuser": "Coal Reprocessor",
   "message.coalinfuser":"Infuses coal with lava, making it burn longer.",
 
   "block.lavaplus.benblock": "Ben Block",
@@ -73,10 +73,10 @@
       "message.basicconduit":"A Simple wooden energy conduit. Cannot be placed next to other basic conduits.",
 
     "block.lavaplus.alloysmelter": "Alloy Smelter",
-    "message.alloysmelter":"Smelts Alloys",
+    "message.alloysmelter":"Smelts ingots into complex alloys like bronze and ferrous alloy. Fueled by coal",
 
   "block.lavaplus.conduit": "Energy Conduit",
-  "message.conduit":"Used to transfer power between machines.",
+  "message.conduit":"Used to transfer power between machines at 2000FE/t",
 
   "block.lavaplus.battery": "Battery",
   "message.battery":"Used to store power. Will only output if given a redstone pulse.",
@@ -91,9 +91,28 @@
   "message.upgrader":"Upgrades Netherrite tools and armor into better ones using Infernal Ingots. Also creates infernal ingots out of netherite and lava bricks",
 
   "block.lavaplus.heater": "Electric Heater",
-  "message.heater":"Uses 60FE/t to create heat for the Lava Vent. Generates as much heat as 4 lava sources or 2 superheated magma blocks.",
+    "message.heater":"Uses 60FE/t to create heat for the Lava Vent. Generates as much heat as 4 lava sources or 2 superheated magma blocks.",
 
-  "item.lavaplus.copperdrillbit": "Copper Drill",
+"block.lavaplus.crank": "Hand Crank",
+  "message.crank":"A manually operated crank that generates 18FE/t.",
+
+"block.lavaplus.watermill": "Watermill",
+  "message.watermill":"Produces energy when surrounded with flowing water. Generates 5FE/t per side, up to a max of 20FE/t",
+
+"block.lavaplus.carboninfuser": "Carbon Infusion Chamber",
+  "message.carboninfuser":"This machine uses pure carbon (coal) to produce various materials as well as purify other forms of carbon such as charcoal and biomatter into coal.",
+
+"item.lavaplus.ferrousalloy": "Ferrous Alloy Ingot",
+"message.ferrousalloy":"A peculiar alloy that can be used as a substitute for iron in certain recipes. Made in the alloy furnace with aluminum, iron, and tin.",
+
+
+
+  "item.lavaplus.copperdrillbit" : "Copper Drill",
+  "item.lavaplus.bronze": "Bronze Ingot",
+  "item.lavaplus.steel": "Steel Ingot",
+  "item.lavaplus.stonegear": "Stone Gear",
+
+
 
   "screen.lavaplus.blockburner":"Block Burner",
   "screen.lavaplus.coalinfuser":"Coal Infuser",

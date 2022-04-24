@@ -1,9 +1,9 @@
 {
   "type": "minecraft:crafting_shaped",
-  "group": "copperdrillbit",
+  "group": "copperdrill",
   "pattern": [
-    "f f",
-    "   ",
+    "fsf",
+    "isi",
     "fcf"
   ],
   "key": {
@@ -12,6 +12,12 @@
     },
     "f": {
       "item": "lavaplus:basicframe"
+    },
+    "i": {
+      "tag": "forge:ingots/iron"
+    },
+    "s": {
+      "tag": "forge:gear/stone"
     }
   },
   "result": {

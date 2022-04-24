@@ -2,6 +2,7 @@ package com.misha.datagen;
 
 import com.misha.setup.Registration;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.item.Items;
@@ -41,16 +42,17 @@ public class Recipes extends RecipeProvider {
                 .pattern("sxs")
                 .define('s', Tags.Items.STONE)
                 .define('x', Registration.MACHINEFRAME.get())
-                .define('h', Blocks.HOPPER)
+                .define('h', Tags.Items.INGOTS_IRON)
                 .group("blockburner")
                 .unlockedBy("machineframe", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.MACHINEFRAME.get().asItem()))
                 .save(consumer);
 
         ShapedRecipeBuilder.shaped(Registration.MACHINEFRAME.get(), 4)
-                .pattern(" x ")
-                .pattern("xix")
-                .pattern(" x ")
+                .pattern("ixi")
+                .pattern("xbx")
+                .pattern("ixi")
                 .define('x', Blocks.SMOOTH_STONE)
+                .define('b', Registration.BASICFRAME.get())
                 .define('i', Tags.Items.INGOTS_IRON)
                 .group("machineframe")
                 .unlockedBy("iron", InventoryChangeTrigger.TriggerInstance.hasItems(Items.IRON_INGOT))
@@ -83,7 +85,7 @@ public class Recipes extends RecipeProvider {
                 .pattern("xix")
                 .pattern("cxc")
                 .define('x', Blocks.MAGMA_BLOCK)
-                .define('i',  Items.DIAMOND)
+                .define('i',  ItemTags.create(new ResourceLocation("forge:gems/diamond")))
                 .define('c', Registration.MAGMACOAL.get().asItem())
                 .group("heatedmagma")
                 .unlockedBy("magmacoal", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.MAGMACOAL.get().asItem()))
@@ -256,19 +258,19 @@ public class Recipes extends RecipeProvider {
                 .unlockedBy("frame", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.MACHINEFRAME.get().asItem()))
                 .save(consumer);
 */
-        ShapedRecipeBuilder.shaped(Registration.BASICFRAME.get())
+        ShapedRecipeBuilder.shaped(Registration.BASICFRAME.get(), 2)
                 .pattern(" f ")
                 .pattern("fcf")
                 .pattern(" f ")
                 .define('f', ItemTags.PLANKS)
-                .define('c', Items.COPPER_INGOT)
+                .define('c', Tags.Items.INGOTS_COPPER)
                 .group("bframe")
                 .unlockedBy("frame", InventoryChangeTrigger.TriggerInstance.hasItems(Items.COPPER_INGOT))
                 .save(consumer);
 
         ShapedRecipeBuilder.shaped(Registration.HYDROPONICS.get())
                 .pattern("mgm")
-                .pattern("ccc")
+                .pattern("gcg")
                 .pattern("msm")
                 .define('g', Blocks.GLASS)
                 .define('c', Items.COPPER_INGOT)
@@ -292,19 +294,76 @@ public class Recipes extends RecipeProvider {
                 .pattern("ccc")
                 .pattern("ccc")
                 .pattern(" c ")
-                .define('c', Items.COPPER_INGOT)
+                .define('c', Tags.Items.INGOTS_COPPER)
                 .group("copperdrillbit")
                 .unlockedBy("copper", InventoryChangeTrigger.TriggerInstance.hasItems(Items.COPPER_INGOT))
                 .save(consumer);
 
         ShapedRecipeBuilder.shaped(Registration.COPPERDRILL.get())
-                .pattern("f f")
-                .pattern("   ")
+                .pattern("fsf")
+                .pattern("isi")
                 .pattern("fcf")
                 .define('c', Registration.COPPERDRILLBIT.get().asItem())
                 .define('f', Registration.BASICFRAME.get().asItem())
-                .group("copperdrillbit")
+                .define('i', Tags.Items.INGOTS_IRON)
+                .define('s', ItemTags.create(new ResourceLocation("forge:gear/stone")))
+                .group("copperdrill")
                 .unlockedBy("copper", InventoryChangeTrigger.TriggerInstance.hasItems(Items.COPPER_INGOT))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(Registration.STONEGEAR.get())
+                .pattern(" s ")
+                .pattern("sss")
+                .pattern(" s ")
+                .define('s', Tags.Items.STONE)
+                .group("stonegear")
+                .unlockedBy("stone", InventoryChangeTrigger.TriggerInstance.hasItems(Items.COBBLESTONE))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(Registration.CARBONINFUSER.get())
+                .pattern("mcm")
+                .pattern("cbc")
+                .pattern("mcm")
+                .define('c', Tags.Items.INGOTS_COPPER)
+                .define('b',Blocks.COAL_BLOCK)
+                .define('m', Registration.BASICFRAME.get())
+                .group("carbfuser")
+                .unlockedBy("copper", InventoryChangeTrigger.TriggerInstance.hasItems(Items.COPPER_INGOT))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(Registration.WATERMILL.get())
+                .pattern("mim")
+                .pattern("gbg")
+                .pattern("mim")
+                .define('g', ItemTags.create(new ResourceLocation("forge:gear/stone")))
+                .define('i',Tags.Items.INGOTS_IRON)
+                .define('m', Registration.BASICFRAME.get())
+                .define('b',Registration.BASICCONDUIT.get() )
+                .group("watermill")
+                .unlockedBy("copperframe", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.BASICFRAME.get()))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(Registration.CRANK.get())
+                .pattern(" ii")
+                .pattern("plp")
+                .pattern("sgs")
+                .define('g', ItemTags.create(new ResourceLocation("forge:gear/stone")))
+                .define('p',ItemTags.PLANKS)
+                .define('s', Tags.Items.STONE)
+                .define('l', ItemTags.LOGS)
+                .define('i', Tags.Items.RODS_WOODEN)
+                .group("crank")
+                .unlockedBy("gear", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.STONEGEAR.get()))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(Registration.ALLOYSMELTER.get())
+                .pattern(" c ")
+                .pattern("cfc")
+                .pattern(" c ")
+                .define('f',Blocks.BLAST_FURNACE)
+                .define('c', Tags.Items.INGOTS_COPPER)
+                .group("alloysmelter")
+                .unlockedBy("bfurnace", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.BLAST_FURNACE.asItem()))
                 .save(consumer);
 
 

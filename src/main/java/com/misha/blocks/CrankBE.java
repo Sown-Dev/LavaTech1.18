@@ -34,7 +34,7 @@ public class CrankBE extends BlockEntity {
     int transfer=2000;
     int inertia=0;
     int inertiaGain=4;
-    int generate=50;
+    int generate=18;
     private final CustomEnergyStorage energyStorage = createEnergy();
 
     // Never create lazy optionals in getCapability. Always place them as fields in the tile entity:
@@ -48,7 +48,7 @@ public class CrankBE extends BlockEntity {
     }
 
     public void crank(){
-        if(inertia<20){
+        if(inertia<16){
             inertia+=inertiaGain;
         }
     }

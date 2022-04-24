@@ -71,7 +71,7 @@ public class CarbonInfuser extends Block implements EntityBlock {
 
     @Override
     public void appendHoverText(ItemStack stack, @Nullable BlockGetter reader, List<Component> list, TooltipFlag flags) {
-        list.add(new TranslatableComponent("message.CarbonInfuser").withStyle(ChatFormatting.DARK_GRAY));
+        list.add(new TranslatableComponent("message.carboninfuser").withStyle(ChatFormatting.DARK_GRAY));
     }
 
     @Override

@@ -11,10 +11,11 @@
       "tag": "minecraft:planks"
     },
     "c": {
-      "item": "minecraft:copper_ingot"
+      "tag": "forge:ingots/copper"
     }
   },
   "result": {
-    "item": "lavaplus:basicframe"
+    "item": "lavaplus:basicframe",
+    "count": 2
   }
 }

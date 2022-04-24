@@ -210,7 +210,13 @@ public class UpgraderBE extends BlockEntity {
                     energyStorage.consumeEnergy(usage);
                     if (counter == baseTime / active) {
                         if (output.isEmpty()) {
-                            ItemStack out= new ItemStack(Registration.INFERNALBRICK.get().asItem(), 1);
+                            ItemStack out = new ItemStack(Registration.INFERNALBRICK.get().asItem(), 1);
+                            out.setTag(output.getTag());
+                            itemHandler.setStackInSlot(2, out);
+                            itemHandler.extractItem(0, 9, false);
+                            itemHandler.extractItem(1, 1, false);
+                        }else{
+                            ItemStack out = new ItemStack(Registration.INFERNALBRICK.get().asItem(), output.getCount()+1);
                             out.setTag(output.getTag());
                             itemHandler.setStackInSlot(2, out);
                             itemHandler.extractItem(0, 9, false);

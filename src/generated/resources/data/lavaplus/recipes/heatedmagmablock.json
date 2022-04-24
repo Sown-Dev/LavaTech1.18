@@ -11,7 +11,7 @@
       "item": "minecraft:magma_block"
     },
     "i": {
-      "item": "minecraft:diamond"
+      "tag": "forge:gems/diamond"
     },
     "c": {
       "item": "lavaplus:magmacoal"

@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "crank",
+  "pattern": [
+    " ii",
+    "plp",
+    "sgs"
+  ],
+  "key": {
+    "g": {
+      "tag": "forge:gear/stone"
+    },
+    "p": {
+      "tag": "minecraft:planks"
+    },
+    "s": {
+      "tag": "forge:stone"
+    },
+    "l": {
+      "tag": "minecraft:logs"
+    },
+    "i": {
+      "tag": "forge:rods/wooden"
+    }
+  },
+  "result": {
+    "item": "lavaplus:crank"
+  }
+}

@@ -36,11 +36,7 @@ public class AlloySmelterScreen extends AbstractContainerScreen<AlloySmelterCont
     protected void renderLabels(PoseStack matrixStack, int mouseX, int mouseY) {
         int relX = (this.width - this.imageWidth) / 2;
         int relY = (this.height - this.imageHeight) / 2;
-        if (mouseX > relX + 11 && mouseX < relX + 28 && mouseY > relY + 13 && mouseY < relY + 65) {
-            drawString(matrixStack, Minecraft.getInstance().font, +menu.getEnergy() + "FE/" + AlloySmelterBE.capacity + "FE", mouseX - relX + 9, mouseY - relY, 0xffffff);
-            drawString(matrixStack, Minecraft.getInstance().font, "uses " + AlloySmelterBE.baseUsage * menu.blockEntity.cactive + "FE/tick", mouseX - relX + 9, mouseY - relY + 8, 0xffffff);
 
-        }
     }
 
     @Override
@@ -67,10 +63,6 @@ public class AlloySmelterScreen extends AbstractContainerScreen<AlloySmelterCont
             this.blit(matrixStack, relX + 82, relY + 34, 0, 0, bwidth, 17);
 
         }
-        int barX = relX + 10;
-        int barY = relY + 65 - (int) (((double) menu.getEnergy() / (double) AlloySmelterBE.capacity) * 52);
-        RenderSystem.setShaderTexture(0, BAR);
-        this.blit(matrixStack, barX, barY, 0, 0, 17, (int) (((double) menu.getEnergy() / (double) AlloySmelterBE.capacity) * 52));
 
     }
 }

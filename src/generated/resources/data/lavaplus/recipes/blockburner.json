@@ -14,7 +14,7 @@
       "item": "lavaplus:machineframe"
     },
     "h": {
-      "item": "minecraft:hopper"
+      "tag": "forge:ingots/iron"
     }
   },
   "result": {

@@ -74,7 +74,7 @@ public class CopperDrill extends Block implements EntityBlock {
 
     @Override
     public void appendHoverText(ItemStack stack, @Nullable BlockGetter reader, List<Component> list, TooltipFlag flags) {
-        list.add(new TranslatableComponent("message.CopperDrill").withStyle(ChatFormatting.DARK_GRAY));
+        list.add(new TranslatableComponent("message.copperdrill").withStyle(ChatFormatting.DARK_GRAY));
     }
 
 

@@ -60,6 +60,7 @@ public class Registration {
     public static final RegistryObject<Item> COPPERDRILLBIT= ITEMS.register("copperdrillbit", () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_MISC)));
     public static final RegistryObject<Item> STEEL= ITEMS.register("steel", () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_MISC)));
     public static final RegistryObject<Item> BRONZE= ITEMS.register("bronze", () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_MISC)));
+    public static final RegistryObject<Item> STONEGEAR= ITEMS.register("stonegear", () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_MISC)));
 
 
     public static final RegistryObject<Item> FERROUSALLOY= ITEMS.register("ferrousalloy", () -> new FerrousAlloy(new Item.Properties().tab(CreativeModeTab.TAB_MISC)));

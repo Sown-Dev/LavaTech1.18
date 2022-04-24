@@ -2,13 +2,16 @@
   "type": "minecraft:crafting_shaped",
   "group": "machineframe",
   "pattern": [
-    " x ",
-    "xix",
-    " x "
+    "ixi",
+    "xbx",
+    "ixi"
   ],
   "key": {
     "x": {
       "item": "minecraft:smooth_stone"
+    },
+    "b": {
+      "item": "lavaplus:basicframe"
     },
     "i": {
       "tag": "forge:ingots/iron"

@@ -87,6 +87,12 @@ public class Items extends ItemModelProvider {
                 "layer0",
                 new ResourceLocation(LavaPlus.MODID, "item/bronze"));
 
+        singleTexture(
+                Registration.STONEGEAR.get().getRegistryName().getPath(),
+                new ResourceLocation("item/generated"),
+                "layer0",
+                new ResourceLocation(LavaPlus.MODID, "item/stonegear"));
+
 
 
         withExistingParent(Registration.BLOCKBURNER_ITEM.get().getRegistryName().getPath(),

@@ -10,6 +10,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.Connection;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -120,8 +121,28 @@ public class CarbonInfuserBE extends BlockEntity {
                 }
             }
         }
-        if(hasEnoughPowerToWork()){
-            if(input.is(ItemTags.COALS)){
+        if(hasEnoughPowerToWork() && carbon>=100){
+            if(input.is(ItemTags.COALS) || input.is(ItemTags.create(new ResourceLocation("forge:biomass")))){
+                if(counter>=time && (output.getItem()==Items.COAL ||output.isEmpty()) && carbon>=100){
+                    if(output.getItem()==Items.COAL){
+                        ItemStack newItem = new ItemStack(Items.COAL, 2);
+                        itemHandler.insertItem(2, newItem, false);
+
+                    }
+                    if(output.isEmpty()){
+                        ItemStack newItem = new ItemStack(Items.COAL, 2);
+                        itemHandler.setStackInSlot(2,newItem);
+
+                    }
+                    itemHandler.extractItem(0,1,false);
+                    carbon-=100;
+                    counter=0;
+                }else{
+                    counter++;
+                }
+            }
+
+            if(input.is(Tags.Items.INGOTS_IRON)){
                 if(counter>=time && (output.getItem()==Items.COAL ||output.isEmpty()) && carbon>=100){
                     if(output.getItem()==Items.COAL){
                         ItemStack newItem = new ItemStack(Items.COAL, 2);

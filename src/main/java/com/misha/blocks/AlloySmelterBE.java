@@ -52,19 +52,12 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class AlloySmelterBE extends BlockEntity {
 
     int active = 0;
-    public static int capacity = 50000;
-    public int usage = 20;
-    int transfer = 200;
-    boolean hasPower = false;
-    public static final int baseUsage = 40;
     public static int baseTime = 200;
 
 
     private final ItemStackHandler itemHandler = createHandler();
-    private final CustomEnergyStorage energyStorage = createEnergy();
     // Never create lazy optionals in getCapability. Always place them as fields in the tile entity:
     private final LazyOptional<IItemHandler> handler = LazyOptional.of(() -> itemHandler);
-    private final LazyOptional<IEnergyStorage> energy = LazyOptional.of(() -> energyStorage);
 
 
     public short counter = 0;
@@ -80,7 +73,6 @@ public class AlloySmelterBE extends BlockEntity {
         super.setRemoved();
         // Don't forget to invalidate your caps when your block entity is removed
         handler.invalidate();
-        energy.invalidate();
 
     }
 
@@ -152,10 +144,6 @@ public class AlloySmelterBE extends BlockEntity {
                 Block.UPDATE_ALL);
     }
 
-    private boolean hasEnoughPowerToWork() {
-        return energyStorage.getEnergyStored() >= usage;
-    }
-
     public ClientboundBlockEntityDataPacket getUpdatePacket() {
         CompoundTag tag = new CompoundTag();
         tag.putInt("counter", counter);
@@ -183,9 +171,6 @@ public class AlloySmelterBE extends BlockEntity {
     @Override
     public void load(CompoundTag tag) {
         itemHandler.deserializeNBT(tag.getCompound("inv"));
-        if (tag.contains("energy")) {
-            energyStorage.deserializeNBT(tag.get("energy"));
-        }
 
         super.load(tag);
     }
@@ -193,9 +178,7 @@ public class AlloySmelterBE extends BlockEntity {
     @Override
     public void saveAdditional(CompoundTag tag) {
         tag.put("inv", itemHandler.serializeNBT());
-        tag.put("energy", energyStorage.serializeNBT());
 
-        tag.putInt("counter", counter);
 
     }
 
@@ -231,29 +214,12 @@ public class AlloySmelterBE extends BlockEntity {
     }
 
 
-    private CustomEnergyStorage createEnergy() {
-        return new CustomEnergyStorage(capacity, transfer) {
-            @Override
-            protected void onEnergyChanged() {
-
-                boolean newHasPower = hasEnoughPowerToWork();
-                if (newHasPower != hasPower) {
-                    hasPower = newHasPower;
-                    level.sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), Block.UPDATE_CLIENTS);
-                }
-                setChanged();
-            }
-        };
-    }
 
     @Nonnull
     @Override
     public <T> LazyOptional<T> getCapability(@Nonnull Capability<T> cap, @Nullable Direction side) {
         if (cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
             return handler.cast();
-        }
-        if (cap == CapabilityEnergy.ENERGY) {
-            return energy.cast();
         }
         return super.getCapability(cap, side);
     }

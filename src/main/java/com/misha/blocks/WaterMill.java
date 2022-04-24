@@ -37,7 +37,7 @@ public class WaterMill extends Block implements EntityBlock {
         super(Properties.of(Material.METAL)
                 .sound(SoundType.METAL)
                 .lightLevel(state -> state.getValue(BlockStateProperties.POWERED) ? 15 : 0)
-                .strength(2.0f));
+                .strength(1.0f));
     }
 
     @Nullable
@@ -70,7 +70,7 @@ public class WaterMill extends Block implements EntityBlock {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable BlockGetter reader, List<Component> list, TooltipFlag flags) {
         int energy = stack.hasTag() ? stack.getTag().getInt("energy") : 0;
-        list.add(new TranslatableComponent("message.WaterMill", Integer.toString(energy)).withStyle(ChatFormatting.DARK_GRAY));
+        list.add(new TranslatableComponent("message.watermill", Integer.toString(energy)).withStyle(ChatFormatting.DARK_GRAY));
     }
 
     @Override

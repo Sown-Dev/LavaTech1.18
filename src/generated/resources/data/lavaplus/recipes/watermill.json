@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "watermill",
+  "pattern": [
+    "mim",
+    "gbg",
+    "mim"
+  ],
+  "key": {
+    "g": {
+      "tag": "forge:gear/stone"
+    },
+    "i": {
+      "tag": "forge:ingots/iron"
+    },
+    "m": {
+      "item": "lavaplus:basicframe"
+    },
+    "b": {
+      "item": "lavaplus:basicconduit"
+    }
+  },
+  "result": {
+    "item": "lavaplus:watermill"
+  }
+}

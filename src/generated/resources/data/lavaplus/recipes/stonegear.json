@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "stonegear",
+  "pattern": [
+    " s ",
+    "sss",
+    " s "
+  ],
+  "key": {
+    "s": {
+      "tag": "forge:stone"
+    }
+  },
+  "result": {
+    "item": "lavaplus:stonegear"
+  }
+}
