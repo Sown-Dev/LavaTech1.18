@@ -57,7 +57,7 @@ public class AlloySmelterBE extends BlockEntity {
     int transfer = 200;
     boolean hasPower = false;
     public static final int baseUsage = 40;
-    public static int baseTime = 100;
+    public static int baseTime = 200;
 
 
     private final ItemStackHandler itemHandler = createHandler();
@@ -70,7 +70,7 @@ public class AlloySmelterBE extends BlockEntity {
     public short counter = 0;
     public int cactive = 0;
 
-    short fuel=0;
+    short fuel = 0;
 
     public AlloySmelterBE(BlockPos pos, BlockState state) {
         super(Registration.ALLOYSMELTER_BE.get(), pos, state);
@@ -88,42 +88,68 @@ public class AlloySmelterBE extends BlockEntity {
 
         ItemStack in1 = itemHandler.getStackInSlot(0);
         ItemStack in2 = itemHandler.getStackInSlot(1);
-        ItemStack in3=itemHandler.getStackInSlot(2);
-        ItemStack fslot=itemHandler.getStackInSlot(3);
-        ItemStack output=itemHandler.getStackInSlot(4);
+        ItemStack in3 = itemHandler.getStackInSlot(2);
+        ItemStack fslot = itemHandler.getStackInSlot(3);
+        ItemStack output = itemHandler.getStackInSlot(4);
 
-        if(fuel>0 || fslot.getItem()==Items.COAL ){
-
-            if(in1.is(ItemTags.create(new ResourceLocation("forge:ingots/iron")))
-            && in2.is(ItemTags.create(new ResourceLocation("forge:ingots/iron")))
-            && in3.is(ItemTags.create(new ResourceLocation("forge:ingots/steel")))
-            && output.isEmpty() || output.getItem()==Registration.FERROUSALLOY.get()){
-                if(fuel==0){
-                    itemHandler.extractItem(3,1,false);
-                    fuel+=baseTime+1;
+        if (fuel > 0 || fslot.getItem() == Items.COAL) {
+            if (in1.is(ItemTags.create(new ResourceLocation("forge:ingots/aluminum")))
+                    && in2.getItem() == Items.IRON_INGOT
+                    && in3.is(ItemTags.create(new ResourceLocation("forge:ingots/tin")))
+                    && (output.isEmpty() || output.getItem() == Registration.FERROUSALLOY.get())) {
+                if (fuel == 0) {
+                    itemHandler.extractItem(3, 1, false);
+                    fuel += baseTime + 1;
                 }
-                if(fuel>0){
+                if (fuel > 0) {
 
                     fuel--;
-                    if(counter>=baseTime){
+                    if (counter >= baseTime) {
 
-                        counter=0;
-                        itemHandler.extractItem(0,1,false);
-                        itemHandler.extractItem(1,1,false);
-                        itemHandler.extractItem(2,1,false);
+                        counter = 0;
+                        itemHandler.extractItem(0, 1, false);
+                        itemHandler.extractItem(1, 1, false);
+                        itemHandler.extractItem(2, 1, false);
 
-                        ItemStack newItem = new ItemStack(Registration.FERROUSALLOY.get(), output.getCount()+2);
+                        ItemStack newItem = new ItemStack(Registration.FERROUSALLOY.get(), output.getCount() + 2);
                         itemHandler.setStackInSlot(4, newItem);
-                    }else{
+                    } else {
                         counter++;
                     }
                 }
-            }else{
-                counter=0;
+            } else if (in1.is(ItemTags.create(new ResourceLocation("forge:ingots/tin")))
+                    &&  in3.is(ItemTags.create(new ResourceLocation("forge:ingots/copper")))
+                    && in3.is(ItemTags.create(new ResourceLocation("forge:ingots/copper")))
+                    && (output.isEmpty() || output.getItem() == Registration.BRONZE.get())) {
+                if (fuel == 0) {
+                    itemHandler.extractItem(3, 1, false);
+                    fuel += baseTime + 1;
+                }
+                if (fuel > 0) {
+
+                    fuel--;
+                    if (counter >= baseTime) {
+
+                        counter = 0;
+                        itemHandler.extractItem(0, 1, false);
+                        itemHandler.extractItem(1, 1, false);
+                        itemHandler.extractItem(2, 1, false);
+
+                        ItemStack newItem = new ItemStack(Registration.BRONZE.get(), output.getCount() + 3);
+                        itemHandler.setStackInSlot(4, newItem);
+                    } else {
+                        counter++;
+                    }
+                }
+            } else {
+                counter = 0;
             }
-        }else {
+        } else {
             counter = 0;
         }
+
+        level.setBlock(worldPosition, state.setValue(BlockStateProperties.POWERED, fuel > 0),
+                Block.UPDATE_ALL);
     }
 
     private boolean hasEnoughPowerToWork() {
@@ -165,7 +191,7 @@ public class AlloySmelterBE extends BlockEntity {
     }
 
     @Override
-    public   void saveAdditional(CompoundTag tag) {
+    public void saveAdditional(CompoundTag tag) {
         tag.put("inv", itemHandler.serializeNBT());
         tag.put("energy", energyStorage.serializeNBT());
 
@@ -188,7 +214,7 @@ public class AlloySmelterBE extends BlockEntity {
             public boolean isItemValid(int slot, @Nonnull ItemStack stack) {
                 if (slot == 4) {
                     return false;
-                }else{
+                } else {
                     return true;
                 }
             }
@@ -213,7 +239,7 @@ public class AlloySmelterBE extends BlockEntity {
                 boolean newHasPower = hasEnoughPowerToWork();
                 if (newHasPower != hasPower) {
                     hasPower = newHasPower;
-                    level.sendBlockUpdated(worldPosition, getBlockState(), getBlockState(),Block.UPDATE_CLIENTS);
+                    level.sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), Block.UPDATE_CLIENTS);
                 }
                 setChanged();
             }

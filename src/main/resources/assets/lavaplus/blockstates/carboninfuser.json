@@ -35,8 +35,9 @@
       "model": "lavaplus:block/carboninfuser"
     },
     "facing=south,powered=true": {
-      "model": "lavaplus:block/carboninfuser",
-      "y": 180
+     "model": "lavaplus:block/carboninfuser",
+     "y":180
+
     },
     "facing=west,powered=true": {
       "model": "lavaplus:block/carboninfuser",

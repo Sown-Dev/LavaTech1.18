@@ -59,6 +59,7 @@ public class Registration {
 
     public static final RegistryObject<Item> COPPERDRILLBIT= ITEMS.register("copperdrillbit", () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_MISC)));
     public static final RegistryObject<Item> STEEL= ITEMS.register("steel", () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_MISC)));
+    public static final RegistryObject<Item> BRONZE= ITEMS.register("bronze", () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_MISC)));
 
 
     public static final RegistryObject<Item> FERROUSALLOY= ITEMS.register("ferrousalloy", () -> new FerrousAlloy(new Item.Properties().tab(CreativeModeTab.TAB_MISC)));
@@ -89,6 +90,7 @@ public class Registration {
     public static final RegistryObject<Block> BASICCONDUIT= BLOCKS.register("basicconduit", BasicConduit::new);
     public static final RegistryObject<Block> WATERMILL= BLOCKS.register("watermill", WaterMill::new);
     public static final RegistryObject<Block> CARBONINFUSER= BLOCKS.register("carboninfuser", CarbonInfuser::new);
+    public static final RegistryObject<Block> CRANK= BLOCKS.register("crank", Crank::new);
 
 
     //block items:
@@ -117,6 +119,7 @@ public class Registration {
     public static final RegistryObject<Item> BASICCONDUIT_ITEM = ITEMS.register("basicconduit", () -> new BlockItem(BASICCONDUIT.get(), new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)));
     public static final RegistryObject<Item> WATERMILL_ITEM = ITEMS.register("watermill", () -> new BlockItem(WATERMILL.get(), new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)));
     public static final RegistryObject<Item> CARBONINFUSER_ITEM = ITEMS.register("carboninfuser", () -> new BlockItem(CARBONINFUSER.get(), new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)));
+    public static final RegistryObject<Item> CRANK_ITEM = ITEMS.register("crank", () -> new BlockItem(CRANK.get(), new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)));
 
 
 
@@ -164,6 +167,9 @@ public class Registration {
 
     public static final RegistryObject<BlockEntityType<CarbonInfuserBE>> CARBONINFUSER_BE = BLOCKENTITIES.register("carboninfuser",
             () -> BlockEntityType.Builder.of(CarbonInfuserBE::new, CARBONINFUSER.get()).build(null));
+
+    public static final RegistryObject<BlockEntityType<CrankBE>> CRANK_BE = BLOCKENTITIES.register("crank",
+            () -> BlockEntityType.Builder.of(CrankBE::new, CRANK.get()).build(null));
 
 
 
