@@ -12,6 +12,16 @@
     "lavaplus:lavagenerator",
     "lavaplus:conduit",
     "lavaplus:battery",
-    "lavaplus:machineframe"
+    "lavaplus:machineframe",
+    "lavaplus:upgrader",
+    "lavaplus:reinforcedframe",
+    "lavaplus:hydroponics",
+    "lavaplus:crank",
+    "lavaplus:basicframe",
+    "lavaplus:basicconduit",
+    "lavaplus:watermill",
+    "lavaplus:alloysmelter",
+    "lavaplus:copperdrill",
+    "lavaplus:carboninfuser"
   ]
 }

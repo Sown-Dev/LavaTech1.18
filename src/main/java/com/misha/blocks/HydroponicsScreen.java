@@ -37,7 +37,7 @@ public class HydroponicsScreen extends AbstractContainerScreen<HydroponicsContai
             matrixStack.pushPose();
             matrixStack.translate(0,0,30);
             drawString(matrixStack, Minecraft.getInstance().font,   + menu.getEnergy()+"FE/"+HydroponicsBE.capacity+"FE", mouseX+9, mouseY, 0xffffff);
-            drawString(matrixStack, Minecraft.getInstance().font,   "Uses " + HydroponicsBE.baseUsage+"FE/t", mouseX-relX+9, mouseY-relY+8, 0xffffff);
+            drawString(matrixStack, Minecraft.getInstance().font,   "Uses " + HydroponicsBE.baseUsage+"FE/t", mouseX+9, mouseY+8, 0xffffff);
 
         }
 

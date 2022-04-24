@@ -8,10 +8,10 @@
   ],
   "key": {
     "o": {
-      "item": "minecraft:obsidian"
+      "tag": "forge:obsidian"
     },
     "g": {
-      "item": "minecraft:gold_ingot"
+      "tag": "forge:ingots/gold"
     },
     "m": {
       "item": "lavaplus:machineframe"
