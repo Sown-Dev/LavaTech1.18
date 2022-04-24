@@ -166,6 +166,10 @@ short dat = (short) counter;
     public int getCounter(){
         return blockEntity.counter;
     }
+    public short getSun(){
+        return blockEntity.sun;
+    }
+
 
     private void layoutPlayerInventorySlots(int leftCol, int topRow) {
         // Player inventory
@@ -201,6 +205,18 @@ short dat = (short) counter;
             public void set(int value) {
                 int counter = blockEntity.counter & 0x0000ffff;
                 blockEntity.counter = counter+ (value <<16);
+            }
+        });
+
+        addDataSlot(new DataSlot() {
+            @Override
+            public int get() {
+                return getSun();
+            }
+
+            @Override
+            public void set(int value) {
+                blockEntity.sun=(short) value;
             }
         });
     }

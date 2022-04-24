@@ -14,7 +14,7 @@ import java.util.List;
 
 public class CopperSword extends SwordItem {
     public CopperSword( Properties p_43272_) {
-        super(Tiers.IRON, 2, -2.3F, p_43272_);
+        super(Tiers.IRON, 3, -2.6F, p_43272_);
     }
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> list , TooltipFlag flags) {

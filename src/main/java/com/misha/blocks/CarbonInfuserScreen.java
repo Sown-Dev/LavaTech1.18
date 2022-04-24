@@ -36,6 +36,8 @@ public class CarbonInfuserScreen extends AbstractContainerScreen<CarbonInfuserCo
 
         if(mouseX>relX+8 && mouseX< relX+25 && mouseY>relY+1 && mouseY<relY+58){
             drawString(matrixStack, Minecraft.getInstance().font,   + menu.getEnergy()+"FE/"+CarbonInfuserBE.capacity+"FE", mouseX+9, mouseY, 0xffffff);
+            drawString(matrixStack, Minecraft.getInstance().font,   "Uses: "+CarbonInfuserBE.baseUsage+"FE/t", mouseX+9, mouseY+8, 0xffffff);
+
         }
         if(mouseX>relX+32 && mouseX< relX+44 && mouseY>relY+1 && mouseY<relY+58){
             drawString(matrixStack, Minecraft.getInstance().font,   + menu.getCarbon()+"mB/"+CarbonInfuserBE.carbonCap+"mB", mouseX+9, mouseY, 0xffffff);

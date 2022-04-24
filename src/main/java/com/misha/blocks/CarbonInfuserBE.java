@@ -57,10 +57,8 @@ public class CarbonInfuserBE extends BlockEntity {
     public int usage = 5;
     int transfer = 200;
     boolean hasPower = false;
-    public static final int baseUsage = 30;
-    static int basetime = 500;
-    boolean sun = false;
-    int yield = 1;
+    public static final int baseUsage = 25;
+    static int basetime = 300;
     int time = basetime;
 
     //private final TileFluidHandler fluidHandler= createFluid();
@@ -138,6 +136,7 @@ public class CarbonInfuserBE extends BlockEntity {
                     carbon-=100;
                     counter=0;
                 }else{
+                    this.energyStorage.consumeEnergy(usage);
                     counter++;
                 }
             }

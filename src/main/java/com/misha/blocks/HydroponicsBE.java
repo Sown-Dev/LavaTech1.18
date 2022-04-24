@@ -53,12 +53,15 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class HydroponicsBE extends BlockEntity {
 
     public static int capacity = 25000;
-    public int usage = 5;
+
     int transfer = 200;
     boolean hasPower = false;
-    public static final int baseUsage = 30;
+    public static final int baseUsage = 5;
+
+    public int usage = baseUsage;
     static int basetime = 500;
-    boolean sun = false;
+    short sun = 0;
+
     int yield = 1;
     int time = basetime;
 
@@ -106,7 +109,7 @@ public class HydroponicsBE extends BlockEntity {
         ItemStack input = itemHandler.getStackInSlot(0);
         //System.out.println(level.isDay());
         if (level.isDay() && level.canSeeSky(worldPosition)) {
-            sun = true;
+            sun = 1;
             if (hasEnoughPowerToWork() && isValid(input)) {
                 energyStorage.consumeEnergy(usage);
                 if (counter >= basetime) {
@@ -213,7 +216,7 @@ public class HydroponicsBE extends BlockEntity {
 
         } else {
             //simple code used to enable/disable sun icon in GUI
-            sun = false;
+            sun = 0;
         }
 
 

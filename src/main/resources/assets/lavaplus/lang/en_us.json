@@ -14,11 +14,11 @@
   "item.lavaplus.magmacoal": "Magmatic Coal",
   "message.magmacoal":"Burns twice as long as coal. Made in a Coal Reprocessor. Can be used as a substitute for coke coal.",
 
-  "item.lavaplus.copperpickaxe": "Copper Pickaxe",
-  "message.copperpickaxe":"A pickaxe made of copper. Slightly slower than iron, but better than stone",
+  "item.lavaplus.copperpickaxe": "Bronze Pickaxe",
+  "message.copperpickaxe":"Though much stronger and durable than iron, the bronze pickaxe is still weaker than a diamond pick.",
 
-  "item.lavaplus.coppersword": "Copper Sword",
-  "message.coppersword":"Being lighter than iron, this sword swings faster, but also deals less damage.",
+  "item.lavaplus.coppersword": "Bronze Sword",
+  "message.coppersword":"A durable and sharp sword, capable of outperforming an iron sword in all regards.",
 
   "item.lavaplus.infernalboots": "Infernal Boots",
   "message.infernalboots":"Very strong and durable boots that increase your max health.",
@@ -61,7 +61,7 @@
   "message.lavagenerator":"Generates energy when heated by a lava vent. Generates 40FE/Tick for every level of heat.",
 
   "block.lavaplus.copperdrill": "Copper Drill",
-  "message.copperdrill":"Drills in a 1x1 area below when supplied with energy.",
+  "message.copperdrill":"Drills in a 1x1 area below when supplied with energy. Due to the weak nature of the copper drill bit, the drill isn't able to mine deepslate.",
 
    "block.lavaplus.hydroponics": "Automated Garden",
    "message.hydroponics":"Grows plants during the day when supplied with power",

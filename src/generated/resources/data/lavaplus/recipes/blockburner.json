@@ -2,8 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "group": "blockburner",
   "pattern": [
-    "shs",
-    "x x",
+    "sxs",
+    "grg",
     "sxs"
   ],
   "key": {
@@ -13,8 +13,11 @@
     "x": {
       "item": "lavaplus:machineframe"
     },
-    "h": {
-      "tag": "forge:ingots/iron"
+    "r": {
+      "tag": "forge:dusts/redstone"
+    },
+    "g": {
+      "tag": "forge:gear/stone"
     }
   },
   "result": {
