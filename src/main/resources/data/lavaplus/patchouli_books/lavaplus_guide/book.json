@@ -1,5 +1,6 @@
 {
     "name": "Guide to Thermal Technologies",
     "landing_text": "The all-purpose guide to the Lava Tech mod.",
-    "version": 1
+    "version": 1,
+    "model": "lavaplus:lavaguide"
 }
