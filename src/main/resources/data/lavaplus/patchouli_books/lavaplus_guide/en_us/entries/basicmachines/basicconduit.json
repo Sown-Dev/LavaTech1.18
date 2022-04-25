@@ -4,7 +4,8 @@
 "category":"lavaplus:basicmachines",
 "pages":[
 {
-"type":"patchouli:text",
+"type":"patchouli:crafting",
+"recipe":"lavaplus:basicconduit",
 "text":"The basic conduit can transfer power but cannot be placed next to other basic conduits"
 
 }

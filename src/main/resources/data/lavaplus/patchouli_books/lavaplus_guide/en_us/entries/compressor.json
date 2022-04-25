@@ -1,0 +1,27 @@
+{
+"name":"Compressor",
+"icon": "lavaplus:compressor",
+"category":"lavaplus:heatmachines",
+"pages":[
+{
+"type":"patchouli:crafting",
+"recipe":"lavaplus:compressor",
+"text":"The basic conduit can transfer power but cannot be placed next to other basic conduits"
+},
+{
+"type":"patchouli:image",
+"images":[
+ "lavaplus:textures/patchouli/compressor/recipe1.png",
+  "lavaplus:textures/patchouli/compressor/recipe2.png",
+   "lavaplus:textures/patchouli/compressor/recipe3.png",
+    "lavaplus:textures/patchouli/compressor/recipe4.png",
+     "lavaplus:textures/patchouli/compressor/recipe5.png",
+      "lavaplus:textures/patchouli/compressor/recipe6.png"
+],
+"text":"The basic conduit can transfer power but cannot be placed next to other basic conduits"
+}
+
+]
+
+
+}
