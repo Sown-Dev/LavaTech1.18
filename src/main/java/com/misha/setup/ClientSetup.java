@@ -30,7 +30,7 @@ public class ClientSetup {
             MenuScreens.register(Registration.ALLOYSMELTER_CONTAINER.get(), AlloySmelterScreen::new);
             MenuScreens.register(Registration.WATERMILL_CONTAINER.get(), WaterMillScreen::new);
             MenuScreens.register(Registration.CARBONINFUSER_CONTAINER.get(), CarbonInfuserScreen::new);
-
+            MenuScreens.register(Registration.SIMPLEBEACON_CONTAINER.get(), SimpleBeaconScreen::new);
         });
     }
 }

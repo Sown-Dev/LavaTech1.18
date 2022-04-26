@@ -6,10 +6,11 @@
 {
 "type":"patchouli:crafting",
 "recipe":"lavaplus:compressor",
-"text":"The basic conduit can transfer power but cannot be placed next to other basic conduits"
+"text":"The heated compressor is capable of producing many useful resources by using heat generated in a lava vent to compress materials further and more efficiently than is normally possible. However, such a machine is very expensive as a result. The machine must be placed on top of a lava vent in order to receive heat. The heated compressor uses 20FE/tick for every unit of heat provided by its lava vent."
 },
 {
 "type":"patchouli:image",
+"title":"Heated Compressor Recipes:",
 "images":[
  "lavaplus:textures/patchouli/compressor/recipe1.png",
   "lavaplus:textures/patchouli/compressor/recipe2.png",
@@ -18,7 +19,7 @@
      "lavaplus:textures/patchouli/compressor/recipe5.png",
       "lavaplus:textures/patchouli/compressor/recipe6.png"
 ],
-"text":"The basic conduit can transfer power but cannot be placed next to other basic conduits"
+"text":"More expensive recipes typically take longer, whereas cheaper ones are faster"
 }
 
 ]

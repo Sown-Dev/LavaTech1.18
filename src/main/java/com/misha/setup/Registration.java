@@ -43,6 +43,7 @@ public class Registration {
         @SubscribeEvent
         public static void clientSetup(FMLClientSetupEvent event){
             Hydroponics.registerRenderLayer();
+            SimpleBeacon.registerRenderLayer();
         }
     }
 
@@ -53,7 +54,6 @@ public class Registration {
     public static final RegistryObject<Item> INFERNALSWORD = ITEMS.register("infernalsword", () -> new InfernalSword(new Item.Properties().tab(CreativeModeTab.TAB_COMBAT)));
     public static final RegistryObject<Item> MAGMACOAL = ITEMS.register("magmacoal", () -> new MagmaCoal(new Item.Properties().tab(CreativeModeTab.TAB_MISC)));
     public static final RegistryObject<Item> INFERNALBOOTS = ITEMS.register("infernalboots", () -> new InfernalBoots(new Item.Properties().tab(CreativeModeTab.TAB_COMBAT)));
-    public static final RegistryObject<Item> LAVAGUIDE= ITEMS.register("lavaguide", () -> new LavaGuide(new Item.Properties().tab(CreativeModeTab.TAB_MISC)));
     public static final RegistryObject<Item> COPPERPICKAXE= ITEMS.register("copperpickaxe", () -> new CopperPickaxe(new Item.Properties().tab(CreativeModeTab.TAB_TOOLS)));
     public static final RegistryObject<Item> COPPERSWORD= ITEMS.register("coppersword", () -> new CopperSword(new Item.Properties().tab(CreativeModeTab.TAB_COMBAT)));
 
@@ -92,6 +92,7 @@ public class Registration {
     public static final RegistryObject<Block> WATERMILL= BLOCKS.register("watermill", WaterMill::new);
     public static final RegistryObject<Block> CARBONINFUSER= BLOCKS.register("carboninfuser", CarbonInfuser::new);
     public static final RegistryObject<Block> CRANK= BLOCKS.register("crank", Crank::new);
+    public static final RegistryObject<Block> SIMPLEBEACON= BLOCKS.register("simplebeacon", SimpleBeacon::new);
 
 
     //block items:
@@ -121,6 +122,7 @@ public class Registration {
     public static final RegistryObject<Item> WATERMILL_ITEM = ITEMS.register("watermill", () -> new BlockItem(WATERMILL.get(), new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)));
     public static final RegistryObject<Item> CARBONINFUSER_ITEM = ITEMS.register("carboninfuser", () -> new BlockItem(CARBONINFUSER.get(), new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)));
     public static final RegistryObject<Item> CRANK_ITEM = ITEMS.register("crank", () -> new BlockItem(CRANK.get(), new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)));
+    public static final RegistryObject<Item> SIMPLEBEACON_ITEM = ITEMS.register("simplebeacon", () -> new BlockItem(SIMPLEBEACON.get(), new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)));
 
 
 
@@ -162,15 +164,14 @@ public class Registration {
 
     public static final RegistryObject<BlockEntityType<AlloySmelterBE>> ALLOYSMELTER_BE = BLOCKENTITIES.register("alloysmelter",
             () -> BlockEntityType.Builder.of(AlloySmelterBE::new, ALLOYSMELTER.get()).build(null));
-
     public static final RegistryObject<BlockEntityType<WaterMillBE>> WATERMILL_BE = BLOCKENTITIES.register("watermill",
             () -> BlockEntityType.Builder.of(WaterMillBE::new, WATERMILL.get()).build(null));
-
     public static final RegistryObject<BlockEntityType<CarbonInfuserBE>> CARBONINFUSER_BE = BLOCKENTITIES.register("carboninfuser",
             () -> BlockEntityType.Builder.of(CarbonInfuserBE::new, CARBONINFUSER.get()).build(null));
-
     public static final RegistryObject<BlockEntityType<CrankBE>> CRANK_BE = BLOCKENTITIES.register("crank",
             () -> BlockEntityType.Builder.of(CrankBE::new, CRANK.get()).build(null));
+    public static final RegistryObject<BlockEntityType<SimpleBeaconBE>> SIMPLEBEACON_BE = BLOCKENTITIES.register("simplebeacon",
+            () -> BlockEntityType.Builder.of(SimpleBeaconBE::new, SIMPLEBEACON.get()).build(null));
 
 
 
@@ -245,6 +246,11 @@ public class Registration {
         BlockPos pos = data.readBlockPos();
         Level world = inv.player.getCommandSenderWorld();
         return new CarbonInfuserContainer(windowId, world, pos, inv, inv.player);
+    }));
+    public static final RegistryObject<MenuType<SimpleBeaconContainer>>SIMPLEBEACON_CONTAINER = CONTAINERS.register("simplebeacon", () -> IForgeMenuType.create((windowId, inv, data) -> {
+        BlockPos pos = data.readBlockPos();
+        Level world = inv.player.getCommandSenderWorld();
+        return new SimpleBeaconContainer(windowId, world, pos, inv, inv.player);
     }));
 
 

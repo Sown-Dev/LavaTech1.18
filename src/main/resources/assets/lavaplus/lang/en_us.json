@@ -124,8 +124,13 @@
   "screen.lavaplus.compressor":"Compressor",
   "screen.lavaplus.hydroponics":"Hydroponics",
   "screen.lavaplus.copperdrill":"Copper Drill",
-  "screen.lavaplus.alloysmelter":"Alloy Smelter"
+  "screen.lavaplus.alloysmelter":"Alloy Smelter",
 
+"gui.lavaplus.leftarrow":"<",
+"gui.lavaplus.rightarrow":">",
+"gui.lavaplus.beaconspeed":"Speed",
+"gui.lavaplus.beaconhaste":"Haste",
+"gui.lavaplus.beaconjump":"Jump Height"
 
 
 }

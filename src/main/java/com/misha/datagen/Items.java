@@ -41,11 +41,7 @@ public class Items extends ItemModelProvider {
                 "layer0",
                 new ResourceLocation(LavaPlus.MODID, "item/infernalboots"));
 
-        singleTexture(
-                Registration.LAVAGUIDE.get().getRegistryName().getPath(),
-                new ResourceLocation("item/generated"),
-                "layer0",
-                new ResourceLocation(LavaPlus.MODID, "item/lavaguide"));
+
 
         singleTexture(
                 Registration.MAGMACOAL.get().getRegistryName().getPath(),

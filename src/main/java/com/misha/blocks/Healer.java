@@ -25,13 +25,7 @@ import java.util.List;
 
 public class Healer extends Block implements EntityBlock {
 
-    /*    static final VoxelShape SHAPE= Stream.of(
-                Block.box(4, 0, 4, 12, 16, 12),
-                Block.box(4, 4, 0, 12, 12, 16),
-                Block.box(0, 4, 4, 16, 12, 12),
-                Block.box(3, 3, 3, 13, 13, 13)
-        ).reduce((v1, v2) -> VoxelShapes.join(v1, v2, IBooleanFunction.OR)).get();*/
-    public Healer() {
+  public Healer() {
         super(Properties.of(Material.METAL)
                 .sound(SoundType.METAL)
                 .lightLevel(state -> state.getValue(BlockStateProperties.POWERED) ? 10: 0)

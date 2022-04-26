@@ -1,6 +1,5 @@
 {
-    "name": "Guide to Thermal Technologies",
-    "landing_text": "The all-purpose guide to the Lava Tech mod.",
-    "version": 1,
+    "name": "Thermal Guide [WIP]",
+    "landing_text": "$(playername) is a dumbass and needs to read a book in order to figure out how a mod works.",
     "model": "lavaplus:lavaguide"
 }

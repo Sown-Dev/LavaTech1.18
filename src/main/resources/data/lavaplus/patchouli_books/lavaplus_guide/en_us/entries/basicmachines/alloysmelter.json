@@ -1,0 +1,19 @@
+{
+"name":"Alloy Smelter",
+"icon": "lavaplus:alloysmelter",
+"category":"lavaplus:basicmachines",
+"pages":[
+{
+"type":"patchouli:crafting",
+"recipe":"lavaplus:alloysmelter",
+"text":"The alloy smelter is "
+},
+{
+"type":"patchouli:image",
+"images":["lavaplus:textures/block/basicconduit.png"],
+"text":"An example of an early-game setup using the basic conduit."
+}
+]
+
+
+}
