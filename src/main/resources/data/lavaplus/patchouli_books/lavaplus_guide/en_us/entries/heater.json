@@ -1,17 +1,12 @@
 {
-"name":"Growth Chamber",
-"icon": "lavaplus:hydroponics",
-"category":"lavaplus:basicmachines",
+"name":"Heater",
+"icon": "lavaplus:heater",
+"category":"lavaplus:mechanics",
 "pages":[
 {
 "type":"patchouli:crafting",
-"recipe":"lavaplus:hydroponics",
-"text":"The growth chamber uses 5FE/t to grow seeds and saplings. It only works during the day. If the growth chamber can't find a recipe for a seed, it will simply grow 2 seeds. If it can't find a recipe for a sapling it will output 1 oak log instead along with the sapling."
-},
-{
-"type":"patchouli:image",
-"images":["lavaplus:textures/block/basicconduit.png"],
-"text":"An example of an early-game setup using the basic conduit."
+"recipe":"lavaplus:heater",
+"text":"The heater provides heat to the lava vent when supplied with power. It provides as much as 4 lava source blocks when powered and consumers 60FE/t"
 }
 ]
 
