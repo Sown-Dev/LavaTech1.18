@@ -15,10 +15,6 @@ public class CompressorScreen extends AbstractContainerScreen<CompressorContaine
     private ResourceLocation ARROW= new ResourceLocation(LavaPlus.MODID, "textures/gui/arrow.png");
     private ResourceLocation BAR= new ResourceLocation(LavaPlus.MODID, "textures/gui/bar2.png");
 
-    public static int counter=0;
-    public static int energy=0;
-    public static int active =0;
-
     public CompressorScreen(CompressorContainer container, Inventory inv, Component name) {
 
         super(container, inv, name);
@@ -38,7 +34,7 @@ public class CompressorScreen extends AbstractContainerScreen<CompressorContaine
         int relY = (this.height - this.imageHeight) / 2;
         if(mouseX>relX+11 && mouseX< relX+28 && mouseY>relY+13 && mouseY<relY+65){
             drawString(matrixStack, Minecraft.getInstance().font,   + menu.getEnergy()+"FE/"+CompressorBE.capacity+"FE", mouseX-relX+9, mouseY-relY, 0xffffff);
-            drawString(matrixStack, Minecraft.getInstance().font,   "uses " + CompressorBE.baseUsage*menu.blockEntity.cactive+"FE/tick", mouseX-relX+9, mouseY-relY+8, 0xffffff);
+            drawString(matrixStack, Minecraft.getInstance().font,   "uses " + CompressorBE.baseUsage*menu.getActive()+"FE/tick", mouseX-relX+9, mouseY-relY+8, 0xffffff);
 
         }
     }
@@ -51,15 +47,15 @@ public class CompressorScreen extends AbstractContainerScreen<CompressorContaine
         this.blit(matrixStack, relX, relY, 0, 0, this.imageWidth+2, this.imageHeight);
 
 
-        if(menu.blockEntity.cactive>0) {
+        if(menu.getActive()>0) {
             RenderSystem.setShaderTexture(0, FLAME);
             this.blit(matrixStack, relX + 45, relY + 52, 0, 0, 16, 16);
         }
         //System.out.println(counter+""+ active);
 
-        if(menu.blockEntity.ccounter>0 && menu.blockEntity.cactive>0){
+        if(menu.getCounter()>0 && menu.getActive()>0){
             RenderSystem.setShaderTexture(0, ARROW);
-            int bwidth=(int)(30*((double) menu.blockEntity.ccounter/((double)menu.blockEntity.time/(double)menu.blockEntity.cactive)));
+            int bwidth=(int)(30*((double) menu.getCounter()/((double)menu.blockEntity.time/(double)menu.getActive())));
 
             this.blit(matrixStack, relX + 71, relY + 21, 0, 0, bwidth, 17);
 

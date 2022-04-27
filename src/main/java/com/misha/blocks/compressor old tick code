@@ -1,0 +1,214 @@
+public void tickServer(BlockState state) {
+        BlockPos below = new BlockPos(this.getBlockPos().getX(), this.getBlockPos().getY() - 1, this.getBlockPos().getZ());
+
+        BlockState blockState = level.getBlockState(worldPosition);
+
+        if (level.getBlockState(below).getBlock() instanceof LavaVent) {
+            this.active = ((LavaVentBE) level.getBlockEntity(below)).active;
+        } else {
+            this.active = 0;
+        }
+
+
+        if (this.active > 0) {
+            this.usage= baseUsage*this.active;
+            if (hasEnoughPowerToWork()) {
+
+
+                ItemStack stack = itemHandler.getStackInSlot(0);
+                ItemStack output = itemHandler.getStackInSlot(1);
+
+                if (!stack.isEmpty() && stack.getItem() == Blocks.COAL_BLOCK.asItem()
+                        && stack.getCount()>=10
+                        && (output.isEmpty() || output.getItem() == Items.DIAMOND.asItem())
+                        && output.getCount() <= 63) {
+                    energyStorage.consumeEnergy(usage);
+
+                    //how long the recipe takes
+                    time=baseTime*4;
+                    if (counter >= time / active) {
+                        if (output.isEmpty()) {
+                            ItemStack item = new ItemStack(Items.DIAMOND.asItem(), 1);
+                            itemHandler.setStackInSlot(1, item);
+                            itemHandler.extractItem(0, 10, false);
+                        } else {
+                            ItemStack item = output;
+                            item.setCount(output.getCount() + 1);
+                            itemHandler.setStackInSlot(1, item);
+                            itemHandler.extractItem(0, 16, false);
+                        }
+                        counter = 0;
+                    } else {
+                        counter++;
+                    }
+                    setChanged();
+                }
+
+                //Obsidian
+                if (!stack.isEmpty() && stack.getItem() == Blocks.OBSIDIAN.asItem()
+                        && stack.getCount()>=4
+                        && (output.isEmpty() || output.getItem() == Blocks.CRYING_OBSIDIAN.asItem())
+                        && output.getCount() <= 63) {
+                    energyStorage.consumeEnergy(usage);
+                    time=baseTime;
+                    if (counter >= time / active) {
+                        if (output.isEmpty()) {
+                            ItemStack item = new ItemStack(Blocks.CRYING_OBSIDIAN.asItem(), 1);
+                            itemHandler.setStackInSlot(1, item);
+                            itemHandler.extractItem(0, 4, false);
+                        } else {
+                            ItemStack item = output;
+                            item.setCount(output.getCount() + 1);
+                            itemHandler.setStackInSlot(1, item);
+                            itemHandler.extractItem(0, 4, false);
+                        }
+                        counter = 0;
+                    } else {
+                        counter++;
+                    }
+                    setChanged();
+                }
+
+                //Ender Pearl
+                if (!stack.isEmpty() && stack.getItem() == Blocks.END_STONE.asItem()
+                        && stack.getCount()>=32
+                        && (output.isEmpty() || output.getItem() == Items.ENDER_PEARL.asItem())
+                        && output.getCount() <= 63) {
+                    energyStorage.consumeEnergy(usage);
+                    time=baseTime;
+                    if (counter >= time / active) {
+                        if (output.isEmpty()) {
+                            ItemStack item = new ItemStack(Items.ENDER_PEARL.asItem(), 1);
+                            itemHandler.setStackInSlot(1, item);
+                            itemHandler.extractItem(0, 32, false);
+                        } else {
+                            ItemStack item = output;
+                            item.setCount(output.getCount() + 1);
+                            itemHandler.setStackInSlot(1, item);
+                            itemHandler.extractItem(0, 32, false);
+                        }
+                        counter = 0;
+                    } else {
+                        counter++;
+                    }
+                    setChanged();
+                }
+
+
+                // Ice
+                if (!stack.isEmpty() && stack.getItem() == Blocks.ICE.asItem()
+                        && stack.getCount()>=8
+                        && (output.isEmpty() || output.getItem() == Blocks.PACKED_ICE.asItem())
+                        && output.getCount() <= 63) {
+                    energyStorage.consumeEnergy(usage);
+                    time=baseTime/2;
+                    if (counter >= time / active) {
+                        if (output.isEmpty()) {
+                            ItemStack item = new ItemStack(Blocks.PACKED_ICE.asItem(), 1);
+                            itemHandler.setStackInSlot(1, item);
+                            itemHandler.extractItem(0, 8, false);
+                        } else {
+                            ItemStack item = output;
+                            item.setCount(output.getCount() + 1);
+                            itemHandler.setStackInSlot(1, item);
+                            itemHandler.extractItem(0, 8, false);
+                        }
+                        counter = 0;
+                    } else {
+                        counter++;
+                    }
+                    setChanged();
+                }
+
+                // Blue Ice
+                if (!stack.isEmpty() && stack.getItem() == Blocks.PACKED_ICE.asItem()
+                        && stack.getCount()>=8
+                        && (output.isEmpty() || output.getItem() == Blocks.BLUE_ICE.asItem())
+                        && output.getCount() <= 63) {
+                    energyStorage.consumeEnergy(usage);
+                    time=baseTime/2;
+                    if (counter >= time / active) {
+                        if (output.isEmpty()) {
+                            ItemStack item = new ItemStack(Blocks.BLUE_ICE.asItem(), 1);
+                            itemHandler.setStackInSlot(1, item);
+                            itemHandler.extractItem(0, 8, false);
+                        } else {
+                            ItemStack item = output;
+                            item.setCount(output.getCount() + 1);
+                            itemHandler.setStackInSlot(1, item);
+                            itemHandler.extractItem(0, 8, false);
+                        }
+                        counter = 0;
+                    } else {
+                        counter++;
+                    }
+                    setChanged();
+                }
+
+
+                // Dirt -> Gravel
+                if (!stack.isEmpty() && stack.getItem() == Blocks.DIRT.asItem()
+                        && stack.getCount()>=4
+                        && (output.isEmpty() || output.getItem() == Blocks.GRAVEL.asItem())
+                        && output.getCount() <= 63) {
+                    energyStorage.consumeEnergy(usage);
+                    time=baseTime/2;
+                    if (counter >= time / active) {
+                        if (output.isEmpty()) {
+                            ItemStack item = new ItemStack(Blocks.GRAVEL.asItem(), 1);
+                            itemHandler.setStackInSlot(1, item);
+                            itemHandler.extractItem(0, 4, false);
+                        } else {
+                            ItemStack item = output;
+                            item.setCount(output.getCount() + 1);
+                            itemHandler.setStackInSlot(1, item);
+                            itemHandler.extractItem(0, 4, false);
+                        }
+                        counter = 0;
+                    } else {
+                        counter++;
+                    }
+                    setChanged();
+                }
+
+
+
+
+                //Netherite
+                if (!stack.isEmpty() && stack.getItem() == Items.NETHERITE_SCRAP.asItem()
+                        && stack.getCount()>=7
+                        && (output.isEmpty() || output.getItem() == Items.NETHERITE_INGOT.asItem())
+                        && output.getCount() <= 63) {
+                    energyStorage.consumeEnergy(usage);
+                    time=baseTime*3;
+                    if (counter >= time / active) {
+                        if (output.isEmpty()) {
+                            ItemStack item = new ItemStack(Items.NETHERITE_INGOT.asItem(), 2);
+                            itemHandler.setStackInSlot(1, item);
+                            itemHandler.extractItem(0, 7, false);
+                        } else {
+                            ItemStack item = output;
+                            item.setCount(output.getCount() + 2);
+                            itemHandler.setStackInSlot(1, item);
+                            itemHandler.extractItem(0, 7, false);
+                        }
+                        counter = 0;
+                    } else {
+                        counter++;
+                    }
+                    setChanged();
+                }
+
+
+
+            }
+
+
+            level.setBlock(worldPosition, blockState.setValue(BlockStateProperties.POWERED, true),
+                    Block.UPDATE_ALL);
+        } else {
+            level.setBlock(worldPosition, blockState.setValue(BlockStateProperties.POWERED, false),
+                    Block.UPDATE_ALL);
+        }
+
+    }

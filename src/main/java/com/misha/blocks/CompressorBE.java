@@ -46,7 +46,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class CompressorBE extends BlockEntity {
 
-    int active = 0;
+    short active = 0;
    public static int capacity = 50000;
     public int usage = 20;
     int transfer = 200;
@@ -59,12 +59,9 @@ public class CompressorBE extends BlockEntity {
     private final LazyOptional<IEnergyStorage> energy = LazyOptional.of(() -> energyStorage);
 
 
-public static int baseTime=1000;
-int time = baseTime;
-int ctime=time;
-    public int counter= 0;
-    public int ccounter=0;
-    public int cactive=0;
+public static short baseTime=1000;
+short time = baseTime;
+    short counter= 0;
 
     public CompressorBE(BlockPos pos, BlockState state) {
         //RecipeType.register("compressor")
@@ -78,218 +75,84 @@ int ctime=time;
         energy.invalidate();
     }
 
+
+    short recipe=0;
+    short oldrecipe=0;
     public void tickServer(BlockState state) {
         BlockPos below = new BlockPos(this.getBlockPos().getX(), this.getBlockPos().getY() - 1, this.getBlockPos().getZ());
 
         BlockState blockState = level.getBlockState(worldPosition);
 
         if (level.getBlockState(below).getBlock() instanceof LavaVent) {
-            this.active = ((LavaVentBE) level.getBlockEntity(below)).active;
+            this.active = (short) ((LavaVentBE) level.getBlockEntity(below)).active;
         } else {
             this.active = 0;
         }
+        ItemStack input=itemHandler.getStackInSlot(0);
+        ItemStack output=itemHandler.getStackInSlot(1);
 
 
-        if (this.active > 0) {
-            this.usage= baseUsage*this.active;
-            if (hasEnoughPowerToWork()) {
-
-
-                ItemStack stack = itemHandler.getStackInSlot(0);
-                ItemStack output = itemHandler.getStackInSlot(1);
-
-                if (!stack.isEmpty() && stack.getItem() == Blocks.COAL_BLOCK.asItem()
-                        && stack.getCount()>=10
-                        && (output.isEmpty() || output.getItem() == Items.DIAMOND.asItem())
-                        && output.getCount() <= 63) {
-                    energyStorage.consumeEnergy(usage);
-
-                    //how long the recipe takes
-                    time=baseTime*4;
-                    if (counter >= time / active) {
-                        if (output.isEmpty()) {
-                            ItemStack item = new ItemStack(Items.DIAMOND.asItem(), 1);
-                            itemHandler.setStackInSlot(1, item);
-                            itemHandler.extractItem(0, 10, false);
-                        } else {
-                            ItemStack item = output;
-                            item.setCount(output.getCount() + 1);
-                            itemHandler.setStackInSlot(1, item);
-                            itemHandler.extractItem(0, 16, false);
-                        }
-                        counter = 0;
-                    } else {
-                        counter++;
-                    }
-                    setChanged();
-                }
-
-                //Obsidian
-                if (!stack.isEmpty() && stack.getItem() == Blocks.OBSIDIAN.asItem()
-                        && stack.getCount()>=4
-                        && (output.isEmpty() || output.getItem() == Blocks.CRYING_OBSIDIAN.asItem())
-                        && output.getCount() <= 63) {
-                    energyStorage.consumeEnergy(usage);
-                    time=baseTime;
-                    if (counter >= time / active) {
-                        if (output.isEmpty()) {
-                            ItemStack item = new ItemStack(Blocks.CRYING_OBSIDIAN.asItem(), 1);
-                            itemHandler.setStackInSlot(1, item);
-                            itemHandler.extractItem(0, 4, false);
-                        } else {
-                            ItemStack item = output;
-                            item.setCount(output.getCount() + 1);
-                            itemHandler.setStackInSlot(1, item);
-                            itemHandler.extractItem(0, 4, false);
-                        }
-                        counter = 0;
-                    } else {
-                        counter++;
-                    }
-                    setChanged();
-                }
-
-                //Ender Pearl
-                if (!stack.isEmpty() && stack.getItem() == Blocks.END_STONE.asItem()
-                        && stack.getCount()>=32
-                        && (output.isEmpty() || output.getItem() == Items.ENDER_PEARL.asItem())
-                        && output.getCount() <= 63) {
-                    energyStorage.consumeEnergy(usage);
-                    time=baseTime;
-                    if (counter >= time / active) {
-                        if (output.isEmpty()) {
-                            ItemStack item = new ItemStack(Items.ENDER_PEARL.asItem(), 1);
-                            itemHandler.setStackInSlot(1, item);
-                            itemHandler.extractItem(0, 32, false);
-                        } else {
-                            ItemStack item = output;
-                            item.setCount(output.getCount() + 1);
-                            itemHandler.setStackInSlot(1, item);
-                            itemHandler.extractItem(0, 32, false);
-                        }
-                        counter = 0;
-                    } else {
-                        counter++;
-                    }
-                    setChanged();
-                }
-
-
-                // Ice
-                if (!stack.isEmpty() && stack.getItem() == Blocks.ICE.asItem()
-                        && stack.getCount()>=8
-                        && (output.isEmpty() || output.getItem() == Blocks.PACKED_ICE.asItem())
-                        && output.getCount() <= 63) {
-                    energyStorage.consumeEnergy(usage);
-                    time=baseTime/2;
-                    if (counter >= time / active) {
-                        if (output.isEmpty()) {
-                            ItemStack item = new ItemStack(Blocks.PACKED_ICE.asItem(), 1);
-                            itemHandler.setStackInSlot(1, item);
-                            itemHandler.extractItem(0, 8, false);
-                        } else {
-                            ItemStack item = output;
-                            item.setCount(output.getCount() + 1);
-                            itemHandler.setStackInSlot(1, item);
-                            itemHandler.extractItem(0, 8, false);
-                        }
-                        counter = 0;
-                    } else {
-                        counter++;
-                    }
-                    setChanged();
-                }
-
-                // Blue Ice
-                if (!stack.isEmpty() && stack.getItem() == Blocks.PACKED_ICE.asItem()
-                        && stack.getCount()>=8
-                        && (output.isEmpty() || output.getItem() == Blocks.BLUE_ICE.asItem())
-                        && output.getCount() <= 63) {
-                    energyStorage.consumeEnergy(usage);
-                    time=baseTime/2;
-                    if (counter >= time / active) {
-                        if (output.isEmpty()) {
-                            ItemStack item = new ItemStack(Blocks.BLUE_ICE.asItem(), 1);
-                            itemHandler.setStackInSlot(1, item);
-                            itemHandler.extractItem(0, 8, false);
-                        } else {
-                            ItemStack item = output;
-                            item.setCount(output.getCount() + 1);
-                            itemHandler.setStackInSlot(1, item);
-                            itemHandler.extractItem(0, 8, false);
-                        }
-                        counter = 0;
-                    } else {
-                        counter++;
-                    }
-                    setChanged();
-                }
-
-
-                // Dirt -> Gravel
-                if (!stack.isEmpty() && stack.getItem() == Blocks.DIRT.asItem()
-                        && stack.getCount()>=4
-                        && (output.isEmpty() || output.getItem() == Blocks.GRAVEL.asItem())
-                        && output.getCount() <= 63) {
-                    energyStorage.consumeEnergy(usage);
-                    time=baseTime/2;
-                    if (counter >= time / active) {
-                        if (output.isEmpty()) {
-                            ItemStack item = new ItemStack(Blocks.GRAVEL.asItem(), 1);
-                            itemHandler.setStackInSlot(1, item);
-                            itemHandler.extractItem(0, 4, false);
-                        } else {
-                            ItemStack item = output;
-                            item.setCount(output.getCount() + 1);
-                            itemHandler.setStackInSlot(1, item);
-                            itemHandler.extractItem(0, 4, false);
-                        }
-                        counter = 0;
-                    } else {
-                        counter++;
-                    }
-                    setChanged();
-                }
-
-
-
-
-                //Netherite
-                if (!stack.isEmpty() && stack.getItem() == Items.NETHERITE_SCRAP.asItem()
-                        && stack.getCount()>=7
-                        && (output.isEmpty() || output.getItem() == Items.NETHERITE_INGOT.asItem())
-                        && output.getCount() <= 63) {
-                    energyStorage.consumeEnergy(usage);
-                    time=baseTime*3;
-                    if (counter >= time / active) {
-                        if (output.isEmpty()) {
-                            ItemStack item = new ItemStack(Items.NETHERITE_INGOT.asItem(), 2);
-                            itemHandler.setStackInSlot(1, item);
-                            itemHandler.extractItem(0, 7, false);
-                        } else {
-                            ItemStack item = output;
-                            item.setCount(output.getCount() + 2);
-                            itemHandler.setStackInSlot(1, item);
-                            itemHandler.extractItem(0, 7, false);
-                        }
-                        counter = 0;
-                    } else {
-                        counter++;
-                    }
-                    setChanged();
-                }
-
-
-
-            }
-
-
-            level.setBlock(worldPosition, blockState.setValue(BlockStateProperties.POWERED, true),
-                    Block.UPDATE_ALL);
-        } else {
-            level.setBlock(worldPosition, blockState.setValue(BlockStateProperties.POWERED, false),
-                    Block.UPDATE_ALL);
+        /*get recipes:
+        1: Diamond
+        2: Netherrite
+        3: PACKED ICE
+        4: BLUE ICE
+        5: ENDERPEARL
+        6: GRAVEL
+         */
+        if(input.getItem()==Blocks.COAL_BLOCK.asItem() && input.getCount()>=10){
+            recipe=1;
+            time= (short) (baseTime*3);
         }
+        else if(input.getItem()==Items.NETHERITE_SCRAP && input.getCount()>=6){
+            recipe=2;
+            time=baseTime;
+        }
+        else if(input.getItem()==Blocks.ICE.asItem() && input.getCount()>=4){
+            recipe=3;
+            time= (short) (baseTime/2);
+        }
+        else if(input.getItem()==Blocks.PACKED_ICE.asItem() && input.getCount()>=4){
+            recipe=4;
+            time= (short) (baseTime/2);
+        }
+        else if(input.getItem()==Blocks.END_STONE.asItem() && input.getCount()>=32){
+            recipe=5;
+            time=baseTime;
+        }
+        else if(input.getItem()==Blocks.GRAVEL.asItem() && input.getCount()>=8){
+            recipe=6;
+            time= (short) (baseTime/2);
+        }
+        else{
+            recipe=0;
+            counter=0;
+            time=baseTime;
+        }
+
+        //check if recipe has been changed
+        if(recipe !=oldrecipe){
+            counter=0;
+        }
+        oldrecipe=recipe;
+
+
+        if(this.active>0 && hasEnoughPowerToWork() && recipe>0){
+            if(counter >= time/active){
+                if(recipe==1){
+                    if(output.isEmpty() || output.getItem()==Items.DIAMOND){
+                        int c =output.getCount();
+                        ItemStack stack= new ItemStack(Items.DIAMOND, c+1);
+                        itemHandler.setStackInSlot(1, stack);
+                        itemHandler.extractItem(0,10,false);
+                    }
+
+                }
+            }else{
+                counter++;
+            }
+        }
+
 
     }
 
@@ -308,9 +171,7 @@ int ctime=time;
     @Override
     public void onDataPacket(Connection net, ClientboundBlockEntityDataPacket pkt) {
         CompoundTag tag = pkt.getTag();
-ctime=tag.getInt("time");
-        ccounter=tag.getInt("counter");
-        cactive=tag.getInt("active");
+
     }
     @Override
     public CompoundTag getUpdateTag() {
@@ -323,9 +184,6 @@ ctime=tag.getInt("time");
     @Override
     public void handleUpdateTag(CompoundTag tag) {
         super.handleUpdateTag(tag);
-        ccounter = tag.getInt("counter");
-        cactive = tag.getInt("active");
-        ctime=tag.getInt("time");
     }
 
     @Override
@@ -334,8 +192,6 @@ ctime=tag.getInt("time");
         if (tag.contains("energy")) {
             energyStorage.deserializeNBT(tag.get("energy"));
         }
-
-        counter = tag.getInt("counter");
         super.load(tag);
     }
 

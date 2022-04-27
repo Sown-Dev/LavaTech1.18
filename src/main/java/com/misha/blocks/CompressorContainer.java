@@ -48,6 +48,8 @@ public class CompressorContainer extends AbstractContainerMenu {
         }
         layoutPlayerInventorySlots(8, 84);
         trackPower();
+        trackVars();
+        //need counter, time, recipe?, and active
     }
 
 
@@ -152,6 +154,15 @@ public class CompressorContainer extends AbstractContainerMenu {
     public int getEnergy() {
         return blockEntity.getCapability(CapabilityEnergy.ENERGY).map(IEnergyStorage::getEnergyStored).orElse(0);
     }
+    public short getActive(){
+        return blockEntity.active;
+    }
+    public short getCounter(){
+        return blockEntity.counter;
+    }
+    public short getTime(){
+        return blockEntity.time;
+    }
 
     private void layoutPlayerInventorySlots(int leftCol, int topRow) {
         // Player inventory
@@ -160,5 +171,44 @@ public class CompressorContainer extends AbstractContainerMenu {
         // Hotbar
         topRow += 58;
         addSlotRange(playerInventory, 0, leftCol, topRow, 9, 18);
+    }
+    private void trackVars(){
+
+        //active
+        addDataSlot(new DataSlot() {
+            @Override
+            public int get() {
+                return getActive();
+            }
+
+            @Override
+            public void set(int value) {
+                blockEntity.active=(short) value;
+            }
+        });
+        //Counter
+        addDataSlot(new DataSlot() {
+            @Override
+            public int get() {
+                return getCounter();
+            }
+
+            @Override
+            public void set(int value) {
+                blockEntity.counter=(short) value;
+            }
+        });
+        //Time
+        addDataSlot(new DataSlot() {
+            @Override
+            public int get() {
+                return getTime();
+            }
+
+            @Override
+            public void set(int value) {
+                blockEntity.time=(short) value;
+            }
+        });
     }
 }
