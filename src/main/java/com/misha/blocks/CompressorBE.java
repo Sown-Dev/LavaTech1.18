@@ -28,7 +28,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.capabilities.Capability;
-  
+
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.energy.CapabilityEnergy;
 import net.minecraftforge.energy.IEnergyStorage;
@@ -47,11 +47,11 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class CompressorBE extends BlockEntity {
 
     short active = 0;
-   public static int capacity = 50000;
+    public static int capacity = 50000;
     public int usage = 20;
     int transfer = 200;
     boolean hasPower = false;
-    public static final int baseUsage=20;
+    public static final int baseUsage = 20;
     private final ItemStackHandler itemHandler = createHandler();
     private final CustomEnergyStorage energyStorage = createEnergy();
     // Never create lazy optionals in getCapability. Always place them as fields in the tile entity:
@@ -59,9 +59,9 @@ public class CompressorBE extends BlockEntity {
     private final LazyOptional<IEnergyStorage> energy = LazyOptional.of(() -> energyStorage);
 
 
-public static short baseTime=1000;
-short time = baseTime;
-    short counter= 0;
+    public static short baseTime = 1000;
+    short time = baseTime;
+    short counter = 0;
 
     public CompressorBE(BlockPos pos, BlockState state) {
         //RecipeType.register("compressor")
@@ -76,8 +76,9 @@ short time = baseTime;
     }
 
 
-    short recipe=0;
-    short oldrecipe=0;
+    short recipe = 0;
+    short oldrecipe = 0;
+
     public void tickServer(BlockState state) {
         BlockPos below = new BlockPos(this.getBlockPos().getX(), this.getBlockPos().getY() - 1, this.getBlockPos().getZ());
 
@@ -88,8 +89,8 @@ short time = baseTime;
         } else {
             this.active = 0;
         }
-        ItemStack input=itemHandler.getStackInSlot(0);
-        ItemStack output=itemHandler.getStackInSlot(1);
+        ItemStack input = itemHandler.getStackInSlot(0);
+        ItemStack output = itemHandler.getStackInSlot(1);
 
 
         /*get recipes:
@@ -100,61 +101,121 @@ short time = baseTime;
         5: ENDERPEARL
         6: GRAVEL
          */
-        if(input.getItem()==Blocks.COAL_BLOCK.asItem() && input.getCount()>=10){
-            recipe=1;
-            time= (short) (baseTime*3);
-        }
-        else if(input.getItem()==Items.NETHERITE_SCRAP && input.getCount()>=6){
-            recipe=2;
-            time=baseTime;
-        }
-        else if(input.getItem()==Blocks.ICE.asItem() && input.getCount()>=4){
-            recipe=3;
-            time= (short) (baseTime/2);
-        }
-        else if(input.getItem()==Blocks.PACKED_ICE.asItem() && input.getCount()>=4){
-            recipe=4;
-            time= (short) (baseTime/2);
-        }
-        else if(input.getItem()==Blocks.END_STONE.asItem() && input.getCount()>=32){
-            recipe=5;
-            time=baseTime;
-        }
-        else if(input.getItem()==Blocks.GRAVEL.asItem() && input.getCount()>=8){
-            recipe=6;
-            time= (short) (baseTime/2);
-        }
-        else{
-            recipe=0;
-            counter=0;
-            time=baseTime;
+        if (input.getItem() == Blocks.COAL_BLOCK.asItem() && input.getCount() >= 10) {
+            recipe = 1;
+            time = (short) (baseTime * 3);
+        } else if (input.getItem() == Items.NETHERITE_SCRAP && input.getCount() >= 6) {
+            recipe = 2;
+            time = baseTime;
+        } else if (input.getItem() == Blocks.ICE.asItem() && input.getCount() >= 4) {
+            recipe = 3;
+            time = (short) (baseTime / 4);
+        } else if (input.getItem() == Blocks.PACKED_ICE.asItem() && input.getCount() >= 4) {
+            recipe = 4;
+            time = (short) (baseTime / 2);
+        } else if (input.getItem() == Blocks.END_STONE.asItem() && input.getCount() >= 32) {
+            recipe = 5;
+            time = baseTime;
+        } else if (input.getItem() == Blocks.GRAVEL.asItem() && input.getCount() >= 8) {
+            recipe = 6;
+            time = (short) (baseTime / 2);
+        } else {
+            recipe = 0;
+            counter = 0;
+            time = baseTime;
         }
 
         //check if recipe has been changed
-        if(recipe !=oldrecipe){
-            counter=0;
+        if (recipe != oldrecipe) {
+            counter = 0;
         }
-        oldrecipe=recipe;
+        oldrecipe = recipe;
 
 
-        if(this.active>0 && hasEnoughPowerToWork() && recipe>0){
-            if(counter >= time/active){
-                if(recipe==1){
-                    if(output.isEmpty() || output.getItem()==Items.DIAMOND){
-                        int c =output.getCount();
-                        ItemStack stack= new ItemStack(Items.DIAMOND, c+1);
-                        itemHandler.setStackInSlot(1, stack);
-                        itemHandler.extractItem(0,10,false);
+        if (this.active > 0 && hasEnoughPowerToWork() && recipe > 0) {
+            if (counter >= time / active) {
+                if (recipe == 1) {
+                    if (output.isEmpty()) {
+                        itemHandler.setStackInSlot(1, new ItemStack(Items.DIAMOND, 1));
+                        counter = 0;
                     }
-
+                    if (output.getItem() == Items.DIAMOND.asItem() && output.getCount() <= 64 - 1) {
+                        ItemStack stack = new ItemStack(Items.DIAMOND, output.getCount() + 1);
+                        itemHandler.setStackInSlot(1, stack);
+                        itemHandler.extractItem(0, 10, false);
+                        counter = 0;
+                    }
                 }
-            }else{
+                if (recipe == 2) {
+                    if (output.isEmpty()) {
+                        itemHandler.setStackInSlot(1, new ItemStack(Items.NETHERITE_INGOT, 2));
+                        counter = 0;
+                    }
+                    if (output.getItem() == Items.PACKED_ICE.asItem() && output.getCount() <= 64 - 2) {
+                        ItemStack stack = new ItemStack(Items.NETHERITE_INGOT, output.getCount() + 2);
+                        itemHandler.setStackInSlot(1, stack);
+                        itemHandler.extractItem(0, 6, false);
+                        counter = 0;
+                    }
+                }
+                if (recipe == 3) {
+                    if (output.isEmpty()) {
+                        itemHandler.setStackInSlot(1, new ItemStack(Items.PACKED_ICE, 1));
+                        counter = 0;
+                    }
+                    if (output.getItem() == Items.PACKED_ICE.asItem() && output.getCount() <= 64 - 1) {
+                        ItemStack stack = new ItemStack(Items.PACKED_ICE, output.getCount() + 1);
+                        itemHandler.setStackInSlot(1, stack);
+                        itemHandler.extractItem(0, 4, false);
+                        counter = 0;
+                    }
+                }
+                if (recipe == 4) {
+                    if (output.isEmpty()) {
+                        itemHandler.setStackInSlot(1, new ItemStack(Items.BLUE_ICE, 1));
+                        counter = 0;
+                    }
+                    if (output.getItem() == Items.BLUE_ICE.asItem() && output.getCount() <= 64 - 1) {
+                        ItemStack stack = new ItemStack(Items.BLUE_ICE, output.getCount() + 1);
+                        itemHandler.setStackInSlot(1, stack);
+                        itemHandler.extractItem(0, 4, false);
+                        counter = 0;
+                    }
+                }
+                if (recipe == 5) {
+                    if (output.isEmpty()) {
+                        itemHandler.setStackInSlot(1, new ItemStack(Items.ENDER_PEARL, 1));
+                        counter = 0;
+                    }
+                    if (output.getItem() == Items.ENDER_PEARL.asItem() && output.getCount() <= 16 - 1) {
+                        ItemStack stack = new ItemStack(Items.ENDER_PEARL, output.getCount() + 1);
+                        itemHandler.setStackInSlot(1, stack);
+                        itemHandler.extractItem(0, 32, false);
+                        counter = 0;
+                    }
+                }
+
+                if (recipe == 6) {
+                    if (output.isEmpty()) {
+                        itemHandler.setStackInSlot(1, new ItemStack(Items.GRAVEL, 1));
+                        counter = 0;
+                    }
+                    if (output.getItem() == Items.GRAVEL.asItem() && output.getCount() <= 64 - 1) {
+                        ItemStack stack = new ItemStack(Items.GRAVEL, output.getCount() + 1);
+                        itemHandler.setStackInSlot(1, stack);
+                        itemHandler.extractItem(0, 8, false);
+                        counter = 0;
+                    }
+                }
+
+
+            } else {
                 counter++;
             }
         }
 
-
     }
+
 
     private boolean hasEnoughPowerToWork() {
         return energyStorage.getEnergyStored() >= usage;
@@ -164,7 +225,7 @@ short time = baseTime;
         CompoundTag tag = new CompoundTag();
         tag.putInt("counter", counter);
         tag.putInt("active", active);
-        tag.putInt("time",time);
+        tag.putInt("time", time);
         return ClientboundBlockEntityDataPacket.create(this);
     }
 
@@ -173,14 +234,16 @@ short time = baseTime;
         CompoundTag tag = pkt.getTag();
 
     }
+
     @Override
     public CompoundTag getUpdateTag() {
         CompoundTag tag = super.getUpdateTag();
         tag.putInt("counter", counter);
         tag.putInt("active", active);
-        tag.putInt("time",time);
+        tag.putInt("time", time);
         return tag;
     }
+
     @Override
     public void handleUpdateTag(CompoundTag tag) {
         super.handleUpdateTag(tag);
@@ -196,12 +259,12 @@ short time = baseTime;
     }
 
     @Override
-    public   void saveAdditional(CompoundTag tag) {
+    public void saveAdditional(CompoundTag tag) {
         tag.put("inv", itemHandler.serializeNBT());
         tag.put("energy", energyStorage.serializeNBT());
 
         tag.putInt("counter", counter);
-         
+
     }
 
 
