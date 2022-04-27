@@ -102,6 +102,10 @@
 "block.lavaplus.carboninfuser": "Carbon Infusion Chamber",
   "message.carboninfuser":"This machine uses pure carbon (coal) to produce various materials as well as purify other forms of carbon such as charcoal and biomatter into coal.",
 
+
+"block.lavaplus.simplebeacon": "Mechanical Beacon",
+  "message.simplebeacon":"Uses 50FE/t to produce potion effects in a 10 block radius that can only be applied to one player at a time.",
+
 "item.lavaplus.ferrousalloy": "Ferrous Alloy Ingot",
 "message.ferrousalloy":"A peculiar alloy that can be used as a substitute for iron in certain recipes. Made in the alloy furnace with aluminum, iron, and tin.",
 

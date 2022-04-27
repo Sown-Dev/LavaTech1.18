@@ -42,7 +42,7 @@ public class SimpleBeaconContainer extends AbstractContainerMenu {
         this.playerInventory = new InvWrapper(playerInventory);
 
 
-        layoutPlayerInventorySlots(6, 86);
+        layoutPlayerInventorySlots(6, 78);
         trackPower();
         trackCounter();
     }
@@ -147,7 +147,6 @@ public class SimpleBeaconContainer extends AbstractContainerMenu {
                 ef=0;
             }
             blockEntity.effect=ef;
-            System.out.println("working");
         }
         if(pId==2){
             short ef =(short)( getEffect()-1  );
@@ -155,7 +154,6 @@ public class SimpleBeaconContainer extends AbstractContainerMenu {
                 ef=5;
             }
             blockEntity.effect=ef;
-            System.out.println("working");
         }
         return true;
 

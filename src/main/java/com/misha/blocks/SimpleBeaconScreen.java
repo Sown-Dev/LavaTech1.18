@@ -16,7 +16,7 @@ import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ForgeItemTagsProvider;
 
 public class SimpleBeaconScreen extends AbstractContainerScreen<SimpleBeaconContainer> {
-    private ResourceLocation GUI = new ResourceLocation(LavaPlus.MODID, "textures/gui/lavagenerator_gui.png");
+    private ResourceLocation GUI = new ResourceLocation(LavaPlus.MODID, "textures/gui/simplebeacon_gui.png");
     private ResourceLocation BAR= new ResourceLocation(LavaPlus.MODID, "textures/gui/bar2.png");
 
     //effects
@@ -42,11 +42,11 @@ public class SimpleBeaconScreen extends AbstractContainerScreen<SimpleBeaconCont
         this.renderTooltip(matrixStack, mouseX, mouseY);
 
         int relX = (this.width - this.imageWidth) / 2;
-        int relY = (this.height - this.imageHeight) / 2;
+        int relY = (this.height - this.imageHeight) / 2 +20;
 
-        if(mouseX>relX+8 && mouseX< relX+25 && mouseY>relY+1 && mouseY<relY+58){
+        if(mouseX>relX+8 && mouseX< relX+25 && mouseY>relY-3 && mouseY<relY+53){
             drawString(matrixStack, Minecraft.getInstance().font,   + menu.getEnergy()+"FE/"+SimpleBeaconBE.capacity+"FE", mouseX+9, mouseY, 0xffffff);
-            drawString(matrixStack, Minecraft.getInstance().font,   "Uses: "+SimpleBeaconBE.baseUsage+"FE/t", mouseX+9, mouseY+8, 0xffffff);
+            drawString(matrixStack, Minecraft.getInstance().font,   "Max Usage: "+SimpleBeaconBE.baseUsage+"FE/t", mouseX+9, mouseY+8, 0xffffff);
 
         }
 
@@ -55,21 +55,22 @@ public class SimpleBeaconScreen extends AbstractContainerScreen<SimpleBeaconCont
 
     @Override
     protected void renderLabels(PoseStack matrixStack, int mouseX, int mouseY) {
+        font.draw(matrixStack, new TranslatableComponent("block.lavaplus.simplebeacon")  , 5,10, 0x444444);
     }
 
     @Override
     protected void renderBg(PoseStack matrixStack, float partialTicks, int mouseX, int mouseY) {
         RenderSystem.setShaderTexture(0, GUI);
         int relX = (this.width - this.imageWidth) / 2;
-        int relY = (this.height - this.imageHeight) / 2 -15;
+        int relY = (this.height - this.imageHeight) / 2 +5;
         this.blit(matrixStack, relX-2, relY, 0, 0, this.imageWidth+4, this.imageHeight+20);
 
 
-        this.addRenderableWidget(new Button(relX+32, relY+34, 18, 18,new TranslatableComponent("<"),pButton -> {
+        this.addRenderableWidget(new Button(relX+46, relY+30, 20, 20,new TranslatableComponent("<"),pButton -> {
             this.minecraft.gameMode.handleInventoryButtonClick(this.menu.containerId,1);
         }));
 
-        this.addRenderableWidget(new Button(relX+72, relY+34, 18, 18,new TranslatableComponent("gui.lavaplus.rightarrow"),pButton -> {
+        this.addRenderableWidget(new Button(relX+100, relY+30, 20, 20,new TranslatableComponent("gui.lavaplus.rightarrow"),pButton -> {
             this.minecraft.gameMode.handleInventoryButtonClick(this.menu.containerId,2);
         }));
 
@@ -93,13 +94,13 @@ public class SimpleBeaconScreen extends AbstractContainerScreen<SimpleBeaconCont
             RenderSystem.setShaderTexture(0,DMG);
         }
 
-        this.blit(matrixStack, relX+90,relY+20, 0,0, 36,36);
+        this.blit(matrixStack, relX+74,relY+31, 0,0, 36,36);
 
 
         int energy=menu.getEnergy();
         int cap = SimpleBeaconBE.capacity;
         int barX = relX+7;
-        int barY = relY+71-(int)(((double)energy/(double) cap)*52);
+        int barY = relY+67-(int)(((double)energy/(double) cap)*52);
         RenderSystem.setShaderTexture(0, BAR);
         this.blit(matrixStack, barX,barY, 0, 0, 17, (int)(((double) energy/ (double) cap)*52));
 

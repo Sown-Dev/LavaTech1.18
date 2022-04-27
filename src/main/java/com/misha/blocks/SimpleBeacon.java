@@ -43,7 +43,7 @@ public class SimpleBeacon extends Block implements EntityBlock {
         super(Properties.of(Material.METAL)
                 .sound(SoundType.GLASS)
                 .noOcclusion()
-                .lightLevel(state -> state.getValue(BlockStateProperties.POWERED) ? 10: 0)
+                .lightLevel(state -> state.getValue(BlockStateProperties.POWERED) ? 13: 0)
                 .strength(1.0f));
     }
 
