@@ -366,6 +366,18 @@ public class Recipes extends RecipeProvider {
                 .unlockedBy("bfurnace", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.BLAST_FURNACE.asItem()))
                 .save(consumer);
 
+        ShapedRecipeBuilder.shaped(Registration.SIMPLEBEACON.get())
+                .pattern("ggg")
+                .pattern("gbg")
+                .pattern("mrm")
+                .define('g',Tags.Items.GLASS)
+                .define('b',Tags.Items.STORAGE_BLOCKS_GOLD)
+                .define('m', Registration.MACHINEFRAME.get().asItem())
+                .define('r', Tags.Items.STORAGE_BLOCKS_REDSTONE)
+                .group("beacon")
+                .unlockedBy("bruh", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.MACHINEFRAME.get()))
+                .save(consumer);
+
 
 
 

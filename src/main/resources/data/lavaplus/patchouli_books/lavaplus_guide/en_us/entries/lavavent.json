@@ -1,7 +1,7 @@
 {
    "name":"Lava Vent",
    "icon":"lavaplus:lavavent",
-   "category":"lavaplus:heatmachines",
+   "category":"lavaplus:mechanics",
    "pages":[
    {
             "type":"patchouli:crafting",
