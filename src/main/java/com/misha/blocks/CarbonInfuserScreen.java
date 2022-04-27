@@ -8,8 +8,6 @@ import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
-import net.minecraftforge.common.Tags;
-import net.minecraftforge.common.data.ForgeItemTagsProvider;
 
 public class CarbonInfuserScreen extends AbstractContainerScreen<CarbonInfuserContainer> {
     private ResourceLocation GUI = new ResourceLocation(LavaPlus.MODID, "textures/gui/carboninfuser_gui.png");
