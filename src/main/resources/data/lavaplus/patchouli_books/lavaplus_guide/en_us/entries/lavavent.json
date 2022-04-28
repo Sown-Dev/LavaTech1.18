@@ -7,13 +7,13 @@
             "type":"patchouli:crafting",
             "recipe":"lavaplus:lavavent",
             "title":"The Lava Vent",
-            "text":"The Lava Vent is the most crucial block for thermal machines. It provides heat that is needed to both power and speed up the machines. "
+            "text":"The Lava Vent is the most crucial block for thermal machines. It provides heat that is needed to both power and speed up the machines. It uses  "
 
          },
       {
                "type":"patchouli:multiblock",
                "multiblock_id":"lavaplus:lavavent",
-               "text":"The basic conduit can transfer power but cannot be placed next to other basic conduits",
+               "text":"This model shows one of the many setups of a lava vent. The sides can be replaced with any blocks that generate heat, and not all sides need to have heat.",
                "multiblock":{
                "pattern":[
                               [

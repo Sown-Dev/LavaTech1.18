@@ -1,0 +1,14 @@
+{
+"name":"Heated Magma Block",
+"icon": "lavaplus:heatedmagmablock",
+"category":"lavaplus:mechanics",
+"pages":[
+{
+"type":"patchouli:crafting",
+"recipe":"lavaplus:heatedmagmablock",
+"text":"The heater provides heat to the lava vent when supplied with power. It provides as much as 4 lava source blocks when powered and consumers 60FE/t"
+}
+]
+
+
+}

@@ -1,0 +1,13 @@
+{
+"name":"Heated Magma Block",
+"icon": "lavaplus:heatedmagmablock",
+"category":"lavaplus:mechanics",
+"pages":[
+{
+"type":"patchouli:text",
+"text":"Heat is a mechanic used by the lava vent to power thermal machines. These machines can be found in the\"Heat Machines\" chapter. The blocks that are able to provide heat to a Lava Vent are:$(li)Lava Source$(br)$(l:heatedmagmablock)$(br)$(l:heater)$(br) "
+}
+]
+
+
+}
