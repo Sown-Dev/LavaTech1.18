@@ -378,6 +378,19 @@ public class Recipes extends RecipeProvider {
                 .unlockedBy("bruh", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.MACHINEFRAME.get()))
                 .save(consumer);
 
+        ShapedRecipeBuilder.shaped(Registration.GARDEN.get())
+                .pattern("mrm")
+                .pattern("gbg")
+                .pattern("mhm")
+                .define('g',Tags.Items.GLASS)
+                .define('r',Blocks.REDSTONE_LAMP)
+                .define('m', Registration.MACHINEFRAME.get().asItem())
+                .define('h', Registration.HYDROPONICS.get().asItem())
+                .define('b',Items.BUCKET)
+                .group("garden")
+                .unlockedBy("rbruh", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.MACHINEFRAME.get()))
+                .save(consumer);
+
 
 
 
