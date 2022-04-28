@@ -40,6 +40,7 @@ public class LootTables extends BaseLootTableProvider {
         lootTables.put(Registration.CARBONINFUSER.get(), createStandardTable("carboninfuser", Registration.CARBONINFUSER.get(), Registration.CARBONINFUSER_BE.get()));
         lootTables.put(Registration.ALLOYSMELTER.get(), createStandardTable("alloysmelter", Registration.ALLOYSMELTER.get(), Registration.ALLOYSMELTER_BE.get()));
         lootTables.put(Registration.WATERMILL.get(), createStandardTable("watermill", Registration.WATERMILL.get(), Registration.WATERMILL_BE.get()));
+        lootTables.put(Registration.SIMPLEBEACON.get(), createStandardTable("simplebeacon", Registration.SIMPLEBEACON.get(), Registration.SIMPLEBEACON_BE.get()));
 
     }
 }

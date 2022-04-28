@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "garden",
+  "pattern": [
+    "mrm",
+    "gbg",
+    "mhm"
+  ],
+  "key": {
+    "g": {
+      "tag": "forge:glass"
+    },
+    "r": {
+      "item": "minecraft:redstone_lamp"
+    },
+    "m": {
+      "item": "lavaplus:machineframe"
+    },
+    "h": {
+      "item": "lavaplus:hydroponics"
+    },
+    "b": {
+      "item": "minecraft:bucket"
+    }
+  },
+  "result": {
+    "item": "lavaplus:garden"
+  }
+}

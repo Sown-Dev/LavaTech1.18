@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "lavaplus:garden"
+    ]
+  },
+  "criteria": {
+    "rbruh": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "lavaplus:machineframe"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "lavaplus:garden"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "rbruh",
+      "has_the_recipe"
+    ]
+  ]
+}

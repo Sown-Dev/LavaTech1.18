@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "beacon",
+  "pattern": [
+    "ggg",
+    "gbg",
+    "mrm"
+  ],
+  "key": {
+    "g": {
+      "tag": "forge:glass"
+    },
+    "b": {
+      "tag": "forge:storage_blocks/gold"
+    },
+    "m": {
+      "item": "lavaplus:machineframe"
+    },
+    "r": {
+      "tag": "forge:storage_blocks/redstone"
+    }
+  },
+  "result": {
+    "item": "lavaplus:simplebeacon"
+  }
+}

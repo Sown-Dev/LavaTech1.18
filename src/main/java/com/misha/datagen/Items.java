@@ -89,6 +89,13 @@ public class Items extends ItemModelProvider {
                 "layer0",
                 new ResourceLocation(LavaPlus.MODID, "item/stonegear"));
 
+        singleTexture(
+                "lavaguide",
+                new ResourceLocation("item/generated"),
+                "layer0",
+                new ResourceLocation(LavaPlus.MODID, "item/lavaguide"));
+
+
 
 
         withExistingParent(Registration.BLOCKBURNER_ITEM.get().getRegistryName().getPath(),

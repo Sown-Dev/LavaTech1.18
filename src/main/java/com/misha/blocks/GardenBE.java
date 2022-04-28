@@ -26,17 +26,16 @@ import net.minecraftforge.items.ItemStackHandler;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-public class HydroponicsBE extends BlockEntity {
+public class GardenBE extends BlockEntity {
 
-    public static int capacity = 25000;
+    public static int capacity = 50000;
 
     int transfer = 200;
     boolean hasPower = false;
-    public static final int baseUsage = 5;
+    public static final int baseUsage = 20;
 
     public int usage = baseUsage;
-    static int basetime = 500;
-    short sun = 0;
+    static int basetime = 300;
 
     int yield = 1;
     int time = basetime;
@@ -51,8 +50,8 @@ public class HydroponicsBE extends BlockEntity {
     public int counter = 0;
     public int ccounter = 0;
 
-    public HydroponicsBE(BlockPos pos, BlockState state) {
-        super(Registration.HYDROPONICS_BE.get(), pos, state);
+    public GardenBE(BlockPos pos, BlockState state) {
+        super(Registration.GARDEN_BE.get(), pos, state);
     }
 
     public void setRemoved() {
@@ -67,7 +66,8 @@ public class HydroponicsBE extends BlockEntity {
                 || i.is(Tags.Items.SEEDS)
                 || i.is(Items.SUGAR_CANE)
                 || i.is(Items.CARROT)
-                || i.is(Items.POTATO);
+                || i.is(Items.POTATO)
+                || i.is(Items.BEETROOT);
 
     }
 
@@ -85,7 +85,6 @@ public class HydroponicsBE extends BlockEntity {
         ItemStack input = itemHandler.getStackInSlot(0);
         //System.out.println(level.isDay());
         if (level.isDay() && level.canSeeSky(worldPosition)) {
-            sun = 1;
             if (hasEnoughPowerToWork() && isValid(input)) {
                 energyStorage.consumeEnergy(usage);
                 if (counter >= basetime) {
@@ -155,7 +154,7 @@ public class HydroponicsBE extends BlockEntity {
                             newItem.setCount(num + newItem.getCount());
                             itemHandler.setStackInSlot(findNext(newItem), newItem);
                         }
-                    } else if (input.getItem() == Items.BEETROOT || input.getItem() == Items.BEETROOT_SEEDS) {
+                    }else if (input.getItem() == Items.BEETROOT || input.getItem() == Items.BEETROOT_SEEDS) {
                         ItemStack newItem = new ItemStack(Items.BEETROOT, yield);
                         int num = itemHandler.getStackInSlot(findNext(newItem)).getCount();
                         newItem.setCount(num + newItem.getCount());
@@ -172,7 +171,6 @@ public class HydroponicsBE extends BlockEntity {
                         newItem.setCount(num + newItem.getCount());
                         itemHandler.setStackInSlot(findNext(newItem), newItem);
                     }
-
 
                     // IF none of those work, first give oak wood for trees, then simply double the seed
 
@@ -191,15 +189,7 @@ public class HydroponicsBE extends BlockEntity {
                         itemHandler.setStackInSlot(findNext(newItem), newItem);
                     }
 
-                    //After all this, give another seed,
 
-                    ItemStack newItem = new ItemStack(input.getItem(), 1);
-                    int num = itemHandler.getStackInSlot(findNext(newItem)).getCount();
-                    newItem.setCount(num + newItem.getCount());
-                    itemHandler.setStackInSlot(findNext(newItem), newItem);
-
-
-                    itemHandler.extractItem(0, 1, false);
                     counter = 0;
                 } else {
                     counter++;
@@ -209,7 +199,6 @@ public class HydroponicsBE extends BlockEntity {
 
         } else {
             //simple code used to enable/disable sun icon in GUI
-            sun = 0;
         }
 
 

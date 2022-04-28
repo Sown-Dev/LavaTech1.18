@@ -93,6 +93,7 @@ public class Registration {
     public static final RegistryObject<Block> CARBONINFUSER= BLOCKS.register("carboninfuser", CarbonInfuser::new);
     public static final RegistryObject<Block> CRANK= BLOCKS.register("crank", Crank::new);
     public static final RegistryObject<Block> SIMPLEBEACON= BLOCKS.register("simplebeacon", SimpleBeacon::new);
+    public static final RegistryObject<Block> GARDEN= BLOCKS.register("garden", Garden::new);
 
 
     //block items:
@@ -123,6 +124,7 @@ public class Registration {
     public static final RegistryObject<Item> CARBONINFUSER_ITEM = ITEMS.register("carboninfuser", () -> new BlockItem(CARBONINFUSER.get(), new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)));
     public static final RegistryObject<Item> CRANK_ITEM = ITEMS.register("crank", () -> new BlockItem(CRANK.get(), new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)));
     public static final RegistryObject<Item> SIMPLEBEACON_ITEM = ITEMS.register("simplebeacon", () -> new BlockItem(SIMPLEBEACON.get(), new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)));
+    public static final RegistryObject<Item> GARDEN_ITEM = ITEMS.register("garden", () -> new BlockItem(GARDEN.get(), new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)));
 
 
 
@@ -172,6 +174,8 @@ public class Registration {
             () -> BlockEntityType.Builder.of(CrankBE::new, CRANK.get()).build(null));
     public static final RegistryObject<BlockEntityType<SimpleBeaconBE>> SIMPLEBEACON_BE = BLOCKENTITIES.register("simplebeacon",
             () -> BlockEntityType.Builder.of(SimpleBeaconBE::new, SIMPLEBEACON.get()).build(null));
+    public static final RegistryObject<BlockEntityType<GardenBE>> GARDEN_BE = BLOCKENTITIES.register("garden",
+            () -> BlockEntityType.Builder.of(GardenBE::new, GARDEN.get()).build(null));
 
 
 
@@ -251,6 +255,11 @@ public class Registration {
         BlockPos pos = data.readBlockPos();
         Level world = inv.player.getCommandSenderWorld();
         return new SimpleBeaconContainer(windowId, world, pos, inv, inv.player);
+    }));
+    public static final RegistryObject<MenuType<GardenContainer>>GARDEN_CONTAINER = CONTAINERS.register("garden", () -> IForgeMenuType.create((windowId, inv, data) -> {
+        BlockPos pos = data.readBlockPos();
+        Level world = inv.player.getCommandSenderWorld();
+        return new GardenContainer(windowId, world, pos, inv, inv.player);
     }));
 
 
