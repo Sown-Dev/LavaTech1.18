@@ -2,6 +2,7 @@ package com.misha.datagen;
 
 import com.misha.setup.Registration;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
+import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.level.block.Blocks;
@@ -390,6 +391,10 @@ public class Recipes extends RecipeProvider {
                 .group("garden")
                 .unlockedBy("rbruh", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.MACHINEFRAME.get()))
                 .save(consumer);
+
+
+
+
 
 
 

@@ -1,0 +1,15 @@
+{
+"name":"Upgrader",
+"icon": "lavaplus:upgrader",
+"category":"lavaplus:heatmachines",
+"pages":[
+{
+"type":"patchouli:crafting",
+"recipe":"lavaplus:upgrader",
+"text":"TO-DO"
+}
+
+]
+
+
+}

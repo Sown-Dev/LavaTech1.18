@@ -1,5 +1,8 @@
 {
     "name": "Thermal Guide [WIP]",
     "landing_text": "The all-purpose guide to the Lava Tech mod. Currently still in development and not all the entries have been completed.",
-    "model": "lavaplus:lavaguide"
+    "model": "lavaplus:lavaguide",
+    "subtitle":"The all-purpose guide to Lava Tech",
+    "book_texture":"patchouli:textures/gui/book_red.png"
+
 }
