@@ -117,13 +117,14 @@ public class Recipes extends RecipeProvider {
                 .save(consumer);
 
         ShapedRecipeBuilder.shaped(Registration.COMPRESSOR.get())
-                .pattern("mnm")
+                .pattern("mpm")
                 .pattern("dbd")
                 .pattern("mnm")
                 .define('d', Registration.LAVABRICK.get().asItem())
                 .define('b', Registration.BLOCKBURNER.get().asItem())
                 .define('n', Items.NETHERITE_INGOT)
                 .define('m',  Registration.MACHINEFRAME.get().asItem())
+                .define('p', Blocks.PISTON.asItem())
                 .group("compressor")
                 .unlockedBy("lavabrick", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.LAVABRICK.get().asItem()))
                 .save(consumer);

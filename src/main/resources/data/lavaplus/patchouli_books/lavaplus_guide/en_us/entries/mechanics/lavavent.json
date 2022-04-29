@@ -23,7 +23,7 @@
                               ]
                            ],
                   "mapping":{
-                     "l":"minecraft:water",
+                     "l":"lavaplus:heatedmagmablock",
                      "0":"lavaplus:lavavent"
                   }
                }

@@ -6,7 +6,7 @@
 {
 "type":"patchouli:crafting",
 "recipe":"lavaplus:heatedmagmablock",
-"text":"Superheated Magma provides the same amount of heat as 2 lava sources."
+"text":"Superheated Magma passively provides the same amount of heat as 2 lava sources."
 }
 ]
 

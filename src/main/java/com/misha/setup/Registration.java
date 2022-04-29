@@ -44,6 +44,7 @@ public class Registration {
         public static void clientSetup(FMLClientSetupEvent event){
             Hydroponics.registerRenderLayer();
             SimpleBeacon.registerRenderLayer();
+            Garden.registerRenderLayer();
         }
     }
 
