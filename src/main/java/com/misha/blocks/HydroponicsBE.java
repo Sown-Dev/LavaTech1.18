@@ -32,7 +32,7 @@ public class HydroponicsBE extends BlockEntity {
 
     int transfer = 200;
     boolean hasPower = false;
-    public static final int baseUsage = 5;
+    public static final int baseUsage = 10;
 
     public int usage = baseUsage;
     static int basetime = 500;
@@ -203,8 +203,9 @@ public class HydroponicsBE extends BlockEntity {
                     counter = 0;
                 } else {
                     counter++;
-
                 }
+            }else{
+                counter=0;
             }
 
         } else {

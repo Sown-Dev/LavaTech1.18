@@ -106,7 +106,7 @@
   "message.simplebeacon":"Uses 50FE/t to produce potion effects in a 10 block radius that can only be applied to one player at a time.",
 
 "block.lavaplus.garden": "Hydroponic Garden",
-  "message.garden":"Uses 50FE/t to produce potion effects in a 10 block radius that can only be applied to one player at a time.",
+  "message.garden":"The advanced version of the growth chamber, the Hydroponic Garden uses 30FE/t to grow plants. Unlike its predecessor, it doesn't consume seeds and doesn't require sunlight",
 
 "item.lavaplus.ferrousalloy": "Ferrous Alloy Ingot",
 "message.ferrousalloy":"A peculiar alloy that can be used as a substitute for iron in certain recipes. Made in the alloy furnace with aluminum, iron, and tin.",

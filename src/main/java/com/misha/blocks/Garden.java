@@ -26,6 +26,7 @@ import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraftforge.api.distmarker.Dist;
@@ -40,6 +41,7 @@ public class Garden extends Block implements EntityBlock {
         super(BlockBehaviour.Properties.of(Material.WOOD)
                 .sound(SoundType.STONE)
                 .noOcclusion()
+                .lightLevel(state -> state.isAir() ? 14: 14)
                 .strength(0.5f));
     }
 
@@ -67,7 +69,7 @@ public class Garden extends Block implements EntityBlock {
 
     @Override
     public void appendHoverText(ItemStack stack, @Nullable BlockGetter reader, List<Component> list, TooltipFlag flags) {
-        list.add(new TranslatableComponent("message.Garden").withStyle(ChatFormatting.DARK_GRAY));
+        list.add(new TranslatableComponent("message.garden").withStyle(ChatFormatting.DARK_GRAY));
     }
 
     @Override
@@ -95,7 +97,7 @@ public class Garden extends Block implements EntityBlock {
                 MenuProvider containerProvider = new MenuProvider() {
                     @Override
                     public Component getDisplayName() {
-                        return new TranslatableComponent("screen.lavaplus.Garden");
+                        return new TranslatableComponent("screen.lavaplus.garden");
                     }
 
                     @Override

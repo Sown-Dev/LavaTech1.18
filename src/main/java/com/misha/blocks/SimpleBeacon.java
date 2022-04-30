@@ -103,7 +103,7 @@ public class SimpleBeacon extends Block implements EntityBlock {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable BlockGetter reader, List<Component> list, TooltipFlag flags) {
         int energy = stack.hasTag() ? stack.getTag().getInt("energy") : 0;
-        list.add(new TranslatableComponent("message.SimpleBeacon", Integer.toString(energy)).withStyle(ChatFormatting.DARK_GRAY));
+        list.add(new TranslatableComponent("message.simplebeacon", Integer.toString(energy)).withStyle(ChatFormatting.DARK_GRAY));
     }
 
 

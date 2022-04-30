@@ -14,6 +14,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.CapabilityItemHandler;
@@ -172,7 +173,14 @@ public class AlloySmelterBE extends BlockEntity {
                 if (slot == 4) {
                     return false;
                 } else {
-                    return true;
+                    if (slot == 3 && stack.getItem()== Items.COAL) {
+                        return true;
+                    }
+                    else if(stack.is(Tags.Items.INGOTS)) {
+                        return true;
+                    }else{
+                        return false;
+                    }
                 }
             }
 

@@ -23,7 +23,7 @@ public class CrankBE extends BlockEntity {
     int capacity = 4000;
     int transfer=2000;
     int inertia=0;
-    int inertiaGain=4;
+    static int inertiaGain=5;
     int generate=18;
     private final CustomEnergyStorage energyStorage = createEnergy();
 

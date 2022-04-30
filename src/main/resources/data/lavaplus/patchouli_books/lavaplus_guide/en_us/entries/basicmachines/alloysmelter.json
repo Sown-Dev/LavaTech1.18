@@ -6,7 +6,7 @@
 {
 "type":"patchouli:crafting",
 "recipe":"lavaplus:alloysmelter",
-"text":"The alloy smelter is "
+"text":"The alloy smelter is used to create Ferrous Alloy and Bronze. To make ferrous alloy, add aluminum, iron, and tin in the 3 slots starting with aluminum in the left. To make bronze, add tin and 2 copper. The tin needs to be in the left slot. Uses coal for fuel and consumes one coal for every operation. "
 },
 {
 "type":"patchouli:image",

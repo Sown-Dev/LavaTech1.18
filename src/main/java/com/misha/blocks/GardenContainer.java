@@ -26,8 +26,6 @@ public class GardenContainer extends AbstractContainerMenu {
     boolean active=false;
     int counter = 0;
 
-    short dat = (short) counter;
-
     public GardenContainer(int windowId, Level world, BlockPos pos, Inventory playerInventory, Player player) {
         super(Registration.GARDEN_CONTAINER.get(), windowId);
         blockEntity = (GardenBE) world.getBlockEntity(pos);
@@ -37,6 +35,7 @@ public class GardenContainer extends AbstractContainerMenu {
         if (blockEntity != null) {
             blockEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(h -> {
                 addSlot(new SlotItemHandler(h, 0, 44, 25));
+
                 for(int i =0;i<9; i++){
                     addSlot(new SlotItemHandler(h, i+1, 115+((i%3) *18), 7+((i/3)*18)));
                 }

@@ -32,7 +32,7 @@ public class GardenBE extends BlockEntity {
 
     int transfer = 200;
     boolean hasPower = false;
-    public static final int baseUsage = 20;
+    public static final int baseUsage = 30;
 
     public int usage = baseUsage;
     static int basetime = 300;
@@ -76,16 +76,12 @@ public class GardenBE extends BlockEntity {
         return rand < chance;
     }
 
-    public boolean sunlight() {
-        float time = level.getDayTime();
-        return ((time > 23450 || time < 12540.0F) && level.canSeeSky(worldPosition));
-    }
-
     public void tickServer(BlockState state) {
         ItemStack input = itemHandler.getStackInSlot(0);
-        //System.out.println(level.isDay());
-        if (level.isDay() && level.canSeeSky(worldPosition)) {
-            if (hasEnoughPowerToWork() && isValid(input)) {
+
+
+        if (hasEnoughPowerToWork() ) {
+            if (isValid(input)) {
                 energyStorage.consumeEnergy(usage);
                 if (counter >= basetime) {
 
@@ -154,18 +150,17 @@ public class GardenBE extends BlockEntity {
                             newItem.setCount(num + newItem.getCount());
                             itemHandler.setStackInSlot(findNext(newItem), newItem);
                         }
-                    }else if (input.getItem() == Items.BEETROOT || input.getItem() == Items.BEETROOT_SEEDS) {
+                    } else if (input.getItem() == Items.BEETROOT || input.getItem() == Items.BEETROOT_SEEDS) {
                         ItemStack newItem = new ItemStack(Items.BEETROOT, yield);
                         int num = itemHandler.getStackInSlot(findNext(newItem)).getCount();
                         newItem.setCount(num + newItem.getCount());
                         itemHandler.setStackInSlot(findNext(newItem), newItem);
-                    }else if (input.getItem() == Items.MELON_SEEDS) {
+                    } else if (input.getItem() == Items.MELON_SEEDS) {
                         ItemStack newItem = new ItemStack(Items.MELON, yield);
                         int num = itemHandler.getStackInSlot(findNext(newItem)).getCount();
                         newItem.setCount(num + newItem.getCount());
                         itemHandler.setStackInSlot(findNext(newItem), newItem);
-                    }
-                    else if (input.getItem() == Items.PUMPKIN_SEEDS) {
+                    } else if (input.getItem() == Items.PUMPKIN_SEEDS) {
                         ItemStack newItem = new ItemStack(Items.PUMPKIN, yield);
                         int num = itemHandler.getStackInSlot(findNext(newItem)).getCount();
                         newItem.setCount(num + newItem.getCount());
@@ -195,12 +190,10 @@ public class GardenBE extends BlockEntity {
                     counter++;
 
                 }
+            }else{
+                counter=0;
             }
-
-        } else {
-            //simple code used to enable/disable sun icon in GUI
         }
-
 
     }
 
