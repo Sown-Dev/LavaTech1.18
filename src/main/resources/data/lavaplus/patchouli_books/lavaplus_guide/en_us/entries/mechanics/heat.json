@@ -5,12 +5,12 @@
     "pages": [
         {
             "type": "patchouli:text",
-            "text": "Heat is a mechanic used by the lava vent to power thermal machines. These machines can be found in the $(l:lavaplus:heatmachines)Heat Machines chapter$(/l). The blocks that are able to provide heat to a Lava Vent are:$(li)Lava Source$(br)$(l:lavaplus:mechanics/heatedmagmablock)Heated Magma Block $(/l)$(br)$(l:lavaplus:mechanics/heater)Heater$(/l)$()$(br)NOTE: Heat sources don't get consumed over time, so you do not need to replace lava sources."
+            "text": "$(thing)Heat$() is a mechanic used by the $(l:lavaplus:mechanics/lavavent)lava lents$(/l) to power thermal machines. These machines can be found in the $(l:lavaplus:heatmachines)Heat Machines$(/l) chapter. The blocks that are able to provide $(thing)heat$() to a $(l:lavaplus:mechanics/lavavent)Lava Vent$(/l) are:$(li)Lava source$(br)$(li)$(l:lavaplus:mechanics/heatedmagmablock)Heated Magma Block$(/l)$(br)$(li)$(l:lavaplus:mechanics/heater)Heater$(/l)"
         },
         {
             "type": "patchouli:text",
             "title": "Machines and Heat",
-            "text": "Machines that use heat must be placed on top of the lava vent in order to function. Higher heat increase the speed at which machines work but also how much energy they consume. A machine powered by 4 lava sources will work twice as fast as one powered by 2 lava sources, but will also use twice as much FE/tick."
+            "text": "Machines that use $(thing)heat$() must be placed on top of the $(l:lavaplus:mechanics/lavavent)lava vent$(/l) in order to function. Higher $(thing)heat$() increase the speed at which machines work but also how much energy they consume. A machine powered by 4 lava sources will work twice as fast as one powered by 2 lava sources, but will also use twice as much FE/tick.$(br)NOTE: Heat sources don't get consumed over time, so you do not need to replace lava sources."
         }
     ]
 }
