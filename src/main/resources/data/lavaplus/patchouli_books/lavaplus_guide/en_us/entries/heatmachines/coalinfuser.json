@@ -1,15 +1,12 @@
 {
-"name":"Coal Infuser",
-"icon": "lavaplus:coalinfuser",
-"category":"lavaplus:heatmachines",
-"pages":[
-{
-"type":"patchouli:crafting",
-"recipe":"lavaplus:coalinfuser",
-"text":"TO-DO"
-}
-
-]
-
-
+    "name": "Coal Infuser",
+    "icon": "lavaplus:coalinfuser",
+    "category": "lavaplus:heatmachines",
+    "pages": [
+        {
+            "type": "patchouli:crafting",
+            "recipe": "lavaplus:coalinfuser",
+            "text": "TO-DO"
+        }
+    ]
 }

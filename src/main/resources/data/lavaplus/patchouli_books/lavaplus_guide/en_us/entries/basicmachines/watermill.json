@@ -1,19 +1,19 @@
 {
-"name":"Watermill",
-"icon": "lavaplus:watermill",
-"category":"lavaplus:basicmachines",
-"pages":[
-{
-"type":"patchouli:crafting",
-"recipe":"lavaplus:watermill",
-"text":"The basic conduit is a useful but limited power cable that is very cheap to make and accessible in the early game. It can transfer power at a maximum of 200FE/t but cannot be placed next to other basic conduits."
-},
-{
-"type":"patchouli:image",
-"images":["lavaplus:textures/block/basicconduit.png"],
-"text":"An example of an early-game setup using the basic conduit."
-}
-]
-
-
+    "name": "Watermill",
+    "icon": "lavaplus:watermill",
+    "category": "lavaplus:basicmachines",
+    "pages": [
+        {
+            "type": "patchouli:crafting",
+            "recipe": "lavaplus:watermill",
+            "text": "The basic conduit is a useful but limited power cable that is very cheap to make and accessible in the early game. It can transfer power at a maximum of 200FE/t but cannot be placed next to other basic conduits."
+        },
+        {
+            "type": "patchouli:image",
+            "images": [
+                "lavaplus:textures/block/basicconduit.png"
+            ],
+            "text": "An example of an early-game setup using the basic conduit."
+        }
+    ]
 }
