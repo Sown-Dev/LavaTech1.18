@@ -44,6 +44,15 @@ public abstract class BaseLootTableProvider extends LootTableProvider {
 
     protected abstract void addTables();
 
+    protected LootTable.Builder createStandardTable(String name, Block block) {
+        LootPool.Builder builder = LootPool.lootPool()
+                .name(name)
+                .setRolls(ConstantValue.exactly(1))
+                .add(LootItem.lootTableItem(block)
+                );
+        return LootTable.lootTable().withPool(builder);
+    }
+
     protected LootTable.Builder createStandardTable(String name, Block block, BlockEntityType<?> type) {
         LootPool.Builder builder = LootPool.lootPool()
                 .name(name)

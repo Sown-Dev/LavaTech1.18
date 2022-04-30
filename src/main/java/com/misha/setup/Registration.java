@@ -95,6 +95,7 @@ public class Registration {
     public static final RegistryObject<Block> CRANK= BLOCKS.register("crank", Crank::new);
     public static final RegistryObject<Block> SIMPLEBEACON= BLOCKS.register("simplebeacon", SimpleBeacon::new);
     public static final RegistryObject<Block> GARDEN= BLOCKS.register("garden", Garden::new);
+    public static final RegistryObject<Block> FUELPROCESSOR= BLOCKS.register("fuelprocessor", FuelProcessor::new);
 
 
     //block items:
@@ -126,6 +127,7 @@ public class Registration {
     public static final RegistryObject<Item> CRANK_ITEM = ITEMS.register("crank", () -> new BlockItem(CRANK.get(), new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)));
     public static final RegistryObject<Item> SIMPLEBEACON_ITEM = ITEMS.register("simplebeacon", () -> new BlockItem(SIMPLEBEACON.get(), new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)));
     public static final RegistryObject<Item> GARDEN_ITEM = ITEMS.register("garden", () -> new BlockItem(GARDEN.get(), new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)));
+    public static final RegistryObject<Item> FUELPROCESSOR_ITEM = ITEMS.register("fuelprocessor", () -> new BlockItem(FUELPROCESSOR.get(), new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)));
 
 
 
@@ -177,6 +179,8 @@ public class Registration {
             () -> BlockEntityType.Builder.of(SimpleBeaconBE::new, SIMPLEBEACON.get()).build(null));
     public static final RegistryObject<BlockEntityType<GardenBE>> GARDEN_BE = BLOCKENTITIES.register("garden",
             () -> BlockEntityType.Builder.of(GardenBE::new, GARDEN.get()).build(null));
+    public static final RegistryObject<BlockEntityType<FuelProcessorBE>> FUELPROCESSOR_BE = BLOCKENTITIES.register("fuelprocessor",
+            () -> BlockEntityType.Builder.of(FuelProcessorBE::new, FUELPROCESSOR.get()).build(null));
 
 
 
@@ -261,6 +265,11 @@ public class Registration {
         BlockPos pos = data.readBlockPos();
         Level world = inv.player.getCommandSenderWorld();
         return new GardenContainer(windowId, world, pos, inv, inv.player);
+    }));
+    public static final RegistryObject<MenuType<FuelProcessorContainer>>FUELPROCESSOR_CONTAINER = CONTAINERS.register("fuelprocessor", () -> IForgeMenuType.create((windowId, inv, data) -> {
+        BlockPos pos = data.readBlockPos();
+        Level world = inv.player.getCommandSenderWorld();
+        return new FuelProcessorContainer(windowId, world, pos, inv, inv.player);
     }));
 
 

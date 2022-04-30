@@ -117,6 +117,7 @@ public class CompressorBE extends BlockEntity {
                 if (recipe == 1) {
                     if (output.isEmpty()) {
                         itemHandler.setStackInSlot(1, new ItemStack(Items.DIAMOND, 1));
+                        itemHandler.extractItem(0, 10, false);
                         counter = 0;
                     }
                     if (output.getItem() == Items.DIAMOND.asItem() && output.getCount() <= 64 - 1) {
@@ -129,9 +130,10 @@ public class CompressorBE extends BlockEntity {
                 if (recipe == 2) {
                     if (output.isEmpty()) {
                         itemHandler.setStackInSlot(1, new ItemStack(Items.NETHERITE_INGOT, 2));
+                        itemHandler.extractItem(0, 6, false);
                         counter = 0;
                     }
-                    if (output.getItem() == Items.PACKED_ICE.asItem() && output.getCount() <= 64 - 2) {
+                    if (output.getItem() == Items.NETHERITE_INGOT.asItem() && output.getCount() <= 64 - 2) {
                         ItemStack stack = new ItemStack(Items.NETHERITE_INGOT, output.getCount() + 2);
                         itemHandler.setStackInSlot(1, stack);
                         itemHandler.extractItem(0, 6, false);
@@ -141,6 +143,7 @@ public class CompressorBE extends BlockEntity {
                 if (recipe == 3) {
                     if (output.isEmpty()) {
                         itemHandler.setStackInSlot(1, new ItemStack(Items.PACKED_ICE, 1));
+                        itemHandler.extractItem(0, 4, false);
                         counter = 0;
                     }
                     if (output.getItem() == Items.PACKED_ICE.asItem() && output.getCount() <= 64 - 1) {
@@ -153,6 +156,7 @@ public class CompressorBE extends BlockEntity {
                 if (recipe == 4) {
                     if (output.isEmpty()) {
                         itemHandler.setStackInSlot(1, new ItemStack(Items.BLUE_ICE, 1));
+                        itemHandler.extractItem(0, 4, false);
                         counter = 0;
                     }
                     if (output.getItem() == Items.BLUE_ICE.asItem() && output.getCount() <= 64 - 1) {
@@ -165,6 +169,7 @@ public class CompressorBE extends BlockEntity {
                 if (recipe == 5) {
                     if (output.isEmpty()) {
                         itemHandler.setStackInSlot(1, new ItemStack(Items.ENDER_PEARL, 1));
+                        itemHandler.extractItem(0, 32, false);
                         counter = 0;
                     }
                     if (output.getItem() == Items.ENDER_PEARL.asItem() && output.getCount() <= 16 - 1) {
@@ -178,6 +183,7 @@ public class CompressorBE extends BlockEntity {
                 if (recipe == 6) {
                     if (output.isEmpty()) {
                         itemHandler.setStackInSlot(1, new ItemStack(Items.GRAVEL, 1));
+                        itemHandler.extractItem(0, 8, false);
                         counter = 0;
                     }
                     if (output.getItem() == Items.GRAVEL.asItem() && output.getCount() <= 64 - 1) {
