@@ -7,6 +7,7 @@ c720809f22714506b9ec5b646aae0b48d15793be assets/lavaplus/blockstates/alloysmelte
 727001ade2d2bf3697e7893979c7c9fdda9e3a7d assets/lavaplus/blockstates/coalinfuser.json
 b1e81098f357b8eecb1d8be95edd39fdbc3cea21 assets/lavaplus/blockstates/compressor.json
 4ce45f74de8e527e202f6363d4fc6719710e82b3 assets/lavaplus/blockstates/copperdrill.json
+f07979ff1393ad362154f173ecf522a2f2602f26 assets/lavaplus/blockstates/fuelprocessor.json
 a3cc50ff25a963af50cfef9ace46c55f5206d652 assets/lavaplus/blockstates/healer.json
 b2fc5252f681f0f822ead5a5295c6a3121eda249 assets/lavaplus/blockstates/heatedmagmablock.json
 9596df40134c784cc46ec73fab6a9845b6929f97 assets/lavaplus/blockstates/heater.json
@@ -33,6 +34,8 @@ dab6e795cb69d01bdbefc6295ccd0e69701f79ed assets/lavaplus/models/block/coalinfuse
 76574d05e71fd80931919497ea1e6f3d8fab5d35 assets/lavaplus/models/block/compressor_fronton.json
 164aec94f93a7e75eac94403f0bbcf616151c3ec assets/lavaplus/models/block/copperdrill.json
 164aec94f93a7e75eac94403f0bbcf616151c3ec assets/lavaplus/models/block/copperdrill_on.json
+cd9611336a30cb7a46fb6e75b3fbf485003d09ca assets/lavaplus/models/block/fuelprocessor.json
+5b2d042d4cb91a728fb34516cd07f9483457e006 assets/lavaplus/models/block/fuelprocessoron.json
 b95c96e705aa51727eb1a275e81397fc6cc65903 assets/lavaplus/models/block/healer.json
 b95c96e705aa51727eb1a275e81397fc6cc65903 assets/lavaplus/models/block/healer_on.json
 9ac385362ff803ce27452292dfec63f9b08e68d9 assets/lavaplus/models/block/heatedmagmablock.json
@@ -63,6 +66,8 @@ e1acf6e2c0c38fb692633e702c78a39378088702 assets/lavaplus/models/item/bronze.json
 f6f708315631394befb65c330a4452300d3f4013 assets/lavaplus/models/item/copperpickaxe.json
 1a21d722239f011d3d37b3d8dc7ce62bdf40d62d assets/lavaplus/models/item/coppersword.json
 2548dd928515ddd64c8bacbf566d131dc95c436f assets/lavaplus/models/item/ferrousalloy.json
+0b7e3c91af9f87e284c28c481c1bdf76c7a0ce33 assets/lavaplus/models/item/fuelcell.json
+f1a832853f6344886e07966235bb12d13a2e757b assets/lavaplus/models/item/fuelprocessor.json
 d5137a71850b4ece42147a011ce8cd417667e446 assets/lavaplus/models/item/healer.json
 3f67298d252f810ddf0c214767dcf414b4e80300 assets/lavaplus/models/item/heatedmagmablock.json
 9cd9b7c4f9a490939b5eef558e9fcd22549b43d4 assets/lavaplus/models/item/heater.json
@@ -126,6 +131,7 @@ e47a53d89a645bf4d32e820f9f030787870bfdea data/lavaplus/loot_tables/blocks/condui
 b595c7dc25948d60fa1433d251026c9dd8a93f5f data/lavaplus/loot_tables/blocks/copperdrill.json
 7d618741ddcb5fc830a7c7ff623e95688d011cb6 data/lavaplus/loot_tables/blocks/crank.json
 5eddcec7aa6f990570a5f5ac3e08272fd10bacba data/lavaplus/loot_tables/blocks/crate.json
+4b0b38cda9d8045962971f4a0800068e9ee2129d data/lavaplus/loot_tables/blocks/fuelprocessor.json
 cb517626cfa0f803f8de6e63a00406adb4bbc064 data/lavaplus/loot_tables/blocks/healer.json
 7ec3b3f8fe56dc2b9a0df5c738c633510ec5a2ae data/lavaplus/loot_tables/blocks/heatedmagmablock.json
 0677386282a8c15e93e7f11f59778cd64485d340 data/lavaplus/loot_tables/blocks/heater.json

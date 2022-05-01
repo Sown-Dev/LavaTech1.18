@@ -32,6 +32,7 @@ public class ClientSetup {
             MenuScreens.register(Registration.CARBONINFUSER_CONTAINER.get(), CarbonInfuserScreen::new);
             MenuScreens.register(Registration.SIMPLEBEACON_CONTAINER.get(), SimpleBeaconScreen::new);
             MenuScreens.register(Registration.GARDEN_CONTAINER.get(), GardenScreen::new);
+            MenuScreens.register(Registration.FUELPROCESSOR_CONTAINER.get(), FuelProcessorScreen::new);
 
         });
     }

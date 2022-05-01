@@ -94,6 +94,12 @@ public class Items extends ItemModelProvider {
                 new ResourceLocation("item/generated"),
                 "layer0",
                 new ResourceLocation(LavaPlus.MODID, "item/lavaguide"));
+        singleTexture(
+                Registration.FUELCELL.get().getRegistryName().getPath(),
+                new ResourceLocation("item/generated"),
+                "layer0",
+                new ResourceLocation(LavaPlus.MODID, "item/fuelcell"));
+
 
 
 
@@ -154,6 +160,9 @@ public class Items extends ItemModelProvider {
 
         withExistingParent(Registration.WATERMILL.get().getRegistryName().getPath(),
                 new ResourceLocation(LavaPlus.MODID, "block/watermill"));
+
+        withExistingParent(Registration.FUELPROCESSOR.get().getRegistryName().getPath(),
+                new ResourceLocation(LavaPlus.MODID, "block/fuelprocessor"));
 
 
 

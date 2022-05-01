@@ -35,8 +35,8 @@ import java.util.List;
 
 public class FuelProcessor extends Block implements EntityBlock {
     public FuelProcessor(){
-        super(BlockBehaviour.Properties.of(Material.WOOD)
-                .sound(SoundType.STONE)
+        super(BlockBehaviour.Properties.of(Material.METAL)
+                .sound(SoundType.METAL)
                 .noOcclusion()
                 .strength(0.5f));
     }
@@ -65,7 +65,7 @@ public class FuelProcessor extends Block implements EntityBlock {
 
     @Override
     public void appendHoverText(ItemStack stack, @Nullable BlockGetter reader, List<Component> list, TooltipFlag flags) {
-        list.add(new TranslatableComponent("message.FuelProcessor").withStyle(ChatFormatting.DARK_GRAY));
+        list.add(new TranslatableComponent("message.fuelprocessor").withStyle(ChatFormatting.DARK_GRAY));
     }
 
     @Override

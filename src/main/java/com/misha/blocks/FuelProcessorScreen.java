@@ -13,7 +13,8 @@ public class FuelProcessorScreen extends AbstractContainerScreen<FuelProcessorCo
     private ResourceLocation GUI = new ResourceLocation(LavaPlus.MODID, "textures/gui/fuelprocessor_gui.png");
     private ResourceLocation ARROW= new ResourceLocation(LavaPlus.MODID, "textures/gui/arrow.png");
     private ResourceLocation BAR= new ResourceLocation(LavaPlus.MODID, "textures/gui/bar2.png");
-    private ResourceLocation CARBONBAR= new ResourceLocation(LavaPlus.MODID, "textures/gui/carbonbar.png");
+    private ResourceLocation FUELBAR= new ResourceLocation(LavaPlus.MODID, "textures/gui/fuelbar.png");
+    private ResourceLocation DROP= new ResourceLocation(LavaPlus.MODID, "textures/gui/drop.png");
 
     public static int counter=0;
     public static int active =0;
@@ -37,7 +38,7 @@ public class FuelProcessorScreen extends AbstractContainerScreen<FuelProcessorCo
             drawString(matrixStack, Minecraft.getInstance().font,   "Uses: "+FuelProcessorBE.baseUsage+"FE/t", mouseX+9, mouseY+8, 0xffffff);
 
         }
-        if(mouseX>relX+32 && mouseX< relX+44 && mouseY>relY+1 && mouseY<relY+58){
+        if(mouseX>relX+80 && mouseX< relX+96 && mouseY>relY+1 && mouseY<relY+58){
             drawString(matrixStack, Minecraft.getInstance().font,   + menu.getFuel()+"mB/"+FuelProcessorBE.fuelCap+"mB", mouseX+9, mouseY, 0xffffff);
         }
 
@@ -59,18 +60,23 @@ public class FuelProcessorScreen extends AbstractContainerScreen<FuelProcessorCo
         //System.out.println(counter+""+ active);
 
         if(menu.getCounter()>0){
+            RenderSystem.setShaderTexture(0, DROP);
+            int bwidth=(int)(20*((double) menu.getCounter()/((double)menu.blockEntity.time)));
+
+            this.blit(matrixStack, relX + 54, relY + 38, 0, 0, bwidth, 17);
+        }
+        if(menu.getCounter2()>0){
             RenderSystem.setShaderTexture(0, ARROW);
-            int bwidth=(int)(30*((double) menu.getCounter()/((double)menu.blockEntity.time)));
+            int bwidth=(int)(20*((double) menu.getCounter2()/((double)menu.blockEntity.time2)));
 
-            this.blit(matrixStack, relX + 84, relY + 21, 0, 0, bwidth, 17);
-
+            this.blit(matrixStack, relX + 98, relY + 37, 0, 0, bwidth, 17);
         }
 
         int carbmax= FuelProcessorBE.fuelCap;
         int carb =  menu.getFuel();
         int cbarY = relY+71 -(int)(((double)carb/(double) carbmax)*52);
-        RenderSystem.setShaderTexture(0, CARBONBAR);
-        this.blit(matrixStack, relX+35,cbarY, 0, 0, 17, (int)(((double) carb/ (double) carbmax)*52));
+        RenderSystem.setShaderTexture(0, FUELBAR);
+        this.blit(matrixStack, relX+81,cbarY, 0, 0, 20, (int)(((double) carb/ (double) carbmax)*52));
 
 
 

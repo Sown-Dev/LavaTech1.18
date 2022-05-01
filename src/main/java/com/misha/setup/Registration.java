@@ -65,6 +65,7 @@ public class Registration {
 
 
     public static final RegistryObject<Item> FERROUSALLOY= ITEMS.register("ferrousalloy", () -> new FerrousAlloy(new Item.Properties().tab(CreativeModeTab.TAB_MISC)));
+    public static final RegistryObject<Item> FUELCELL= ITEMS.register("fuelcell", () -> new FuelCell(new Item.Properties().tab(CreativeModeTab.TAB_MISC)));
 
     //blocks:
     public static final RegistryObject<Block> BLOCKBURNER = BLOCKS.register("blockburner",BlockBurner::new);
@@ -96,6 +97,7 @@ public class Registration {
     public static final RegistryObject<Block> SIMPLEBEACON= BLOCKS.register("simplebeacon", SimpleBeacon::new);
     public static final RegistryObject<Block> GARDEN= BLOCKS.register("garden", Garden::new);
     public static final RegistryObject<Block> FUELPROCESSOR= BLOCKS.register("fuelprocessor", FuelProcessor::new);
+    public static final RegistryObject<Block> FUELCOMP= BLOCKS.register("fuelcomp", FuelComp::new);
 
 
     //block items:
@@ -128,6 +130,7 @@ public class Registration {
     public static final RegistryObject<Item> SIMPLEBEACON_ITEM = ITEMS.register("simplebeacon", () -> new BlockItem(SIMPLEBEACON.get(), new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)));
     public static final RegistryObject<Item> GARDEN_ITEM = ITEMS.register("garden", () -> new BlockItem(GARDEN.get(), new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)));
     public static final RegistryObject<Item> FUELPROCESSOR_ITEM = ITEMS.register("fuelprocessor", () -> new BlockItem(FUELPROCESSOR.get(), new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)));
+    public static final RegistryObject<Item> FUELCOMP_ITEM = ITEMS.register("fuelcomp", () -> new BlockItem(FUELCOMP.get(), new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)));
 
 
 

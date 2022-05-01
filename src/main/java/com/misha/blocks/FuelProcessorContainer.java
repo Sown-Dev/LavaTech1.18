@@ -36,14 +36,13 @@ public class FuelProcessorContainer extends AbstractContainerMenu {
 
         if (blockEntity != null) {
             blockEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(h -> {
-                addSlot(new SlotItemHandler(h, 0, 60, 7));
-                addSlot(new SlotItemHandler(h, 1, 60, 36));
-                addSlot(new SlotItemHandler(h, 2, 127, 7));
+                addSlot(new SlotItemHandler(h, 0, 31, 23));
+                addSlot(new SlotItemHandler(h, 1, 137, 23));
 
 
             });
         }
-        layoutPlayerInventorySlots(6, 86);
+        layoutPlayerInventorySlots(6, 63);
         trackPower();
         trackCounter();
     }
@@ -162,6 +161,9 @@ public class FuelProcessorContainer extends AbstractContainerMenu {
     public short getFuel(){
         return blockEntity.fuel;
     }
+    public short getCounter2(){
+        return blockEntity.counter2;
+    }
 
     private void layoutPlayerInventorySlots(int leftCol, int topRow) {
         // Player inventory
@@ -210,5 +212,19 @@ public class FuelProcessorContainer extends AbstractContainerMenu {
                 blockEntity.fuel= (short) value;
             }
         });
+
+
+        addDataSlot(new DataSlot() {
+            @Override
+            public int get() {
+                return getCounter2();
+            }
+
+            @Override
+            public void set(int value) {
+                blockEntity.counter2= (short) value;
+            }
+        });
+
     }
 }

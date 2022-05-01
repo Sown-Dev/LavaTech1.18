@@ -33,7 +33,7 @@ public class FuelProcessorBE extends BlockEntity {
     int transfer = 200;
     boolean hasPower = false;
     public static final int baseUsage = 25;
-    static int basetime = 300;
+    static int basetime = 60;
     int time = basetime;
 
     //private final TileFluidHandler fluidHandler= createFluid();
@@ -44,10 +44,13 @@ public class FuelProcessorBE extends BlockEntity {
     private final LazyOptional<IEnergyStorage> energy = LazyOptional.of(() -> energyStorage);
 
     public int counter = 0;
-    public int ccounter = 0;
+    public short counter2=0;
+    static int time2=200;
 
+    boolean built= false;
     short fuel=0;
-    public static short fuelCap=5000;
+    static int reqFuel=2000;
+    public static short fuelCap=8000;
 
     public FuelProcessorBE(BlockPos pos, BlockState state) {
         super(Registration.FUELPROCESSOR_BE.get(), pos, state);
@@ -61,7 +64,7 @@ public class FuelProcessorBE extends BlockEntity {
     }
 
     public static boolean isValid(ItemStack i) {
-        return true;
+        return i.isEdible();
 
     }
 
@@ -71,6 +74,65 @@ public class FuelProcessorBE extends BlockEntity {
     public void tickServer(BlockState state) {
         ItemStack input = itemHandler.getStackInSlot(0);
         ItemStack output=itemHandler.getStackInSlot(1);
+
+        BlockPos above = new BlockPos(worldPosition.getX(), worldPosition.getY()+1, worldPosition.getZ());
+        if(level.getBlockState(above).getBlock() == Registration.REINFORCEDFRAME.get()){
+            built=true;
+        }else{
+            built=false;
+        }
+        //uses this to know if it should consume energy in the tick
+boolean usePower=false;
+        if(built){
+            if(hasEnoughPowerToWork()){
+                if(isValid(input) && input.getItem().getFoodProperties() != null){
+                    if(counter>time) {
+                        int amount = input.getItem().getFoodProperties().getNutrition() * 50;
+                        if (fuel < fuelCap - amount) {
+                            fuel += amount;
+                            itemHandler.extractItem(0, 1, false);
+                            counter=0;
+                        }
+                    }else{
+                        usePower=true;
+                        counter++;
+                    }
+                }else{
+                    counter=0;
+                }
+
+                if(fuel>=reqFuel){
+                    if(counter2>=time2) {
+                        if (output.isEmpty()) {
+                            itemHandler.setStackInSlot(1, new ItemStack(Registration.FUELCELL.get(), 1));
+                            fuel -= reqFuel;
+                            counter2 = 0;
+                        }
+                        if (output.getItem() == Registration.FUELCELL.get().asItem() && output.getCount() <= 64 - 1) {
+                            ItemStack stack = new ItemStack(Registration.FUELCELL.get(), output.getCount() + 1);
+                            itemHandler.setStackInSlot(1, stack);
+                            fuel -= reqFuel;
+                            counter2 = 0;
+                        }
+                    }
+                    else{
+                        usePower=true;
+                        counter2++;
+                    }
+                }else{
+                    counter2=0;
+                }
+            }
+        }else{
+            counter2=0;
+            counter=0;
+        }
+
+
+        if(usePower){
+            energyStorage.consumeEnergy(usage);
+        }
+
 
 
     }
@@ -103,20 +165,17 @@ public class FuelProcessorBE extends BlockEntity {
     public void onDataPacket(Connection net, ClientboundBlockEntityDataPacket pkt) {
         CompoundTag tag = pkt.getTag();
 
-        ccounter = tag.getInt("counter");
     }
 
     @Override
     public CompoundTag getUpdateTag() {
         CompoundTag tag = super.getUpdateTag();
-        tag.putInt("counter", counter);
         return tag;
     }
 
     @Override
     public void handleUpdateTag(CompoundTag tag) {
         super.handleUpdateTag(tag);
-        ccounter = tag.getInt("counter");
     }
 
 
@@ -127,7 +186,6 @@ public class FuelProcessorBE extends BlockEntity {
         if (tag.contains("energy")) {
             energyStorage.deserializeNBT(tag.get("energy"));
         }
-        counter = tag.getInt("counter");
         super.load(tag);
     }
 
@@ -141,7 +199,7 @@ public class FuelProcessorBE extends BlockEntity {
 
 
     private ItemStackHandler createHandler() {
-        return new ItemStackHandler(10) {
+        return new ItemStackHandler(2) {
 
             @Override
             protected void onContentsChanged(int slot) {

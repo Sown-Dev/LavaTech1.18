@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "lavaplus:block/fuelprocessor_top",
+    "up": "lavaplus:block/fuelprocessor_top",
+    "north": "lavaplus:block/fuelprocessor_fronton",
+    "south": "lavaplus:block/fuelprocessor_side",
+    "east": "lavaplus:block/fuelprocessor_side",
+    "west": "lavaplus:block/fuelprocessor_side",
+    "particle": "lavaplus:block/fuelprocessor_side"
+  }
+}
