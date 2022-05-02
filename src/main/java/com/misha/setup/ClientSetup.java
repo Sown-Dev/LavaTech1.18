@@ -33,6 +33,7 @@ public class ClientSetup {
             MenuScreens.register(Registration.SIMPLEBEACON_CONTAINER.get(), SimpleBeaconScreen::new);
             MenuScreens.register(Registration.GARDEN_CONTAINER.get(), GardenScreen::new);
             MenuScreens.register(Registration.FUELPROCESSOR_CONTAINER.get(), FuelProcessorScreen::new);
+            MenuScreens.register(Registration.REACTORPANEL_CONTAINER.get(), ReactorPanelScreen::new);
 
         });
     }

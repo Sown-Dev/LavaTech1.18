@@ -145,6 +145,7 @@ public class Registration {
     public static final RegistryObject<Item> REACTORFRAME_ITEM = ITEMS.register("reactorframe", () -> new BlockItem(REACTORFRAME.get(), new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)));
     public static final RegistryObject<Item> REACTORPANEL_ITEM = ITEMS.register("reactorpanel", () -> new BlockItem(REACTORPANEL.get(), new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)));
     public static final RegistryObject<Item> REACTORCORE_ITEM = ITEMS.register("reactorcore", () -> new BlockItem(REACTORCORE.get(), new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)));
+    public static final RegistryObject<Item> REACTORPORT_ITEM = ITEMS.register("reactorport", () -> new BlockItem(REACTORPORT.get(), new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)));
 
 
 

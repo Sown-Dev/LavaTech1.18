@@ -27,6 +27,9 @@ public class ReactorCoreBE extends BlockEntity {
     }
 boolean built=false;
     boolean prebuilt=false;
+
+    BlockPos panelpos=worldPosition;
+    BlockPos portpos = worldPosition;
     public void tickServer(BlockState state) {
         // naming: 23 -> 2: layer (1-3), 3:block (1-9):
         // block:     layer:
@@ -88,15 +91,15 @@ boolean built=false;
 
 
                                 level.getBlockState(b21).getBlock() == Registration.REACTORFRAME.get() &&
-                                (level.getBlockState(b22).getBlock() == Registration.REACTORPANEL.get() || level.getBlockState(b22).getBlock() == Registration.REACTORGLASS.get()|| level.getBlockState(b22).getBlock() == Registration.REACTORFRAME.get()) &&
+                                (level.getBlockState(b22).getBlock() == Registration.REACTORPORT.get() ||level.getBlockState(b22).getBlock() == Registration.REACTORPANEL.get() || level.getBlockState(b22).getBlock() == Registration.REACTORGLASS.get()|| level.getBlockState(b22).getBlock() == Registration.REACTORFRAME.get()) &&
                                 level.getBlockState(b23).getBlock() == Registration.REACTORFRAME.get() &&
 
-                                (level.getBlockState(b24).getBlock() == Registration.REACTORPANEL.get() || level.getBlockState(b24).getBlock() == Registration.REACTORGLASS.get()|| level.getBlockState(b24).getBlock() == Registration.REACTORFRAME.get())&&
+                                (level.getBlockState(b24).getBlock() == Registration.REACTORPORT.get() ||level.getBlockState(b24).getBlock() == Registration.REACTORPANEL.get() || level.getBlockState(b24).getBlock() == Registration.REACTORGLASS.get()|| level.getBlockState(b24).getBlock() == Registration.REACTORFRAME.get())&&
                                 //   CORE
-                                (level.getBlockState(b26).getBlock() == Registration.REACTORPANEL.get() || level.getBlockState(b26).getBlock() == Registration.REACTORGLASS.get()|| level.getBlockState(b26).getBlock() == Registration.REACTORFRAME.get()) &&
+                                (level.getBlockState(b26).getBlock() == Registration.REACTORPORT.get() ||level.getBlockState(b26).getBlock() == Registration.REACTORPANEL.get() || level.getBlockState(b26).getBlock() == Registration.REACTORGLASS.get()|| level.getBlockState(b26).getBlock() == Registration.REACTORFRAME.get()) &&
 
                                 level.getBlockState(b27).getBlock() == Registration.REACTORFRAME.get() &&
-                                (level.getBlockState(b28).getBlock() == Registration.REACTORPANEL.get() || level.getBlockState(b28).getBlock() == Registration.REACTORGLASS.get()|| level.getBlockState(b28).getBlock() == Registration.REACTORFRAME.get()) &&
+                                (level.getBlockState(b28).getBlock() == Registration.REACTORPORT.get() ||level.getBlockState(b28).getBlock() == Registration.REACTORPANEL.get() || level.getBlockState(b28).getBlock() == Registration.REACTORGLASS.get()|| level.getBlockState(b28).getBlock() == Registration.REACTORFRAME.get()) &&
                                 level.getBlockState(b29).getBlock() == Registration.REACTORFRAME.get() &&
 
                                 //layer 3:
@@ -114,14 +117,23 @@ boolean built=false;
         ){
             //now check to see if there is only 1 panel:
             int panels=0;
-            if(level.getBlockState(b15).getBlock() == Registration.REACTORPANEL.get()){ panels++;}
-            if(level.getBlockState(b22).getBlock() == Registration.REACTORPANEL.get()){ panels++;}
-            if(level.getBlockState(b24).getBlock() == Registration.REACTORPANEL.get()){ panels++;}
-            if(level.getBlockState(b26).getBlock() == Registration.REACTORPANEL.get()){ panels++;}
-            if(level.getBlockState(b28).getBlock() == Registration.REACTORPANEL.get()){ panels++;}
-            if(level.getBlockState(b35).getBlock() == Registration.REACTORPANEL.get()){ panels++;}
+            if(level.getBlockState(b15).getBlock() == Registration.REACTORPANEL.get()){ panels++;panelpos=b15;}
+            if(level.getBlockState(b22).getBlock() == Registration.REACTORPANEL.get()){ panels++;panelpos=b22;}
+            if(level.getBlockState(b24).getBlock() == Registration.REACTORPANEL.get()){ panels++;panelpos=b24;}
+            if(level.getBlockState(b26).getBlock() == Registration.REACTORPANEL.get()){ panels++;panelpos=b26;}
+            if(level.getBlockState(b28).getBlock() == Registration.REACTORPANEL.get()){ panels++;panelpos=b28;}
+            if(level.getBlockState(b35).getBlock() == Registration.REACTORPANEL.get()){ panels++;panelpos=b35;}
 
-            if(panels==1){
+            //check ports
+            int ports=0;
+            if(level.getBlockState(b15).getBlock() == Registration.REACTORPORT.get()){ ports++; portpos=b15;}
+            if(level.getBlockState(b22).getBlock() == Registration.REACTORPORT.get()){ ports++; portpos=b22;}
+            if(level.getBlockState(b24).getBlock() == Registration.REACTORPORT.get()){ ports++; portpos=b24;}
+            if(level.getBlockState(b26).getBlock() == Registration.REACTORPORT.get()){ ports++; portpos=b26;}
+            if(level.getBlockState(b28).getBlock() == Registration.REACTORPORT.get()){ ports++; portpos=b28;}
+            if(level.getBlockState(b35).getBlock() == Registration.REACTORPORT.get()){ ports++; portpos=b35;}
+
+            if(panels==1 && ports==1){
                 built=true;
             }else{
                 built=false;

@@ -51,7 +51,7 @@ public class BlockStates extends BlockStateProvider {
         simpleBlock(Registration.REACTORFRAME.get());
         simpleBlock(Registration.REACTORGLASS.get());
         simpleBlock(Registration.REACTORPANEL.get());
-        //simpleBlock(Registration.REACTORPORT.get());
+        simpleBlock(Registration.REACTORPORT.get());
     }
 
     private void registerUpgraderBlock() {
