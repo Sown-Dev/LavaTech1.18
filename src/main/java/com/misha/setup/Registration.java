@@ -96,6 +96,7 @@ public class Registration {
     public static final RegistryObject<Block> CRANK= BLOCKS.register("crank", Crank::new);
     public static final RegistryObject<Block> SIMPLEBEACON= BLOCKS.register("simplebeacon", SimpleBeacon::new);
     public static final RegistryObject<Block> GARDEN= BLOCKS.register("garden", Garden::new);
+
     public static final RegistryObject<Block> FUELPROCESSOR= BLOCKS.register("fuelprocessor", FuelProcessor::new);
     public static final RegistryObject<Block> FUELCOMP= BLOCKS.register("fuelcomp", FuelComp::new);
 

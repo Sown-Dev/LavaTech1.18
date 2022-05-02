@@ -108,9 +108,14 @@
 "block.lavaplus.garden": "Hydroponic Garden",
   "message.garden":"The advanced version of the growth chamber, the Hydroponic Garden uses 30FE/t to grow plants. Unlike its predecessor, it doesn't consume seeds and doesn't require sunlight",
 
+"block.lavaplus.fuelprocessor": "Nutritional Fuel Processor",
+  "message.fuelprocessor":"Needs 2 Fuel Processor components on top to complete the multiblock. Turns food into Nutritional Fuel Cells based on their food value. ",
+
 "item.lavaplus.ferrousalloy": "Ferrous Alloy Ingot",
 "message.ferrousalloy":"A peculiar alloy that can be used as a substitute for iron in certain recipes. Made in the alloy furnace with aluminum, iron, and tin.",
 
+"item.lavaplus.fuelcell": "Nutritional Fuel Cell",
+"message.fuelcell":"Made in the fuel processor by condensing food into burnable fuel",
 
 
   "item.lavaplus.copperdrillbit" : "Copper Drill",

@@ -46,7 +46,7 @@ public class BlockStates extends BlockStateProvider {
         registerBlock("alloysmelter",Registration.ALLOYSMELTER.get());
         registerBlock("watermill",Registration.WATERMILL.get());
         registerBlock("fuelprocessor",Registration.FUELPROCESSOR.get());
-
+        //simpleBlock(Registration.FUELPROCESSOR.get());
     }
 
     private void registerUpgraderBlock() {

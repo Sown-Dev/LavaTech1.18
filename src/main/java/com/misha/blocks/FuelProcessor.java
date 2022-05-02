@@ -37,7 +37,6 @@ public class FuelProcessor extends Block implements EntityBlock {
     public FuelProcessor(){
         super(BlockBehaviour.Properties.of(Material.METAL)
                 .sound(SoundType.METAL)
-                .noOcclusion()
                 .strength(0.5f));
     }
 

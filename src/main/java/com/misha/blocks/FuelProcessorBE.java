@@ -15,6 +15,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.energy.CapabilityEnergy;
@@ -76,7 +77,8 @@ public class FuelProcessorBE extends BlockEntity {
         ItemStack output=itemHandler.getStackInSlot(1);
 
         BlockPos above = new BlockPos(worldPosition.getX(), worldPosition.getY()+1, worldPosition.getZ());
-        if(level.getBlockState(above).getBlock() == Registration.REINFORCEDFRAME.get()){
+        BlockPos above2 = new BlockPos(worldPosition.getX(), worldPosition.getY()+2, worldPosition.getZ());
+        if(level.getBlockState(above).getBlock() == Registration.FUELCOMP.get() && level.getBlockState(above2).getBlock() == Registration.FUELCOMP.get() ){
             built=true;
         }else{
             built=false;
@@ -132,7 +134,6 @@ boolean usePower=false;
         if(usePower){
             energyStorage.consumeEnergy(usage);
         }
-
 
 
     }
