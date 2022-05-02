@@ -106,6 +106,7 @@ public class Registration {
     public static final RegistryObject<Block> REACTORFRAME= BLOCKS.register("reactorframe", ReactorFrame::new);
     public static final RegistryObject<Block> REACTORPANEL= BLOCKS.register("reactorpanel", ReactorPanel::new);
     public static final RegistryObject<Block> REACTORCORE= BLOCKS.register("reactorcore", ReactorCore::new);
+    public static final RegistryObject<Block> REACTORPORT= BLOCKS.register("reactorport", ReactorPort::new);
 
 
     //block items:
@@ -203,6 +204,8 @@ public class Registration {
 
     public static final RegistryObject<BlockEntityType<ReactorCoreBE>> REACTORCORE_BE = BLOCKENTITIES.register("reactorcore",
             () -> BlockEntityType.Builder.of(ReactorCoreBE::new, REACTORCORE.get()).build(null));
+    public static final RegistryObject<BlockEntityType<ReactorPortBE>> REACTORPORT_BE = BLOCKENTITIES.register("reactorport",
+            () -> BlockEntityType.Builder.of(ReactorPortBE::new, REACTORPORT.get()).build(null));
 
 
 
