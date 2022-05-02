@@ -164,6 +164,12 @@ public class Items extends ItemModelProvider {
         withExistingParent(Registration.FUELPROCESSOR.get().getRegistryName().getPath(),
                 new ResourceLocation(LavaPlus.MODID, "block/fuelprocessor"));
 
+        withExistingParent(Registration.REACTORFRAME.get().getRegistryName().getPath(),
+                new ResourceLocation(LavaPlus.MODID, "block/reactorframe"));
+
+        withExistingParent(Registration.REACTORGLASS.get().getRegistryName().getPath(),
+                new ResourceLocation(LavaPlus.MODID, "block/reactorglass"));
+
 
 
 

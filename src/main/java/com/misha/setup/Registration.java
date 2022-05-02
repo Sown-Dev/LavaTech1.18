@@ -45,6 +45,8 @@ public class Registration {
             Hydroponics.registerRenderLayer();
             SimpleBeacon.registerRenderLayer();
             Garden.registerRenderLayer();
+            ReactorGlass.registerRenderLayer();
+            ReactorCore.registerRenderLayer();
         }
     }
 
@@ -99,6 +101,11 @@ public class Registration {
 
     public static final RegistryObject<Block> FUELPROCESSOR= BLOCKS.register("fuelprocessor", FuelProcessor::new);
     public static final RegistryObject<Block> FUELCOMP= BLOCKS.register("fuelcomp", FuelComp::new);
+    //reactor blocks:
+    public static final RegistryObject<Block> REACTORGLASS= BLOCKS.register("reactorglass", ReactorGlass::new);
+    public static final RegistryObject<Block> REACTORFRAME= BLOCKS.register("reactorframe", ReactorFrame::new);
+    public static final RegistryObject<Block> REACTORPANEL= BLOCKS.register("reactorpanel", ReactorPanel::new);
+    public static final RegistryObject<Block> REACTORCORE= BLOCKS.register("reactorcore", ReactorCore::new);
 
 
     //block items:
@@ -132,6 +139,11 @@ public class Registration {
     public static final RegistryObject<Item> GARDEN_ITEM = ITEMS.register("garden", () -> new BlockItem(GARDEN.get(), new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)));
     public static final RegistryObject<Item> FUELPROCESSOR_ITEM = ITEMS.register("fuelprocessor", () -> new BlockItem(FUELPROCESSOR.get(), new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)));
     public static final RegistryObject<Item> FUELCOMP_ITEM = ITEMS.register("fuelcomp", () -> new BlockItem(FUELCOMP.get(), new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)));
+
+    public static final RegistryObject<Item> REACTORGLASS_ITEM = ITEMS.register("reactorglass", () -> new BlockItem(REACTORGLASS.get(), new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)));
+    public static final RegistryObject<Item> REACTORFRAME_ITEM = ITEMS.register("reactorframe", () -> new BlockItem(REACTORFRAME.get(), new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)));
+    public static final RegistryObject<Item> REACTORPANEL_ITEM = ITEMS.register("reactorpanel", () -> new BlockItem(REACTORPANEL.get(), new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)));
+    public static final RegistryObject<Item> REACTORCORE_ITEM = ITEMS.register("reactorcore", () -> new BlockItem(REACTORCORE.get(), new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)));
 
 
 
@@ -185,6 +197,12 @@ public class Registration {
             () -> BlockEntityType.Builder.of(GardenBE::new, GARDEN.get()).build(null));
     public static final RegistryObject<BlockEntityType<FuelProcessorBE>> FUELPROCESSOR_BE = BLOCKENTITIES.register("fuelprocessor",
             () -> BlockEntityType.Builder.of(FuelProcessorBE::new, FUELPROCESSOR.get()).build(null));
+
+    public static final RegistryObject<BlockEntityType<ReactorPanelBE>> REACTORPANEL_BE = BLOCKENTITIES.register("reactorpanel",
+            () -> BlockEntityType.Builder.of(ReactorPanelBE::new, REACTORPANEL.get()).build(null));
+
+    public static final RegistryObject<BlockEntityType<ReactorCoreBE>> REACTORCORE_BE = BLOCKENTITIES.register("reactorcore",
+            () -> BlockEntityType.Builder.of(ReactorCoreBE::new, REACTORCORE.get()).build(null));
 
 
 
@@ -274,6 +292,11 @@ public class Registration {
         BlockPos pos = data.readBlockPos();
         Level world = inv.player.getCommandSenderWorld();
         return new FuelProcessorContainer(windowId, world, pos, inv, inv.player);
+    }));
+    public static final RegistryObject<MenuType<ReactorPanelContainer>>REACTORPANEL_CONTAINER = CONTAINERS.register("reactorpanel", () -> IForgeMenuType.create((windowId, inv, data) -> {
+        BlockPos pos = data.readBlockPos();
+        Level world = inv.player.getCommandSenderWorld();
+        return new ReactorPanelContainer(windowId, world, pos, inv, inv.player);
     }));
 
 
