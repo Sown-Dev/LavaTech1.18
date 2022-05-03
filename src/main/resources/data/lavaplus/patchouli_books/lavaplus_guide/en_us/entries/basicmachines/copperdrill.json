@@ -1,23 +1,23 @@
 {
-"name":"Copper Drill",
-"icon": "lavaplus:copperdrill",
-"category":"lavaplus:basicmachines",
-"pages":[
-{
-"type":"patchouli:crafting",
-"recipe":"lavaplus:copperdrillbit",
-"recipe2":"lavaplus:copperdrill"
-},
-{
-"type":"patchouli:text",
-"text":"The Copper Drill is a machine that drills in a 1x1 area directly below it. It consumes 20FE/tick and mines 1 block every 140 ticks. As a result of the drill being made out of copper, it is unable to mine deepslate. The GUI of the interface details the Y level of the block currently being mined. The light on the right side details the current status of the machines:$(br)Green: Working$(br)Yellow: No power or no space$(br)Red: Drill has hit deepslate, bedrock, or is in the void"
-},
-{
-"type":"patchouli:image",
-"images":["lavaplus:textures/block/copperdrill.png"],
-"text":"An example of an early-game setup for the Copper Drill."
-}
-]
-
-
+    "name": "Copper Drill",
+    "icon": "lavaplus:copperdrill",
+    "category": "lavaplus:basicmachines",
+    "pages": [
+        {
+            "type": "patchouli:crafting",
+            "recipe": "lavaplus:copperdrillbit",
+            "recipe2": "lavaplus:copperdrill"
+        },
+        {
+            "type": "patchouli:text",
+            "text": "The Copper Drill is a machine that drills in a 1x1 area directly below it. It consumes 20FE/tick and mines 1 block every 140 ticks. As a result of the drill being made out of copper, it is unable to mine deepslate. The GUI of the interface details the Y level of the block currently being mined. The light on the right side details the current status of the machines:$(br)Green: Working$(br)Yellow: No power or no space$(br)Red: Drill has hit deepslate, bedrock, or is in the void"
+        },
+        {
+            "type": "patchouli:image",
+            "images": [
+                "lavaplus:textures/block/copperdrill.png"
+            ],
+            "text": "An example of an early-game setup for the Copper Drill."
+        }
+    ]
 }

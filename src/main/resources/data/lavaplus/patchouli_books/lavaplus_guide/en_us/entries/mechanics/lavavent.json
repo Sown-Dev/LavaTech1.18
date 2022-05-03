@@ -1,33 +1,31 @@
 {
-   "name":"Lava Vent",
-   "icon":"lavaplus:lavavent",
-   "category":"lavaplus:mechanics",
-   "pages":[
-   {
-            "type":"patchouli:crafting",
-            "recipe":"lavaplus:lavavent",
-            "title":"The Lava Vent",
-            "text":"The Lava Vent is the most crucial block for thermal machines. It provides heat that is needed to both power and speed up the machines. It uses  "
-
-         },
+   "name": "Lava Vent",
+   "icon": "lavaplus:lavavent",
+   "category": "lavaplus:mechanics",
+   "pages": [
       {
-               "type":"patchouli:multiblock",
-               "multiblock_id":"lavaplus:lavavent",
-               "text":"This model shows one of the many setups of a lava vent. The sides can be replaced with any blocks that generate heat, and not all sides need to have heat.",
-               "multiblock":{
-               "pattern":[
-                              [
-                                 "_l_",
-                                 "l0l",
-                                 "_l_"
-                              ]
-                           ],
-                  "mapping":{
-                     "l":"lavaplus:heatedmagmablock",
-                     "0":"lavaplus:lavavent"
-                  }
-               }
+         "type": "patchouli:crafting",
+         "recipe": "lavaplus:lavavent",
+         "title": "The Lava Vent",
+         "text": "The Lava Vent is the most crucial block for thermal machines. It provides heat that is needed to both power and speed up the machines. It uses  "
+      },
+      {
+         "type": "patchouli:multiblock",
+         "multiblock_id": "lavaplus:lavavent",
+         "text": "This model shows one of the many setups of a lava vent. The sides can be replaced with any blocks that generate heat, and not all sides need to have heat.",
+         "multiblock": {
+            "pattern": [
+               [
+                  "_l_",
+                  "l0l",
+                  "_l_"
+               ]
+            ],
+            "mapping": {
+               "l": "lavaplus:heatedmagmablock",
+               "0": "lavaplus:lavavent"
             }
-
+         }
+      }
    ]
 }

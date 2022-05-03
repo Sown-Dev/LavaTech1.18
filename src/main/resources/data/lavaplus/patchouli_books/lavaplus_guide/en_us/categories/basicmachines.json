@@ -1,5 +1,5 @@
 {
-"name":"Basic Machines",
-"description":"These machines are cheap to make but not very effective",
-"icon":"lavaplus:basicframe"
+    "name": "Basic Machines",
+    "description": "These machines are cheap to make but not very effective",
+    "icon": "lavaplus:basicframe"
 }
