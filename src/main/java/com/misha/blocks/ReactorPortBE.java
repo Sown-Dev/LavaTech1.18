@@ -19,8 +19,9 @@ import javax.annotation.Nullable;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class ReactorPortBE extends BlockEntity {
-    int capacity = 4000;
-    int transfer=2000;
+
+    public static int capacity = 1000000;
+    int transfer=100000;
     private final CustomEnergyStorage energyStorage = createEnergy();
 
     // Never create lazy optionals in getCapability. Always place them as fields in the tile entity:
@@ -31,6 +32,16 @@ public class ReactorPortBE extends BlockEntity {
 
     public ReactorPortBE(BlockPos pos, BlockState state) {
         super(Registration.REACTORPORT_BE.get(), pos, state);
+    }
+
+    public int getPortEnergy(){
+        return energyStorage.getEnergyStored();
+    }
+    public void setPortEnergy(int value){
+        energyStorage.setEnergy(value);
+    }
+    public void addPortEnergy(int value){
+        energyStorage.addEnergy(value);
     }
 
     @Override
@@ -98,7 +109,7 @@ public class ReactorPortBE extends BlockEntity {
 
 
     private CustomEnergyStorage createEnergy() {
-        return new CustomEnergyStorage(capacity, transfer) {
+        return new CustomEnergyStorage(capacity, 0) {
             @Override
             protected void onEnergyChanged() {
                 level.sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), Block.UPDATE_CLIENTS);

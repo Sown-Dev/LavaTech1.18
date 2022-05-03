@@ -41,7 +41,7 @@ public class ReactorPanelContainer extends AbstractContainerMenu {
 
         layoutPlayerInventorySlots(6, 78);
         trackPower();
-        trackCounter();
+        trackVars();
     }
 
 
@@ -105,13 +105,8 @@ public class ReactorPanelContainer extends AbstractContainerMenu {
         return blockEntity.getCapability(CapabilityEnergy.ENERGY).map(IEnergyStorage::getEnergyStored).orElse(0);
     }
 
-    public int getEffect() {
-        return blockEntity.effect;
-    }
 
-    public void setEffect(short i) {
-        blockEntity.effect = i;
-    }
+
 
 
     private void layoutPlayerInventorySlots(int leftCol, int topRow) {
@@ -123,36 +118,9 @@ public class ReactorPanelContainer extends AbstractContainerMenu {
         addSlotRange(playerInventory, 0, leftCol, topRow, 9, 18);
     }
 
-    private void trackCounter() {
+    private void trackVars() {
 
-        addDataSlot(new DataSlot() {
-            @Override
-            public int get() {
-                return getEffect();
-            }
-
-            @Override
-            public void set(int value) {
-                blockEntity.effect = (short) value;
-            }
-        });
-    }
-    public boolean clickMenuButton(Player pPlayer, int pId) {
-        if(pId==1){
-            short ef =(short)( getEffect()+1  );
-            if(ef>5){
-                ef=0;
-            }
-            blockEntity.effect=ef;
-        }
-        if(pId==2){
-            short ef =(short)( getEffect()-1  );
-            if(ef<0){
-                ef=5;
-            }
-            blockEntity.effect=ef;
-        }
-        return true;
 
     }
+
 }

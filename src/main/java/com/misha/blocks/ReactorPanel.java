@@ -54,11 +54,11 @@ public class ReactorPanel extends Block implements EntityBlock {
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult trace) {
         if (!level.isClientSide) {
             BlockEntity blockEntity = level.getBlockEntity(pos);
-            if (blockEntity instanceof ReactorPanelBE) {
+            if (blockEntity instanceof ReactorPanelBE ) {
                 MenuProvider containerProvider = new MenuProvider() {
                     @Override
                     public Component getDisplayName() {
-                        return new TranslatableComponent("screen.lavaplus.ReactorPanel");
+                        return new TranslatableComponent("screen.lavaplus.reactorpanel");
                     }
 
                     @Override
@@ -94,10 +94,6 @@ public class ReactorPanel extends Block implements EntityBlock {
         }
     }
 
-    @OnlyIn(Dist.CLIENT)
-    public static void registerRenderLayer(){
-        ItemBlockRenderTypes.setRenderLayer(Registration.REACTORPANEL.get(), RenderType.translucent());
-    }
 
 
     @Override

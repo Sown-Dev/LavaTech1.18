@@ -91,7 +91,9 @@ b235aa36d87e49c46259b3bdd268b68c3e7dd424 assets/lavaplus/models/item/lavavent.js
 8ca947c4c60245e6be6be74368b35c2d4430f95d assets/lavaplus/models/item/machineframe.json
 7b61f3ca245c4a7be359bc16bd77902e6d735f7d assets/lavaplus/models/item/magmacoal.json
 81a9c5d36e84c1cc4cc7cb6df9563b6040ee6696 assets/lavaplus/models/item/reactorframe.json
-cd0b9326940b04e9ae3f83977cec4a75ddf72262 assets/lavaplus/models/item/reactorglass.json
+df871f58127dcd6dffc24a11c9b0ac674ea8e4a7 assets/lavaplus/models/item/reactorglass.json
+81f7681c00edebd0658276e55e98fa4d74919e74 assets/lavaplus/models/item/reactorpanel.json
+cd0b9326940b04e9ae3f83977cec4a75ddf72262 assets/lavaplus/models/item/reactorport.json
 1131bf44643737aee5a2825406a0ba96eddf1697 assets/lavaplus/models/item/reinforcedframe.json
 0a3b9e468677501ead12662a2cf574bf779cfb8b assets/lavaplus/models/item/steel.json
 693c5d523d8b45c20bafef10b49e630526c1cf45 assets/lavaplus/models/item/stonegear.json

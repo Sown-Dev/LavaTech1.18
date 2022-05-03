@@ -15,6 +15,10 @@ public class ReactorPanelScreen extends AbstractContainerScreen<ReactorPanelCont
     private ResourceLocation GUI = new ResourceLocation(LavaPlus.MODID, "textures/gui/reactor_gui.png");
     private ResourceLocation BAR= new ResourceLocation(LavaPlus.MODID, "textures/gui/bar2.png");
 
+    private ResourceLocation HEATBAR= new ResourceLocation(LavaPlus.MODID, "textures/gui/heatbar.png");
+    private ResourceLocation CARBONBAR= new ResourceLocation(LavaPlus.MODID, "textures/gui/carbonbar.png");
+    private ResourceLocation FUELBAR= new ResourceLocation(LavaPlus.MODID, "textures/gui/reactorfuelbar.png");
+
 
 
     public static int counter=0;
@@ -36,7 +40,6 @@ public class ReactorPanelScreen extends AbstractContainerScreen<ReactorPanelCont
 
         if(mouseX>relX+8 && mouseX< relX+25 && mouseY>relY-3 && mouseY<relY+53){
             drawString(matrixStack, Minecraft.getInstance().font,   + menu.getEnergy()+"FE/"+ReactorPanelBE.capacity+"FE", mouseX+9, mouseY, 0xffffff);
-            drawString(matrixStack, Minecraft.getInstance().font,   "Max Usage: "+ReactorPanelBE.baseUsage+"FE/t", mouseX+9, mouseY+8, 0xffffff);
 
         }
 
@@ -56,13 +59,6 @@ public class ReactorPanelScreen extends AbstractContainerScreen<ReactorPanelCont
         this.blit(matrixStack, relX-2, relY, 0, 0, this.imageWidth+4, this.imageHeight+20);
 
 
-        this.addRenderableWidget(new Button(relX+46, relY+30, 20, 20,new TranslatableComponent("<"),pButton -> {
-            this.minecraft.gameMode.handleInventoryButtonClick(this.menu.containerId,1);
-        }));
-
-        this.addRenderableWidget(new Button(relX+100, relY+30, 20, 20,new TranslatableComponent("gui.lavaplus.rightarrow"),pButton -> {
-            this.minecraft.gameMode.handleInventoryButtonClick(this.menu.containerId,2);
-        }));
 
 
         this.blit(matrixStack, relX+74,relY+31, 0,0, 36,36);
