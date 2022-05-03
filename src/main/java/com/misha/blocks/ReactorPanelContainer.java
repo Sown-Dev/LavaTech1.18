@@ -8,6 +8,8 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerLevelAccess;
 import net.minecraft.world.inventory.DataSlot;
+import net.minecraft.world.inventory.Slot;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.energy.CapabilityEnergy;
 import net.minecraftforge.energy.IEnergyStorage;
@@ -49,6 +51,54 @@ public class ReactorPanelContainer extends AbstractContainerMenu {
     public boolean stillValid(Player playerIn) {
         return stillValid(ContainerLevelAccess.create(blockEntity.getLevel(), blockEntity.getBlockPos()), playerEntity, Registration.REACTORPANEL.get());
     }
+
+    @Override
+    public ItemStack quickMoveStack(Player playerIn, int index) {
+        ItemStack itemstack = ItemStack.EMPTY;
+        Slot slot = this.slots.get(index);
+        if (slot != null && slot.hasItem()) {
+            ItemStack stack = slot.getItem();
+            itemstack = stack.copy();
+            if (index == 0) {
+                if (!this.moveItemStackTo(stack, 3, 37, true)) {
+                    return ItemStack.EMPTY;
+                }
+                slot.onQuickCraft(stack, itemstack);
+            } else {
+                if(index>0 && index<3){
+                    if (!this.moveItemStackTo(stack, 3, 37, true)) {
+                        return ItemStack.EMPTY;
+                    }
+                }
+                if (stack.getItem()==Registration.FUELCELL.get()) {
+                    if (!this.moveItemStackTo(stack, 0, 1, false)) {
+                        return ItemStack.EMPTY;
+                    }
+                } else if (index < 28) {
+                    if (!this.moveItemStackTo(stack, 28, 37, false)) {
+                        return ItemStack.EMPTY;
+                    }
+                } else if (index < 37 && !this.moveItemStackTo(stack, 1, 28, false)) {
+                    return ItemStack.EMPTY;
+                }
+            }
+
+            if (stack.isEmpty()) {
+                slot.set(ItemStack.EMPTY);
+            } else {
+                slot.setChanged();
+            }
+
+            if (stack.getCount() == itemstack.getCount()) {
+                return ItemStack.EMPTY;
+            }
+
+            slot.onTake(playerIn, stack);
+        }
+
+        return itemstack;
+    }
+
 
 
     private int addSlotRange(IItemHandler handler, int index, int x, int y, int amount, int dx) {

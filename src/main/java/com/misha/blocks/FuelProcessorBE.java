@@ -33,7 +33,7 @@ public class FuelProcessorBE extends BlockEntity {
     public int usage = 5;
     int transfer = 200;
     boolean hasPower = false;
-    public static final int baseUsage = 25;
+    public static final int baseUsage = 120;
     static int basetime = 60;
     int time = basetime;
 
@@ -50,8 +50,8 @@ public class FuelProcessorBE extends BlockEntity {
 
     boolean built= false;
     short fuel=0;
-    static int reqFuel=2000;
-    public static short fuelCap=8000;
+    static int reqFuel=5000;
+    public static short fuelCap=10000;
 
     public FuelProcessorBE(BlockPos pos, BlockState state) {
         super(Registration.FUELPROCESSOR_BE.get(), pos, state);

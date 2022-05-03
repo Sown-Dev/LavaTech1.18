@@ -55,19 +55,23 @@ public class ReactorPanel extends Block implements EntityBlock {
         if (!level.isClientSide) {
             BlockEntity blockEntity = level.getBlockEntity(pos);
             if (blockEntity instanceof ReactorPanelBE ) {
-                MenuProvider containerProvider = new MenuProvider() {
-                    @Override
-                    public Component getDisplayName() {
-                        return new TranslatableComponent("screen.lavaplus.reactorpanel");
-                    }
+                if(((ReactorPanelBE) blockEntity).built) {
+                    MenuProvider containerProvider = new MenuProvider() {
+                        @Override
+                        public Component getDisplayName() {
+                            return new TranslatableComponent("screen.lavaplus.reactorpanel");
+                        }
 
-                    @Override
-                    public AbstractContainerMenu createMenu(int windowId, Inventory playerInventory, Player playerEntity) {
-                        return new ReactorPanelContainer(windowId, level, pos, playerInventory, playerEntity);
-                    }
-                };
-                NetworkHooks.openGui((ServerPlayer) player, containerProvider, blockEntity.getBlockPos());
-            } else {
+                        @Override
+                        public AbstractContainerMenu createMenu(int windowId, Inventory playerInventory, Player playerEntity) {
+                            return new ReactorPanelContainer(windowId, level, pos, playerInventory, playerEntity);
+                        }
+                    };
+                    NetworkHooks.openGui((ServerPlayer) player, containerProvider, blockEntity.getBlockPos());
+                }else{
+                    ((ReactorPanelBE) blockEntity).messageBuilt();
+                             }
+                } else {
                 throw new IllegalStateException("Our named container provider is missing!");
             }
         }

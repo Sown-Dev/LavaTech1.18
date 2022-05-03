@@ -393,6 +393,16 @@ public class Recipes extends RecipeProvider {
                 .unlockedBy("rbruh", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.MACHINEFRAME.get()))
                 .save(consumer);
 
+        ShapedRecipeBuilder.shaped(Registration.REACTORFRAME.get(), 2)
+                .pattern("msm")
+                .pattern("s s")
+                .pattern("msm")
+                .define('s', ItemTags.create(new ResourceLocation("forge:ingot/steel")))
+                .define('m', Registration.REINFORCEDFRAME.get().asItem())
+                .group("reactorframe")
+                .unlockedBy("rframe", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.REINFORCEDFRAME.get()))
+                .save(consumer);
+
 
 
 
