@@ -40,7 +40,12 @@ public class ReactorPanelScreen extends AbstractContainerScreen<ReactorPanelCont
 
         if(mouseX>relX+8 && mouseX< relX+25 && mouseY>relY-3 && mouseY<relY+53){
             drawString(matrixStack, Minecraft.getInstance().font,   + menu.getEnergy()+"FE/"+ReactorPanelBE.capacity+"FE", mouseX+9, mouseY, 0xffffff);
-
+        }
+        if(mouseX>relX+33 && mouseX< relX+45 && mouseY>relY+1 && mouseY<relY+58){
+            drawString(matrixStack, Minecraft.getInstance().font,   + (double)menu.getHeat()/10.0D+"ºC/"+ReactorPanelBE.heatcap+"mB", mouseX+9, mouseY, 0xffffff);
+        }
+        if(mouseX>relX+151 && mouseX< relX+163 && mouseY>relY+1 && mouseY<relY+58){
+            drawString(matrixStack, Minecraft.getInstance().font,   + menu.getCarbon()+"mB/"+ReactorPanelBE.carbonCap+"mB", mouseX+9, mouseY, 0xffffff);
         }
 
 
@@ -58,16 +63,32 @@ public class ReactorPanelScreen extends AbstractContainerScreen<ReactorPanelCont
         int relY = (this.height - this.imageHeight) / 2 +5;
         this.blit(matrixStack, relX-2, relY, 0, 0, this.imageWidth+4, this.imageHeight+20);
 
+//heat
+        int heatmax= ReactorPanelBE.heatcap;
+        int heat =  menu.getHeat();
+        int hbarY = relY+71 -(int)(((double)heat/(double) heatmax)*52);
+        RenderSystem.setShaderTexture(0, HEATBAR);
+        this.blit(matrixStack, relX+36,hbarY, 0, 0, 17, (int)(((double) heat/ (double) heatmax)*52));
+
+        int fuelmax= ReactorPanelBE.fuelcap;
+        int fuel =  menu.getFuel();
+        int fbarY = relY+34 -(int)(((double)fuel/(double) fuelmax)*8);
+        RenderSystem.setShaderTexture(0, FUELBAR);
+        this.blit(matrixStack, relX+83,fbarY, 0, 0, 17, (int)(((double) fuel/ (double) fuelmax)*8));
 
 
 
-        this.blit(matrixStack, relX+74,relY+31, 0,0, 36,36);
+        int carbmax= ReactorPanelBE.carbonCap;
+        int carb =  menu.getCarbon();
+        int cbarY = relY+70 -(int)(((double)carb/(double) carbmax)*52);
+        RenderSystem.setShaderTexture(0, CARBONBAR);
+        this.blit(matrixStack, relX+152,cbarY, 0, 0, 17, (int)(((double) carb/ (double) carbmax)*52));
 
 
         int energy=menu.getEnergy();
         int cap = ReactorPanelBE.capacity;
         int barX = relX+7;
-        int barY = relY+67-(int)(((double)energy/(double) cap)*52);
+        int barY = relY+71-(int)(((double)energy/(double) cap)*52);
         RenderSystem.setShaderTexture(0, BAR);
         this.blit(matrixStack, barX,barY, 0, 0, 17, (int)(((double) energy/ (double) cap)*52));
 

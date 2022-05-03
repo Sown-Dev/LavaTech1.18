@@ -34,12 +34,12 @@ public class ReactorPanelContainer extends AbstractContainerMenu {
 
         if (blockEntity != null) {
             blockEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(h -> {
-                addSlot(new SlotItemHandler(h, 0, 44, 22));
-                addSlot(new SlotItemHandler(h, 1, 116, 22));
+                addSlot(new SlotItemHandler(h, 0, 78, 43));
+                addSlot(new SlotItemHandler(h, 1, 121, 59));
             });
         }
 
-        layoutPlayerInventorySlots(6, 78);
+        layoutPlayerInventorySlots(6, 85);
         trackPower();
         trackVars();
     }
@@ -79,10 +79,8 @@ public class ReactorPanelContainer extends AbstractContainerMenu {
 
             @Override
             public void set(int value) {
-                blockEntity.getCapability(CapabilityEnergy.ENERGY).ifPresent(h -> {
-                    int energyStored = h.getEnergyStored() & 0xffff0000;
-                    ((CustomEnergyStorage) h).setEnergy(energyStored + (value & 0xffff));
-                });
+                int energyStored = blockEntity.energy & 0xffff0000;
+                blockEntity.energy= (energyStored + (value & 0xffff));
             }
         });
         addDataSlot(new DataSlot() {
@@ -93,20 +91,23 @@ public class ReactorPanelContainer extends AbstractContainerMenu {
 
             @Override
             public void set(int value) {
-                blockEntity.getCapability(CapabilityEnergy.ENERGY).ifPresent(h -> {
-                    int energyStored = h.getEnergyStored() & 0x0000ffff;
-                    ((CustomEnergyStorage) h).setEnergy(energyStored | (value << 16));
-                });
+                int energyStored = blockEntity.energy& 0x0000ffff;
+                blockEntity.energy= (energyStored | (value << 16));
+
             }
         });
     }
 
-    public int getEnergy() {
-        return blockEntity.getCapability(CapabilityEnergy.ENERGY).map(IEnergyStorage::getEnergyStored).orElse(0);
+    public int getEnergy() { return blockEntity.energy;}
+    public int getHeat() { return blockEntity.heat;}
+    public int getCarbon() { return blockEntity.carbon;}
+    public int getFuel() { return blockEntity.fuel;}
+    public int getBuilt() { if(blockEntity.built){
+    return 1;
+    }else{
+        return 0;
     }
-
-
-
+    }
 
 
     private void layoutPlayerInventorySlots(int leftCol, int topRow) {
@@ -119,6 +120,51 @@ public class ReactorPanelContainer extends AbstractContainerMenu {
     }
 
     private void trackVars() {
+        addDataSlot(new DataSlot() {
+            @Override
+            public int get() {
+                return getCarbon();
+            }
+
+            @Override
+            public void set(int value) {
+                blockEntity.carbon=value;
+            }
+        });
+        addDataSlot(new DataSlot() {
+            @Override
+            public int get() {
+                return getHeat();
+            }
+
+            @Override
+            public void set(int value) {
+                blockEntity.heat=(short)value;
+            }
+        });
+        addDataSlot(new DataSlot() {
+            @Override
+            public int get() {
+                return getFuel();
+            }
+
+            @Override
+            public void set(int value) {
+                blockEntity.fuel=(short)value;
+            }
+        });
+
+        addDataSlot(new DataSlot() {
+            @Override
+            public int get() {
+                return getBuilt();
+            }
+
+            @Override
+            public void set(int value) {
+                blockEntity.built=value==1;
+            }
+        });
 
 
     }

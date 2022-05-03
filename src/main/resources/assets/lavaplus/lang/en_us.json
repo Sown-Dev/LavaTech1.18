@@ -111,6 +111,22 @@
 "block.lavaplus.fuelprocessor": "Nutritional Fuel Processor",
   "message.fuelprocessor":"Needs 2 Fuel Processor components on top to complete the multiblock. Turns food into Nutritional Fuel Cells based on their food value. ",
 
+"block.lavaplus.fuelcomp": "Fuel Processor Component",
+  "message.fuelcomp":"Part of the Fuel Processor multiblock",
+
+"block.lavaplus.reactorframe": "Reactor Frame",
+  "message.fuelcomp":"Part of the Nutritional Reactor multiblock",
+
+"block.lavaplus.reactorglass": "Reactor Glass",
+  "message.reactorglass":"Part of the Nutritional Reactor multiblock",
+
+"block.lavaplus.reactorport": "Reactor Port",
+  "message.reactorport":"Part of the Nutritional Reactor multiblock. Used to extract power out of the reactor",
+
+"block.lavaplus.reactorpanel": "Reactor Control Panel",
+  "message.reactorpanel":"The panel used to control the Nutritional Reactor.",
+
+
 "item.lavaplus.ferrousalloy": "Ferrous Alloy Ingot",
 "message.ferrousalloy":"A peculiar alloy that can be used as a substitute for iron in certain recipes. Made in the alloy furnace with aluminum, iron, and tin.",
 

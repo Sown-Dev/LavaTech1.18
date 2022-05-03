@@ -20,7 +20,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class ReactorPortBE extends BlockEntity {
 
-    public static int capacity = 1000000;
+    public static int capacity = 20000000;
     int transfer=100000;
     private final CustomEnergyStorage energyStorage = createEnergy();
 
@@ -42,6 +42,7 @@ public class ReactorPortBE extends BlockEntity {
     }
     public void addPortEnergy(int value){
         energyStorage.addEnergy(value);
+        System.out.println(value);
     }
 
     @Override

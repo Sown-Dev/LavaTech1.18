@@ -147,7 +147,7 @@ boolean built=false;
         //display particle effect if built:
         if(built && !prebuilt){
             //particle stuff
-            System.out.println("you built it!");
+
         }
         prebuilt=built;
 

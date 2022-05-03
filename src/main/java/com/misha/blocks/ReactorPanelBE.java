@@ -29,19 +29,19 @@ import javax.annotation.Nullable;
 public class ReactorPanelBE extends BlockEntity {
     int energy=0;
     public static int capacity = ReactorPortBE.capacity;
-    int baseGenerate=20000;
+    int baseGenerate=10000;
     boolean built=false;
-    short heat= 0;
-    int heatcap= 500;
+    short heat= 300;
+    static int heatcap= 5000;
     short fuel=0;
-    public static int fuelcap=1000;
+    public static int fuelcap=400;
     private final ItemStackHandler itemHandler = createHandler();
 
     private final LazyOptional<IItemHandler> handler = LazyOptional.of(() -> itemHandler);
 
 
     int carbon=0;
-    int carbUsage=10;
+    static int carbUsage=10;
     public static int carbonCap=10000;
 
     public ReactorPanelBE(BlockPos pos, BlockState state) {
@@ -59,15 +59,6 @@ public class ReactorPanelBE extends BlockEntity {
 
     }
 
-    public static boolean random(int chance) {
-        int rand = (int) Math.round(Math.random() * 100);
-        return rand < chance;
-    }
-
-    public boolean sunlight() {
-        float time = level.getDayTime();
-        return ((time > 23450 || time < 12540.0F) && level.canSeeSky(worldPosition));
-    }
 
     public void tickServer(BlockState state) {
         ItemStack input = itemHandler.getStackInSlot(0);
@@ -95,10 +86,11 @@ public class ReactorPanelBE extends BlockEntity {
         if(corenum==1){
             if(((ReactorCoreBE)level.getBlockEntity(core)).built ){
                 built=true;
-
+                portpos= ((ReactorCoreBE)level.getBlockEntity(core)).portpos;
+                //System.out.println("you built it!");
             }else{
                 built=false;
-                portpos= ((ReactorCoreBE)level.getBlockEntity(core)).portpos;
+
             }
         }else{
             built=false;
@@ -107,7 +99,7 @@ public class ReactorPanelBE extends BlockEntity {
 
 
 
-        if(built) {
+        if(built && level.getBlockEntity(portpos) instanceof ReactorPortBE) {
             if (!coal.isEmpty()) {
                 if (coal.getItem() == Items.COAL) {
                     if (carbon <= carbonCap - 100) {
@@ -128,33 +120,32 @@ public class ReactorPanelBE extends BlockEntity {
                 fuel += 400;
             }
             if (fuel > 0) {
-                if(heat>heatcap-2) {
+                if(heat<=heatcap-2) {
                    if(carbon>= carbUsage){
                        carbon-=carbUsage;
                        fuel--;
-                       heat+=2;
+                       heat+=10;
                    }else{
                        fuel--;
-                       heat+=1;
+                       heat+=6;
                    }
                 }
-            }
-            if(heat>=140){
-                int generate=(int) ((double) heat/(double) heatcap) *baseGenerate;
 
+            }
+            if(heat>=1400){
+                int generate=(int) (((double) heat/(double) heatcap) *baseGenerate);
                 if(   ((ReactorPortBE) level.getBlockEntity(portpos)).getPortEnergy()<capacity-generate){
                     ((ReactorPortBE) level.getBlockEntity(portpos)).addPortEnergy(generate);
                 }else if (((ReactorPortBE) level.getBlockEntity(portpos)).getPortEnergy() < capacity) {
                         ((ReactorPortBE) level.getBlockEntity(portpos)).setPortEnergy(capacity);
                 }
             }
-            if(heat>30){
-                heat--;
+            if(heat>300){
+                heat-=4;
             }
-
-            energy=((ReactorPortBE) level.getBlockEntity(portpos)).getPortEnergy();
-
-
+            if(level.getBlockEntity(portpos) instanceof ReactorPortBE) {
+                energy = ((ReactorPortBE) level.getBlockEntity(portpos)).getPortEnergy();
+            }
         }
     }
 
@@ -199,7 +190,7 @@ public class ReactorPanelBE extends BlockEntity {
 
 
     private ItemStackHandler createHandler() {
-        return new ItemStackHandler(10) {
+        return new ItemStackHandler(2) {
 
             @Override
             protected void onContentsChanged(int slot) {
