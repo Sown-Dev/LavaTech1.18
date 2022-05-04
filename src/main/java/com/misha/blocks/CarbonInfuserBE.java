@@ -15,6 +15,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.energy.CapabilityEnergy;
@@ -61,7 +62,7 @@ public class CarbonInfuserBE extends BlockEntity {
     }
 
     public static boolean isValid(ItemStack i) {
-        return true;
+        return i.is(ItemTags.COALS) || i.getItem()==Items.IRON_INGOT;
 
     }
 
@@ -118,7 +119,7 @@ public class CarbonInfuserBE extends BlockEntity {
 
             if(input.is(Items.IRON_INGOT)){
                 if(counter>=time && (output.getItem()==Items.COAL ||output.isEmpty()) && carbon>=100){
-                    if(output.getItem()==Items.COAL){
+                    if(output.getItem()==Registration.STEEL.get()){
                         ItemStack newItem = new ItemStack(Registration.STEEL.get(), 1);
                         itemHandler.insertItem(2, newItem, false);
 
@@ -168,20 +169,18 @@ public class CarbonInfuserBE extends BlockEntity {
     public void onDataPacket(Connection net, ClientboundBlockEntityDataPacket pkt) {
         CompoundTag tag = pkt.getTag();
 
-        ccounter = tag.getInt("counter");
     }
 
     @Override
     public CompoundTag getUpdateTag() {
         CompoundTag tag = super.getUpdateTag();
-        tag.putInt("counter", counter);
         return tag;
     }
 
     @Override
     public void handleUpdateTag(CompoundTag tag) {
         super.handleUpdateTag(tag);
-        ccounter = tag.getInt("counter");
+        this.carbon = tag.getInt("carbon");
     }
 
 
@@ -192,7 +191,7 @@ public class CarbonInfuserBE extends BlockEntity {
         if (tag.contains("energy")) {
             energyStorage.deserializeNBT(tag.get("energy"));
         }
-        counter = tag.getInt("counter");
+        carbon= tag.getInt("carbon");
         super.load(tag);
     }
 
@@ -200,13 +199,13 @@ public class CarbonInfuserBE extends BlockEntity {
     public void saveAdditional(CompoundTag tag) {
         tag.put("inv", itemHandler.serializeNBT());
         tag.put("energy", energyStorage.serializeNBT());
-        tag.putInt("counter", counter);
+        tag.putInt("carbon", carbon);
 
     }
 
 
     private ItemStackHandler createHandler() {
-        return new ItemStackHandler(10) {
+        return new ItemStackHandler(3) {
 
             @Override
             protected void onContentsChanged(int slot) {

@@ -47,8 +47,8 @@ public class ReactorCore extends Block implements EntityBlock{
 
 
 
-
-
+    boolean built=false;
+    boolean oldbuilt=false;
     @Override
     public void appendHoverText(ItemStack stack, @Nullable BlockGetter reader, List<Component> list, TooltipFlag flags) {
         list.add(new TranslatableComponent("message.reactorcore").withStyle(ChatFormatting.DARK_GRAY));
@@ -81,11 +81,17 @@ public class ReactorCore extends Block implements EntityBlock{
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
         if (level.isClientSide()) {
-            return null;
+            return (level1, pos, state1, tile) -> {
+                if (tile instanceof ReactorCoreBE block) {
+                    block.tickClient(built, oldbuilt);
+                    oldbuilt=built;
+                }
+            };
         } else {
             return (level1, pos, state1, tile) -> {
                 if (tile instanceof ReactorCoreBE block) {
                     block.tickServer(state1);
+                    this.built=block.built;
                 }
             };
         }

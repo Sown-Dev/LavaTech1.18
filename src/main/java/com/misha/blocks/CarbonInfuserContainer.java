@@ -64,13 +64,13 @@ public class CarbonInfuserContainer extends AbstractContainerMenu {
             ItemStack stack = slot.getItem();
             itemstack = stack.copy();
             if (index == 0) {
-                if (!this.moveItemStackTo(stack, 3, 37, true)) {
+                if (!this.moveItemStackTo(stack, 2, 37, true)) {
                     return ItemStack.EMPTY;
                 }
                 slot.onQuickCraft(stack, itemstack);
             } else {
-                if(index>0 && index<3){
-                    if (!this.moveItemStackTo(stack, 3, 37, true)) {
+                if(index==1){
+                    if (!this.moveItemStackTo(stack, 2, 37, true)) {
                         return ItemStack.EMPTY;
                     }
                 }

@@ -3,6 +3,7 @@ package com.misha.blocks;
 import com.misha.setup.Registration;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleOptions;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -30,6 +31,14 @@ boolean built=false;
 
     BlockPos panelpos=worldPosition;
     BlockPos portpos = worldPosition;
+
+    public void tickClient(boolean built, boolean oldbuilt) {
+        if(built && !oldbuilt) {
+            for(int i= 1; i<10; i++) {
+                level.addParticle(ParticleTypes.END_ROD, worldPosition.getX()+(1/i), worldPosition.getY(), worldPosition.getZ(), 0.0D, 0.15D, 0.0D);
+            }
+            }
+    }
     public void tickServer(BlockState state) {
         // naming: 23 -> 2: layer (1-3), 3:block (1-9):
         // block:     layer:
