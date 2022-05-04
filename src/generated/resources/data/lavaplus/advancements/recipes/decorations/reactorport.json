@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "lavaplus:reactorport"
+    ]
+  },
+  "criteria": {
+    "reframe": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "lavaplus:reactorframe"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "lavaplus:reactorport"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "reframe",
+      "has_the_recipe"
+    ]
+  ]
+}

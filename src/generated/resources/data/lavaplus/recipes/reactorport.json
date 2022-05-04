@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "reactorport",
+  "pattern": [
+    " r ",
+    "fbf",
+    " r "
+  ],
+  "key": {
+    "b": {
+      "item": "lavaplus:battery"
+    },
+    "f": {
+      "item": "lavaplus:reactorframe"
+    },
+    "r": {
+      "tag": "forge:storage_blocks/redstone"
+    }
+  },
+  "result": {
+    "item": "lavaplus:reactorport"
+  }
+}

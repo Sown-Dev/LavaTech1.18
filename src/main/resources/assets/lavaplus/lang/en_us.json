@@ -115,16 +115,19 @@
   "message.fuelcomp":"Part of the Fuel Processor multiblock",
 
 "block.lavaplus.reactorframe": "Reactor Frame",
-  "message.fuelcomp":"Part of the Nutritional Reactor multiblock",
+  "message.reactorframe":"Part of the Nutritional Reactor multiblock",
 
 "block.lavaplus.reactorglass": "Reactor Glass",
-  "message.reactorglass":"Part of the Nutritional Reactor multiblock",
+  "message.reactorglass":"Part of the Reactor multiblock",
 
 "block.lavaplus.reactorport": "Reactor Port",
-  "message.reactorport":"Part of the Nutritional Reactor multiblock. Used to extract power out of the reactor",
+  "message.reactorport":"Part of the Reactor multiblock. Used to extract power out of the reactor",
 
 "block.lavaplus.reactorpanel": "Reactor Control Panel",
   "message.reactorpanel":"The panel used to control the Nutritional Reactor.",
+
+"block.lavaplus.reactorglass": "Reactor Core",
+  "message.reactorglass":"The core of the Reactor multiblock. The Reactor uses Nutritional Fuel Cells to generate heat and produce energy.",
 
 
 "item.lavaplus.ferrousalloy": "Ferrous Alloy Ingot",

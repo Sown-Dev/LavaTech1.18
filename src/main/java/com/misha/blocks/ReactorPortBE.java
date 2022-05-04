@@ -42,7 +42,6 @@ public class ReactorPortBE extends BlockEntity {
     }
     public void addPortEnergy(int value){
         energyStorage.addEnergy(value);
-        System.out.println(value);
     }
 
     @Override

@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "reactorglass",
+  "pattern": [
+    " g ",
+    "gfg",
+    " g "
+  ],
+  "key": {
+    "f": {
+      "item": "lavaplus:reactorframe"
+    },
+    "g": {
+      "tag": "forge:glass"
+    }
+  },
+  "result": {
+    "item": "lavaplus:reactorglass"
+  }
+}

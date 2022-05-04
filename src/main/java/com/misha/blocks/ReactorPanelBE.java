@@ -44,7 +44,7 @@ public class ReactorPanelBE extends BlockEntity {
 
 
     int carbon = 0;
-    static int carbUsage = 10;
+    static int carbUsage = 5;
     public static int carbonCap = 10000;
 
     int counter = 0;
@@ -156,6 +156,8 @@ public class ReactorPanelBE extends BlockEntity {
                 //creates heat
                 if (heat <= heatcap - 6) {
                     heat += 6;
+                }else if(heat < heatcap){
+                    heat=  (short)heatcap;
                 }
             }
 

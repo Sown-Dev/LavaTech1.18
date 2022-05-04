@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "reactorframe",
+  "pattern": [
+    "mfm",
+    "srs",
+    "mfm"
+  ],
+  "key": {
+    "s": {
+      "tag": "forge:ingot/steel"
+    },
+    "m": {
+      "item": "lavaplus:reinforcedframe"
+    },
+    "f": {
+      "item": "lavaplus:reactorframe"
+    },
+    "r": {
+      "tag": "forge:storage_blocks/redstone"
+    }
+  },
+  "result": {
+    "item": "lavaplus:reactorpanel"
+  }
+}

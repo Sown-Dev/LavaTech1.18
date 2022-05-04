@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "reactorcore",
+  "pattern": [
+    "fgf",
+    "glg",
+    "fgf"
+  ],
+  "key": {
+    "l": {
+      "item": "lavaplus:infernalbrick"
+    },
+    "g": {
+      "item": "lavaplus:reactorglass"
+    },
+    "f": {
+      "item": "lavaplus:reinforcedframe"
+    }
+  },
+  "result": {
+    "item": "lavaplus:reactorcore"
+  }
+}

@@ -403,8 +403,55 @@ public class Recipes extends RecipeProvider {
                 .unlockedBy("rframe", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.REINFORCEDFRAME.get()))
                 .save(consumer);
 
+        ShapedRecipeBuilder.shaped(Registration.REACTORPANEL.get())
+                .pattern("mfm")
+                .pattern("srs")
+                .pattern("mfm")
+                .define('s', ItemTags.create(new ResourceLocation("forge:ingot/steel")))
+                .define('m', Registration.REINFORCEDFRAME.get().asItem())
+                .define('f', Registration.REACTORFRAME.get().asItem())
+                .define('r', Tags.Items.STORAGE_BLOCKS_REDSTONE)
+                .group("reactorframe")
+                .unlockedBy("rframe", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.REINFORCEDFRAME.get()))
+                .save(consumer);
 
+       /* ShapelessRecipeBuilder.shapeless(Registration.REACTORFRAME.get())
+                .requires(Registration.REACTORGLASS.get().asItem())
+                .group("reactorframe")
+                .unlockedBy("reframe", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.REACTORFRAME.get()))
+                .save(consumer);
+*/
+        ShapedRecipeBuilder.shaped(Registration.REACTORGLASS.get())
+                .pattern(" g ")
+                .pattern("gfg")
+                .pattern(" g ")
+                .define('f', Registration.REACTORFRAME.get().asItem())
+                .define('g', Tags.Items.GLASS)
+                .group("reactorglass")
+                .unlockedBy("reframe", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.REACTORFRAME.get()))
+                .save(consumer);
 
+        ShapedRecipeBuilder.shaped(Registration.REACTORPORT.get())
+                .pattern(" r ")
+                .pattern("fbf")
+                .pattern(" r ")
+                .define('b', Registration.BATTERY.get().asItem())
+                .define('f', Registration.REACTORFRAME.get().asItem())
+                .define('r', Tags.Items.STORAGE_BLOCKS_REDSTONE)
+                .group("reactorport")
+                .unlockedBy("reframe", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.REACTORFRAME.get()))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(Registration.REACTORCORE.get())
+                .pattern("fgf")
+                .pattern("glg")
+                .pattern("fgf")
+                .define('l', Registration.INFERNALBRICK.get().asItem())
+                .define('g', Registration.REACTORGLASS.get().asItem())
+                .define('f', Registration.REINFORCEDFRAME.get().asItem())
+                .group("reactorcore")
+                .unlockedBy("reframe", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.REACTORFRAME.get()))
+                .save(consumer);
 
 
 

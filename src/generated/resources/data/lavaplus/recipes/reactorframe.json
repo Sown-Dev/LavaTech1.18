@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "reactorframe",
+  "pattern": [
+    "msm",
+    "s s",
+    "msm"
+  ],
+  "key": {
+    "s": {
+      "tag": "forge:ingot/steel"
+    },
+    "m": {
+      "item": "lavaplus:reinforcedframe"
+    }
+  },
+  "result": {
+    "item": "lavaplus:reactorframe",
+    "count": 2
+  }
+}
