@@ -126,8 +126,8 @@
 "block.lavaplus.reactorpanel": "Reactor Control Panel",
   "message.reactorpanel":"The panel used to control the Nutritional Reactor.",
 
-"block.lavaplus.reactorglass": "Reactor Core",
-  "message.reactorglass":"The core of the Reactor multiblock. The Reactor uses Nutritional Fuel Cells to generate heat and produce energy.",
+"block.lavaplus.reactorcore": "Reactor Core",
+  "message.reactorcore":"The core of the Reactor multiblock. The Reactor uses Nutritional Fuel Cells to generate heat and produce energy.",
 
 
 "item.lavaplus.ferrousalloy": "Ferrous Alloy Ingot",

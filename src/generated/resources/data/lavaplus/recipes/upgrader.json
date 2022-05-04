@@ -14,7 +14,7 @@
       "item": "minecraft:iron_block"
     },
     "n": {
-      "item": "minecraft:netherite_ingot"
+      "tag": "forge:ingots/netherite"
     },
     "m": {
       "item": "lavaplus:reinforcedframe"

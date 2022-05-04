@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "fuelproc",
+  "pattern": [
+    "fif",
+    "sds",
+    "fcf"
+  ],
+  "key": {
+    "s": {
+      "tag": "forge:ingots/steel"
+    },
+    "i": {
+      "tag": "forge:storage_blocks/iron"
+    },
+    "c": {
+      "tag": "forge:storage_blocks/coal"
+    },
+    "d": {
+      "tag": "forge:gems/diamond"
+    },
+    "f": {
+      "item": "lavaplus:reinforcedframe"
+    }
+  },
+  "result": {
+    "item": "lavaplus:fuelprocessor"
+  }
+}

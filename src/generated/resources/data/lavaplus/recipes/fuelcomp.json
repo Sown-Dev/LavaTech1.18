@@ -1,21 +1,23 @@
 {
   "type": "minecraft:crafting_shaped",
-  "group": "reactorframe",
+  "group": "fuelcomp",
   "pattern": [
-    "msm",
-    "s s",
-    "msm"
+    "sfs",
+    "sos",
+    "sfs"
   ],
   "key": {
     "s": {
       "tag": "forge:ingots/steel"
     },
-    "m": {
+    "o": {
+      "tag": "forge:obsidian"
+    },
+    "f": {
       "item": "lavaplus:reinforcedframe"
     }
   },
   "result": {
-    "item": "lavaplus:reactorframe",
-    "count": 2
+    "item": "lavaplus:fuelcomp"
   }
 }

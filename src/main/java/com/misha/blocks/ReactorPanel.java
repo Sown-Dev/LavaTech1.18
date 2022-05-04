@@ -103,7 +103,7 @@ public class ReactorPanel extends Block implements EntityBlock {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable BlockGetter reader, List<Component> list, TooltipFlag flags) {
         int energy = stack.hasTag() ? stack.getTag().getInt("energy") : 0;
-        list.add(new TranslatableComponent("message.ReactorPanel", Integer.toString(energy)).withStyle(ChatFormatting.DARK_GRAY));
+        list.add(new TranslatableComponent("message.reactorpanel", Integer.toString(energy)).withStyle(ChatFormatting.DARK_GRAY));
     }
 
 

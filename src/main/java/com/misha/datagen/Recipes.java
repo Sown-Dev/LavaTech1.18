@@ -147,7 +147,7 @@ public class Recipes extends RecipeProvider {
                 .pattern("mdm")
                 .define('d', Registration.LAVABRICK.get().asItem())
                 .define('i', Blocks.IRON_BLOCK)
-                .define('n', Items.NETHERITE_INGOT)
+                .define('n', Tags.Items.INGOTS_NETHERITE)
                 .define('m',  Registration.REINFORCEDFRAME.get().asItem())
                 .group("upgrader")
                 .unlockedBy("lavabrick", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.LAVABRICK.get().asItem()))
@@ -232,7 +232,7 @@ public class Recipes extends RecipeProvider {
                 .unlockedBy("frame", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.MACHINEFRAME.get().asItem()))
                 .save(consumer);
 
-        ShapedRecipeBuilder.shaped(Registration.REINFORCEDFRAME.get(), 2)
+        ShapedRecipeBuilder.shaped(Registration.REINFORCEDFRAME.get(), 4)
                 .pattern("gmg")
                 .pattern("mom")
                 .pattern("gmg")
@@ -397,7 +397,7 @@ public class Recipes extends RecipeProvider {
                 .pattern("msm")
                 .pattern("s s")
                 .pattern("msm")
-                .define('s', ItemTags.create(new ResourceLocation("forge:ingot/steel")))
+                .define('s', ItemTags.create(new ResourceLocation("forge:ingots/steel")))
                 .define('m', Registration.REINFORCEDFRAME.get().asItem())
                 .group("reactorframe")
                 .unlockedBy("rframe", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.REINFORCEDFRAME.get()))
@@ -407,20 +407,20 @@ public class Recipes extends RecipeProvider {
                 .pattern("mfm")
                 .pattern("srs")
                 .pattern("mfm")
-                .define('s', ItemTags.create(new ResourceLocation("forge:ingot/steel")))
+                .define('s', ItemTags.create(new ResourceLocation("forge:ingots/steel")))
                 .define('m', Registration.REINFORCEDFRAME.get().asItem())
                 .define('f', Registration.REACTORFRAME.get().asItem())
                 .define('r', Tags.Items.STORAGE_BLOCKS_REDSTONE)
                 .group("reactorframe")
                 .unlockedBy("rframe", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.REINFORCEDFRAME.get()))
                 .save(consumer);
-
-       /* ShapelessRecipeBuilder.shapeless(Registration.REACTORFRAME.get())
+        /*
+        ShapelessRecipeBuilder.shapeless(Registration.REACTORFRAME.get())
                 .requires(Registration.REACTORGLASS.get().asItem())
                 .group("reactorframe")
                 .unlockedBy("reframe", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.REACTORFRAME.get()))
                 .save(consumer);
-*/
+        */
         ShapedRecipeBuilder.shaped(Registration.REACTORGLASS.get())
                 .pattern(" g ")
                 .pattern("gfg")
@@ -451,6 +451,30 @@ public class Recipes extends RecipeProvider {
                 .define('f', Registration.REINFORCEDFRAME.get().asItem())
                 .group("reactorcore")
                 .unlockedBy("reframe", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.REACTORFRAME.get()))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(Registration.FUELPROCESSOR.get())
+                .pattern("fif")
+                .pattern("sds")
+                .pattern("fcf")
+                .define('s', ItemTags.create(new ResourceLocation("forge:ingots/steel")))
+                .define('i', Tags.Items.STORAGE_BLOCKS_IRON)
+                .define('c', Tags.Items.STORAGE_BLOCKS_COAL)
+                .define('d', Tags.Items.GEMS_DIAMOND)
+                .define('f', Registration.REINFORCEDFRAME.get().asItem())
+                .group("fuelproc")
+                .unlockedBy("reframe", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.REINFORCEDFRAME.get()))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(Registration.FUELCOMP.get())
+                .pattern("sfs")
+                .pattern("sos")
+                .pattern("sfs")
+                .define('s', ItemTags.create(new ResourceLocation("forge:ingots/steel")))
+                .define('o', Tags.Items.OBSIDIAN)
+                .define('f', Registration.REINFORCEDFRAME.get().asItem())
+                .group("fuelcomp")
+                .unlockedBy("reframe", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.REINFORCEDFRAME.get()))
                 .save(consumer);
 
 
