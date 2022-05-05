@@ -108,6 +108,8 @@ public class Registration {
     public static final RegistryObject<Block> REACTORCORE= BLOCKS.register("reactorcore", ReactorCore::new);
     public static final RegistryObject<Block> REACTORPORT= BLOCKS.register("reactorport", ReactorPort::new);
 
+    public static final RegistryObject<Block> IRONDRILL= BLOCKS.register("irondrill", IronDrill::new);
+
 
     //block items:
 
@@ -147,6 +149,7 @@ public class Registration {
     public static final RegistryObject<Item> REACTORCORE_ITEM = ITEMS.register("reactorcore", () -> new BlockItem(REACTORCORE.get(), new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)));
     public static final RegistryObject<Item> REACTORPORT_ITEM = ITEMS.register("reactorport", () -> new BlockItem(REACTORPORT.get(), new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)));
 
+    public static final RegistryObject<Item> IRONDRILL_ITEM = ITEMS.register("irondrill", () -> new BlockItem(IRONDRILL.get(), new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)));
 
 
     public static final RegistryObject<BlockEntityType<BlockBurnerBE>> BLOCKBURNER_BE = BLOCKENTITIES.register("blockburner",
@@ -208,6 +211,8 @@ public class Registration {
     public static final RegistryObject<BlockEntityType<ReactorPortBE>> REACTORPORT_BE = BLOCKENTITIES.register("reactorport",
             () -> BlockEntityType.Builder.of(ReactorPortBE::new, REACTORPORT.get()).build(null));
 
+    public static final RegistryObject<BlockEntityType<IronDrillBE>> IRONDRILL_BE = BLOCKENTITIES.register("irondrill",
+            () -> BlockEntityType.Builder.of(IronDrillBE::new, IRONDRILL.get()).build(null));
 
 
     public static final RegistryObject<MenuType<BlockBurnerContainer>> BLOCKBURNER_CONTAINER = CONTAINERS.register("blockburner", () -> IForgeMenuType.create((windowId, inv, data) -> {
@@ -301,6 +306,11 @@ public class Registration {
         BlockPos pos = data.readBlockPos();
         Level world = inv.player.getCommandSenderWorld();
         return new ReactorPanelContainer(windowId, world, pos, inv, inv.player);
+    }));
+    public static final RegistryObject<MenuType<IronDrillContainer>>IRONDRILL_CONTAINER = CONTAINERS.register("irondrill", () -> IForgeMenuType.create((windowId, inv, data) -> {
+        BlockPos pos = data.readBlockPos();
+        Level world = inv.player.getCommandSenderWorld();
+        return new IronDrillContainer(windowId, world, pos, inv, inv.player);
     }));
 
 
