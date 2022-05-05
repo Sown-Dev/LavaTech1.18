@@ -187,6 +187,9 @@ boolean usePower=false;
         if (tag.contains("energy")) {
             energyStorage.deserializeNBT(tag.get("energy"));
         }
+        counter = tag.getInt("counter");
+        fuel= tag.getShort("fuel");
+        counter2 = tag.getShort("counter2");
         super.load(tag);
     }
 
@@ -195,7 +198,8 @@ boolean usePower=false;
         tag.put("inv", itemHandler.serializeNBT());
         tag.put("energy", energyStorage.serializeNBT());
         tag.putInt("counter", counter);
-
+        tag.putShort("fuel", fuel);
+        tag.putShort("counter2", counter2);
     }
 
 

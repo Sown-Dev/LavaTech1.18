@@ -35,9 +35,11 @@ public class IronDrillBE extends BlockEntity {
     public static final int baseUsage = 20;
     int usage = baseUsage;
 
-    static int basetime = 140;
+    static int basetime = 40;
     int time = basetime;
 
+int area=3; //the area of mining
+    short blocknum=1; //this var goes from 1 to 9 to create a 3x3 area
     int depth = 1;
     //short cdepth=depth;
 
@@ -88,9 +90,16 @@ public class IronDrillBE extends BlockEntity {
                 || level.getFluidState(drillPos).getType() instanceof LavaFluid
                 || level.getFluidState(drillPos).getType() instanceof WaterFluid)&& drillPos.getY()>-65) {
             depth++;
-            drillPos = new BlockPos(worldPosition.getX(), worldPosition.getY() + depth, worldPosition.getZ());
+            //drillPos = new BlockPos(worldPosition.getX(), worldPosition.getY() + depth, worldPosition.getZ());
         }
-        ItemTags.create(new ResourceLocation("forge/ingots/iron"));
+        int drillY= worldPosition.getY() - depth;
+        for(int i=1; i<=(area^2);i++){
+            BlockPos tempPos =  new BlockPos(worldPosition.getX()-2+(i%area), drillY, worldPosition.getZ()-2+(i/area));
+            if(level.getBlockState(tempPos).isAir()){
+
+            }
+        }
+
 
         boolean canWork = true;
 

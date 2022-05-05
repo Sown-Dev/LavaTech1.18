@@ -91,8 +91,7 @@ public class SimpleBeaconBE extends BlockEntity {
         if (tag.contains("energy")) {
             energyStorage.deserializeNBT(tag.get("energy"));
         }
-
-        counter = tag.getInt("counter");
+        effect =tag.getShort("effect");
         super.load(tag);
     }
 
@@ -100,7 +99,7 @@ public class SimpleBeaconBE extends BlockEntity {
     public   void saveAdditional(CompoundTag tag) {
         tag.put("energy", energyStorage.serializeNBT());
 
-        tag.putInt("counter", counter);
+        tag.putShort("effect",effect);
 
     }
 

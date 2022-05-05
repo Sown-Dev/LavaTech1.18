@@ -276,6 +276,7 @@ public class HydroponicsBE extends BlockEntity {
         if (tag.contains("energy")) {
             energyStorage.deserializeNBT(tag.get("energy"));
         }
+
         counter = tag.getInt("counter");
         super.load(tag);
     }

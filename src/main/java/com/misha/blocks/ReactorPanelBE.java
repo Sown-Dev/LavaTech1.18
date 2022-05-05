@@ -222,13 +222,19 @@ public class ReactorPanelBE extends BlockEntity {
     @Override
     public void load(CompoundTag tag) {
         itemHandler.deserializeNBT(tag.getCompound("inv"));
-
+        carbon = tag.getInt("carbon");
+        heat = tag.getShort("heat");
+        fuel= tag.getShort("fuel");
         super.load(tag);
     }
 
     @Override
     public void saveAdditional(CompoundTag tag) {
         tag.put("inv", itemHandler.serializeNBT());
+        tag.putInt("carbon", carbon);
+        tag.putShort("heat", heat);
+        tag.putShort("fuel",fuel);
+
 
     }
 
