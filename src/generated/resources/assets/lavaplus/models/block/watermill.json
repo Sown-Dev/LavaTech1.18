@@ -3,7 +3,7 @@
   "textures": {
     "down": "lavaplus:block/watermill_top",
     "up": "lavaplus:block/watermill_top",
-    "north": "lavaplus:block/watermill_front",
+    "north": "lavaplus:block/watermill_side",
     "south": "lavaplus:block/watermill_side",
     "east": "lavaplus:block/watermill_side",
     "west": "lavaplus:block/watermill_side",

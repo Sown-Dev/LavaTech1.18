@@ -35,7 +35,7 @@ public class CentrifugeScreen extends AbstractContainerScreen<CentrifugeContaine
         int relY = (this.height - this.imageHeight) / 2;
         if(mouseX>relX+8 && mouseX< relX+25 && mouseY>relY+6 && mouseY<relY+58){
             drawString(matrixStack, Minecraft.getInstance().font,   + menu.getEnergy()+"FE/"+CentrifugeBE.capacity+"FE", mouseX+9, mouseY, 0xffffff);
-            drawString(matrixStack, Minecraft.getInstance().font,   "uses "+ CentrifugeBE.baseUsage*menu.blockEntity.cactive+"FE/tick", mouseX+9, mouseY+8, 0xffffff);
+            drawString(matrixStack, Minecraft.getInstance().font,   "Uses "+ CentrifugeBE.baseUsage*menu.blockEntity.cactive+"FE/tick", mouseX+9, mouseY+8, 0xffffff);
 
         }
         if(mouseX>relX+44 && mouseX< relX+60 && mouseY>relY+6 && mouseY<relY+58){

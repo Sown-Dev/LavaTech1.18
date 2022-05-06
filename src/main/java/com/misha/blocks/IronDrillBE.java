@@ -7,8 +7,6 @@ import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.Connection;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -35,11 +33,11 @@ public class IronDrillBE extends BlockEntity {
     public static final int baseUsage = 20;
     int usage = baseUsage;
 
-    static int basetime = 40;
+    static int basetime = 5;
     int time = basetime;
 
-int area=3; //the area of mining
-    short blocknum=1; //this var goes from 1 to 9 to create a 3x3 area
+    int area = 3; //the area of mining
+    short blocknum = 1; //this var goes from 1 to 9 to create a 3x3 area
     int depth = 1;
     //short cdepth=depth;
 
@@ -85,57 +83,63 @@ int area=3; //the area of mining
 
     public void tickServer(BlockState state) {
 
-        BlockPos drillPos = new BlockPos(worldPosition.getX(), worldPosition.getY() - depth, worldPosition.getZ());
+       /* BlockPos drillPos = new BlockPos(worldPosition.getX(), worldPosition.getY() - depth, worldPosition.getZ());
         if ((level.getBlockState(drillPos).isAir()
                 || level.getFluidState(drillPos).getType() instanceof LavaFluid
                 || level.getFluidState(drillPos).getType() instanceof WaterFluid)&& drillPos.getY()>-65) {
             depth++;
             //drillPos = new BlockPos(worldPosition.getX(), worldPosition.getY() + depth, worldPosition.getZ());
-        }
-        int drillY= worldPosition.getY() - depth;
-        for(int i=1; i<=(area^2);i++){
-            BlockPos tempPos =  new BlockPos(worldPosition.getX()-2+(i%area), drillY, worldPosition.getZ()-2+(i/area));
-            if(level.getBlockState(tempPos).isAir()){
+        }*/
+        BlockPos mineblock = null;
+        boolean isBlock = false;
+        int drillY = worldPosition.getY() - depth;
+
+        for (int i = 0; i < (area*area); i++) {
+            BlockPos tempPos = new BlockPos(worldPosition.getX() - 1 + (i % area), drillY, worldPosition.getZ() - 1 + (i / area));
+            if ((level.getBlockState(tempPos).isAir()
+                    || level.getFluidState(tempPos).getType() instanceof LavaFluid
+                    || level.getFluidState(tempPos).getType() instanceof WaterFluid) && tempPos.getY() > -65) {
+
+            } else {
+                isBlock = true;
+                mineblock = tempPos;
 
             }
         }
+        if (!isBlock) {
+            depth++;
+        }
 
-
-        boolean canWork = true;
 
         //errorcode calculation:
-        Block nextMine = level.getBlockState(drillPos).getBlock();
-        if(nextMine == Blocks.BEDROCK){
-            errorCode=1;
-        }
-        else if(nextMine == Blocks.DEEPSLATE){
-            errorCode=2;
-        }
-        else if(drillPos.getY()<=-64){
-            errorCode=3;
-        }
-        else if(!hasEnoughPowerToWork()){
-            errorCode=4;
-        }
-        else if(!isEmpty()){
-            errorCode=5;
-        }
-        else{
-            errorCode=0;
+        if (isBlock) {
+            Block nextMine = level.getBlockState(mineblock).getBlock();
+            if (nextMine == Blocks.BEDROCK) {
+                errorCode = 1;
+            } else if (mineblock.getY() <= -64) {
+                errorCode = 3;
+            } else if (!hasEnoughPowerToWork()) {
+                errorCode = 4;
+            } else if (!isEmpty()) {
+                errorCode = 5;
+            } else {
+                errorCode = 0;
+            }
+
+        } else {
+            errorCode = 2;
         }
 
-
-
-        if (hasEnoughPowerToWork() && errorCode==0) {
+        if (hasEnoughPowerToWork() && errorCode == 0) {
             energyStorage.consumeEnergy(usage);
 
             if (counter >= basetime) {
                 if (isEmpty()) {
-                    ItemStack newItem = new ItemStack(level.getBlockState(drillPos).getBlock(), 1);
+                    ItemStack newItem = new ItemStack(level.getBlockState(mineblock).getBlock(), 1);
                     int num = itemHandler.getStackInSlot(findNext(newItem)).getCount();
                     newItem.setCount(num + newItem.getCount());
                     itemHandler.setStackInSlot(findNext(newItem), newItem);
-                    level.destroyBlock(drillPos, false);
+                    level.destroyBlock(mineblock, false);
 
                     counter = 0;
                 }
@@ -151,7 +155,7 @@ int area=3; //the area of mining
     public int findNext(ItemStack stack) {
         for (int i = 0; i < itemHandler.getSlots(); i++) {
             if (itemHandler.getStackInSlot(i).getItem() == stack.getItem()) {
-                return i ;
+                return i;
             }
         }
         return nextEmpty();
@@ -160,7 +164,7 @@ int area=3; //the area of mining
     public int nextEmpty() {
         for (int i = 0; i < itemHandler.getSlots(); i++) {
             if (itemHandler.getStackInSlot(i).isEmpty()) {
-                return i ;
+                return i;
             }
         }
         return -1;
@@ -177,7 +181,7 @@ int area=3; //the area of mining
     public ClientboundBlockEntityDataPacket getUpdatePacket() {
         CompoundTag tag = new CompoundTag();
         tag.putInt("counter", counter);
-        tag.putInt("depth",depth);
+        tag.putInt("depth", depth);
         return ClientboundBlockEntityDataPacket.create(this);
     }
 

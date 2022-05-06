@@ -42,7 +42,8 @@ public class CopperDrillScreen extends AbstractContainerScreen<CopperDrillContai
         if(mouseX>relX+6 && mouseX< relX+25 && mouseY>relY+6 && mouseY<relY+58){
             matrixStack.pushPose();
             matrixStack.translate(0,0,30);
-            drawString(matrixStack, Minecraft.getInstance().font,    menu.getEnergy()+"FE/"+CopperDrillBE.capacity+"FE\r\nUses "+CopperDrillBE.baseUsage+"FE/t", mouseX+9, mouseY, 0xffffff);
+            drawString(matrixStack, Minecraft.getInstance().font,    menu.getEnergy()+"FE/"+CopperDrillBE.capacity+"FE", mouseX+9, mouseY, 0xffffff);
+            drawString(matrixStack, Minecraft.getInstance().font,   "Uses "+ CopperDrillBE.baseUsage+"FE/tick", mouseX+9, mouseY+8, 0xffffff);
 
         }
 

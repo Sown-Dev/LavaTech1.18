@@ -44,14 +44,32 @@ public class BlockStates extends BlockStateProvider {
         simpleBlock(Registration.REINFORCEDFRAME.get());
         simpleBlock(Registration.BASICFRAME.get());
         registerBlock("alloysmelter",Registration.ALLOYSMELTER.get());
-        registerBlock("watermill",Registration.WATERMILL.get());
-        registerBlock("fuelprocessor",Registration.FUELPROCESSOR.get());
+        registerSymBlock("watermill",Registration.WATERMILL.get());
+        registerSymBlock("fuelprocessor",Registration.FUELPROCESSOR.get());
+        registerSymBlock("irondrill", Registration.IRONDRILL.get());
         //simpleBlock(Registration.FUELPROCESSOR.get());
 
         simpleBlock(Registration.REACTORFRAME.get());
         simpleBlock(Registration.REACTORGLASS.get());
         simpleBlock(Registration.REACTORPANEL.get());
         simpleBlock(Registration.REACTORPORT.get());
+    }
+
+    private void registerSymBlock(String name, Block block) {
+
+        ResourceLocation side = new ResourceLocation(LavaPlus.MODID, "block/"+name+"_side");
+        ResourceLocation top= new ResourceLocation(LavaPlus.MODID, "block/"+name+"_top");
+        BlockModelBuilder modelBlock= models().cube(name, top,top,side, side, side, side)
+                .texture("particle",side);
+        BlockModelBuilder modelBlockPowered = models().cube(name+"on", top,top,side, side, side,side)
+                .texture("particle",side);
+        orientedBlock(block, state -> {
+            if (state.getValue(BlockStateProperties.POWERED)) {
+                return modelBlockPowered;
+            } else {
+                return modelBlock;
+            }
+        });
     }
 
     private void registerUpgraderBlock() {

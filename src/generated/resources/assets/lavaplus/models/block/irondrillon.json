@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "lavaplus:block/irondrill_top",
+    "up": "lavaplus:block/irondrill_top",
+    "north": "lavaplus:block/irondrill_side",
+    "south": "lavaplus:block/irondrill_side",
+    "east": "lavaplus:block/irondrill_side",
+    "west": "lavaplus:block/irondrill_side",
+    "particle": "lavaplus:block/irondrill_side"
+  }
+}

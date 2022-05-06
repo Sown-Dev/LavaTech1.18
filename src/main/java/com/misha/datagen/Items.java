@@ -176,6 +176,9 @@ public class Items extends ItemModelProvider {
         withExistingParent(Registration.REACTORPORT.get().getRegistryName().getPath(),
                 new ResourceLocation(LavaPlus.MODID, "block/reactorport"));
 
+        withExistingParent(Registration.IRONDRILL.get().getRegistryName().getPath(),
+                new ResourceLocation(LavaPlus.MODID, "block/irondrill"));
+
 
 
 

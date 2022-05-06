@@ -10,7 +10,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 
 public class IronDrillScreen extends AbstractContainerScreen<IronDrillContainer> {
-    private ResourceLocation GUI = new ResourceLocation(LavaPlus.MODID, "textures/gui/IronDrill_gui.png");
+    private ResourceLocation GUI = new ResourceLocation(LavaPlus.MODID, "textures/gui/copperdrill_gui.png");
     private ResourceLocation FLAME= new ResourceLocation(LavaPlus.MODID, "textures/gui/flame.png");
     private ResourceLocation ARROW= new ResourceLocation(LavaPlus.MODID, "textures/gui/arrow.png");
     private ResourceLocation BAR= new ResourceLocation(LavaPlus.MODID, "textures/gui/bar2.png");
@@ -42,7 +42,8 @@ public class IronDrillScreen extends AbstractContainerScreen<IronDrillContainer>
         if(mouseX>relX+6 && mouseX< relX+25 && mouseY>relY+6 && mouseY<relY+58){
             matrixStack.pushPose();
             matrixStack.translate(0,0,30);
-            drawString(matrixStack, Minecraft.getInstance().font,    menu.getEnergy()+"FE/"+IronDrillBE.capacity+"FE\r\nUses "+IronDrillBE.baseUsage+"FE/t", mouseX+9, mouseY, 0xffffff);
+            drawString(matrixStack, Minecraft.getInstance().font,    menu.getEnergy()+"FE/"+IronDrillBE.capacity+"FE", mouseX+9, mouseY, 0xffffff);
+            drawString(matrixStack, Minecraft.getInstance().font,   "Uses "+ IronDrillBE.baseUsage+"FE/tick", mouseX+9, mouseY+8, 0xffffff);
 
         }
 
@@ -52,7 +53,7 @@ public class IronDrillScreen extends AbstractContainerScreen<IronDrillContainer>
     @Override
     protected void renderLabels(PoseStack matrixStack, int mouseX, int mouseY) {
         font.draw(matrixStack, ""+(menu.blockEntity.getBlockPos().getY()-menu.getDepth())  , 147,5, 0x222222);
-        font.draw(matrixStack, "Copper Drill"  , 3,-8, 0x444444);
+        font.draw(matrixStack, "Iron Drill"  , 3,-8, 0x444444);
 
 
 
