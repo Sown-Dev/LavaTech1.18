@@ -232,7 +232,7 @@ public class Recipes extends RecipeProvider {
                 .unlockedBy("frame", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.MACHINEFRAME.get().asItem()))
                 .save(consumer);
 
-        ShapedRecipeBuilder.shaped(Registration.REINFORCEDFRAME.get(), 4)
+        ShapedRecipeBuilder.shaped(Registration.REINFORCEDFRAME.get(), 2)
                 .pattern("gmg")
                 .pattern("mom")
                 .pattern("gmg")
@@ -475,6 +475,19 @@ public class Recipes extends RecipeProvider {
                 .define('f', Registration.REINFORCEDFRAME.get().asItem())
                 .group("fuelcomp")
                 .unlockedBy("reframe", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.REINFORCEDFRAME.get()))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(Registration.IRONDRILL.get())
+                .pattern("mrm")
+                .pattern("scs")
+                .pattern("mim")
+                .define('s', ItemTags.create(new ResourceLocation("forge:ingots/steel")))
+                .define('i', Tags.Items.STORAGE_BLOCKS_IRON)
+                .define('r', Tags.Items.DUSTS_REDSTONE)
+                .define('c', Registration.COPPERDRILL.get().asItem())
+                .define('m', Registration.MACHINEFRAME.get().asItem())
+                .group("irondrill")
+                .unlockedBy("mframe", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.MACHINEFRAME.get()))
                 .save(consumer);
 
 

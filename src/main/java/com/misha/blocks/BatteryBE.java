@@ -19,8 +19,8 @@ import javax.annotation.Nullable;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class BatteryBE extends BlockEntity {
-    public static int capacity = 600000;
-public static final int transfer=500;
+    public static int capacity = 800000;
+public static final int transfer=1000;
 boolean redstone=false;
 int charging=0;
     private final CustomEnergyStorage energyStorage = createEnergy();

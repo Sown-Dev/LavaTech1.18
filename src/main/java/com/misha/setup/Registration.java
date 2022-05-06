@@ -2,6 +2,7 @@ package com.misha.setup;
 
 import com.misha.blocks.*;
 import com.misha.items.*;
+import com.misha.recipes.ModRecipes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.item.BlockItem;
@@ -36,6 +37,7 @@ public class Registration {
         BLOCKS.register(bus);
         BLOCKENTITIES.register(bus);
         CONTAINERS.register(bus);
+        ModRecipes.register(bus);
     }
 
     @Mod.EventBusSubscriber(bus= Mod.EventBusSubscriber.Bus.MOD, value= Dist.CLIENT)

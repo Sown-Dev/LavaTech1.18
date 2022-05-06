@@ -34,7 +34,7 @@ public class CarbonInfuserBE extends BlockEntity {
     int transfer = 200;
     boolean hasPower = false;
     public static final int baseUsage = 25;
-    static int basetime = 300;
+    static int basetime = 200;
     int time = basetime;
 
     //private final TileFluidHandler fluidHandler= createFluid();

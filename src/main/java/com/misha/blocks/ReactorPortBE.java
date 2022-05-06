@@ -20,7 +20,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class ReactorPortBE extends BlockEntity {
 
-    public static int capacity = 20000000;
+    public static int capacity = 25000000;
     int transfer=100000;
     private final CustomEnergyStorage energyStorage = createEnergy();
 
@@ -53,13 +53,6 @@ public class ReactorPortBE extends BlockEntity {
 
     public void tickServer(BlockState state) {
 
-/*      Maybe implement to have it light up when having power
-        BlockState blockState = level.getBlockState(worldPosition);
-        if (blockState.getValue(BlockStateProperties.POWERED) != counter > 0) {
-            level.setBlock(worldPosition, blockState.setValue(BlockStateProperties.POWERED, counter > 0),
-                    Constants.BlockFlags.NOTIFY_NEIGHBORS + Constants.BlockFlags.BLOCK_UPDATE);
-        }
-*/
         sendOutPower();
     }
 
