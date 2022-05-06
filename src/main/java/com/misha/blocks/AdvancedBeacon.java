@@ -58,7 +58,7 @@ public class AdvancedBeacon extends Block implements EntityBlock {
                 MenuProvider containerProvider = new MenuProvider() {
                     @Override
                     public Component getDisplayName() {
-                        return new TranslatableComponent("screen.lavaplus.AdvancedBeacon");
+                        return new TranslatableComponent("screen.lavaplus.advancedbeacon");
                     }
 
                     @Override
@@ -103,7 +103,7 @@ public class AdvancedBeacon extends Block implements EntityBlock {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable BlockGetter reader, List<Component> list, TooltipFlag flags) {
         int energy = stack.hasTag() ? stack.getTag().getInt("energy") : 0;
-        list.add(new TranslatableComponent("message.AdvancedBeacon", Integer.toString(energy)).withStyle(ChatFormatting.DARK_GRAY));
+        list.add(new TranslatableComponent("message.advancedbeacon", Integer.toString(energy)).withStyle(ChatFormatting.DARK_GRAY));
     }
 
 

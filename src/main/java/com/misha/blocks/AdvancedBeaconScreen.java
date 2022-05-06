@@ -7,6 +7,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.TextComponent;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
@@ -62,12 +63,22 @@ public class AdvancedBeaconScreen extends AbstractContainerScreen<AdvancedBeacon
         this.blit(matrixStack, relX-2, relY, 0, 0, this.imageWidth+4, this.imageHeight+20);
 
 
-        this.addRenderableWidget(new Button(relX+46, relY+30, 20, 20,new TranslatableComponent("<"),pButton -> {
+        this.addRenderableWidget(new Button(relX+46, relY+30, 20, 20,new TextComponent("<"),pButton -> {
             this.minecraft.gameMode.handleInventoryButtonClick(this.menu.containerId,1);
         }));
 
-        this.addRenderableWidget(new Button(relX+100, relY+30, 20, 20,new TranslatableComponent("gui.lavaplus.rightarrow"),pButton -> {
+        this.addRenderableWidget(new Button(relX+100, relY+30, 20, 20,new TextComponent(">"),pButton -> {
             this.minecraft.gameMode.handleInventoryButtonClick(this.menu.containerId,2);
+        }));
+
+
+        //2nd level of buttons
+        this.addRenderableWidget(new Button(relX+46, relY+60, 20, 20,new TextComponent("<"),pButton -> {
+            this.minecraft.gameMode.handleInventoryButtonClick(this.menu.containerId,3);
+        }));
+
+        this.addRenderableWidget(new Button(relX+100, relY+60, 20, 20,new TextComponent(">"), pButton -> {
+            this.minecraft.gameMode.handleInventoryButtonClick(this.menu.containerId,4);
         }));
 
 

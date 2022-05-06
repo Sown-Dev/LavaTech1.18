@@ -67,7 +67,7 @@ public class IronDrill extends Block implements EntityBlock {
 
     @Override
     public void appendHoverText(ItemStack stack, @Nullable BlockGetter reader, List<Component> list, TooltipFlag flags) {
-        list.add(new TranslatableComponent("message.IronDrill").withStyle(ChatFormatting.DARK_GRAY));
+        list.add(new TranslatableComponent("message.irondrill").withStyle(ChatFormatting.DARK_GRAY));
     }
 
 

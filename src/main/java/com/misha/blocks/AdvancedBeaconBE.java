@@ -22,11 +22,13 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 public class AdvancedBeaconBE extends BlockEntity {
-    public static int capacity = 40000;
-    int transfer=200;
-    public static int baseUsage=50;
+    public static int capacity = 100000;
+    int transfer=400;
+    public static int baseUsage=80;
     int usage=baseUsage;
     short effect=0;
+    short effect2=0;
+
 
 
     private final CustomEnergyStorage energyStorage = createEnergy();
@@ -57,22 +59,28 @@ public class AdvancedBeaconBE extends BlockEntity {
                 Player pl = level.getNearestPlayer((double) worldPosition.getX(), (double) worldPosition.getY(), (double) worldPosition.getZ(), 10.0, EntitySelector.NO_SPECTATORS);
                 if (pl instanceof Player && pl != null) {
                     if(effect==0) {
-                        pl.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 219, 1, true, true));
+                        pl.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 219, 2, true, true));
                     }
                     if(effect==1) {
-                        pl.addEffect(new MobEffectInstance(MobEffects.DIG_SPEED, 219, 1, true, true));
+                        pl.addEffect(new MobEffectInstance(MobEffects.DIG_SPEED, 219, 2, true, true));
                     }
                     if(effect==2) {
-                        pl.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 219, 1, true, true));
+                        pl.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 219, 2, true, true));
                     }
                     if(effect==3) {
-                        pl.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 219, 1, true, true));
+                        pl.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 219, 2, true, true));
                     }
                     if(effect==4) {
-                        pl.addEffect(new MobEffectInstance(MobEffects.WATER_BREATHING, 219, 1, true, true));
+                        pl.addEffect(new MobEffectInstance(MobEffects.WATER_BREATHING, 219, 2, true, true));
                     }
                     if(effect==5) {
-                        pl.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 219, 1, true, true));
+                        pl.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 219, 2, true, true));
+                    }
+                    if(effect==6) {
+                        pl.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 219, 2, true, true));
+                    }
+                    if(effect==7) {
+                        pl.addEffect(new MobEffectInstance(MobEffects.ABSORPTION, 219, 2, true, true));
                     }
                 }
             }

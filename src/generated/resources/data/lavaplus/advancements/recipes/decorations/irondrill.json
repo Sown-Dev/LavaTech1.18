@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "lavaplus:irondrill"
+    ]
+  },
+  "criteria": {
+    "mframe": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "lavaplus:machineframe"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "lavaplus:irondrill"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "mframe",
+      "has_the_recipe"
+    ]
+  ]
+}

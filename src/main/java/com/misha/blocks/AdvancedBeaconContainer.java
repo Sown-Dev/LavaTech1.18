@@ -101,9 +101,8 @@ public class AdvancedBeaconContainer extends AbstractContainerMenu {
     public int getEffect() {
         return blockEntity.effect;
     }
-
-    public void setEffect(short i) {
-        blockEntity.effect = i;
+    public int getEffect2() {
+        return blockEntity.effect2;
     }
 
 
@@ -129,11 +128,23 @@ public class AdvancedBeaconContainer extends AbstractContainerMenu {
                 blockEntity.effect = (short) value;
             }
         });
+        addDataSlot(new DataSlot() {
+            @Override
+            public int get() {
+                return getEffect2();
+            }
+
+            @Override
+            public void set(int value) {
+                blockEntity.effect2 = (short) value;
+            }
+        });
+
     }
     public boolean clickMenuButton(Player pPlayer, int pId) {
         if(pId==1){
             short ef =(short)( getEffect()+1  );
-            if(ef>5){
+            if(ef>7){
                 ef=0;
             }
             blockEntity.effect=ef;
@@ -141,9 +152,25 @@ public class AdvancedBeaconContainer extends AbstractContainerMenu {
         if(pId==2){
             short ef =(short)( getEffect()-1  );
             if(ef<0){
-                ef=5;
+                ef=7;
             }
             blockEntity.effect=ef;
+        }
+
+        // 2nd effect
+        if(pId==3){
+            short ef =(short)( getEffect2()+1  );
+            if(ef>7){
+                ef=0;
+            }
+            blockEntity.effect2=ef;
+        }
+        if(pId==4){
+            short ef =(short)( getEffect2()-1  );
+            if(ef<0){
+                ef=7;
+            }
+            blockEntity.effect2=ef;
         }
         return true;
 

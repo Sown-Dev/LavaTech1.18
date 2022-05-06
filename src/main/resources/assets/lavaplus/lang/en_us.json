@@ -132,6 +132,11 @@
 "block.lavaplus.irondrill": "Iron Drill",
   "message.irondrill":"An upgraded version of the copper drill that mines much faster in a 3x3 area.",
 
+"block.lavaplus.advancedbeacon": "Advanced Beacon",
+  "message.advancedbeacon":"An upgraded version of the Mechanical Beacon that provides 2 stronger effects at once in a larger area to multiple people",
+
+
+
 "item.lavaplus.ferrousalloy": "Ferrous Alloy Ingot",
 "message.ferrousalloy":"A peculiar alloy that can be used as a substitute for iron in certain recipes. Made in the alloy furnace with aluminum, iron, and tin.",
 

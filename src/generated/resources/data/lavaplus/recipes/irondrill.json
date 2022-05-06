@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "irondrill",
+  "pattern": [
+    "mrm",
+    "scs",
+    "mim"
+  ],
+  "key": {
+    "s": {
+      "tag": "forge:ingots/steel"
+    },
+    "i": {
+      "tag": "forge:storage_blocks/iron"
+    },
+    "r": {
+      "tag": "forge:dusts/redstone"
+    },
+    "c": {
+      "item": "lavaplus:copperdrill"
+    },
+    "m": {
+      "item": "lavaplus:machineframe"
+    }
+  },
+  "result": {
+    "item": "lavaplus:irondrill"
+  }
+}
