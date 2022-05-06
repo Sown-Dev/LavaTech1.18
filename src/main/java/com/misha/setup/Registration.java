@@ -111,6 +111,7 @@ public class Registration {
     public static final RegistryObject<Block> REACTORPORT= BLOCKS.register("reactorport", ReactorPort::new);
 
     public static final RegistryObject<Block> IRONDRILL= BLOCKS.register("irondrill", IronDrill::new);
+    public static final RegistryObject<Block> ADVANCEDBEACON= BLOCKS.register("advancedbeacon", AdvancedBeacon::new);
 
 
     //block items:
@@ -152,6 +153,7 @@ public class Registration {
     public static final RegistryObject<Item> REACTORPORT_ITEM = ITEMS.register("reactorport", () -> new BlockItem(REACTORPORT.get(), new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)));
 
     public static final RegistryObject<Item> IRONDRILL_ITEM = ITEMS.register("irondrill", () -> new BlockItem(IRONDRILL.get(), new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)));
+    public static final RegistryObject<Item> ADVANCEDBEACON_ITEM = ITEMS.register("advancedbeacon", () -> new BlockItem(ADVANCEDBEACON.get(), new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)));
 
 
     public static final RegistryObject<BlockEntityType<BlockBurnerBE>> BLOCKBURNER_BE = BLOCKENTITIES.register("blockburner",
@@ -215,6 +217,8 @@ public class Registration {
 
     public static final RegistryObject<BlockEntityType<IronDrillBE>> IRONDRILL_BE = BLOCKENTITIES.register("irondrill",
             () -> BlockEntityType.Builder.of(IronDrillBE::new, IRONDRILL.get()).build(null));
+    public static final RegistryObject<BlockEntityType<AdvancedBeaconBE>> ADVANCEDBEACON_BE = BLOCKENTITIES.register("advancedbeacon",
+            () -> BlockEntityType.Builder.of(AdvancedBeaconBE::new, ADVANCEDBEACON.get()).build(null));
 
 
     public static final RegistryObject<MenuType<BlockBurnerContainer>> BLOCKBURNER_CONTAINER = CONTAINERS.register("blockburner", () -> IForgeMenuType.create((windowId, inv, data) -> {
@@ -313,6 +317,12 @@ public class Registration {
         BlockPos pos = data.readBlockPos();
         Level world = inv.player.getCommandSenderWorld();
         return new IronDrillContainer(windowId, world, pos, inv, inv.player);
+    }));
+
+    public static final RegistryObject<MenuType<AdvancedBeaconContainer>>ADVANCEDBEACON_CONTAINER = CONTAINERS.register("advancedbeacon", () -> IForgeMenuType.create((windowId, inv, data) -> {
+        BlockPos pos = data.readBlockPos();
+        Level world = inv.player.getCommandSenderWorld();
+        return new AdvancedBeaconContainer(windowId, world, pos, inv, inv.player);
     }));
 
 
