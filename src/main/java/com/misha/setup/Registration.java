@@ -112,6 +112,7 @@ public class Registration {
 
     public static final RegistryObject<Block> IRONDRILL= BLOCKS.register("irondrill", IronDrill::new);
     public static final RegistryObject<Block> ADVANCEDBEACON= BLOCKS.register("advancedbeacon", AdvancedBeacon::new);
+    public static final RegistryObject<Block> BEACONCOMP= BLOCKS.register("beaconcomp", BeaconComp::new);
 
 
     //block items:
@@ -154,6 +155,7 @@ public class Registration {
 
     public static final RegistryObject<Item> IRONDRILL_ITEM = ITEMS.register("irondrill", () -> new BlockItem(IRONDRILL.get(), new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)));
     public static final RegistryObject<Item> ADVANCEDBEACON_ITEM = ITEMS.register("advancedbeacon", () -> new BlockItem(ADVANCEDBEACON.get(), new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)));
+    public static final RegistryObject<Item> BEACONCOMP_ITEM = ITEMS.register("beaconcomp", () -> new BlockItem(BEACONCOMP.get(), new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)));
 
 
     public static final RegistryObject<BlockEntityType<BlockBurnerBE>> BLOCKBURNER_BE = BLOCKENTITIES.register("blockburner",

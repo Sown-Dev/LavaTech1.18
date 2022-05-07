@@ -19,6 +19,7 @@ import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.energy.CapabilityEnergy;
 import net.minecraftforge.energy.IEnergyStorage;
+import net.minecraftforge.fluids.capability.IFluidHandler;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
@@ -41,7 +42,7 @@ public class HydroponicsBE extends BlockEntity {
     int yield = 1;
     int time = basetime;
 
-    //private final TileFluidHandler fluidHandler= createFluid();
+
     private final ItemStackHandler itemHandler = createHandler();
     private final CustomEnergyStorage energyStorage = createEnergy();
     // Never create lazy optionals in getCapability. Always place them as fields in the tile entity:

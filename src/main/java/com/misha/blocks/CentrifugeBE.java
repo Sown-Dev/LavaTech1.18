@@ -21,8 +21,10 @@ import net.minecraftforge.energy.CapabilityEnergy;
 import net.minecraftforge.energy.IEnergyStorage;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.IFluidTank;
+import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
 import net.minecraftforge.fluids.capability.IFluidHandler;
 import net.minecraftforge.fluids.capability.TileFluidHandler;
+import net.minecraftforge.fluids.capability.templates.FluidTank;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
@@ -42,7 +44,11 @@ public class CentrifugeBE extends BlockEntity implements IFluidTank {
 
     int time = basetime;
 
-    //private final TileFluidHandler fluidHandler= createFluid();
+
+    protected FluidTank tank = new FluidTank(8000);
+    private final LazyOptional<IFluidHandler> holder = LazyOptional.of(() -> tank);
+
+
     private final ItemStackHandler itemHandler = createHandler();
     private final CustomEnergyStorage energyStorage = createEnergy();
     // Never create lazy optionals in getCapability. Always place them as fields in the tile entity:
@@ -218,19 +224,19 @@ public class CentrifugeBE extends BlockEntity implements IFluidTank {
         if (tag.contains("energy")) {
             energyStorage.deserializeNBT(tag.get("energy"));
         }
-        
+
         filled = tag.getInt("filled");
         counter = tag.getInt("counter");
         super.load(tag);
     }
 
     @Override
-    public   void saveAdditional(CompoundTag tag) {
+    public void saveAdditional(CompoundTag tag) {
         tag.put("inv", itemHandler.serializeNBT());
         tag.put("energy", energyStorage.serializeNBT());
         tag.putInt("filled", filled);
         tag.putInt("counter", counter);
-         
+
     }
 
 
@@ -293,7 +299,12 @@ public class CentrifugeBE extends BlockEntity implements IFluidTank {
         if (cap == CapabilityEnergy.ENERGY) {
             return energy.cast();
         }
+        if (cap == CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY) {
+            return holder.cast();
+        }
+
         return super.getCapability(cap, side);
+
     }
 
     int filled = 0;

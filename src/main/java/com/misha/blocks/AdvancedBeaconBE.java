@@ -12,6 +12,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.AABB;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.energy.CapabilityEnergy;
@@ -20,6 +21,7 @@ import net.minecraftforge.items.CapabilityItemHandler;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import java.util.List;
 
 public class AdvancedBeaconBE extends BlockEntity {
     public static int capacity = 100000;
@@ -29,6 +31,8 @@ public class AdvancedBeaconBE extends BlockEntity {
     short effect=0;
     short effect2=0;
 
+
+    int range=50;
 
 
     private final CustomEnergyStorage energyStorage = createEnergy();
@@ -51,6 +55,11 @@ public class AdvancedBeaconBE extends BlockEntity {
     }
     int count=0;
     public void tickServer(BlockState state) {
+        AABB bounds = new AABB(worldPosition.getX()-range,worldPosition.getY()-range,worldPosition.getZ()-range,
+                worldPosition.getX()+range,worldPosition.getY()+range,worldPosition.getZ()+range );
+
+        //List<Player> playerList= level.getNearbyPlayers( EntitySelector.NO_SPECTATORS,  bounds);
+
         if(hasEnoughPowerToWork()) {
             energyStorage.consumeEnergy(usage);
             count++;

@@ -23,6 +23,8 @@ public class AdvancedBeaconScreen extends AbstractContainerScreen<AdvancedBeacon
     private ResourceLocation NV= new ResourceLocation( LavaPlus.MODID,"textures/gui/mob_effect/night_vision.png");
     private ResourceLocation WATER= new ResourceLocation( LavaPlus.MODID,"textures/gui/mob_effect/water_breathing.png");
     private ResourceLocation DMG= new ResourceLocation( LavaPlus.MODID,"textures/gui/mob_effect/strength.png");
+    private ResourceLocation REGEN= new ResourceLocation( LavaPlus.MODID,"textures/gui/mob_effect/regeneration.png");
+    private ResourceLocation ABSORB= new ResourceLocation( LavaPlus.MODID,"textures/gui/mob_effect/absorption.png");
 
     public static int counter=0;
     public static int active =0;
@@ -81,27 +83,29 @@ public class AdvancedBeaconScreen extends AbstractContainerScreen<AdvancedBeacon
             this.minecraft.gameMode.handleInventoryButtonClick(this.menu.containerId,4);
         }));
 
-
-        if(menu.getEffect()==0){
-            RenderSystem.setShaderTexture(0, SPEED);
-        }
-        if(menu.getEffect()==1){
-            RenderSystem.setShaderTexture(0, HASTE);
-        }
-        if(menu.getEffect()==2){
-            RenderSystem.setShaderTexture(0,FIRERESIST);
-        }
-        if(menu.getEffect()==3){
-            RenderSystem.setShaderTexture(0, NV);
-        }
-        if(menu.getEffect()==4){
-            RenderSystem.setShaderTexture(0,WATER);
-        }
-        if(menu.getEffect()==5){
-            RenderSystem.setShaderTexture(0,DMG);
-        }
-
+        // EFFECT 1
+        if(menu.getEffect()==0){RenderSystem.setShaderTexture(0, SPEED);}
+        if(menu.getEffect()==1){RenderSystem.setShaderTexture(0, HASTE);}
+        if(menu.getEffect()==2){RenderSystem.setShaderTexture(0,FIRERESIST);}
+        if(menu.getEffect()==3){RenderSystem.setShaderTexture(0, NV);}
+        if(menu.getEffect()==4){RenderSystem.setShaderTexture(0,WATER);}
+        if(menu.getEffect()==5){RenderSystem.setShaderTexture(0,DMG);}
+        if(menu.getEffect()==6){RenderSystem.setShaderTexture(0,REGEN);}
+        if(menu.getEffect()==7){RenderSystem.setShaderTexture(0,ABSORB);}
         this.blit(matrixStack, relX+74,relY+31, 0,0, 36,36);
+
+        // EFFECT 2
+        if(menu.getEffect2()==0){RenderSystem.setShaderTexture(0, SPEED);}
+        if(menu.getEffect2()==1){RenderSystem.setShaderTexture(0, HASTE);}
+        if(menu.getEffect2()==2){RenderSystem.setShaderTexture(0,FIRERESIST);}
+        if(menu.getEffect2()==3){RenderSystem.setShaderTexture(0, NV);}
+        if(menu.getEffect2()==4){RenderSystem.setShaderTexture(0,WATER);}
+        if(menu.getEffect2()==5){RenderSystem.setShaderTexture(0,DMG);}
+        if(menu.getEffect2()==6){RenderSystem.setShaderTexture(0,REGEN);}
+        if(menu.getEffect2()==7){RenderSystem.setShaderTexture(0,ABSORB);}
+        this.blit(matrixStack, relX+74,relY+61, 0,0, 36,36);
+
+
 
 
         int energy=menu.getEnergy();
