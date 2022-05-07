@@ -1,0 +1,11 @@
+{
+  "type": "lavaplus:coalinfusing",
+  "ingredients": [
+    {
+      "item": "minecraft:coal"
+    }
+  ],
+  "output": {
+    "item": "lavaplus:magmacoal"
+  }
+}

@@ -13,6 +13,9 @@ public class ModRecipes {
 
     public static final RegistryObject<RecipeSerializer<CarbonInfuserRecipe>> CARBONINFUSER_SERIALIZER=
             SERIALIZERS.register("carboninfusing", () -> CarbonInfuserRecipe.Serializer.INSTANCE);
+    public static final RegistryObject<RecipeSerializer<CoalInfuserRecipe>> COALINFUSER_SERIALIZER=
+            SERIALIZERS.register("coalinfusing", () -> CoalInfuserRecipe.Serializer.INSTANCE);
+
 
     public static void register(IEventBus eventBus){
         SERIALIZERS.register(eventBus);

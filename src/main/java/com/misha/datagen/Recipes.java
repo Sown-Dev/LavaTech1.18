@@ -2,6 +2,7 @@ package com.misha.datagen;
 
 import com.misha.setup.Registration;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
+import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
@@ -490,7 +491,10 @@ public class Recipes extends RecipeProvider {
                 .unlockedBy("mframe", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.MACHINEFRAME.get()))
                 .save(consumer);
 
-
+     /*   new CoalInfuserRecipeBuilder(Items.COAL, Registration.MAGMACOAL, 1)
+                .unlockedBy("has_coal", inventoryTrigger(ItemPredicate.Builder.item()
+                        .of(Items.COAL).build())).save(pFinishedRecipeConsumer);
+*/
 
 
 

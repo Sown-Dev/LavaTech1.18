@@ -68,13 +68,13 @@ public class CoalInfuserRecipe implements Recipe<SimpleContainer> {
     public static class Type implements  RecipeType<CoalInfuserRecipe>{
         private Type(){}
         public static final Type INSTANCE = new Type();
-        public static final String ID ="carboninfusing";
+        public static final String ID ="coalinfusing";
     }
 
     public static class Serializer implements RecipeSerializer<CoalInfuserRecipe> {
         public static final Serializer INSTANCE = new Serializer();
         public static final ResourceLocation ID =
-                new ResourceLocation(LavaPlus.MODID,"carboninfusing");
+                new ResourceLocation(LavaPlus.MODID,"coalinfusing");
 
         @Override
         public CoalInfuserRecipe fromJson(ResourceLocation id, JsonObject json) {
