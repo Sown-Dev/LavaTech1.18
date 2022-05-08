@@ -2,7 +2,7 @@
   "type": "lavaplus:carboninfusing",
   "ingredients": [
     {
-      "tag": "minecraft:coal"
+      "tag": "minecraft:coals"
     }
   ],
   "output": {

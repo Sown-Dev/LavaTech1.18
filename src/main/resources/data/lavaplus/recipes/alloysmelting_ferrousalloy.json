@@ -1,0 +1,11 @@
+{
+   "type":"lavaplus:alloysmelting",
+   "ingredients":[
+      {
+         "item":"lavaplus:ferrousalloy"
+      }
+   ],
+   "output":{
+      "item":"lavaplus:ferrousalloy"
+   }
+}

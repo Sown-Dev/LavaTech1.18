@@ -33,7 +33,7 @@ public class CoalInfuserRecipeCategory implements IRecipeCategory<CoalInfuserRec
 
     @Override
     public Component getTitle() {
-        return new TextComponent("Coal Infuser");
+        return new TextComponent("Magmatic Activation");
     }
 
     @Override

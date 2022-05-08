@@ -33,7 +33,7 @@ public class CarbonInfuserRecipeCategory implements IRecipeCategory<CarbonInfuse
 
     @Override
     public Component getTitle() {
-        return new TextComponent("Carbon Infuser");
+        return new TextComponent("Carbon Infusing");
     }
 
     @Override
