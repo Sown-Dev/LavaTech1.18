@@ -21,6 +21,15 @@ public class ModRecipes {
     public static final RegistryObject<RecipeSerializer<AlloySmelterRecipe>> ALLOYSMELTER_SERIALIZER=
             SERIALIZERS.register("alloysmelting", () -> AlloySmelterRecipe.Serializer.INSTANCE);
 
+    public static final RegistryObject<RecipeSerializer<UpgraderRecipe>> UPGRADER_SERIALIZER=
+            SERIALIZERS.register("upgrading", () -> UpgraderRecipe.Serializer.INSTANCE);
+
+    public static final RegistryObject<RecipeSerializer<FuelProcessorRecipe>> FUELPROCESSOR_SERIALIZER=
+            SERIALIZERS.register("fuelprocessor", () -> FuelProcessorRecipe.Serializer.INSTANCE);
+
+    public static final RegistryObject<RecipeSerializer<InductionFurnaceRecipe>> INDUCTIONFURNACE_SERIALIZER=
+            SERIALIZERS.register("inductionfurnace", () -> InductionFurnaceRecipe.Serializer.INSTANCE);
+
 
     public static void register(IEventBus eventBus){
         SERIALIZERS.register(eventBus);

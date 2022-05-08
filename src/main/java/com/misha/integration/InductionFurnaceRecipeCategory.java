@@ -1,7 +1,7 @@
 package com.misha.integration;
 
 import com.misha.lavaplus.LavaPlus;
-import com.misha.recipes.CompressorRecipe;
+import com.misha.recipes.InductionFurnaceRecipe;
 import com.misha.setup.Registration;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
@@ -18,22 +18,22 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 
-public class CompressorRecipeCategory implements IRecipeCategory<CompressorRecipe> {
-    public final static ResourceLocation UID = new ResourceLocation(LavaPlus.MODID, "compressor");
-    public final static ResourceLocation TEXTURE = new ResourceLocation(LavaPlus.MODID, "textures/gui/compressor_gui.png");
+public class InductionFurnaceRecipeCategory implements IRecipeCategory<InductionFurnaceRecipe> {
+    public final static ResourceLocation UID = new ResourceLocation(LavaPlus.MODID, "inductionfurnace");
+    public final static ResourceLocation TEXTURE = new ResourceLocation(LavaPlus.MODID, "textures/gui/inductionfurnace_gui.png");
 
     private final IDrawable background;
     private final IDrawable icon;
 
 
-    public CompressorRecipeCategory(IGuiHelper helper){
+    public InductionFurnaceRecipeCategory(IGuiHelper helper){
         this.background = helper.createDrawable(TEXTURE, 5, 5 ,140,68);
-        this.icon = helper.createDrawableIngredient(VanillaTypes.ITEM, new ItemStack(Registration.COMPRESSOR.get()));
+        this.icon = helper.createDrawableIngredient(VanillaTypes.ITEM, new ItemStack(Registration.INDUCTIONFURNACE.get()));
     }
 
     @Override
     public Component getTitle() {
-        return new TextComponent("Compressing");
+        return new TextComponent("Induction Smelting");
     }
 
     @Override
@@ -52,18 +52,14 @@ public class CompressorRecipeCategory implements IRecipeCategory<CompressorRecip
     }
 
     @Override
-    public Class<? extends CompressorRecipe> getRecipeClass() {
-        return CompressorRecipe.class;
+    public Class<? extends InductionFurnaceRecipe> getRecipeClass() {
+        return InductionFurnaceRecipe.class;
     }
 
     @Override
-    public void setRecipe(IRecipeLayoutBuilder builder, CompressorRecipe recipe, IFocusGroup focuses) {
-        int count = 1;
-        if(recipe.getResultItem().getItem()==Items.NETHERITE_INGOT){ count=6;}
-        if(recipe.getResultItem().getItem()==Items.DIAMOND){ count=10;}
+    public void setRecipe(IRecipeLayoutBuilder builder, InductionFurnaceRecipe recipe, IFocusGroup focuses) {
 
-        builder.addSlot(RecipeIngredientRole.INPUT, 39, 17).addItemStack(new ItemStack(recipe.getIngredients().get(0).getItems()[0].getItem(),count));
-
+        builder.addSlot(RecipeIngredientRole.INPUT, 39, 17).addIngredients(recipe.getIngredients().get(0));
         builder.addSlot(RecipeIngredientRole.OUTPUT, 111, 17).addItemStack(recipe.getResultItem());
 
 

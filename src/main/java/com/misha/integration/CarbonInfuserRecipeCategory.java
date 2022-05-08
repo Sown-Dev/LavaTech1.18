@@ -27,7 +27,7 @@ public class CarbonInfuserRecipeCategory implements IRecipeCategory<CarbonInfuse
 
 
     public CarbonInfuserRecipeCategory(IGuiHelper helper){
-        this.background = helper.createDrawable(TEXTURE, 0, 0 ,176,85);
+        this.background = helper.createDrawable(TEXTURE, 5, 10,161,67);
         this.icon = helper.createDrawableIngredient(VanillaTypes.ITEM, new ItemStack(Registration.CARBONINFUSER.get()));
     }
 
@@ -58,10 +58,10 @@ public class CarbonInfuserRecipeCategory implements IRecipeCategory<CarbonInfuse
 
     @Override
     public void setRecipe(IRecipeLayoutBuilder builder, CarbonInfuserRecipe recipe, IFocusGroup focuses) {
-        builder.addSlot(RecipeIngredientRole.INPUT, 60, 7).addIngredients(recipe.getIngredients().get(0));
-        builder.addSlot(RecipeIngredientRole.INPUT, 60, 36).addIngredients(Ingredient.of((Items.COAL).getDefaultInstance()));
+        builder.addSlot(RecipeIngredientRole.INPUT, 57, 12).addIngredients(recipe.getIngredients().get(0));
+        builder.addSlot(RecipeIngredientRole.INPUT, 57, 41).addIngredients(Ingredient.of((Items.COAL).getDefaultInstance()));
 
-        builder.addSlot(RecipeIngredientRole.OUTPUT, 127, 7).addItemStack(recipe.getResultItem());
+        builder.addSlot(RecipeIngredientRole.OUTPUT, 124, 12).addItemStack(recipe.getResultItem());
 
 
 

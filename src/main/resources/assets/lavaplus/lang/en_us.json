@@ -33,7 +33,7 @@
   "message.blockburner":"Converts blocks into energy, creating 160FE per block.",
 
   "block.lavaplus.inductionfurnace": "Induction Furnace",
-  "message.inductionfurnace":"Smelts Blocks of raw ore into ingots. Uses 10FE/Tick for every level of heat, with a maximum of 40FE/T",
+  "message.inductionfurnace":"Smelts blocks of raw ore into ingots. Requires heat from a lava vent.",
 
   "block.lavaplus.healer": "Healer",
   "message.healer":"Automatically heals players on top of it, using 1000FE per half heart every 10 ticks.",

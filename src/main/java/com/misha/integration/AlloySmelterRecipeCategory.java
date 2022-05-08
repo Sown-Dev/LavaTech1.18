@@ -27,7 +27,7 @@ public class AlloySmelterRecipeCategory implements IRecipeCategory<AlloySmelterR
 
 
     public AlloySmelterRecipeCategory(IGuiHelper helper){
-        this.background = helper.createDrawable(TEXTURE, 0, 0 ,176,85);
+        this.background = helper.createDrawable(TEXTURE, 5, 5 ,166,75);
         this.icon = helper.createDrawableIngredient(VanillaTypes.ITEM, new ItemStack(Registration.ALLOYSMELTER.get()));
     }
 
@@ -58,12 +58,12 @@ public class AlloySmelterRecipeCategory implements IRecipeCategory<AlloySmelterR
 
     @Override
     public void setRecipe(IRecipeLayoutBuilder builder, AlloySmelterRecipe recipe, IFocusGroup focuses) {
-        builder.addSlot(RecipeIngredientRole.INPUT, 14, 19).addIngredients(recipe.getIngredients().get(0));
-        builder.addSlot(RecipeIngredientRole.INPUT, 36, 19).addIngredients(recipe.getIngredients().get(1));
-        builder.addSlot(RecipeIngredientRole.INPUT, 58, 19).addIngredients(recipe.getIngredients().get(2));
-        builder.addSlot(RecipeIngredientRole.INPUT, 36, 55).addIngredients(Ingredient.of((Items.COAL).getDefaultInstance()));
+        builder.addSlot(RecipeIngredientRole.INPUT, 9, 14).addIngredients(recipe.getIngredients().get(0));
+        builder.addSlot(RecipeIngredientRole.INPUT, 31, 14).addIngredients(recipe.getIngredients().get(1));
+        builder.addSlot(RecipeIngredientRole.INPUT, 53, 14).addIngredients(recipe.getIngredients().get(2));
+        builder.addSlot(RecipeIngredientRole.INPUT, 31, 50).addIngredients(Ingredient.of((Items.COAL).getDefaultInstance()));
 
-        builder.addSlot(RecipeIngredientRole.OUTPUT, 125, 35).addItemStack(recipe.getResultItem());
+        builder.addSlot(RecipeIngredientRole.OUTPUT, 120, 30).addItemStack(recipe.getResultItem());
 
 
 

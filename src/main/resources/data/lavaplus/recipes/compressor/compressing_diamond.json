@@ -2,7 +2,8 @@
   "type": "lavaplus:compressor",
   "ingredients": [
     {
-      "item": "minecraft:coal_block"
+      "item": "minecraft:coal_block",
+      "count": 10
     }
   ],
   "output": {

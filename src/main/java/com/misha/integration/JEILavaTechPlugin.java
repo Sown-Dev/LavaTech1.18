@@ -1,10 +1,7 @@
 package com.misha.integration;
 
 import com.misha.lavaplus.LavaPlus;
-import com.misha.recipes.AlloySmelterRecipe;
-import com.misha.recipes.CarbonInfuserRecipe;
-import com.misha.recipes.CoalInfuserRecipe;
-import com.misha.recipes.CompressorRecipe;
+import com.misha.recipes.*;
 import com.misha.setup.Registration;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
@@ -37,6 +34,12 @@ public class JEILavaTechPlugin implements IModPlugin {
                 AlloySmelterRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
         registration.addRecipeCategories(new
                 CompressorRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
+        registration.addRecipeCategories(new
+                UpgraderRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
+        registration.addRecipeCategories(new
+                FuelProcessorRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
+        registration.addRecipeCategories(new
+               InductionFurnaceRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
 
     }
 
@@ -56,6 +59,15 @@ public class JEILavaTechPlugin implements IModPlugin {
         List<CompressorRecipe> comprecipes = rm.getAllRecipesFor(CompressorRecipe.Type.INSTANCE);
         registration.addRecipes(new RecipeType<>(CompressorRecipeCategory.UID, CompressorRecipe.class), comprecipes);
 
+        List<UpgraderRecipe> uprecipes = rm.getAllRecipesFor(UpgraderRecipe.Type.INSTANCE);
+        registration.addRecipes(new RecipeType<>(UpgraderRecipeCategory.UID, UpgraderRecipe.class), uprecipes);
+
+        List<FuelProcessorRecipe> fprecipes = rm.getAllRecipesFor(FuelProcessorRecipe.Type.INSTANCE);
+        registration.addRecipes(new RecipeType<>(FuelProcessorRecipeCategory.UID, FuelProcessorRecipe.class), fprecipes);
+
+        List<InductionFurnaceRecipe> inductionrecipes = rm.getAllRecipesFor(InductionFurnaceRecipe.Type.INSTANCE);
+        registration.addRecipes(new RecipeType<>(InductionFurnaceRecipeCategory.UID, InductionFurnaceRecipe.class), inductionrecipes);
+
 
     }
 
@@ -65,6 +77,9 @@ public class JEILavaTechPlugin implements IModPlugin {
         registration.addRecipeCatalyst(new ItemStack(Registration.CARBONINFUSER.get().asItem()), CarbonInfuserRecipeCategory.UID);
         registration.addRecipeCatalyst(new ItemStack(Registration.ALLOYSMELTER.get().asItem()), AlloySmelterRecipeCategory.UID);
         registration.addRecipeCatalyst(new ItemStack(Registration.COMPRESSOR.get().asItem()), CompressorRecipeCategory.UID);
+        registration.addRecipeCatalyst(new ItemStack(Registration.UPGRADER.get().asItem()), UpgraderRecipeCategory.UID);
+        registration.addRecipeCatalyst(new ItemStack(Registration.FUELPROCESSOR.get().asItem()), FuelProcessorRecipeCategory.UID);
+        registration.addRecipeCatalyst(new ItemStack(Registration.INDUCTIONFURNACE.get().asItem()), InductionFurnaceRecipeCategory.UID);
 
 
     }

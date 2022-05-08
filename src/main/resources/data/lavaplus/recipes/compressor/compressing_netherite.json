@@ -1,0 +1,13 @@
+{
+  "type": "lavaplus:compressor",
+  "ingredients": [
+    {
+      "item": "minecraft:netherite_scrap",
+      "count": 6
+    }
+  ],
+  "output": {
+    "item": "minecraft:netherite_ingot",
+    "count": 2
+  }
+}

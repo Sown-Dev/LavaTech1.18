@@ -1,0 +1,12 @@
+{
+  "type": "lavaplus:inductionfurnace",
+  "ingredients": [
+    {
+      "item": "minecraft:raw_copper_block"
+    }
+  ],
+  "output": {
+    "item": "minecraft:copper_ingot",
+    "count":16
+  }
+}

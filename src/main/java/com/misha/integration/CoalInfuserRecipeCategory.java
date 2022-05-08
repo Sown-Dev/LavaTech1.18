@@ -24,7 +24,7 @@ public class CoalInfuserRecipeCategory implements IRecipeCategory<CoalInfuserRec
 
 
     public CoalInfuserRecipeCategory(IGuiHelper helper) {
-        this.background = helper.createDrawable(TEXTURE, 0, 0, 176, 65);
+        this.background = helper.createDrawable(TEXTURE, 25, 25, 130, 48);
         this.icon = helper.createDrawableIngredient(VanillaTypes.ITEM, new ItemStack(Registration.COALINFUSER.get()));
     }
 
@@ -55,8 +55,8 @@ public class CoalInfuserRecipeCategory implements IRecipeCategory<CoalInfuserRec
 
     @Override
     public void setRecipe(IRecipeLayoutBuilder builder, CoalInfuserRecipe recipe, IFocusGroup focuses) {
-        builder.addSlot(RecipeIngredientRole.INPUT, 44, 35).addIngredients(recipe.getIngredients().get(0));
-        builder.addSlot(RecipeIngredientRole.OUTPUT, 116, 35).addItemStack(recipe.getResultItem());
+        builder.addSlot(RecipeIngredientRole.INPUT, 19, 10).addIngredients(recipe.getIngredients().get(0));
+        builder.addSlot(RecipeIngredientRole.OUTPUT, 91, 10).addItemStack(recipe.getResultItem());
 
 
     }

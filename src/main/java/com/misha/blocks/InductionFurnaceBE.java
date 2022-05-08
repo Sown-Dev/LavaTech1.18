@@ -26,7 +26,6 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 public class InductionFurnaceBE extends BlockEntity {
-
     int active = 0;
     public static int capacity = 50000;
     public int usage = 20;

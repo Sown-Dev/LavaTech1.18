@@ -1,0 +1,11 @@
+{
+  "type": "lavaplus:fuelprocessing",
+  "ingredients": [
+    {
+      "tag": "minecraft:fox_food"
+    }
+  ],
+  "output": {
+    "item": "lavaplus:fuelcell"
+  }
+}

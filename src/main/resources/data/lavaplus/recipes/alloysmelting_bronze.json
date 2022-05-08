@@ -1,0 +1,18 @@
+{
+  "type": "lavaplus:alloysmelting",
+  "ingredients": [
+    {
+          "tag": "forge:ingots/tin"
+        },
+        {
+                      "tag": "forge:ingots/copper"
+                    },
+                    {
+                                  "tag": "forge:ingots/copper"
+                                }
+
+  ],
+  "output": {
+    "item": "lavaplus:bronze"
+  }
+}

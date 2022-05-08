@@ -1,0 +1,14 @@
+{
+  "type": "lavaplus:upgrading",
+  "ingredients": [
+    {
+          "item": "lavaplus:infernalbrick"
+        },
+        {
+              "item": "minecraft:netherite_pickaxe"
+            }
+  ],
+  "output": {
+    "item": "lavaplus:infernalpickaxe"
+  }
+}

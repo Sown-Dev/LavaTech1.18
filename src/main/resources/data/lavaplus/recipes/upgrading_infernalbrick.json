@@ -1,0 +1,15 @@
+{
+  "type": "lavaplus:upgrading",
+  "ingredients": [
+    {
+    "item": "minecraft:netherite_ingot"
+
+        },
+        {
+              "item": "lavaplus:lavabrick"
+            }
+  ],
+  "output": {
+    "item": "lavaplus:infernalbrick"
+  }
+}
