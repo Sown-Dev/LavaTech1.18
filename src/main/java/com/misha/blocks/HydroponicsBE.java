@@ -2,6 +2,7 @@ package com.misha.blocks;
 
 import com.misha.setup.Registration;
 import com.misha.tools.CustomEnergyStorage;
+import com.misha.utils.ExtractLockItemStackHandlerWrapper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -19,7 +20,6 @@ import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.energy.CapabilityEnergy;
 import net.minecraftforge.energy.IEnergyStorage;
-import net.minecraftforge.fluids.capability.IFluidHandler;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
@@ -44,9 +44,12 @@ public class HydroponicsBE extends BlockEntity {
 
 
     private final ItemStackHandler itemHandler = createHandler();
+
+    private final IItemHandler lockedHandler = new ExtractLockItemStackHandlerWrapper(itemHandler, i -> i == 1);
+
     private final CustomEnergyStorage energyStorage = createEnergy();
     // Never create lazy optionals in getCapability. Always place them as fields in the tile entity:
-    private final LazyOptional<IItemHandler> handler = LazyOptional.of(() -> itemHandler);
+    private final LazyOptional<IItemHandler> handler = LazyOptional.of(() -> lockedHandler);
     private final LazyOptional<IEnergyStorage> energy = LazyOptional.of(() -> energyStorage);
 
     public int counter = 0;
@@ -288,6 +291,10 @@ public class HydroponicsBE extends BlockEntity {
         tag.put("energy", energyStorage.serializeNBT());
         tag.putInt("counter", counter);
 
+    }
+
+    public IItemHandler getItemHandler(){
+        return this.itemHandler;
     }
 
 
