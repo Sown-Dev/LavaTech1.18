@@ -39,7 +39,9 @@ public class JEILavaTechPlugin implements IModPlugin {
         registration.addRecipeCategories(new
                 FuelProcessorRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
         registration.addRecipeCategories(new
-               InductionFurnaceRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
+                InductionFurnaceRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
+        registration.addRecipeCategories(new
+                CentrifugeRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
 
     }
 
@@ -68,6 +70,9 @@ public class JEILavaTechPlugin implements IModPlugin {
         List<InductionFurnaceRecipe> inductionrecipes = rm.getAllRecipesFor(InductionFurnaceRecipe.Type.INSTANCE);
         registration.addRecipes(new RecipeType<>(InductionFurnaceRecipeCategory.UID, InductionFurnaceRecipe.class), inductionrecipes);
 
+        List<CentrifugeRecipe> centrecipes = rm.getAllRecipesFor(CentrifugeRecipe.Type.INSTANCE);
+        registration.addRecipes(new RecipeType<>(CentrifugeRecipeCategory.UID, CentrifugeRecipe.class), centrecipes);
+
 
     }
 
@@ -80,6 +85,7 @@ public class JEILavaTechPlugin implements IModPlugin {
         registration.addRecipeCatalyst(new ItemStack(Registration.UPGRADER.get().asItem()), UpgraderRecipeCategory.UID);
         registration.addRecipeCatalyst(new ItemStack(Registration.FUELPROCESSOR.get().asItem()), FuelProcessorRecipeCategory.UID);
         registration.addRecipeCatalyst(new ItemStack(Registration.INDUCTIONFURNACE.get().asItem()), InductionFurnaceRecipeCategory.UID);
+        registration.addRecipeCatalyst(new ItemStack(Registration.CENTRIFUGE.get().asItem()), CentrifugeRecipeCategory.UID);
 
 
     }

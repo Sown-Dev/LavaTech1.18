@@ -30,6 +30,9 @@ public class ModRecipes {
     public static final RegistryObject<RecipeSerializer<InductionFurnaceRecipe>> INDUCTIONFURNACE_SERIALIZER=
             SERIALIZERS.register("inductionfurnace", () -> InductionFurnaceRecipe.Serializer.INSTANCE);
 
+    public static final RegistryObject<RecipeSerializer<CentrifugeRecipe>> CENTRIFUGE_SERIALIZER=
+            SERIALIZERS.register("centrifuge", () -> CentrifugeRecipe.Serializer.INSTANCE);
+
 
     public static void register(IEventBus eventBus){
         SERIALIZERS.register(eventBus);
