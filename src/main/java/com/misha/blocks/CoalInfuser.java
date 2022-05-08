@@ -52,11 +52,7 @@ public class CoalInfuser extends Block  implements EntityBlock {
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
         if (level.isClientSide()) {
-            return (level1, pos, state1, tile) -> {
-                if (tile instanceof CoalInfuserBE block) {
-                    block.tickClient(state1);
-                }
-            };
+            return null;
         } else {
             return (level1, pos, state1, tile) -> {
                 if (tile instanceof CoalInfuserBE block) {

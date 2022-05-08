@@ -2,10 +2,10 @@
   "type": "lavaplus:carboninfusing",
   "ingredients": [
     {
-      "tag": "minecraft:coal"
+      "item": "minecraft:iron"
     }
   ],
   "output": {
-    "item": "minecraft:coal"
+    "item": "lavaplus:steel"
   }
 }

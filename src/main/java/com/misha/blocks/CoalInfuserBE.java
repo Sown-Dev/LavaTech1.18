@@ -1,5 +1,6 @@
 package com.misha.blocks;
 
+import com.misha.recipes.CarbonInfuserRecipe;
 import com.misha.recipes.CoalInfuserRecipe;
 import com.misha.setup.Registration;
 import net.minecraft.core.BlockPos;
@@ -30,7 +31,7 @@ public class CoalInfuserBE extends BlockEntity {
     int active = 0;
 int cactive=0;
 int progress=0;
-int maxProgress=1200;
+int maxProgress=12;
 
     private final ItemStackHandler itemHandler = createHandler();
 
@@ -156,9 +157,6 @@ static int baseTime=2000;
         super.handleUpdateTag(tag);
         ccounter = tag.getInt("counter");
         cactive = tag.getInt("active");
-    }
-    public void tickClient(BlockState state) {
-
     }
 
     @Override

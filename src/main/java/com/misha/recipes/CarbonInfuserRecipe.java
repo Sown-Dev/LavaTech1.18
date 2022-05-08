@@ -56,6 +56,11 @@ public class CarbonInfuserRecipe implements Recipe<SimpleContainer> {
     }
 
     @Override
+    public NonNullList<Ingredient> getIngredients() {
+        return recipeItems;
+    }
+
+    @Override
     public RecipeSerializer<?> getSerializer() {
         return null;
     }

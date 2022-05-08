@@ -58,10 +58,10 @@ public class CarbonInfuserRecipeCategory implements IRecipeCategory<CarbonInfuse
 
     @Override
     public void setRecipe(IRecipeLayoutBuilder builder, CarbonInfuserRecipe recipe, IFocusGroup focuses) {
-        builder.addSlot(RecipeIngredientRole.INPUT, 60, 7).addIngredients(Ingredient.of((Items.IRON_INGOT).getDefaultInstance()));
+        builder.addSlot(RecipeIngredientRole.INPUT, 60, 7).addIngredients(recipe.getIngredients().get(0));
         builder.addSlot(RecipeIngredientRole.INPUT, 60, 36).addIngredients(Ingredient.of((Items.COAL).getDefaultInstance()));
 
-        builder.addSlot(RecipeIngredientRole.OUTPUT, 127, 7).addIngredients(Ingredient.of((Registration.STEEL.get()).getDefaultInstance()));
+        builder.addSlot(RecipeIngredientRole.OUTPUT, 127, 7).addItemStack(recipe.getResultItem());
 
 
 
