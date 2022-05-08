@@ -12,11 +12,8 @@ import mezz.jei.api.recipe.RecipeIngredientRole;
 import mezz.jei.api.recipe.category.IRecipeCategory;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextComponent;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.item.crafting.Ingredient;
 
 public class CoalInfuserRecipeCategory implements IRecipeCategory<CoalInfuserRecipe> {
     public final static ResourceLocation UID = new ResourceLocation(LavaPlus.MODID, "coalinfusing");
@@ -26,14 +23,14 @@ public class CoalInfuserRecipeCategory implements IRecipeCategory<CoalInfuserRec
     private final IDrawable icon;
 
 
-    public CoalInfuserRecipeCategory(IGuiHelper helper){
-        this.background = helper.createDrawable(TEXTURE, 0, 0 ,176,65);
+    public CoalInfuserRecipeCategory(IGuiHelper helper) {
+        this.background = helper.createDrawable(TEXTURE, 0, 0, 176, 65);
         this.icon = helper.createDrawableIngredient(VanillaTypes.ITEM, new ItemStack(Registration.COALINFUSER.get()));
     }
 
     @Override
     public Component getTitle() {
-        return new TextComponent("Magmatic Activation");
+        return new TextComponent("Coal Infusion");
     }
 
     @Override
@@ -60,7 +57,6 @@ public class CoalInfuserRecipeCategory implements IRecipeCategory<CoalInfuserRec
     public void setRecipe(IRecipeLayoutBuilder builder, CoalInfuserRecipe recipe, IFocusGroup focuses) {
         builder.addSlot(RecipeIngredientRole.INPUT, 44, 35).addIngredients(recipe.getIngredients().get(0));
         builder.addSlot(RecipeIngredientRole.OUTPUT, 116, 35).addItemStack(recipe.getResultItem());
-
 
 
     }

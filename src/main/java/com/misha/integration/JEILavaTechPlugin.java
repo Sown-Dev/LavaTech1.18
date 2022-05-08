@@ -4,6 +4,7 @@ import com.misha.lavaplus.LavaPlus;
 import com.misha.recipes.AlloySmelterRecipe;
 import com.misha.recipes.CarbonInfuserRecipe;
 import com.misha.recipes.CoalInfuserRecipe;
+import com.misha.recipes.CompressorRecipe;
 import com.misha.setup.Registration;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
@@ -34,6 +35,8 @@ public class JEILavaTechPlugin implements IModPlugin {
                 CoalInfuserRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
         registration.addRecipeCategories(new
                 AlloySmelterRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
+        registration.addRecipeCategories(new
+                CompressorRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
 
     }
 
@@ -50,6 +53,9 @@ public class JEILavaTechPlugin implements IModPlugin {
         List<AlloySmelterRecipe> alloyrecipes = rm.getAllRecipesFor(AlloySmelterRecipe.Type.INSTANCE);
         registration.addRecipes(new RecipeType<>(AlloySmelterRecipeCategory.UID, AlloySmelterRecipe.class), alloyrecipes);
 
+        List<CompressorRecipe> comprecipes = rm.getAllRecipesFor(CompressorRecipe.Type.INSTANCE);
+        registration.addRecipes(new RecipeType<>(CompressorRecipeCategory.UID, CompressorRecipe.class), comprecipes);
+
 
     }
 
@@ -58,6 +64,7 @@ public class JEILavaTechPlugin implements IModPlugin {
         registration.addRecipeCatalyst(new ItemStack(Registration.COALINFUSER.get().asItem()), CoalInfuserRecipeCategory.UID);
         registration.addRecipeCatalyst(new ItemStack(Registration.CARBONINFUSER.get().asItem()), CarbonInfuserRecipeCategory.UID);
         registration.addRecipeCatalyst(new ItemStack(Registration.ALLOYSMELTER.get().asItem()), AlloySmelterRecipeCategory.UID);
+        registration.addRecipeCatalyst(new ItemStack(Registration.COMPRESSOR.get().asItem()), CompressorRecipeCategory.UID);
 
 
     }

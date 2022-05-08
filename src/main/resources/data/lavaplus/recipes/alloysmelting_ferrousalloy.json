@@ -1,11 +1,18 @@
 {
-   "type":"lavaplus:alloysmelting",
-   "ingredients":[
-      {
-         "item":"lavaplus:ferrousalloy"
-      }
-   ],
-   "output":{
-      "item":"lavaplus:ferrousalloy"
-   }
+  "type": "lavaplus:alloysmelting",
+  "ingredients": [
+    {
+          "tag": "forge:ingots/aluminum"
+        },
+        {
+                      "item": "minecraft:iron_ingot"
+                    },
+                    {
+                                  "tag": "forge:ingots/tin"
+                                }
+
+  ],
+  "output": {
+    "item": "lavaplus:ferrousalloy"
+  }
 }

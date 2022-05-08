@@ -17,13 +17,13 @@ import net.minecraftforge.registries.ForgeRegistryEntry;
 
 import javax.annotation.Nullable;
 
-public class AlloySmelterRecipe implements Recipe<SimpleContainer> {
+public class CompressorRecipe implements Recipe<SimpleContainer> {
 
     private final ResourceLocation id;
     private final ItemStack output;
     private final NonNullList<Ingredient> recipeItems;
 
-    public AlloySmelterRecipe(ResourceLocation id, ItemStack output, NonNullList<Ingredient> recipeItems){
+    public CompressorRecipe(ResourceLocation id, ItemStack output, NonNullList<Ingredient> recipeItems){
 
         this.id=id;
         this.output=output;
@@ -32,12 +32,17 @@ public class AlloySmelterRecipe implements Recipe<SimpleContainer> {
 
     @Override
     public boolean matches(SimpleContainer pContainer, Level pLevel) {
-        return recipeItems.get(0).test(pContainer.getItem(1));
+        return recipeItems.get(0).test(pContainer.getItem(0));
     }
 
     @Override
     public ItemStack assemble(SimpleContainer pContainer) {
         return output;
+    }
+
+    @Override
+    public NonNullList<Ingredient> getIngredients() {
+        return recipeItems;
     }
 
     @Override
@@ -56,11 +61,6 @@ public class AlloySmelterRecipe implements Recipe<SimpleContainer> {
     }
 
     @Override
-    public NonNullList<Ingredient> getIngredients() {
-        return recipeItems;
-    }
-
-    @Override
     public RecipeSerializer<?> getSerializer() {
         return null;
     }
@@ -70,33 +70,33 @@ public class AlloySmelterRecipe implements Recipe<SimpleContainer> {
         return Type.INSTANCE;
     }
 
-    public static class Type implements  RecipeType<AlloySmelterRecipe>{
+    public static class Type implements  RecipeType<CompressorRecipe>{
         private Type(){}
         public static final Type INSTANCE = new Type();
-        public static final String ID ="alloysmelting";
+        public static final String ID ="compressor";
     }
 
-    public static class Serializer implements RecipeSerializer<AlloySmelterRecipe> {
+    public static class Serializer implements RecipeSerializer<CompressorRecipe> {
         public static final Serializer INSTANCE = new Serializer();
         public static final ResourceLocation ID =
-                new ResourceLocation(LavaPlus.MODID,"alloysmelting");
+                new ResourceLocation(LavaPlus.MODID,"compressor");
 
         @Override
-        public AlloySmelterRecipe fromJson(ResourceLocation id, JsonObject json) {
+        public CompressorRecipe fromJson(ResourceLocation id, JsonObject json) {
             ItemStack output = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(json, "output"));
 
             JsonArray ingredients = GsonHelper.getAsJsonArray(json, "ingredients");
-            NonNullList<Ingredient> inputs = NonNullList.withSize(3, Ingredient.EMPTY);
+            NonNullList<Ingredient> inputs = NonNullList.withSize(1, Ingredient.EMPTY);
 
             for (int i = 0; i < inputs.size(); i++) {
                 inputs.set(i, Ingredient.fromJson(ingredients.get(i)));
             }
 
-            return new AlloySmelterRecipe(id, output, inputs);
+            return new CompressorRecipe(id, output, inputs);
         }
 
         @Override
-        public AlloySmelterRecipe fromNetwork(ResourceLocation id, FriendlyByteBuf buf) {
+        public CompressorRecipe fromNetwork(ResourceLocation id, FriendlyByteBuf buf) {
             NonNullList<Ingredient> inputs = NonNullList.withSize(buf.readInt(), Ingredient.EMPTY);
 
             for (int i = 0; i < inputs.size(); i++) {
@@ -104,11 +104,11 @@ public class AlloySmelterRecipe implements Recipe<SimpleContainer> {
             }
 
             ItemStack output = buf.readItem();
-            return new AlloySmelterRecipe(id, output, inputs);
+            return new CompressorRecipe(id, output, inputs);
         }
 
         @Override
-        public void toNetwork(FriendlyByteBuf buf, AlloySmelterRecipe recipe) {
+        public void toNetwork(FriendlyByteBuf buf, CompressorRecipe recipe) {
             buf.writeInt(recipe.getIngredients().size());
             for (Ingredient ing : recipe.getIngredients()) {
                 ing.toNetwork(buf);

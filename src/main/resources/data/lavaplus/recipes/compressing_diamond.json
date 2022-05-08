@@ -1,0 +1,11 @@
+{
+  "type": "lavaplus:compressor",
+  "ingredients": [
+    {
+      "item": "minecraft:coal_block"
+    }
+  ],
+  "output": {
+    "item": "minecraft:diamond"
+  }
+}
