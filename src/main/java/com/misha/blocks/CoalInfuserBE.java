@@ -1,17 +1,13 @@
 package com.misha.blocks;
 
-import com.misha.recipes.CarbonInfuserRecipe;
-import com.misha.recipes.CoalInfuserRecipe;
 import com.misha.setup.Registration;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.Connection;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
-import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -24,23 +20,20 @@ import net.minecraftforge.items.ItemStackHandler;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import java.util.Optional;
 
 public class CoalInfuserBE extends BlockEntity {
 
     int active = 0;
-int cactive=0;
-int progress=0;
-int maxProgress=12;
-
+    int cactive = 0;
     private final ItemStackHandler itemHandler = createHandler();
 
 
     // Never create lazy optionals in getCapability. Always place them as fields in the tile entity:
     private final LazyOptional<IItemHandler> handler = LazyOptional.of(() -> itemHandler);
-int ccounter=0;
-    public int counter=0;
-static int baseTime=2000;
+    int ccounter = 0;
+    public int counter = 0;
+    static int baseTime = 1500;
+
     public CoalInfuserBE(BlockPos pos, BlockState state) {
         //RecipeType.register("coalinfuser")
         super(Registration.COALINFUSER_BE.get(), pos, state);
@@ -63,71 +56,45 @@ static int baseTime=2000;
         } else {
             this.active = 0;
         }
-        if (this.active>0) {
-            if(hasRecipe(this)){
-                this.progress++;
-                setChanged(level, worldPosition,state);
-                if(this.progress> this.maxProgress){
-                    craftItem(this);
+
+        if (this.active > 0) {
+
+            ItemStack stack = itemHandler.getStackInSlot(0);
+            ItemStack output = itemHandler.getStackInSlot(1);
+
+            if (!stack.isEmpty() && stack.getItem() == Items.COAL.asItem()
+                    && (output.isEmpty() || output.getItem() == Registration.MAGMACOAL.get().asItem())) {
+                if (counter >= baseTime / active) {
+                    if (output.isEmpty()) {
+                        ItemStack coal = new ItemStack(Registration.MAGMACOAL.get().asItem(), 1);
+                        itemHandler.setStackInSlot(1, coal);
+                        itemHandler.extractItem(0, 1, false);
+                    } else {
+                        ItemStack coal = output;
+                        coal.setCount(output.getCount() + 1);
+                        itemHandler.setStackInSlot(1, coal);
+                        itemHandler.extractItem(0, 1, false);
+                    }
+                    counter = 0;
+                } else {
+                    counter++;
                 }
 
-            }else{
-                this.resetProgress();
-                setChanged(level, worldPosition, state);
+
+                setChanged();
+            } else {
+                counter = 0;
             }
+
+
+            level.setBlock(worldPosition, blockState.setValue(BlockStateProperties.POWERED, true),
+                    Block.UPDATE_ALL);
         } else {
             level.setBlock(worldPosition, blockState.setValue(BlockStateProperties.POWERED, false),
                     Block.UPDATE_ALL);
         }
 
     }
-
-    private static boolean hasRecipe(CoalInfuserBE entity) {
-        Level level = entity.level;
-        SimpleContainer inventory = new SimpleContainer(entity.itemHandler.getSlots());
-        for (int i = 0; i < entity.itemHandler.getSlots(); i++) {
-            inventory.setItem(i, entity.itemHandler.getStackInSlot(i));
-        }
-
-        Optional<CoalInfuserRecipe> match = level.getRecipeManager()
-                .getRecipeFor(CoalInfuserRecipe.Type.INSTANCE, inventory, level);
-
-        return match.isPresent() && canInsertAmountIntoOutputSlot(inventory)
-                && canInsertItemIntoOutputSlot(inventory, match.get().getResultItem());
-    }
-
-    private static void craftItem(CoalInfuserBE entity) {
-        Level level = entity.level;
-        SimpleContainer inventory = new SimpleContainer(entity.itemHandler.getSlots());
-        for (int i = 0; i < entity.itemHandler.getSlots(); i++) {
-            inventory.setItem(i, entity.itemHandler.getStackInSlot(i));
-        }
-
-        Optional<CoalInfuserRecipe> match = level.getRecipeManager()
-                .getRecipeFor(CoalInfuserRecipe.Type.INSTANCE, inventory, level);
-
-        if(match.isPresent()) {
-            entity.itemHandler.extractItem(0,1, false);
-
-            entity.itemHandler.setStackInSlot(1, new ItemStack(match.get().getResultItem().getItem(),
-                    entity.itemHandler.getStackInSlot(1).getCount() + 1));
-
-            entity.resetProgress();
-        }
-    }
-
-    private void resetProgress() {
-        this.progress = 0;
-    }
-
-    private static boolean canInsertItemIntoOutputSlot(SimpleContainer inventory, ItemStack output) {
-        return inventory.getItem(1).getItem() == output.getItem() || inventory.getItem(1).isEmpty();
-    }
-
-    private static boolean canInsertAmountIntoOutputSlot(SimpleContainer inventory) {
-        return inventory.getItem(1).getMaxStackSize() > inventory.getItem(1).getCount();
-    }
-
 
     @Nullable
     @Override
@@ -142,9 +109,10 @@ static int baseTime=2000;
     public void onDataPacket(Connection net, ClientboundBlockEntityDataPacket pkt) {
         CompoundTag tag = pkt.getTag();
 
-        ccounter=tag.getInt("counter");
-        cactive=tag.getInt("active");
+        ccounter = tag.getInt("counter");
+        cactive = tag.getInt("active");
     }
+
     @Override
     public CompoundTag getUpdateTag() {
         CompoundTag tag = super.getUpdateTag();
@@ -152,11 +120,16 @@ static int baseTime=2000;
         tag.putInt("active", active);
         return tag;
     }
+
     @Override
     public void handleUpdateTag(CompoundTag tag) {
         super.handleUpdateTag(tag);
         ccounter = tag.getInt("counter");
         cactive = tag.getInt("active");
+    }
+
+    public void tickClient(BlockState state) {
+
     }
 
     @Override
@@ -167,11 +140,11 @@ static int baseTime=2000;
     }
 
     @Override
-    public   void saveAdditional(CompoundTag tag) {
+    public void saveAdditional(CompoundTag tag) {
         tag.put("inv", itemHandler.serializeNBT());
 
         tag.putInt("counter", counter);
-         
+
     }
 
 

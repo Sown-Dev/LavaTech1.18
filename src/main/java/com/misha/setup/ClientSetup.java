@@ -35,6 +35,7 @@ public class ClientSetup {
             MenuScreens.register(Registration.FUELPROCESSOR_CONTAINER.get(), FuelProcessorScreen::new);
             MenuScreens.register(Registration.REACTORPANEL_CONTAINER.get(), ReactorPanelScreen::new);
             MenuScreens.register(Registration.IRONDRILL_CONTAINER.get(), IronDrillScreen::new);
+            MenuScreens.register(Registration.ADVANCEDBEACON_CONTAINER.get(), AdvancedBeaconScreen::new);
 
         });
     }

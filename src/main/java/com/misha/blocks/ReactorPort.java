@@ -56,7 +56,7 @@ public class ReactorPort extends Block implements EntityBlock {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable BlockGetter reader, List<Component> list, TooltipFlag flags) {
         int energy = stack.hasTag() ? stack.getTag().getInt("energy") : 0;
-        list.add(new TranslatableComponent("message.ReactorPort", Integer.toString(energy)).withStyle(ChatFormatting.DARK_GRAY));
+        list.add(new TranslatableComponent("message.reactorport", Integer.toString(energy)).withStyle(ChatFormatting.DARK_GRAY));
     }
 
 

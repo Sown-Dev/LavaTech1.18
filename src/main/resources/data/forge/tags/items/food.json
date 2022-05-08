@@ -1,0 +1,29 @@
+{
+    "replace": false,
+    "values": [
+        "minecraft:beef",
+        "minecraft:cooked_beef",
+        "minecraft:carrot",
+        "minecraft:potato",
+        "minecraft:bread",
+        "minecraft:cookie",
+        "minecraft:porkchop",
+        "minecraft:cooked_porkchop",
+        "minecraft:baked_potato",
+        "minecraft:apple",
+        "minecraft:sweet_berries",
+        "minecraft:glow_berries",
+        "minecraft:honeycomb",
+        "minecraft:mutton",
+        "minecraft:cooked_mutton",
+        "minecraft:beetroot",
+        "minecraft:rabbit",
+        "minecraft:cooked_rabbit",
+        "minecraft:chorus_fruit",
+        "minecraft:pumpkin_pie",
+        "minecraft:melon_slice",
+        "minecraft:rotten_flesh",
+        "minecraft:chicken",
+        "minecraft:cooked_chicken"
+    ]
+}

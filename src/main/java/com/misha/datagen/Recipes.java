@@ -484,7 +484,7 @@ public class Recipes extends RecipeProvider {
                 .pattern("mim")
                 .define('s', ItemTags.create(new ResourceLocation("forge:ingots/steel")))
                 .define('i', Tags.Items.STORAGE_BLOCKS_IRON)
-                .define('r', Tags.Items.DUSTS_REDSTONE)
+                .define('r', Registration.CONDUIT.get().asItem())
                 .define('c', Registration.COPPERDRILL.get().asItem())
                 .define('m', Registration.MACHINEFRAME.get().asItem())
                 .group("irondrill")

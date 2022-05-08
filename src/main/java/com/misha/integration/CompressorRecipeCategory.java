@@ -58,12 +58,12 @@ public class CompressorRecipeCategory implements IRecipeCategory<CompressorRecip
 
     @Override
     public void setRecipe(IRecipeLayoutBuilder builder, CompressorRecipe recipe, IFocusGroup focuses) {
-        int count = 1;
+        int count = 4;
         if(recipe.getResultItem().getItem()==Items.NETHERITE_INGOT){ count=6;}
         if(recipe.getResultItem().getItem()==Items.DIAMOND){ count=10;}
+        if(recipe.getResultItem().getItem()==Items.ENDER_PEARL){ count=32;}
 
         builder.addSlot(RecipeIngredientRole.INPUT, 39, 17).addItemStack(new ItemStack(recipe.getIngredients().get(0).getItems()[0].getItem(),count));
-
         builder.addSlot(RecipeIngredientRole.OUTPUT, 111, 17).addItemStack(recipe.getResultItem());
 
 

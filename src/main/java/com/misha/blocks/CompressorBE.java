@@ -96,7 +96,7 @@ public class CompressorBE extends BlockEntity {
         } else if (input.getItem() == Blocks.END_STONE.asItem() && input.getCount() >= 32) {
             recipe = 5;
             time = baseTime;
-        } else if (input.getItem() == Blocks.GRAVEL.asItem() && input.getCount() >= 8) {
+        } else if (input.getItem() == Blocks.GRAVEL.asItem() && input.getCount() >= 4) {
             recipe = 6;
             time = (short) (baseTime / 2);
         } else {

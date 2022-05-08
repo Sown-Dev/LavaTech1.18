@@ -31,9 +31,9 @@ public class ReactorCoreBE extends BlockEntity {
     public void tickClient(boolean built, boolean oldbuilt) {
         if (built && !oldbuilt) {
             for (int i = 1; i < 10; i++) {
-                System.out.println("here");
                 level.addAlwaysVisibleParticle(ParticleTypes.POOF, worldPosition.getX() + (1.0D / (double) i), worldPosition.getY()+2, worldPosition.getZ(), 0.0D, 0.15D, 0.0D);
                 level.addAlwaysVisibleParticle(ParticleTypes.POOF, worldPosition.getX()+1.5D , worldPosition.getY() +(1.0D / (double) i), worldPosition.getZ(), 0.15D, 0.0D, 0.0D);
+                level.addAlwaysVisibleParticle(ParticleTypes.POOF, worldPosition.getX()-1.5D , worldPosition.getY() +(1.0D / (double) i), worldPosition.getZ(), -0.15D, 0.0D, 0.0D);
 
             }
         }
