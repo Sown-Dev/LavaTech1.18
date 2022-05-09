@@ -36,13 +36,26 @@ public class LootTables extends BaseLootTableProvider {
         lootTables.put(Registration.ALLOYSMELTER.get(), createStandardTable("alloysmelter", Registration.ALLOYSMELTER.get(), Registration.ALLOYSMELTER_BE.get()));
         lootTables.put(Registration.WATERMILL.get(), createStandardTable("watermill", Registration.WATERMILL.get(), Registration.WATERMILL_BE.get()));
         lootTables.put(Registration.SIMPLEBEACON.get(), createStandardTable("simplebeacon", Registration.SIMPLEBEACON.get(), Registration.SIMPLEBEACON_BE.get()));
+
         lootTables.put(Registration.FUELPROCESSOR.get(), createStandardTable("fuelprocessor", Registration.FUELPROCESSOR.get(), Registration.FUELPROCESSOR_BE.get()));
+        lootTables.put(Registration.REACTORPORT.get(), createStandardTable("reactorport", Registration.REACTORPORT.get(), Registration.REACTORPORT_BE.get()));
+        lootTables.put(Registration.REACTORCORE.get(), createStandardTable("reactorcore", Registration.REACTORCORE.get(), Registration.REACTORCORE_BE.get()));
+        lootTables.put(Registration.REACTORPANEL.get(), createStandardTable("reactorpanel", Registration.REACTORPANEL.get(), Registration.REACTORPANEL_BE.get()));
+        lootTables.put(Registration.ADVANCEDBEACON.get(), createStandardTable("advancedbeacon", Registration.ADVANCEDBEACON.get(), Registration.ADVANCEDBEACON_BE.get()));
+        lootTables.put(Registration.IRONDRILL.get(), createStandardTable("irondrill", Registration.IRONDRILL.get(), Registration.IRONDRILL_BE.get()));
+
+
 
         //blocks
         lootTables.put(Registration.HEATEDMAGMABLOCK.get(), createStandardTable("heatedmagmablock", Registration.HEATEDMAGMABLOCK.get()));
         lootTables.put(Registration.MACHINEFRAME.get(), createStandardTable("machineframe", Registration.MACHINEFRAME.get()));
         lootTables.put(Registration.BASICFRAME.get(), createStandardTable("basicframe", Registration.BASICFRAME.get()));
         lootTables.put(Registration.REINFORCEDFRAME.get(), createStandardTable("reinforcedframe", Registration.REINFORCEDFRAME.get()));
+
+        lootTables.put(Registration.REACTORFRAME.get(), createStandardTable("reactorframe", Registration.REACTORFRAME.get()));
+        lootTables.put(Registration.REACTORGLASS.get(), createStandardTable("reactorglass", Registration.REACTORGLASS.get()));
+        lootTables.put(Registration.FUELCOMP.get(), createStandardTable("fuelcomp", Registration.FUELCOMP.get()));
+        lootTables.put(Registration.BEACONCOMP.get(), createStandardTable("beaconcomp", Registration.BEACONCOMP.get()));
 
 
     }
