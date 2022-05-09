@@ -24,7 +24,7 @@ import javax.annotation.Nullable;
 public class SimpleBeaconBE extends BlockEntity {
     public static int capacity = 40000;
     int transfer=200;
-    public static int baseUsage=50;
+    public static int baseUsage=80;
     int usage=baseUsage;
     short effect=0;
 

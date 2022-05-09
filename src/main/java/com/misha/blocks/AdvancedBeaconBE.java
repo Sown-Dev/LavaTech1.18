@@ -154,6 +154,8 @@ public class AdvancedBeaconBE extends BlockEntity {
             energyStorage.deserializeNBT(tag.get("energy"));
         }
         effect = tag.getShort("effect");
+        effect2 =tag.getShort("effect2");
+        effect3 =tag.getShort("effect3");
         super.load(tag);
     }
 
@@ -162,6 +164,8 @@ public class AdvancedBeaconBE extends BlockEntity {
         tag.put("energy", energyStorage.serializeNBT());
 
         tag.putShort("effect", effect);
+        tag.putShort("effect2", effect2);
+        tag.putShort("effect3", effect3);
 
     }
 

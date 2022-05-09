@@ -32,7 +32,7 @@ public class AdvancedBeaconContainer extends AbstractContainerMenu {
         this.playerInventory = new InvWrapper(playerInventory);
 
 
-        layoutPlayerInventorySlots(6, 98);
+        layoutPlayerInventorySlots(6, 97);
         trackPower();
         trackCounter();
     }
