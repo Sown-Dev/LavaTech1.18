@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "lavaguide",
+  "ingredients": [
+    {
+          "item": "minecraft:book"
+        },
+        {
+           "item": "minecraft:coal"
+        }
+
+  ],
+  "result": {
+    "item": "lavaplus:lavaplus_guide"
+  }
+}
