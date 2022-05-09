@@ -27,7 +27,7 @@ public class CentrifugeRecipeCategory implements IRecipeCategory<CentrifugeRecip
 
 
     public CentrifugeRecipeCategory(IGuiHelper helper){
-        this.background = helper.createDrawable(TEXTURE, 5, 5 ,140,68);
+        this.background = helper.createDrawable(TEXTURE, 5, 2 ,170,61);
         this.icon = helper.createDrawableIngredient(VanillaTypes.ITEM, new ItemStack(Registration.CENTRIFUGE.get()));
     }
 
@@ -60,13 +60,13 @@ public class CentrifugeRecipeCategory implements IRecipeCategory<CentrifugeRecip
     public void setRecipe(IRecipeLayoutBuilder builder, CentrifugeRecipe recipe, IFocusGroup focuses) {
 
 
-        builder.addSlot(RecipeIngredientRole.OUTPUT, 110, 2).addItemStack(new ItemStack(Items.RAW_IRON));
-        builder.addSlot(RecipeIngredientRole.OUTPUT, 128, 2).addItemStack(new ItemStack(Items.IRON_NUGGET,4));
-        builder.addSlot(RecipeIngredientRole.OUTPUT, 146, 2).addItemStack(new ItemStack(Items.SAND));
-        builder.addSlot(RecipeIngredientRole.OUTPUT, 110, 20).addItemStack(new ItemStack(Items.OBSIDIAN));
-        builder.addSlot(RecipeIngredientRole.OUTPUT, 128, 20).addItemStack(new ItemStack(Items.QUARTZ));
-        builder.addSlot(RecipeIngredientRole.OUTPUT, 146, 20).addItemStack(new ItemStack(Items.AMETHYST_SHARD));
-        builder.addSlot(RecipeIngredientRole.OUTPUT, 128, 48).addItemStack(new ItemStack(Items.RAW_GOLD));
+        builder.addSlot(RecipeIngredientRole.OUTPUT, 112, 5).addItemStack(new ItemStack(Items.RAW_IRON));
+        builder.addSlot(RecipeIngredientRole.OUTPUT, 130, 5).addItemStack(new ItemStack(Items.IRON_NUGGET,4));
+        builder.addSlot(RecipeIngredientRole.OUTPUT, 148, 5).addItemStack(new ItemStack(Items.SAND));
+        builder.addSlot(RecipeIngredientRole.OUTPUT, 112, 23).addItemStack(new ItemStack(Items.OBSIDIAN));
+        builder.addSlot(RecipeIngredientRole.OUTPUT, 130, 23).addItemStack(new ItemStack(Items.QUARTZ));
+        builder.addSlot(RecipeIngredientRole.OUTPUT, 148, 23).addItemStack(new ItemStack(Items.AMETHYST_SHARD));
+        builder.addSlot(RecipeIngredientRole.OUTPUT, 112, 41).addItemStack(new ItemStack(Items.RAW_GOLD));
 
 
 
