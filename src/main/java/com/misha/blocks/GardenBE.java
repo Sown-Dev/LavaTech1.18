@@ -2,6 +2,7 @@ package com.misha.blocks;
 
 import com.misha.setup.Registration;
 import com.misha.tools.CustomEnergyStorage;
+import com.misha.utils.ExtractLockItemStackHandlerWrapper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -42,9 +43,12 @@ public class GardenBE extends BlockEntity {
 
     //private final TileFluidHandler fluidHandler= createFluid();
     private final ItemStackHandler itemHandler = createHandler();
+
+    private final IItemHandler lockedHandler = new ExtractLockItemStackHandlerWrapper(itemHandler, i -> i == 1);
+
     private final CustomEnergyStorage energyStorage = createEnergy();
     // Never create lazy optionals in getCapability. Always place them as fields in the tile entity:
-    private final LazyOptional<IItemHandler> handler = LazyOptional.of(() -> itemHandler);
+    private final LazyOptional<IItemHandler> handler = LazyOptional.of(() -> lockedHandler);
     private final LazyOptional<IEnergyStorage> energy = LazyOptional.of(() -> energyStorage);
 
     public int counter = 0;
@@ -269,6 +273,9 @@ public class GardenBE extends BlockEntity {
 
     }
 
+    public IItemHandler getItemHandler(){
+        return this.itemHandler;
+    }
 
     private ItemStackHandler createHandler() {
         return new ItemStackHandler(10) {
