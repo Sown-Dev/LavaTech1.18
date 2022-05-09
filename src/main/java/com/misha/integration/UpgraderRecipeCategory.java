@@ -12,11 +12,8 @@ import mezz.jei.api.recipe.RecipeIngredientRole;
 import mezz.jei.api.recipe.category.IRecipeCategory;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextComponent;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.item.crafting.Ingredient;
 
 public class UpgraderRecipeCategory implements IRecipeCategory<UpgraderRecipe> {
     public final static ResourceLocation UID = new ResourceLocation(LavaPlus.MODID, "upgrading");
@@ -26,8 +23,8 @@ public class UpgraderRecipeCategory implements IRecipeCategory<UpgraderRecipe> {
     private final IDrawable icon;
 
 
-    public UpgraderRecipeCategory(IGuiHelper helper){
-        this.background = helper.createDrawable(TEXTURE, 5, 5 ,160,68);
+    public UpgraderRecipeCategory(IGuiHelper helper) {
+        this.background = helper.createDrawable(TEXTURE, 5, 5, 160, 68);
         this.icon = helper.createDrawableIngredient(VanillaTypes.ITEM, new ItemStack(Registration.UPGRADER.get()));
     }
 
@@ -58,12 +55,14 @@ public class UpgraderRecipeCategory implements IRecipeCategory<UpgraderRecipe> {
 
     @Override
     public void setRecipe(IRecipeLayoutBuilder builder, UpgraderRecipe recipe, IFocusGroup focuses) {
-
-        builder.addSlot(RecipeIngredientRole.INPUT, 29, 17).addIngredients(recipe.getIngredients().get(1));
+        int count = 0;
+        if (recipe.getResultItem().getItem() == Registration.INFERNALBRICK.get().asItem()) {
+            count = 9;
+        }
+        builder.addSlot(RecipeIngredientRole.INPUT, 29, 17).addItemStack(new ItemStack(recipe.getIngredients().get(0).getItems()[0].getItem(), count));
         builder.addSlot(RecipeIngredientRole.INPUT, 74, 17).addIngredients(recipe.getIngredients().get(0));
 
         builder.addSlot(RecipeIngredientRole.OUTPUT, 134, 17).addItemStack(recipe.getResultItem());
-
 
 
     }

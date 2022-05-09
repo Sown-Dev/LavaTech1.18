@@ -14,7 +14,7 @@
       "tag": "forge:storage_blocks/iron"
     },
     "r": {
-      "tag": "forge:dusts/redstone"
+      "item": "lavaplus:conduit"
     },
     "c": {
       "item": "lavaplus:copperdrill"

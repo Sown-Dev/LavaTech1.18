@@ -27,13 +27,13 @@ import javax.annotation.Nullable;
 
 public class IronDrillBE extends BlockEntity {
 
-    public static int capacity = 40000;
+    public static int capacity = 100000;
     int transfer = 200;
     boolean hasPower = false;
-    public static final int baseUsage = 20;
+    public static final int baseUsage = 50;
     int usage = baseUsage;
 
-    static int basetime = 5;
+    static int basetime = 20;
     int time = basetime;
 
     int area = 3; //the area of mining

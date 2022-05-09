@@ -11,10 +11,10 @@
       "item": "minecraft:tinted_glass"
     },
     "f": {
-      "item": "minecraft:blast_furnace"
+      "item": "lavaplus:watermill"
     },
     "i": {
-      "item": "minecraft:redstone"
+      "item": "lavaplus:conduit"
     },
     "c": {
       "item": "minecraft:copper_ingot"

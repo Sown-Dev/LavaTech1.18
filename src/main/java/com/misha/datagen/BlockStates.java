@@ -51,8 +51,9 @@ public class BlockStates extends BlockStateProvider {
 
         simpleBlock(Registration.REACTORFRAME.get());
         simpleBlock(Registration.REACTORGLASS.get());
-        simpleBlock(Registration.REACTORPANEL.get());
+        registerBlock("reactorpanel",Registration.REACTORPANEL.get());
         simpleBlock(Registration.REACTORPORT.get());
+        simpleBlock(Registration.BEACONCOMP.get());
     }
 
     private void registerSymBlock(String name, Block block) {

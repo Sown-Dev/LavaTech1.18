@@ -179,6 +179,9 @@ public class Items extends ItemModelProvider {
         withExistingParent(Registration.IRONDRILL.get().getRegistryName().getPath(),
                 new ResourceLocation(LavaPlus.MODID, "block/irondrill"));
 
+        withExistingParent(Registration.BEACONCOMP.get().getRegistryName().getPath(),
+                new ResourceLocation(LavaPlus.MODID, "block/beaconcomp"));
+
 
 
 

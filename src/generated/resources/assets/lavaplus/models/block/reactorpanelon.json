@@ -3,7 +3,7 @@
   "textures": {
     "down": "lavaplus:block/reactorpanel_top",
     "up": "lavaplus:block/reactorpanel_top",
-    "north": "lavaplus:block/reactorpanel_front",
+    "north": "lavaplus:block/reactorpanel_fronton",
     "south": "lavaplus:block/reactorpanel_side",
     "east": "lavaplus:block/reactorpanel_side",
     "west": "lavaplus:block/reactorpanel_side",
