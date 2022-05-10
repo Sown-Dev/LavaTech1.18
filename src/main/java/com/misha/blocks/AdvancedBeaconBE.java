@@ -2,6 +2,7 @@ package com.misha.blocks;
 
 import com.misha.setup.Registration;
 import com.misha.tools.CustomEnergyStorage;
+import net.minecraft.client.renderer.blockentity.BeaconRenderer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;

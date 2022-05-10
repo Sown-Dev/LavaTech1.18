@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "advancedbeacon",
+  "pattern": [
+    "mbm",
+    "gdg",
+    "msm"
+  ],
+  "key": {
+    "s": {
+      "item": "lavaplus:simplebeacon"
+    },
+    "g": {
+      "item": "minecraft:tinted_glass"
+    },
+    "b": {
+      "item": "minecraft:beacon"
+    },
+    "d": {
+      "tag": "forge:storage_blocks/diamond"
+    },
+    "m": {
+      "item": "lavaplus:reinforcedframe"
+    }
+  },
+  "result": {
+    "item": "lavaplus:advancedbeacon"
+  }
+}

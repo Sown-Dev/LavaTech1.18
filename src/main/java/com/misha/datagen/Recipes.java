@@ -5,6 +5,7 @@ import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.item.Items;
@@ -491,10 +492,30 @@ public class Recipes extends RecipeProvider {
                 .unlockedBy("mframe", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.MACHINEFRAME.get()))
                 .save(consumer);
 
-     /*   new CoalInfuserRecipeBuilder(Items.COAL, Registration.MAGMACOAL, 1)
-                .unlockedBy("has_coal", inventoryTrigger(ItemPredicate.Builder.item()
-                        .of(Items.COAL).build())).save(pFinishedRecipeConsumer);
-*/
+        ShapedRecipeBuilder.shaped(Registration.BEACONCOMP.get())
+                .pattern("rmr")
+                .pattern("mbm")
+                .pattern("rmr")
+                .define('b', ItemTags.create(new ResourceLocation("forge:beacon_base_blocks")))
+                .define('r', Items.REDSTONE)
+                .define('m', Registration.MACHINEFRAME.get().asItem())
+                .group("beaconcomp")
+                .unlockedBy("mframe", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.MACHINEFRAME.get()))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(Registration.ADVANCEDBEACON.get())
+                .pattern("mbm")
+                .pattern("gdg")
+                .pattern("msm")
+                .define('s', Registration.SIMPLEBEACON.get())
+                .define('g', Items.TINTED_GLASS)
+                .define('b', Items.BEACON)
+                .define('d', Tags.Items.STORAGE_BLOCKS_DIAMOND)
+                .define('m', Registration.REINFORCEDFRAME.get().asItem())
+                .group("advancedbeacon")
+                .unlockedBy("rframe", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.REINFORCEDFRAME.get()))
+                .save(consumer);
+
 
 
 

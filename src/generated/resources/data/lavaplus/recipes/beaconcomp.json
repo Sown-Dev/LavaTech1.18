@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "beaconcomp",
+  "pattern": [
+    "rmr",
+    "mbm",
+    "rmr"
+  ],
+  "key": {
+    "b": {
+      "tag": "forge:beacon_base_blocks"
+    },
+    "r": {
+      "item": "minecraft:redstone"
+    },
+    "m": {
+      "item": "lavaplus:machineframe"
+    }
+  },
+  "result": {
+    "item": "lavaplus:beaconcomp"
+  }
+}

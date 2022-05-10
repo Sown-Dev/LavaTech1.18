@@ -3,7 +3,7 @@
 	"parent": "minecraft:block/cube",
 	"textures": {
 		"0": "lavaplus:block/advancedbeacon_glassside",
-		"1": "lavaplus:block/beaconglasstop",
+		"1": "lavaplus:block/advancedbeacon_top",
 		"3": "lavaplus:block/beaconbase",
 		"4": "lavaplus:block/beacondiamond",
 		"particle": "lavaplus:block/beaconbase"
