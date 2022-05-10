@@ -29,11 +29,11 @@ import javax.annotation.Nullable;
 
 public class FuelProcessorBE extends BlockEntity {
 
-    public static int capacity = 25000;
-    public int usage = 5;
+    public static int capacity = 250000;
+    public static final int baseUsage = 155;
     int transfer = 200;
     boolean hasPower = false;
-    public static final int baseUsage = 120;
+   int usage= baseUsage;
     static int basetime = 60;
     int time = basetime;
 

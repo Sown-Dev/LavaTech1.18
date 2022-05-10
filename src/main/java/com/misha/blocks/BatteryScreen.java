@@ -28,8 +28,9 @@ public class BatteryScreen extends AbstractContainerScreen<BatteryContainer> {
 
     @Override
     protected void renderLabels(PoseStack matrixStack, int mouseX, int mouseY) {
-        drawString(matrixStack, Minecraft.getInstance().font,   ""+ menu.getEnergy()+"FE/"+BatteryBE.capacity/1000+"kFE", 67, 9, 0xFFFFFF);
-        drawString(matrixStack, Minecraft.getInstance().font,   "Transfer: "+ BatteryBE.transfer +"FE/t", 67, 18, 0xFFFFFF);
+        drawString(matrixStack, Minecraft.getInstance().font,   ""+ menu.getEnergy()+"FE/"+BatteryBE.capacity/1000+"kFE", 43, 10, 0xFFFFFF);
+        drawString(matrixStack, Minecraft.getInstance().font,   "Max Transfer: "+ BatteryBE.transfer +"FE/t", 43, 19, 0xFFFFFF);
+        drawString(matrixStack, Minecraft.getInstance().font,   "Transfer: "+ menu.getCharging() +"FE/t", 43, 28, 0xFFFFFF);
 
     }
 
@@ -42,8 +43,8 @@ public class BatteryScreen extends AbstractContainerScreen<BatteryContainer> {
 
         RenderSystem.setShaderTexture(0, BAR);
 
-        int barX = relX+34;
-        int barY = relY+62-(int)(((double)menu.getEnergy()/ (double)BatteryBE.capacity)*52);
+        int barX = relX+11;
+        int barY = relY+63-(int)(((double)menu.getEnergy()/ (double)BatteryBE.capacity)*52);
 
         this.blit(matrixStack, barX,barY, 0, 0, 17, (int)(((double) menu.getEnergy()/ (double)BatteryBE.capacity)*52));
     }

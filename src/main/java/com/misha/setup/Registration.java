@@ -40,17 +40,6 @@ public class Registration {
         ModRecipes.register(bus);
     }
 
-    @Mod.EventBusSubscriber(bus= Mod.EventBusSubscriber.Bus.MOD, value= Dist.CLIENT)
-    public static class ClientSideHandler{
-        @SubscribeEvent
-        public static void clientSetup(FMLClientSetupEvent event){
-            Hydroponics.registerRenderLayer();
-            SimpleBeacon.registerRenderLayer();
-            Garden.registerRenderLayer();
-            ReactorGlass.registerRenderLayer();
-            ReactorCore.registerRenderLayer();
-        }
-    }
 
     //items:
     public static final RegistryObject<LavaBrick> LAVABRICK = ITEMS.register("lavabrick", () -> new LavaBrick(new Item.Properties().tab(CreativeModeTab.TAB_MISC)));

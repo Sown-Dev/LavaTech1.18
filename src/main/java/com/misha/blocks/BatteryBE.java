@@ -19,10 +19,10 @@ import javax.annotation.Nullable;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class BatteryBE extends BlockEntity {
-    public static int capacity = 800000;
-public static final int transfer=1000;
-boolean redstone=false;
-int charging=0;
+    public static int capacity = 1000000;
+    public static final int transfer = 2000;
+    boolean redstone = false;
+    public int charging = 0;
     private final CustomEnergyStorage energyStorage = createEnergy();
     int oldPower = energyStorage.getEnergyStored();
     // Never create lazy optionals in getCapability. Always place them as fields in the tile entity:
@@ -43,20 +43,21 @@ int charging=0;
     }
 
     public void tickServer(BlockState state) {
-oldPower=energyStorage.getEnergyStored();
+        oldPower = energyStorage.getEnergyStored();
         BlockState blockState = level.getBlockState(worldPosition);
 
-            level.setBlock(worldPosition, blockState.setValue(BlockStateProperties.POWERED, this.energyStorage.getEnergyStored()>0),
-                    Block.UPDATE_ALL);
+        level.setBlock(worldPosition, blockState.setValue(BlockStateProperties.POWERED, this.energyStorage.getEnergyStored() > 0),
+                Block.UPDATE_ALL);
 
-level.blockUpdated(worldPosition, level.getBlockState(worldPosition).getBlock());
+        level.blockUpdated(worldPosition, level.getBlockState(worldPosition).getBlock());
 
-redstone =level.getDirectSignalTo(worldPosition)>0;
-if(redstone) {
-    sendOutPower();
-}
-        charging=energyStorage.getEnergyStored()-oldPower;
-//System.out.println(charging);
+        redstone = level.getDirectSignalTo(worldPosition) > 0;
+        if (redstone) {
+            sendOutPower();
+        }
+        charging = energyStorage.getEnergyStored() - oldPower;
+
+
     }
 
     private void sendOutPower() {
@@ -67,7 +68,7 @@ if(redstone) {
                 if (te != null) {
                     boolean doContinue = te.getCapability(CapabilityEnergy.ENERGY, direction.getOpposite()).map(handler -> {
                                 if (handler.canReceive()) {
-                                    int received = handler.receiveEnergy(Math.min(capacity.get(),transfer), false);
+                                    int received = handler.receiveEnergy(Math.min(capacity.get(), transfer), false);
                                     capacity.addAndGet(-received);
                                     energyStorage.consumeEnergy(received);
                                     setChanged();

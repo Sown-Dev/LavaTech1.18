@@ -22,13 +22,13 @@ import net.minecraftforge.items.wrapper.InvWrapper;
 
 public class BatteryContainer extends AbstractContainerMenu {
 
-    private BlockEntity blockEntity;
+    private BatteryBE blockEntity;
     private Player playerEntity;
     private IItemHandler playerInventory;
 
     public BatteryContainer(int windowId, Level world, BlockPos pos, Inventory playerInventory, Player player) {
         super(Registration.BATTERY_CONTAINER.get(), windowId);
-        blockEntity = world.getBlockEntity(pos);
+        blockEntity =(BatteryBE) world.getBlockEntity(pos);
         this.playerEntity = player;
         this.playerInventory = new InvWrapper(playerInventory);
         if (blockEntity != null) {
@@ -37,7 +37,7 @@ public class BatteryContainer extends AbstractContainerMenu {
             });
         }
 
-        layoutPlayerInventorySlots(10, 70);
+        layoutPlayerInventorySlots(8, 70);
         trackPower();
     }
 
@@ -73,11 +73,44 @@ public class BatteryContainer extends AbstractContainerMenu {
                 });
             }
         });
+
+
+
+
+
+        addDataSlot(new DataSlot() {
+            @Override
+            public int get() {
+                return getCharging() & 0xffff;
+            }
+
+            @Override
+            public void set(int value) {
+
+                    int chargeStored = blockEntity.charging & 0xffff0000;
+                    blockEntity.charging = (chargeStored + (value & 0xffff));
+            }
+        });
+        addDataSlot(new DataSlot() {
+            @Override
+            public int get() {
+                return (getCharging() >> 16) & 0xffff;
+            }
+
+            @Override
+            public void set(int value) {
+                int chargeStored = blockEntity.charging & 0x0000ffff;
+                blockEntity.charging = (chargeStored | (value << 16));
+            }
+        });
+
     }
 
     public int getEnergy() {
         return blockEntity.getCapability(CapabilityEnergy.ENERGY).map(IEnergyStorage::getEnergyStored).orElse(0);
     }
+    public int getCharging() {
+        return blockEntity.charging;  }
 
     @Override
     public boolean stillValid(Player playerIn) {

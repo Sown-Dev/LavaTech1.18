@@ -37,6 +37,13 @@ public class ClientSetup {
             MenuScreens.register(Registration.IRONDRILL_CONTAINER.get(), IronDrillScreen::new);
             MenuScreens.register(Registration.ADVANCEDBEACON_CONTAINER.get(), AdvancedBeaconScreen::new);
 
+
+            Hydroponics.registerRenderLayer();
+            SimpleBeacon.registerRenderLayer();
+            Garden.registerRenderLayer();
+            ReactorGlass.registerRenderLayer();
+            ReactorCore.registerRenderLayer();
+            AdvancedBeacon.registerRenderLayer();
         });
     }
 }

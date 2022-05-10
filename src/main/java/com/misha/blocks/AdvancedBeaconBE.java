@@ -27,8 +27,8 @@ import java.util.List;
 
 public class AdvancedBeaconBE extends BlockEntity {
     public static int capacity = 500000;
-    int transfer = 1000;
-    public static int baseUsage = 500;
+    int transfer = 2000;
+    public static int baseUsage = 750;
     int usage = baseUsage;
 
     short effect = 0;

@@ -23,6 +23,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.energy.CapabilityEnergy;
@@ -193,6 +194,8 @@ public class ReactorPanelBE extends BlockEntity {
             }
         }
 
+        level.setBlock(worldPosition, state.setValue(BlockStateProperties.POWERED, heat>1400  ),
+                Block.UPDATE_ALL);
     }
 
 

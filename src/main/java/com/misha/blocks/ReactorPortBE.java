@@ -21,7 +21,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class ReactorPortBE extends BlockEntity {
 
 
-    public static int capacity = 25000000;
+    public static int capacity = 30000000;
     int transfer=100000;
     private final CustomEnergyStorage energyStorage = createEnergy();
 

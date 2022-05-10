@@ -79,11 +79,7 @@ public class FuelProcessor extends Block implements EntityBlock {
         builder.add(BlockStateProperties.FACING, BlockStateProperties.POWERED);
     }
 
-    @Nullable
-    @Override
-    public BlockState getStateForPlacement(BlockPlaceContext context) {
-        return defaultBlockState().setValue(BlockStateProperties.FACING, context.getNearestLookingDirection().getOpposite());
-    }
+
 
 
 

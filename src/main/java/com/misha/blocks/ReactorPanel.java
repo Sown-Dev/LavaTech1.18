@@ -45,7 +45,7 @@ public class ReactorPanel extends Block implements EntityBlock {
         super(Properties.of(Material.METAL)
                 .sound(SoundType.METAL)
                 .noOcclusion()
-                .lightLevel(state -> state.getValue(BlockStateProperties.POWERED) ? 13: 0)
+                .lightLevel(state -> state.getValue(BlockStateProperties.POWERED) ? 12: 0)
                 .strength(1.0f));
     }
 
