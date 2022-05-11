@@ -36,10 +36,10 @@ InductionFurnaceBE blockEntity;
         this.playerInventory = new InvWrapper(playerInventory);
 
         if (blockEntity != null) {
-            blockEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(h -> {
+            IItemHandler h = blockEntity.getItemHandler();
                 addSlot(new SlotItemHandler(h, 0, 44, 22));
                 addSlot(new SlotItemHandler(h, 1, 116, 22));
-            });
+
         }
         layoutPlayerInventorySlots(8, 84);
         trackPower();

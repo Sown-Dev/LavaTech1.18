@@ -1,6 +1,7 @@
 package com.misha.blocks;
 
 import com.misha.setup.Registration;
+import com.misha.utils.ExtractLockItemStackHandlerWrapper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -28,8 +29,9 @@ public class CoalInfuserBE extends BlockEntity {
     private final ItemStackHandler itemHandler = createHandler();
 
 
-    // Never create lazy optionals in getCapability. Always place them as fields in the tile entity:
-    private final LazyOptional<IItemHandler> handler = LazyOptional.of(() -> itemHandler);
+
+    private final IItemHandler lockedHandler = new ExtractLockItemStackHandlerWrapper(itemHandler, i -> i == 0);
+    private final LazyOptional<IItemHandler> handler = LazyOptional.of(() -> lockedHandler);
     int ccounter = 0;
     public int counter = 0;
     static int baseTime = 1500;
@@ -37,6 +39,10 @@ public class CoalInfuserBE extends BlockEntity {
     public CoalInfuserBE(BlockPos pos, BlockState state) {
         //RecipeType.register("coalinfuser")
         super(Registration.COALINFUSER_BE.get(), pos, state);
+    }
+
+    public IItemHandler getItemHandler(){
+        return this.itemHandler;
     }
 
     @Override

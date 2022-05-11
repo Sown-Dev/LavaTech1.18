@@ -2,6 +2,7 @@ package com.misha.blocks;
 
 import com.misha.setup.Registration;
 import com.misha.tools.CustomEnergyStorage;
+import com.misha.utils.ExtractLockItemStackHandlerWrapper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -34,8 +35,9 @@ public class CompressorBE extends BlockEntity {
     public static final int baseUsage = 20;
     private final ItemStackHandler itemHandler = createHandler();
     private final CustomEnergyStorage energyStorage = createEnergy();
-    // Never create lazy optionals in getCapability. Always place them as fields in the tile entity:
-    private final LazyOptional<IItemHandler> handler = LazyOptional.of(() -> itemHandler);
+
+    private final IItemHandler lockedHandler = new ExtractLockItemStackHandlerWrapper(itemHandler, i -> i == 0);
+    private final LazyOptional<IItemHandler> handler = LazyOptional.of(() -> lockedHandler);
     private final LazyOptional<IEnergyStorage> energy = LazyOptional.of(() -> energyStorage);
 
 
@@ -55,6 +57,9 @@ public class CompressorBE extends BlockEntity {
         energy.invalidate();
     }
 
+    public IItemHandler getItemHandler(){
+        return this.itemHandler;
+    }
 
     short recipe = 0;
     short oldrecipe = 0;

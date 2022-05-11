@@ -14,7 +14,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.energy.CapabilityEnergy;
 import net.minecraftforge.energy.IEnergyStorage;
-import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
 import net.minecraftforge.items.wrapper.InvWrapper;
@@ -24,9 +23,8 @@ public class UpgraderContainer extends AbstractContainerMenu {
     UpgraderBE blockEntity;
     private Player playerEntity;
     private IItemHandler playerInventory;
-    boolean active=false;
+    boolean active = false;
     int counter = 0;
-
 
 
     public UpgraderContainer(int windowId, Level world, BlockPos pos, Inventory playerInventory, Player player) {
@@ -36,17 +34,15 @@ public class UpgraderContainer extends AbstractContainerMenu {
         this.playerInventory = new InvWrapper(playerInventory);
 
         if (blockEntity != null) {
-            blockEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(h -> {
-                addSlot(new SlotItemHandler(h, 0, 34, 22));
-                addSlot(new SlotItemHandler(h, 1, 79, 22));
-                addSlot(new SlotItemHandler(h, 2, 139, 22));
-            });
+            IItemHandler h = blockEntity.getItemHandler();
+            addSlot(new SlotItemHandler(h, 0, 34, 22));
+            addSlot(new SlotItemHandler(h, 1, 79, 22));
+            addSlot(new SlotItemHandler(h, 2, 139, 22));
+
         }
         layoutPlayerInventorySlots(8, 84);
         trackPower();
     }
-
-
 
 
     @Override
@@ -67,7 +63,7 @@ public class UpgraderContainer extends AbstractContainerMenu {
                 }
                 slot.onQuickCraft(stack, itemstack);
             } else {
-                if (stack.getItem() == Blocks.RAW_IRON_BLOCK.asItem() ||stack.getItem()== Blocks.RAW_GOLD_BLOCK.asItem() ||stack.getItem()== Blocks.RAW_COPPER_BLOCK.asItem()) {
+                if (stack.getItem() == Blocks.RAW_IRON_BLOCK.asItem() || stack.getItem() == Blocks.RAW_GOLD_BLOCK.asItem() || stack.getItem() == Blocks.RAW_COPPER_BLOCK.asItem()) {
                     if (!this.moveItemStackTo(stack, 0, 1, false)) {
                         return ItemStack.EMPTY;
                     }
@@ -98,7 +94,7 @@ public class UpgraderContainer extends AbstractContainerMenu {
 
 
     private int addSlotRange(IItemHandler handler, int index, int x, int y, int amount, int dx) {
-        for (int i = 0 ; i < amount ; i++) {
+        for (int i = 0; i < amount; i++) {
             addSlot(new SlotItemHandler(handler, index, x, y));
             x += dx;
             index++;
@@ -107,12 +103,13 @@ public class UpgraderContainer extends AbstractContainerMenu {
     }
 
     private int addSlotBox(IItemHandler handler, int index, int x, int y, int horAmount, int dx, int verAmount, int dy) {
-        for (int j = 0 ; j < verAmount ; j++) {
+        for (int j = 0; j < verAmount; j++) {
             index = addSlotRange(handler, index, x, y, horAmount, dx);
             y += dy;
         }
         return index;
     }
+
     private void trackPower() {
         // Unfortunatelly on a dedicated server ints are actually truncated to short so we need
         // to split our integer here (split our 32 bit integer into two 16 bit integers)
@@ -126,7 +123,7 @@ public class UpgraderContainer extends AbstractContainerMenu {
             public void set(int value) {
                 blockEntity.getCapability(CapabilityEnergy.ENERGY).ifPresent(h -> {
                     int energyStored = h.getEnergyStored() & 0xffff0000;
-                    ((CustomEnergyStorage)h).setEnergy(energyStored + (value & 0xffff));
+                    ((CustomEnergyStorage) h).setEnergy(energyStored + (value & 0xffff));
                 });
             }
         });
@@ -140,11 +137,12 @@ public class UpgraderContainer extends AbstractContainerMenu {
             public void set(int value) {
                 blockEntity.getCapability(CapabilityEnergy.ENERGY).ifPresent(h -> {
                     int energyStored = h.getEnergyStored() & 0x0000ffff;
-                    ((CustomEnergyStorage)h).setEnergy(energyStored | (value << 16));
+                    ((CustomEnergyStorage) h).setEnergy(energyStored | (value << 16));
                 });
             }
         });
     }
+
     public int getEnergy() {
         return blockEntity.getCapability(CapabilityEnergy.ENERGY).map(IEnergyStorage::getEnergyStored).orElse(0);
     }

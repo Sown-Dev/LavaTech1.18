@@ -2,6 +2,7 @@ package com.misha.blocks;
 
 import com.misha.setup.Registration;
 import com.misha.tools.CustomEnergyStorage;
+import com.misha.utils.ExtractLockItemStackHandlerWrapper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -37,8 +38,10 @@ public class InductionFurnaceBE extends BlockEntity {
 
     private final ItemStackHandler itemHandler = createHandler();
     private final CustomEnergyStorage energyStorage = createEnergy();
-    // Never create lazy optionals in getCapability. Always place them as fields in the tile entity:
-    private final LazyOptional<IItemHandler> handler = LazyOptional.of(() -> itemHandler);
+
+
+    private final IItemHandler lockedHandler = new ExtractLockItemStackHandlerWrapper(itemHandler, i -> i == 0);
+    private final LazyOptional<IItemHandler> handler = LazyOptional.of(() -> lockedHandler);
     private final LazyOptional<IEnergyStorage> energy = LazyOptional.of(() -> energyStorage);
 
 
@@ -49,6 +52,10 @@ public class InductionFurnaceBE extends BlockEntity {
     public InductionFurnaceBE(BlockPos pos, BlockState state) {
         //RecipeType.register("inductionfurnace")
         super(Registration.INDUCTIONFURNACE_BE.get(), pos, state);
+    }
+
+    public IItemHandler getItemHandler(){
+        return this.itemHandler;
     }
 
     public void setRemoved() {

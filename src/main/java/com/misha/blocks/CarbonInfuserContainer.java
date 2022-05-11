@@ -35,13 +35,11 @@ public class CarbonInfuserContainer extends AbstractContainerMenu {
         this.playerInventory = new InvWrapper(playerInventory);
 
         if (blockEntity != null) {
-            blockEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(h -> {
+            IItemHandler h = blockEntity.getItemHandler();
                 addSlot(new SlotItemHandler(h, 0, 60, 7));
                 addSlot(new SlotItemHandler(h, 1, 60, 36));
                 addSlot(new SlotItemHandler(h, 2, 127, 7));
 
-
-            });
         }
         layoutPlayerInventorySlots(6, 86);
         trackPower();

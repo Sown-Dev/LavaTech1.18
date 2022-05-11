@@ -35,12 +35,9 @@ public class FuelProcessorContainer extends AbstractContainerMenu {
         this.playerInventory = new InvWrapper(playerInventory);
 
         if (blockEntity != null) {
-            blockEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(h -> {
+            IItemHandler h = blockEntity.getItemHandler();
                 addSlot(new SlotItemHandler(h, 0, 31, 23));
                 addSlot(new SlotItemHandler(h, 1, 137, 23));
-
-
-            });
         }
         layoutPlayerInventorySlots(6, 63);
         trackPower();

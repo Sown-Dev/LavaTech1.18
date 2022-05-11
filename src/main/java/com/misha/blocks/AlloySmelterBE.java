@@ -1,6 +1,7 @@
 package com.misha.blocks;
 
 import com.misha.setup.Registration;
+import com.misha.utils.ExtractLockItemStackHandlerWrapper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -31,8 +32,11 @@ public class AlloySmelterBE extends BlockEntity {
 
 
     private final ItemStackHandler itemHandler = createHandler();
-    // Never create lazy optionals in getCapability. Always place them as fields in the tile entity:
-    private final LazyOptional<IItemHandler> handler = LazyOptional.of(() -> itemHandler);
+
+
+    private final IItemHandler lockedHandler = new ExtractLockItemStackHandlerWrapper(itemHandler, i ->  i == 0|| i==1 || i == 2|| i==3);
+    private final LazyOptional<IItemHandler> handler = LazyOptional.of(() -> lockedHandler);
+
 
 
     public short counter = 0;
@@ -49,6 +53,10 @@ public class AlloySmelterBE extends BlockEntity {
         // Don't forget to invalidate your caps when your block entity is removed
         handler.invalidate();
 
+    }
+
+    public IItemHandler getItemHandler(){
+        return this.itemHandler;
     }
 
     public void tickServer(BlockState state) {

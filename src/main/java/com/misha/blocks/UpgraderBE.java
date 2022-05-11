@@ -2,6 +2,7 @@ package com.misha.blocks;
 
 import com.misha.setup.Registration;
 import com.misha.tools.CustomEnergyStorage;
+import com.misha.utils.ExtractLockItemStackHandlerWrapper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -37,8 +38,10 @@ public class UpgraderBE extends BlockEntity {
     public static int baseTime=1000;
     private final ItemStackHandler itemHandler = createHandler();
     private final CustomEnergyStorage energyStorage = createEnergy();
-    // Never create lazy optionals in getCapability. Always place them as fields in the tile entity:
-    private final LazyOptional<IItemHandler> handler = LazyOptional.of(() -> itemHandler);
+
+
+    private final IItemHandler lockedHandler = new ExtractLockItemStackHandlerWrapper(itemHandler, i -> i == 0|| i==1);
+    private final LazyOptional<IItemHandler> handler = LazyOptional.of(() -> lockedHandler);
     private final LazyOptional<IEnergyStorage> energy = LazyOptional.of(() -> energyStorage);
 
 
@@ -56,6 +59,10 @@ public class UpgraderBE extends BlockEntity {
         // Don't forget to invalidate your caps when your block entity is removed
         handler.invalidate();
         energy.invalidate();
+    }
+
+    public IItemHandler getItemHandler(){
+        return this.itemHandler;
     }
 
     public void tickServer(BlockState state) {

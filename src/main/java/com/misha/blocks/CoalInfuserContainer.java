@@ -18,22 +18,22 @@ import net.minecraftforge.items.wrapper.InvWrapper;
 
 public class CoalInfuserContainer extends AbstractContainerMenu {
 
-    private BlockEntity blockEntity;
+    private CoalInfuserBE blockEntity;
     private Player playerEntity;
     private IItemHandler playerInventory;
 
 
     public CoalInfuserContainer(int windowId, Level world, BlockPos pos, Inventory playerInventory, Player player) {
         super(Registration.COALINFUSER_CONTAINER.get(), windowId);
-        blockEntity = world.getBlockEntity(pos);
+        blockEntity = (CoalInfuserBE) world.getBlockEntity(pos);
         this.playerEntity = player;
         this.playerInventory = new InvWrapper(playerInventory);
 
         if (blockEntity != null) {
-            blockEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(h -> {
+            IItemHandler h = blockEntity.getItemHandler();
                 addSlot(new SlotItemHandler(h, 0, 44, 35));
                 addSlot(new SlotItemHandler(h, 1, 116, 35));
-            });
+
         }
         layoutPlayerInventorySlots(8, 84);
     }
