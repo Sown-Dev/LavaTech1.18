@@ -26,7 +26,7 @@ public class AdvancedBeaconScreen extends AbstractContainerScreen<AdvancedBeacon
     private ResourceLocation REGEN= new ResourceLocation( LavaPlus.MODID,"textures/gui/mob_effect/regeneration.png");
     private ResourceLocation ABSORB= new ResourceLocation( LavaPlus.MODID,"textures/gui/mob_effect/invisibility.png");
 
-    public static int counter=0;
+    public static int counter =0;
     public static int active =0;
 
     public AdvancedBeaconScreen(AdvancedBeaconContainer container, Inventory inv, Component name) {

@@ -43,7 +43,7 @@ public class BatteryBE extends BlockEntity {
     }
 
     public void tickServer(BlockState state) {
-        oldPower = energyStorage.getEnergyStored();
+
         BlockState blockState = level.getBlockState(worldPosition);
 
         level.setBlock(worldPosition, blockState.setValue(BlockStateProperties.POWERED, this.energyStorage.getEnergyStored() > 0),
@@ -58,6 +58,7 @@ public class BatteryBE extends BlockEntity {
         charging = energyStorage.getEnergyStored() - oldPower;
 
 
+        oldPower = energyStorage.getEnergyStored();
     }
 
     private void sendOutPower() {

@@ -6,9 +6,12 @@ import net.minecraft.client.renderer.blockentity.BeaconRenderer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.EntitySelector;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.block.Block;
@@ -61,6 +64,11 @@ public class AdvancedBeaconBE extends BlockEntity {
         energy.invalidate();
     }
 
+    public void messageBuilt() {
+        Player pl = level.getNearestPlayer((double) worldPosition.getX(), (double) worldPosition.getY(), (double) worldPosition.getZ(), 30.0, EntitySelector.NO_SPECTATORS);
+        pl.displayClientMessage(new TextComponent("Beacon multiblock is incomplete"), true);
+    }
+
     int count = 0;
     boolean built=false;
     public void tickServer(BlockState state) {
@@ -90,6 +98,7 @@ public class AdvancedBeaconBE extends BlockEntity {
 
         if(built) {
             if (hasEnoughPowerToWork()) {
+
                 energyStorage.consumeEnergy(usage);
                 count++;
                 if (count >= 10) {

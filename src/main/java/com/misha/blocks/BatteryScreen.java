@@ -30,7 +30,7 @@ public class BatteryScreen extends AbstractContainerScreen<BatteryContainer> {
     protected void renderLabels(PoseStack matrixStack, int mouseX, int mouseY) {
         drawString(matrixStack, Minecraft.getInstance().font,   ""+ menu.getEnergy()+"FE/"+BatteryBE.capacity/1000+"kFE", 43, 10, 0xFFFFFF);
         drawString(matrixStack, Minecraft.getInstance().font,   "Max Transfer: "+ BatteryBE.transfer +"FE/t", 43, 19, 0xFFFFFF);
-        drawString(matrixStack, Minecraft.getInstance().font,   "Transfer: "+ menu.getCharging() +"FE/t", 43, 28, 0xFFFFFF);
+        drawString(matrixStack, Minecraft.getInstance().font,   "Transferring: "+ menu.getCharging() +"FE/t", 43, 28, 0xFFFFFF);
 
     }
 

@@ -42,7 +42,7 @@ public class AdvancedBeacon extends Block implements EntityBlock {
         super(Properties.of(Material.METAL)
                 .sound(SoundType.GLASS)
                 .noOcclusion()
-                .lightLevel(state -> state.getValue(BlockStateProperties.POWERED) ? 13: 0)
+                .lightLevel(state -> state.getValue(BlockStateProperties.POWERED) ? 13 : 0)
                 .strength(1.0f));
     }
 
@@ -50,23 +50,28 @@ public class AdvancedBeacon extends Block implements EntityBlock {
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(BlockStateProperties.FACING, BlockStateProperties.POWERED);
     }
+
     @Override
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult trace) {
         if (!level.isClientSide) {
             BlockEntity blockEntity = level.getBlockEntity(pos);
             if (blockEntity instanceof AdvancedBeaconBE) {
-                MenuProvider containerProvider = new MenuProvider() {
-                    @Override
-                    public Component getDisplayName() {
-                        return new TranslatableComponent("screen.lavaplus.advancedbeacon");
-                    }
+                if (((AdvancedBeaconBE) blockEntity).built) {
+                    MenuProvider containerProvider = new MenuProvider() {
+                        @Override
+                        public Component getDisplayName() {
+                            return new TranslatableComponent("screen.lavaplus.advancedbeacon");
+                        }
 
-                    @Override
-                    public AbstractContainerMenu createMenu(int windowId, Inventory playerInventory, Player playerEntity) {
-                        return new AdvancedBeaconContainer(windowId, level, pos, playerInventory, playerEntity);
-                    }
-                };
-                NetworkHooks.openGui((ServerPlayer) player, containerProvider, blockEntity.getBlockPos());
+                        @Override
+                        public AbstractContainerMenu createMenu(int windowId, Inventory playerInventory, Player playerEntity) {
+                            return new AdvancedBeaconContainer(windowId, level, pos, playerInventory, playerEntity);
+                        }
+                    };
+                    NetworkHooks.openGui((ServerPlayer) player, containerProvider, blockEntity.getBlockPos());
+                }else{
+                    ((AdvancedBeaconBE) blockEntity).messageBuilt();
+                }
             } else {
                 throw new IllegalStateException("Our named container provider is missing!");
             }
@@ -95,7 +100,7 @@ public class AdvancedBeacon extends Block implements EntityBlock {
     }
 
     @OnlyIn(Dist.CLIENT)
-    public static void registerRenderLayer(){
+    public static void registerRenderLayer() {
         ItemBlockRenderTypes.setRenderLayer(Registration.ADVANCEDBEACON.get(), RenderType.translucent());
     }
 
@@ -105,7 +110,6 @@ public class AdvancedBeacon extends Block implements EntityBlock {
         int energy = stack.hasTag() ? stack.getTag().getInt("energy") : 0;
         list.add(new TranslatableComponent("message.advancedbeacon", Integer.toString(energy)).withStyle(ChatFormatting.DARK_GRAY));
     }
-
 
 
 }
