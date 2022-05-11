@@ -100,6 +100,12 @@ public class Items extends ItemModelProvider {
                 "layer0",
                 new ResourceLocation(LavaPlus.MODID, "item/fuelcell"));
 
+        singleTexture(
+                Registration.COPPERHANDDRILL.get().getRegistryName().getPath(),
+                new ResourceLocation("item/generated"),
+                "layer0",
+                new ResourceLocation(LavaPlus.MODID, "item/copperhanddrill"));
+
 
 
 

@@ -59,6 +59,7 @@ public class Registration {
 
     public static final RegistryObject<Item> FERROUSALLOY= ITEMS.register("ferrousalloy", () -> new FerrousAlloy(new Item.Properties().tab(CreativeModeTab.TAB_MISC)));
     public static final RegistryObject<Item> FUELCELL= ITEMS.register("fuelcell", () -> new FuelCell(new Item.Properties().tab(CreativeModeTab.TAB_MISC)));
+    public static final RegistryObject<Item> COPPERHANDDRILL= ITEMS.register("copperhanddrill", () -> new CopperHanddrill(new Item.Properties().tab(CreativeModeTab.TAB_TOOLS)));
 
     //blocks:
     public static final RegistryObject<Block> BLOCKBURNER = BLOCKS.register("blockburner",BlockBurner::new);

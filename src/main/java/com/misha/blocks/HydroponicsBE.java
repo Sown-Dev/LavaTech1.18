@@ -45,7 +45,7 @@ public class HydroponicsBE extends BlockEntity {
 
     private final ItemStackHandler itemHandler = createHandler();
 
-    private final IItemHandler lockedHandler = new ExtractLockItemStackHandlerWrapper(itemHandler, i -> i == 1);
+    private final IItemHandler lockedHandler = new ExtractLockItemStackHandlerWrapper(itemHandler, i -> i == 0);
 
     private final CustomEnergyStorage energyStorage = createEnergy();
     // Never create lazy optionals in getCapability. Always place them as fields in the tile entity:

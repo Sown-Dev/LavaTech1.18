@@ -62,7 +62,5 @@ public class InductionFurnaceRecipeCategory implements IRecipeCategory<Induction
         builder.addSlot(RecipeIngredientRole.INPUT, 39, 17).addIngredients(recipe.getIngredients().get(0));
         builder.addSlot(RecipeIngredientRole.OUTPUT, 111, 17).addItemStack(recipe.getResultItem());
 
-
-
     }
 }
