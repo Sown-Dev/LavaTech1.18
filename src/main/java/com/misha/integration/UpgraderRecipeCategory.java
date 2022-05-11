@@ -55,11 +55,11 @@ public class UpgraderRecipeCategory implements IRecipeCategory<UpgraderRecipe> {
 
     @Override
     public void setRecipe(IRecipeLayoutBuilder builder, UpgraderRecipe recipe, IFocusGroup focuses) {
-        int count = 0;
+        int count = 1;
         if (recipe.getResultItem().getItem() == Registration.INFERNALBRICK.get().asItem()) {
             count = 9;
         }
-        builder.addSlot(RecipeIngredientRole.INPUT, 29, 17).addItemStack(new ItemStack(recipe.getIngredients().get(0).getItems()[0].getItem(), count));
+        builder.addSlot(RecipeIngredientRole.INPUT, 29, 17).addItemStack(new ItemStack(recipe.getIngredients().get(1).getItems()[0].getItem(), count));
         builder.addSlot(RecipeIngredientRole.INPUT, 74, 17).addIngredients(recipe.getIngredients().get(0));
 
         builder.addSlot(RecipeIngredientRole.OUTPUT, 134, 17).addItemStack(recipe.getResultItem());

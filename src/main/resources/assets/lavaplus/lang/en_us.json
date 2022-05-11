@@ -1,6 +1,6 @@
 {
   "item.lavaplus.lavabrick": "Lava Brick",
-  "message.lavabrick":"A warm brick made of diamonds, copper, and nether brick. Used to make machines and infernal ingots in the upgrader.",
+  "message.lavabrick":"A warm brick used to make machines and infernal ingots.",
 
   "item.lavaplus.infernalpickaxe": "Infernal Pickaxe",
   "message.infernalpickaxe":"A strong pickaxe that places torches when used.",
@@ -9,7 +9,7 @@
   "message.infernalsword":"A sword that ignites targets.",
 
   "item.lavaplus.infernalbrick": "Infernal Ingot",
-  "message.infernalbrick":"Very hot! Made in upgrader using 9 lava bricks and netherite.",
+  "message.infernalbrick":"Very hot!",
 
   "item.lavaplus.magmacoal": "Magmatic Coal",
   "message.magmacoal":"Burns twice as long as coal. Made in a Coal Reprocessor. Can be used as a substitute for coke coal.",
@@ -22,9 +22,6 @@
 
   "item.lavaplus.infernalboots": "Infernal Boots",
   "message.infernalboots":"Very strong and durable boots that increase your max health.",
-
-  "item.lavaplus.lavaguide": "Guide to thermal technology [DOESNT WORK]",
-  "message.lavaguide":"A guide for this mod. Doesn't currently work",
 
   "block.lavaplus.crate": "Wooden Crate",
   "message.crate":"A small crate for storage",
@@ -133,14 +130,14 @@
   "message.irondrill":"An upgraded version of the copper drill that mines much faster in a 3x3 area.",
 
 "block.lavaplus.advancedbeacon": "Advanced Beacon",
-  "message.advancedbeacon":"An upgraded version of the Mechanical Beacon that provides 2 stronger effects at once in a larger area to multiple people",
+  "message.advancedbeacon":"An upgraded version of the Mechanical Beacon that provides 3 stronger effects at once in a larger area to multiple people",
 
 "block.lavaplus.beaconcomp": "Beacon Component",
-  "message.beaconcomp":"A necessary component to create an Advanced Beacon",
+  "message.beaconcomp":"A necessary component to create an Advanced Beacon. Arrange in a 3x3 area below advanced beacon.",
 
 
 "item.lavaplus.ferrousalloy": "Ferrous Alloy Ingot",
-"message.ferrousalloy":"A peculiar alloy that can be used as a substitute for iron in certain recipes. Made in the alloy furnace with aluminum, iron, and tin.",
+"message.ferrousalloy":"A peculiar alloy that can be used as a substitute for iron in certain recipes.",
 
 "item.lavaplus.fuelcell": "Nutritional Fuel Cell",
 "message.fuelcell":"Made in the fuel processor by condensing food into burnable fuel",
