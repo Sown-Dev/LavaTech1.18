@@ -222,7 +222,7 @@ public class HydroponicsBE extends BlockEntity {
 
     public int findNext(ItemStack stack) {
         for (int i = 0; i < 9; i++) {
-            if (itemHandler.getStackInSlot(i + 1).getItem() == stack.getItem()) {
+            if (itemHandler.getStackInSlot(i + 1).getItem() == stack.getItem() && itemHandler.getStackInSlot(i + 1).getCount()<stack.getMaxStackSize()) {
                 return i + 1;
             }
         }

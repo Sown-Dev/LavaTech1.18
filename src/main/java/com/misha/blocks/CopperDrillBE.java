@@ -35,7 +35,7 @@ public class CopperDrillBE extends BlockEntity {
     public static final int baseUsage = 20;
     int usage = baseUsage;
 
-    static int basetime = 140;
+    static int basetime = 110;
     int time = basetime;
 
     int depth = 1;
@@ -141,7 +141,7 @@ public class CopperDrillBE extends BlockEntity {
 
     public int findNext(ItemStack stack) {
         for (int i = 0; i < itemHandler.getSlots(); i++) {
-            if (itemHandler.getStackInSlot(i).getItem() == stack.getItem()) {
+            if (itemHandler.getStackInSlot(i).getItem() == stack.getItem()  && itemHandler.getStackInSlot(i).getCount() < stack.getMaxStackSize()) {
                 return i ;
             }
         }

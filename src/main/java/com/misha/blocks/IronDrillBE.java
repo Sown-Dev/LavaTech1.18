@@ -30,10 +30,10 @@ public class IronDrillBE extends BlockEntity {
     public static int capacity = 100000;
     int transfer = 200;
     boolean hasPower = false;
-    public static final int baseUsage = 50;
+    public static final int baseUsage = 100;
     int usage = baseUsage;
 
-    static int basetime = 20;
+    static int basetime = 30;
     int time = basetime;
 
     int area = 3; //the area of mining
@@ -82,7 +82,7 @@ public class IronDrillBE extends BlockEntity {
 
 
     public void tickServer(BlockState state) {
-
+System.out.println(depth);
        /* BlockPos drillPos = new BlockPos(worldPosition.getX(), worldPosition.getY() - depth, worldPosition.getZ());
         if ((level.getBlockState(drillPos).isAir()
                 || level.getFluidState(drillPos).getType() instanceof LavaFluid
@@ -154,7 +154,7 @@ public class IronDrillBE extends BlockEntity {
 
     public int findNext(ItemStack stack) {
         for (int i = 0; i < itemHandler.getSlots(); i++) {
-            if (itemHandler.getStackInSlot(i).getItem() == stack.getItem()) {
+            if (itemHandler.getStackInSlot(i).getItem() == stack.getItem() && itemHandler.getStackInSlot(i).getCount() < stack.getMaxStackSize()) {
                 return i;
             }
         }
@@ -196,7 +196,6 @@ public class IronDrillBE extends BlockEntity {
     public CompoundTag getUpdateTag() {
         CompoundTag tag = super.getUpdateTag();
         tag.putInt("counter", counter);
-        //tag.putShort("depth",depth);
         return tag;
     }
 
@@ -215,7 +214,7 @@ public class IronDrillBE extends BlockEntity {
             energyStorage.deserializeNBT(tag.get("energy"));
         }
         counter = tag.getInt("counter");
-        depth = tag.getShort("depth");
+        //depth = tag.getShort("depth");
         super.load(tag);
     }
 

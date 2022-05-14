@@ -2,6 +2,7 @@ package com.misha.items;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextComponent;
 import net.minecraft.resources.ResourceLocation;
@@ -20,6 +21,8 @@ import net.minecraftforge.energy.EnergyStorage;
 import net.minecraftforge.energy.IEnergyStorage;
 
 import javax.annotation.Nullable;
+import java.awt.*;
+import java.awt.datatransfer.DataFlavor;
 import java.util.List;
 
 public class CopperHanddrill extends PickaxeItem {
@@ -78,4 +81,26 @@ public class CopperHanddrill extends PickaxeItem {
 
         return super.isDamageable(stack);
     }
+
+    @Nullable
+    @Override
+    public CompoundTag getShareTag(ItemStack stack) {
+        CompoundTag tag = super.getShareTag(stack);
+        stack.getCapability(CapabilityEnergy.ENERGY).ifPresent( h-> {
+            tag.put("energy", ((EnergyStorage)h).serializeNBT());
+        });
+        return tag;
+    }
+    @Override
+    public void readShareTag(ItemStack stack, @Nullable CompoundTag tag) {
+        if (tag.contains("energy")) {
+            stack.getCapability(CapabilityEnergy.ENERGY).ifPresent( h-> {
+                ((EnergyStorage)h).deserializeNBT(tag.get("h"));
+            });
+        }
+        tag.remove("energy");
+        super.readShareTag(stack,tag);
+    }
+
+
 }

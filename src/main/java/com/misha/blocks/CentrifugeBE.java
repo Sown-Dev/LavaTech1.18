@@ -158,7 +158,7 @@ public class CentrifugeBE extends BlockEntity implements IFluidTank {
 
     public int findNext(ItemStack stack) {
         for (int i = 0; i < 9; i++) {
-            if (itemHandler.getStackInSlot(i).getItem() == stack.getItem()) {
+            if (itemHandler.getStackInSlot(i).getItem() == stack.getItem()  && itemHandler.getStackInSlot(i).getCount() < stack.getMaxStackSize()) {
                 return i;
             }
         }
