@@ -13,6 +13,7 @@
 
   ],
   "output": {
-    "item": "lavaplus:ferrousalloy"
+    "item": "lavaplus:ferrousalloy",
+    "count": 2
   }
 }

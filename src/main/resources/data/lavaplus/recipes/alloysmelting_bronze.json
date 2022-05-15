@@ -13,6 +13,7 @@
 
   ],
   "output": {
-    "item": "lavaplus:bronze"
+    "item": "lavaplus:bronze",
+    "count": 3
   }
 }
