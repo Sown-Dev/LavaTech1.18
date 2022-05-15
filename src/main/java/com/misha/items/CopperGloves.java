@@ -13,6 +13,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
+import top.theillusivec4.curios.api.SlotContext;
 import top.theillusivec4.curios.api.type.capability.ICurioItem;
 
 import javax.annotation.Nullable;
@@ -29,8 +30,19 @@ public class CopperGloves extends Item implements ICurioItem {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> list, TooltipFlag flags) {
         super.appendHoverText(stack, level, list, flags);
-        list.add(new TranslatableComponent("message.coppergloves").withStyle(ChatFormatting.DARK_GRAY));
+       // list.add(new TranslatableComponent("message.coppergloves").withStyle(ChatFormatting.DARK_GRAY));
     }
 
+    @Override
+    public int getItemStackLimit(ItemStack stack) {
+        return 1;
+    }
 
+    @Override
+    public Multimap<Attribute, AttributeModifier> getAttributeModifiers(SlotContext slotContext, UUID uuid, ItemStack stack) {
+        ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
+        builder.put(Attributes.ARMOR, new AttributeModifier(uuid,"Armor", 2.0F, AttributeModifier.Operation.ADDITION));
+
+        return builder.build();
+    }
 }

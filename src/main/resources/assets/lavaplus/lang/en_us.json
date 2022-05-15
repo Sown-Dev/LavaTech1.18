@@ -142,6 +142,9 @@
 "item.lavaplus.fuelcell": "Nutritional Fuel Cell",
 "message.fuelcell":"Made in the fuel processor by condensing food into burnable fuel",
 
+"item.lavaplus.coppergloves": "Copper Gloves",
+"message.coppergloves":"Provide a bit of protection and not much else.",
+
 
   "item.lavaplus.copperdrillbit" : "Copper Drill",
   "item.lavaplus.bronze": "Bronze Ingot",

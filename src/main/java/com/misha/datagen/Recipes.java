@@ -516,6 +516,17 @@ public class Recipes extends RecipeProvider {
                 .unlockedBy("rframe", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.REINFORCEDFRAME.get()))
                 .save(consumer);
 
+        ShapedRecipeBuilder.shaped(Registration.COPPERGLOVES.get())
+                .pattern("c c")
+                .pattern("ccc")
+                .pattern("clc")
+                .define('c', Tags.Items.INGOTS_COPPER)
+                .define('l', Tags.Items.LEATHER)
+
+                .group("coppergloves")
+                .unlockedBy("copper", InventoryChangeTrigger.TriggerInstance.hasItems(Items.COPPER_INGOT))
+                .save(consumer);
+
 
 
 

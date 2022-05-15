@@ -78,6 +78,7 @@ e1acf6e2c0c38fb692633e702c78a39378088702 assets/lavaplus/models/item/bronze.json
 870f2732ffb01e221927291f74f5c37ca2ee0065 assets/lavaplus/models/item/compressor.json
 6e7a9167e09a62071703f42b346f3a346e55965a assets/lavaplus/models/item/copperdrill.json
 725dbb7c3da99fc0c484293d3f72f1aa0d6919ba assets/lavaplus/models/item/copperdrillbit.json
+b54f4b7595e3c13f08dc6798089659103b1ee5ed assets/lavaplus/models/item/coppergloves.json
 e7b61a796e08689b087a080926eda8381b54b959 assets/lavaplus/models/item/copperhanddrill.json
 f6f708315631394befb65c330a4452300d3f4013 assets/lavaplus/models/item/copperpickaxe.json
 1a21d722239f011d3d37b3d8dc7ce62bdf40d62d assets/lavaplus/models/item/coppersword.json
@@ -148,6 +149,7 @@ f31aef2fb0590d444a2e0ad51d469366fa722ff9 data/lavaplus/advancements/recipes/deco
 2b9f5bfd1562acdddc87b7b01a3737c63f9c1d47 data/lavaplus/advancements/recipes/misc/copperdrillbit.json
 5252af38c11f70a916b9e1c46ec81bbd22c26632 data/lavaplus/advancements/recipes/misc/lavabrick.json
 21fd6585fc661885ed8867c27685b14880795cc0 data/lavaplus/advancements/recipes/misc/stonegear.json
+494e428d9d3359eb7897e46bbf427da02fd9f184 data/lavaplus/advancements/recipes/tools/coppergloves.json
 a99e2af8c53af77231cdb9e573074aba3e8f1fec data/lavaplus/advancements/recipes/tools/copperpickaxe.json
 b281260856b3377195c77d771c06c34ff3baa4b5 data/lavaplus/loot_tables/blocks/advancedbeacon.json
 3980b13eada6da9eb0981736f4b1ec087794375d data/lavaplus/loot_tables/blocks/alloysmelter.json
@@ -166,6 +168,7 @@ b595c7dc25948d60fa1433d251026c9dd8a93f5f data/lavaplus/loot_tables/blocks/copper
 5eddcec7aa6f990570a5f5ac3e08272fd10bacba data/lavaplus/loot_tables/blocks/crate.json
 59c6da21fab371a0e4c3e0cc2934d7cbe05d7dd6 data/lavaplus/loot_tables/blocks/fuelcomp.json
 4b0b38cda9d8045962971f4a0800068e9ee2129d data/lavaplus/loot_tables/blocks/fuelprocessor.json
+3cb9085e79750090aeb3387446005d805f816860 data/lavaplus/loot_tables/blocks/garden.json
 cb517626cfa0f803f8de6e63a00406adb4bbc064 data/lavaplus/loot_tables/blocks/healer.json
 7ec3b3f8fe56dc2b9a0df5c738c633510ec5a2ae data/lavaplus/loot_tables/blocks/heatedmagmablock.json
 0677386282a8c15e93e7f11f59778cd64485d340 data/lavaplus/loot_tables/blocks/heater.json
@@ -198,6 +201,7 @@ f843864bbcf7f47c1295ab3e2b289bad7593a7f4 data/lavaplus/recipes/centrifuge.json
 6c462f429e14070c84d6f522b5c39abd8ec08b92 data/lavaplus/recipes/conduit.json
 488bb53173fa22c205fffad95904d19709093f27 data/lavaplus/recipes/copperdrill.json
 4bdeee1fb12d56795999791c5afcae759193e2d0 data/lavaplus/recipes/copperdrillbit.json
+3b69bef7226298e7c7e980a376fbbe7c1979d9cd data/lavaplus/recipes/coppergloves.json
 c4c5fbb61800704f5394ed846cbce27fb4918899 data/lavaplus/recipes/copperpickaxe.json
 7590c65bbaccb72614b8bb0cdd3fbfc9290b29c6 data/lavaplus/recipes/coppersword.json
 b0cab274afaa9a4bfeaa12f3a8e0f8279aa41b27 data/lavaplus/recipes/crank.json

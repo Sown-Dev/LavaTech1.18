@@ -81,7 +81,7 @@ public class InfernalBoots extends ArmorItem {
         UUID uuid = ARMOR_MODIFIER_UUID_PER_SLOT[EquipmentSlot.FEET.getIndex()];
         builder.put(Attributes.ARMOR, new AttributeModifier(uuid, "Armor modifier", (double)sdefense, AttributeModifier.Operation.ADDITION));
         builder.put(Attributes.MAX_HEALTH, new AttributeModifier(uuid, "Health modifier", (double)12.0F, AttributeModifier.Operation.ADDITION));
-        builder.put(Attributes.ARMOR_TOUGHNESS, new AttributeModifier(uuid, "Armor toughness", (double)stoughness, AttributeModifier.Operation.ADDITION));
+
         if (this.knockbackResistance > 0) {
             builder.put(Attributes.KNOCKBACK_RESISTANCE, new AttributeModifier(uuid, "Armor knockback resistance", sknockback, AttributeModifier.Operation.ADDITION));
         }
