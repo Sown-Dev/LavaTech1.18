@@ -527,6 +527,17 @@ public class Recipes extends RecipeProvider {
                 .unlockedBy("copper", InventoryChangeTrigger.TriggerInstance.hasItems(Items.COPPER_INGOT))
                 .save(consumer);
 
+        ShapedRecipeBuilder.shaped(Registration.BASICCHARM.get())
+                .pattern("iii")
+                .pattern("i i")
+                .pattern(" d ")
+                .define('i', Tags.Items.INGOTS_IRON)
+                .define('d', Tags.Items.GEMS_DIAMOND)
+
+                .group("basiccharm")
+                .unlockedBy("diamond", InventoryChangeTrigger.TriggerInstance.hasItems(Items.DIAMOND))
+                .save(consumer);
+
 
 
 

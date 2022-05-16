@@ -53,7 +53,7 @@ public class UpgraderScreen extends AbstractContainerScreen<UpgraderContainer> {
 
         if(menu.blockEntity.cactive>0) {
             RenderSystem.setShaderTexture(0, FLAME);
-            this.blit(matrixStack, relX + 45, relY + 42, 0, 0, 16, 16);
+            this.blit(matrixStack, relX + 35, relY + 43, 0, 0, 16, 16);
         }
         //System.out.println(counter+""+ active);
 

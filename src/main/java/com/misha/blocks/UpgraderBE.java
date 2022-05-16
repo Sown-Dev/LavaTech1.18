@@ -32,22 +32,22 @@ public class UpgraderBE extends BlockEntity {
     public int usage = 20;
     int transfer = 200;
     boolean hasPower = false;
-    public static final int baseUsage=50;
+    public static final int baseUsage = 50;
 
     //ticks it takes to create item
-    public static int baseTime=1000;
+    public static int baseTime = 1000;
     private final ItemStackHandler itemHandler = createHandler();
     private final CustomEnergyStorage energyStorage = createEnergy();
 
 
-    private final IItemHandler lockedHandler = new ExtractLockItemStackHandlerWrapper(itemHandler, i -> i == 0|| i==1);
+    private final IItemHandler lockedHandler = new ExtractLockItemStackHandlerWrapper(itemHandler, i -> i == 0 || i == 1);
     private final LazyOptional<IItemHandler> handler = LazyOptional.of(() -> lockedHandler);
     private final LazyOptional<IEnergyStorage> energy = LazyOptional.of(() -> energyStorage);
 
 
-    public int counter= 0;
-    public int ccounter=0;
-    public int cactive=0;
+    public int counter = 0;
+    public int ccounter = 0;
+    public int cactive = 0;
 
     public UpgraderBE(BlockPos pos, BlockState state) {
         //RecipeType.register("upgrader")
@@ -61,7 +61,7 @@ public class UpgraderBE extends BlockEntity {
         energy.invalidate();
     }
 
-    public IItemHandler getItemHandler(){
+    public IItemHandler getItemHandler() {
         return this.itemHandler;
     }
 
@@ -77,7 +77,7 @@ public class UpgraderBE extends BlockEntity {
         }
 
         if (this.active > 0) {
-            this.usage= baseUsage*this.active;
+            this.usage = baseUsage * this.active;
             if (hasEnoughPowerToWork()) {
 
 
@@ -87,11 +87,11 @@ public class UpgraderBE extends BlockEntity {
 
                 if (!stack.isEmpty() && stack.getItem() == Items.NETHERITE_SWORD.asItem()
                         && ingot.getItem() == Registration.INFERNALBRICK.get().asItem()
-                        && (output.isEmpty()) ) {
+                        && (output.isEmpty())) {
                     energyStorage.consumeEnergy(usage);
                     if (counter >= baseTime / active) {
                         if (output.isEmpty()) {
-                            ItemStack out= new ItemStack(Registration.INFERNALSWORD.get().asItem(), 1);
+                            ItemStack out = new ItemStack(Registration.INFERNALSWORD.get().asItem(), 1);
                             out.setTag(output.getTag());
                             itemHandler.setStackInSlot(2, out);
                             itemHandler.extractItem(0, 1, false);
@@ -107,11 +107,11 @@ public class UpgraderBE extends BlockEntity {
                 }
                 if (!stack.isEmpty() && stack.getItem() == Items.NETHERITE_PICKAXE.asItem()
                         && ingot.getItem() == Registration.INFERNALBRICK.get().asItem()
-                        && (output.isEmpty()) ) {
+                        && (output.isEmpty())) {
                     energyStorage.consumeEnergy(usage);
                     if (counter >= baseTime / active) {
                         if (output.isEmpty()) {
-                            ItemStack out= new ItemStack(Registration.INFERNALPICKAXE.get().asItem(), 1);
+                            ItemStack out = new ItemStack(Registration.INFERNALPICKAXE.get().asItem(), 1);
                             out.setTag(output.getTag());
                             itemHandler.setStackInSlot(2, out);
                             itemHandler.extractItem(0, 1, false);
@@ -121,22 +121,18 @@ public class UpgraderBE extends BlockEntity {
                     } else {
                         counter++;
                     }
-
-
-
                     setChanged();
-
-
                 }
-                // Disabled until fixed
+
+
                 if (!stack.isEmpty() && stack.getItem() == Items.NETHERITE_BOOTS.asItem()
                         && ingot.getItem() == Registration.INFERNALBRICK.get().asItem()
-                        && ingot.getCount()>=4
-                        && (output.isEmpty()) ) {
+                        && ingot.getCount() >= 4
+                        && (output.isEmpty())) {
                     energyStorage.consumeEnergy(usage);
                     if (counter >= baseTime / active) {
                         if (output.isEmpty()) {
-                            ItemStack out= new ItemStack(Registration.INFERNALBOOTS.get().asItem(), 1);
+                            ItemStack out = new ItemStack(Registration.INFERNALBOOTS.get().asItem(), 1);
                             //out.setTag(stack.getTag());
                             itemHandler.setStackInSlot(2, out);
                             itemHandler.extractItem(0, 1, false);
@@ -185,9 +181,9 @@ public class UpgraderBE extends BlockEntity {
 
                 //Infernal Ingot
                 if (!stack.isEmpty() && stack.getItem() == Registration.LAVABRICK.get().asItem()
-                        && stack.getCount()>=9
+                        && stack.getCount() >= 9
                         && ingot.getItem() == Items.NETHERITE_INGOT.asItem()
-                        && (output.getCount()<64) ) {
+                        && (output.getCount() < 64)) {
                     energyStorage.consumeEnergy(usage);
                     if (counter == baseTime / active) {
                         if (output.isEmpty()) {
@@ -196,11 +192,31 @@ public class UpgraderBE extends BlockEntity {
                             itemHandler.setStackInSlot(2, out);
                             itemHandler.extractItem(0, 9, false);
                             itemHandler.extractItem(1, 1, false);
-                        }else{
-                            ItemStack out = new ItemStack(Registration.INFERNALBRICK.get().asItem(), output.getCount()+1);
+                        } else {
+                            ItemStack out = new ItemStack(Registration.INFERNALBRICK.get().asItem(), output.getCount() + 1);
                             out.setTag(output.getTag());
                             itemHandler.setStackInSlot(2, out);
                             itemHandler.extractItem(0, 9, false);
+                            itemHandler.extractItem(1, 1, false);
+                        }
+                        counter = 0;
+                    } else {
+                        counter++;
+                    }
+                    setChanged();
+                }
+
+                //infernal charm
+                if (!stack.isEmpty() && stack.getItem() == Registration.BASICCHARM.get().asItem()
+                        && ingot.getItem() == Registration.INFERNALBRICK.get().asItem()
+                        && (output.isEmpty())) {
+                    energyStorage.consumeEnergy(usage);
+                    if (counter >= baseTime / active) {
+                        if (output.isEmpty()) {
+                            ItemStack out = new ItemStack(Registration.INFERNALCHARM.get().asItem(), 1);
+                            out.setTag(output.getTag());
+                            itemHandler.setStackInSlot(2, out);
+                            itemHandler.extractItem(0, 1, false);
                             itemHandler.extractItem(1, 1, false);
                         }
                         counter = 0;
@@ -234,9 +250,10 @@ public class UpgraderBE extends BlockEntity {
     public void onDataPacket(Connection net, ClientboundBlockEntityDataPacket pkt) {
         CompoundTag tag = pkt.getTag();
 
-        ccounter=tag.getInt("counter");
-        cactive=tag.getInt("active");
+        ccounter = tag.getInt("counter");
+        cactive = tag.getInt("active");
     }
+
     @Override
     public CompoundTag getUpdateTag() {
         CompoundTag tag = super.getUpdateTag();
@@ -244,6 +261,7 @@ public class UpgraderBE extends BlockEntity {
         tag.putInt("active", active);
         return tag;
     }
+
     @Override
     public void handleUpdateTag(CompoundTag tag) {
         super.handleUpdateTag(tag);
@@ -287,7 +305,7 @@ public class UpgraderBE extends BlockEntity {
                 if (slot == 2) {
                     return false;
                 }
-                if(slot==1){
+                if (slot == 1) {
                     return (stack.getItem() == Registration.INFERNALBRICK.get().asItem()
                             || stack.getItem() == Items.NETHERITE_INGOT.asItem());
                 }
@@ -296,7 +314,8 @@ public class UpgraderBE extends BlockEntity {
                             || stack.getItem() == Items.NETHERITE_PICKAXE.asItem()
                             || stack.getItem() == Items.NETHERITE_BOOTS.asItem()
                             || stack.getItem() == Registration.LAVABRICK.get().asItem()
-                            || stack.getItem() == Registration.INFERNALBOOTS.get().asItem());
+                            || stack.getItem() == Registration.INFERNALBOOTS.get().asItem()
+                    || stack.getItem() == Registration.BASICCHARM.get().asItem());
                 } else {
                     return true;
                 }
@@ -331,7 +350,7 @@ public class UpgraderBE extends BlockEntity {
 
     @Nonnull
     @Override
-    public <T> LazyOptional<T> getCapability(@Nonnull  Capability<T> cap, @Nullable Direction side) {
+    public <T> LazyOptional<T> getCapability(@Nonnull Capability<T> cap, @Nullable Direction side) {
         if (cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
             return handler.cast();
         }

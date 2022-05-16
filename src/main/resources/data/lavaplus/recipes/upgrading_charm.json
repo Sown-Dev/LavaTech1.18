@@ -1,0 +1,15 @@
+{
+  "type": "lavaplus:upgrading",
+  "ingredients": [
+    {
+    "item": "lavaplus:infernalbrick"
+
+        },
+        {
+              "item": "lavaplus:basiccharm"
+            }
+  ],
+  "output": {
+    "item": "lavaplus:infernalcharm"
+  }
+}

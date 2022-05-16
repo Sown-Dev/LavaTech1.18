@@ -111,6 +111,18 @@ public class Items extends ItemModelProvider {
                 "layer0",
                 new ResourceLocation(LavaPlus.MODID, "item/coppergloves"));
 
+        singleTexture(
+                Registration.INFERNALCHARM.get().getRegistryName().getPath(),
+                new ResourceLocation("item/generated"),
+                "layer0",
+                new ResourceLocation(LavaPlus.MODID, "item/infernalcharm"));
+
+        singleTexture(
+                Registration.BASICCHARM.get().getRegistryName().getPath(),
+                new ResourceLocation("item/generated"),
+                "layer0",
+                new ResourceLocation(LavaPlus.MODID, "item/basiccharm"));
+
 
 
 

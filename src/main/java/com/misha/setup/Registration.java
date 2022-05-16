@@ -80,6 +80,8 @@ public class Registration {
     public static final RegistryObject<Item> FUELCELL= ITEMS.register("fuelcell", () -> new FuelCell(new Item.Properties().tab(CreativeModeTab.TAB_MISC)));
     public static final RegistryObject<Item> COPPERHANDDRILL= ITEMS.register("copperhanddrill", () -> new CopperHanddrill(new Item.Properties().tab(CreativeModeTab.TAB_TOOLS)));
     public static final RegistryObject<Item> COPPERGLOVES= ITEMS.register("coppergloves", () -> new CopperGloves(new Item.Properties().tab(CreativeModeTab.TAB_TOOLS)));
+    public static final RegistryObject<Item> INFERNALCHARM= ITEMS.register("infernalcharm", () -> new InfernalCharm(new Item.Properties().tab(CreativeModeTab.TAB_TOOLS)));
+    public static final RegistryObject<Item> BASICCHARM= ITEMS.register("basiccharm", () -> new BasicCharm(new Item.Properties().tab(CreativeModeTab.TAB_TOOLS)));
 
     //blocks:
     public static final RegistryObject<Block> BLOCKBURNER = BLOCKS.register("blockburner",BlockBurner::new);
