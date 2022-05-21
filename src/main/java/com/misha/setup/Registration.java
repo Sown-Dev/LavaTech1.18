@@ -7,6 +7,7 @@ import com.misha.recipes.ModRecipes;
 import com.misha.tools.PacketHandler;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
@@ -338,6 +339,5 @@ public class Registration {
         Level world = inv.player.getCommandSenderWorld();
         return new AdvancedBeaconContainer(windowId, world, pos, inv, inv.player);
     }));
-
 
 }

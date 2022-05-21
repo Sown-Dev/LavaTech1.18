@@ -264,9 +264,9 @@ public class Recipes extends RecipeProvider {
                 .save(consumer);
 */
         ShapedRecipeBuilder.shaped(Registration.BASICFRAME.get(), 2)
-                .pattern(" f ")
-                .pattern("fcf")
-                .pattern(" f ")
+                .pattern(" c ")
+                .pattern("cfc")
+                .pattern(" c ")
                 .define('f', ItemTags.PLANKS)
                 .define('c', Tags.Items.INGOTS_COPPER)
                 .group("bframe")
@@ -365,7 +365,7 @@ public class Recipes extends RecipeProvider {
                 .pattern("cfc")
                 .pattern(" c ")
                 .define('f',Blocks.BLAST_FURNACE)
-                .define('c', Tags.Items.INGOTS_COPPER)
+                .define('c', Registration.BASICFRAME.get())
                 .group("alloysmelter")
                 .unlockedBy("bfurnace", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.BLAST_FURNACE.asItem()))
                 .save(consumer);

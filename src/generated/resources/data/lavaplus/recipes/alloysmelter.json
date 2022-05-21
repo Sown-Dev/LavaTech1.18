@@ -11,7 +11,7 @@
       "item": "minecraft:blast_furnace"
     },
     "c": {
-      "tag": "forge:ingots/copper"
+      "item": "lavaplus:basicframe"
     }
   },
   "result": {

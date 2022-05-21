@@ -2,9 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "group": "bframe",
   "pattern": [
-    " f ",
-    "fcf",
-    " f "
+    " c ",
+    "cfc",
+    " c "
   ],
   "key": {
     "f": {

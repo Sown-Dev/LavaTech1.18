@@ -34,11 +34,11 @@ public class LavaPlus
         MinecraftForge.EVENT_BUS.register(this);
     }
     private void enqueueIMC(final InterModEnqueueEvent event){
-        InterModComms.sendTo("curios", SlotTypeMessage.REGISTER_TYPE,
+        /*InterModComms.sendTo("curios", SlotTypeMessage.REGISTER_TYPE,
                 ()-> SlotTypePreset.HANDS.getMessageBuilder().build());
 
         InterModComms.sendTo("curios", SlotTypeMessage.REGISTER_TYPE,
-                ()-> SlotTypePreset.NECKLACE.getMessageBuilder().build());
+                ()-> SlotTypePreset.NECKLACE.getMessageBuilder().build());*/
     }
 
     private void setup(final FMLCommonSetupEvent event)
