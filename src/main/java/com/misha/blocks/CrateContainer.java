@@ -31,6 +31,7 @@ public class CrateContainer extends AbstractContainerMenu {
         if (blockEntity != null) {
             blockEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(h -> {
                 for(int i =0;i<12; i++){
+                    System.out.println(i);
                     addSlot(new SlotItemHandler(h, i, 51+((i%4) *18), 18+((i/4)*18)));
                 }
 
@@ -55,6 +56,7 @@ public class CrateContainer extends AbstractContainerMenu {
 
     @Override
     public ItemStack quickMoveStack(Player playerIn, int index) {
+        System.out.println(index);
         ItemStack itemstack = ItemStack.EMPTY;
         Slot slot = this.slots.get(index);
         if (slot != null && slot.hasItem()) {
@@ -67,7 +69,7 @@ public class CrateContainer extends AbstractContainerMenu {
                 slot.onQuickCraft(stack, itemstack);
             } else {
                 if (index>=12) {
-                    if (!this.moveItemStackTo(stack, 0, 11, false)) {
+                    if (!this.moveItemStackTo(stack, 0, 12, false)) {
                         return ItemStack.EMPTY;
                     }
                 } else if (index < 28) {

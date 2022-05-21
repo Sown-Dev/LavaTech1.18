@@ -36,7 +36,6 @@ public class LavaPlus
     private void enqueueIMC(final InterModEnqueueEvent event){
         /*InterModComms.sendTo("curios", SlotTypeMessage.REGISTER_TYPE,
                 ()-> SlotTypePreset.HANDS.getMessageBuilder().build());
-
         InterModComms.sendTo("curios", SlotTypeMessage.REGISTER_TYPE,
                 ()-> SlotTypePreset.NECKLACE.getMessageBuilder().build());*/
     }
