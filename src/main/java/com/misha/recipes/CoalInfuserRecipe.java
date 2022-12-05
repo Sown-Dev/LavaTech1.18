@@ -62,7 +62,7 @@ public class CoalInfuserRecipe implements Recipe<SimpleContainer> {
 
     @Override
     public RecipeSerializer<?> getSerializer() {
-        return null;
+        return ModRecipes.COALINFUSER_SERIALIZER.get();
     }
 
     @Override

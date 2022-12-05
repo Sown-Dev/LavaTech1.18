@@ -62,7 +62,7 @@ public class UpgraderRecipe implements Recipe<SimpleContainer> {
 
     @Override
     public RecipeSerializer<?> getSerializer() {
-        return null;
+        return ModRecipes.UPGRADER_SERIALIZER.get();
     }
 
     @Override

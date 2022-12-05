@@ -48,11 +48,17 @@ A technology mod that adds multiple machines based around heat and lava, as well
     ordering="NONE"
     # Side this dependency is applied on - BOTH, CLIENT or SERVER
     side="BOTH"
-# Here's another dependency
+
+
 [[dependencies.lavaplus]]
 modId="curios"
 mandatory=true
 versionRange="[1.18.2-5.0.7.0,)"
+
+[[dependencies.lavaplus]]
+modId="jei"
+mandatory=true
+versionRange="[1.18.2:9.5.5.174,)"
 
 
 [[dependencies.lavaplus]]

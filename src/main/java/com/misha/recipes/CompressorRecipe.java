@@ -62,7 +62,7 @@ public class CompressorRecipe implements Recipe<SimpleContainer> {
 
     @Override
     public RecipeSerializer<?> getSerializer() {
-        return null;
+        return ModRecipes.COMPRESSOR_SERIALIZER.get();
     }
 
     @Override

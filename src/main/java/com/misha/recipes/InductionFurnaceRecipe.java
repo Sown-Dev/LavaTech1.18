@@ -63,7 +63,7 @@ public class InductionFurnaceRecipe implements Recipe<SimpleContainer> {
 
     @Override
     public RecipeSerializer<?> getSerializer() {
-        return null;
+        return ModRecipes.INDUCTIONFURNACE_SERIALIZER.get();
     }
 
     @Override

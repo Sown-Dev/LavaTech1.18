@@ -63,7 +63,7 @@ public class FuelProcessorRecipe implements Recipe<SimpleContainer> {
 
     @Override
     public RecipeSerializer<?> getSerializer() {
-        return null;
+        return ModRecipes.FUELPROCESSOR_SERIALIZER.get();
     }
 
     @Override

@@ -62,7 +62,7 @@ public class AlloySmelterRecipe implements Recipe<SimpleContainer> {
 
     @Override
     public RecipeSerializer<?> getSerializer() {
-        return null;
+        return ModRecipes.ALLOYSMELTER_SERIALIZER.get();
     }
 
     @Override

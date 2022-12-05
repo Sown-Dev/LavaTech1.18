@@ -62,7 +62,7 @@ public class CarbonInfuserRecipe implements Recipe<SimpleContainer> {
 
     @Override
     public RecipeSerializer<?> getSerializer() {
-        return null;
+        return ModRecipes.CARBONINFUSER_SERIALIZER.get();
     }
 
     @Override

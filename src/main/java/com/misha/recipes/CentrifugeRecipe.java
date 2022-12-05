@@ -62,7 +62,7 @@ public class CentrifugeRecipe implements Recipe<SimpleContainer> {
 
     @Override
     public RecipeSerializer<?> getSerializer() {
-        return null;
+        return ModRecipes.CENTRIFUGE_SERIALIZER.get();
     }
 
     @Override

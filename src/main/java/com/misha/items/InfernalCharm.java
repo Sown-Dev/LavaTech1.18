@@ -41,7 +41,7 @@ public class InfernalCharm extends Item implements ICurioItem {
     @Override
     public Multimap<Attribute, AttributeModifier> getAttributeModifiers(SlotContext slotContext, UUID uuid, ItemStack stack) {
         ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
-        builder.put(Attributes.MAX_HEALTH, new AttributeModifier(uuid,"Max Health", 2.0F, AttributeModifier.Operation.ADDITION));
+        builder.put(Attributes.MAX_HEALTH, new AttributeModifier(uuid,"Max Health", 4.0F, AttributeModifier.Operation.ADDITION));
         builder.put(Attributes.ATTACK_DAMAGE, new AttributeModifier(uuid,"Attack Damage", 2.5F, AttributeModifier.Operation.ADDITION));
 
         return builder.build();

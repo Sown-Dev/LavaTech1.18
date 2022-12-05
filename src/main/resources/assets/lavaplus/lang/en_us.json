@@ -150,6 +150,9 @@
 "message.infernalcharm":"A powerful necklace that boosts your health and damage.",
 
 
+"item.lavaplus.basiccharm": "Basic Charm",
+//"message.basiccharm":"A powerful necklace that boosts your health and damage.",
+
   "item.lavaplus.copperdrillbit" : "Copper Drill",
   "item.lavaplus.bronze": "Bronze Ingot",
   "item.lavaplus.steel": "Steel Ingot",

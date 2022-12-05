@@ -25,7 +25,7 @@ public class ModRecipes {
             SERIALIZERS.register("upgrading", () -> UpgraderRecipe.Serializer.INSTANCE);
 
     public static final RegistryObject<RecipeSerializer<FuelProcessorRecipe>> FUELPROCESSOR_SERIALIZER=
-            SERIALIZERS.register("fuelprocessor", () -> FuelProcessorRecipe.Serializer.INSTANCE);
+            SERIALIZERS.register("fuelprocessing", () -> FuelProcessorRecipe.Serializer.INSTANCE);
 
     public static final RegistryObject<RecipeSerializer<InductionFurnaceRecipe>> INDUCTIONFURNACE_SERIALIZER=
             SERIALIZERS.register("inductionfurnace", () -> InductionFurnaceRecipe.Serializer.INSTANCE);
