@@ -538,6 +538,17 @@ public class Recipes extends RecipeProvider {
                 .unlockedBy("diamond", InventoryChangeTrigger.TriggerInstance.hasItems(Items.DIAMOND))
                 .save(consumer);
 
+        ShapedRecipeBuilder.shaped(Registration.HEATRING.get())
+                .pattern(" c ")
+                .pattern("g g")
+                .pattern(" g ")
+                .define('g', Tags.Items.INGOTS_GOLD)
+                .define('c', Registration.MAGMACOAL.get().asItem())
+
+                .group("heatring")
+                .unlockedBy("magmacoal", InventoryChangeTrigger.TriggerInstance.hasItems(Items.DIAMOND))
+                .save(consumer);
+
 
 
 

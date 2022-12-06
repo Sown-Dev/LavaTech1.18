@@ -124,6 +124,13 @@ public class Items extends ItemModelProvider {
                 new ResourceLocation(LavaPlus.MODID, "item/basiccharm"));
 
 
+        singleTexture(
+                Registration.HEATRING.get().getRegistryName().getPath(),
+                new ResourceLocation("item/generated"),
+                "layer0",
+                new ResourceLocation(LavaPlus.MODID, "item/heatring"));
+
+
 
 
 

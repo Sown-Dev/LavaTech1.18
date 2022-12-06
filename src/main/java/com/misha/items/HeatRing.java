@@ -27,7 +27,6 @@ public class HeatRing extends Item implements ICurioItem {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> list, TooltipFlag flags) {
         super.appendHoverText(stack, level, list, flags);
-        // list.add(new TranslatableComponent("message.basiccharm").withStyle(ChatFormatting.DARK_GRAY));
     }
 
     @Override
@@ -38,8 +37,14 @@ public class HeatRing extends Item implements ICurioItem {
     @Override
     public Multimap<Attribute, AttributeModifier> getAttributeModifiers(SlotContext slotContext, UUID uuid, ItemStack stack) {
         ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
-        builder.put(Attributes.ARMOR, new AttributeModifier(uuid, "Armor", 2F, AttributeModifier.Operation.ADDITION));
+        builder.put(Attributes.ATTACK_SPEED, new AttributeModifier(uuid, "Attack Speed", 4F, AttributeModifier.Operation.ADDITION));
 
         return builder.build();
+    }
+
+    @Override
+    public void curioTick(SlotContext slotContext, ItemStack stack) {
+        //maybe add fire resistance?
+        //slotContext.entity().addEffect()
     }
 }
