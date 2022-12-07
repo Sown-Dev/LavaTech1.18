@@ -538,14 +538,23 @@ public class Recipes extends RecipeProvider {
                 .unlockedBy("diamond", InventoryChangeTrigger.TriggerInstance.hasItems(Items.DIAMOND))
                 .save(consumer);
 
-        ShapedRecipeBuilder.shaped(Registration.HEATRING.get())
-                .pattern(" c ")
+        ShapedRecipeBuilder.shaped(Registration.RING.get())
+                .pattern(" g ")
                 .pattern("g g")
                 .pattern(" g ")
                 .define('g', Tags.Items.INGOTS_GOLD)
-                .define('c', Registration.MAGMACOAL.get().asItem())
 
-                .group("heatring")
+                .group("ring")
+                .unlockedBy("gold", InventoryChangeTrigger.TriggerInstance.hasItems(Items.GOLD_INGOT))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(Registration.HEATRING.get())
+                .pattern(" m ")
+                .pattern(" r ")
+                .pattern("   ")
+                .define('m', Registration.MAGMACOAL.get().asItem())
+
+                .group("ring")
                 .unlockedBy("magmacoal", InventoryChangeTrigger.TriggerInstance.hasItems(Items.DIAMOND))
                 .save(consumer);
 

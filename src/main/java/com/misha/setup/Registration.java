@@ -84,6 +84,7 @@ public class Registration {
     public static final RegistryObject<Item> INFERNALCHARM= ITEMS.register("infernalcharm", () -> new InfernalCharm(new Item.Properties().tab(CreativeModeTab.TAB_TOOLS)));
     public static final RegistryObject<Item> BASICCHARM= ITEMS.register("basiccharm", () -> new BasicCharm(new Item.Properties().tab(CreativeModeTab.TAB_TOOLS)));
     public static final RegistryObject<Item> HEATRING= ITEMS.register("heatring", () -> new HeatRing(new Item.Properties().tab(CreativeModeTab.TAB_TOOLS)));
+    public static final RegistryObject<Item> RING= ITEMS.register("ring", () -> new Ring(new Item.Properties().tab(CreativeModeTab.TAB_TOOLS)));
 
     //blocks:
     public static final RegistryObject<Block> BLOCKBURNER = BLOCKS.register("blockburner",BlockBurner::new);

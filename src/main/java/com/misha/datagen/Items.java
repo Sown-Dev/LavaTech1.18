@@ -130,6 +130,12 @@ public class Items extends ItemModelProvider {
                 "layer0",
                 new ResourceLocation(LavaPlus.MODID, "item/heatring"));
 
+        singleTexture(
+                Registration.RING.get().getRegistryName().getPath(),
+                new ResourceLocation("item/generated"),
+                "layer0",
+                new ResourceLocation(LavaPlus.MODID, "item/goldring"));
+
 
 
 
