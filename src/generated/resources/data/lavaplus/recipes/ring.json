@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "ring",
+  "pattern": [
+    " g ",
+    "g g",
+    " g "
+  ],
+  "key": {
+    "g": {
+      "tag": "forge:ingots/gold"
+    }
+  },
+  "result": {
+    "item": "lavaplus:ring"
+  }
+}

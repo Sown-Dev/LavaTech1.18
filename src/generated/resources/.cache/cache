@@ -89,6 +89,7 @@ f1a832853f6344886e07966235bb12d13a2e757b assets/lavaplus/models/item/fuelprocess
 d5137a71850b4ece42147a011ce8cd417667e446 assets/lavaplus/models/item/healer.json
 3f67298d252f810ddf0c214767dcf414b4e80300 assets/lavaplus/models/item/heatedmagmablock.json
 9cd9b7c4f9a490939b5eef558e9fcd22549b43d4 assets/lavaplus/models/item/heater.json
+94ad5213583b327e0d333a90fbbb5a8617d7dbce assets/lavaplus/models/item/heatring.json
 5c76c241db063d694bf76e5ae6197f2b5dbd360a assets/lavaplus/models/item/inductionfurnace.json
 043ccf299705e00e61631762bad3d5b5b06d932d assets/lavaplus/models/item/infernalboots.json
 cb0dce78da609516fcf05a8bbbee0f8a17a53ea7 assets/lavaplus/models/item/infernalbrick.json
@@ -107,6 +108,7 @@ df871f58127dcd6dffc24a11c9b0ac674ea8e4a7 assets/lavaplus/models/item/reactorglas
 81f7681c00edebd0658276e55e98fa4d74919e74 assets/lavaplus/models/item/reactorpanel.json
 cd0b9326940b04e9ae3f83977cec4a75ddf72262 assets/lavaplus/models/item/reactorport.json
 1131bf44643737aee5a2825406a0ba96eddf1697 assets/lavaplus/models/item/reinforcedframe.json
+db9b73efb300259e35d7b2bb5745629834662579 assets/lavaplus/models/item/ring.json
 0a3b9e468677501ead12662a2cf574bf779cfb8b assets/lavaplus/models/item/steel.json
 693c5d523d8b45c20bafef10b49e630526c1cf45 assets/lavaplus/models/item/stonegear.json
 a363ac8d147dbb64da3b20cd8dcd2f595dc91edd assets/lavaplus/models/item/upgrader.json
@@ -154,6 +156,8 @@ f31aef2fb0590d444a2e0ad51d469366fa722ff9 data/lavaplus/advancements/recipes/deco
 386d90ff2db5e0a2182b96e88a39b0f97252d12c data/lavaplus/advancements/recipes/tools/basiccharm.json
 494e428d9d3359eb7897e46bbf427da02fd9f184 data/lavaplus/advancements/recipes/tools/coppergloves.json
 a99e2af8c53af77231cdb9e573074aba3e8f1fec data/lavaplus/advancements/recipes/tools/copperpickaxe.json
+a0edebc8cefb3f3f5f9bf5bdf18a255c73e63dfa data/lavaplus/advancements/recipes/tools/heatring.json
+d781768831019d45d60e4407117710e1c0f3fa34 data/lavaplus/advancements/recipes/tools/ring.json
 b281260856b3377195c77d771c06c34ff3baa4b5 data/lavaplus/loot_tables/blocks/advancedbeacon.json
 3980b13eada6da9eb0981736f4b1ec087794375d data/lavaplus/loot_tables/blocks/alloysmelter.json
 df73d8b07a4cf4970c2c291cf3aa5a05a42e66b8 data/lavaplus/loot_tables/blocks/basicconduit.json
@@ -198,7 +202,7 @@ a8432203374c0a8d056d811f7b50dcdd61b5e8ce data/lavaplus/recipes/alloysmelter.json
 5d416992cf190f36353f1e1eca1e8ed706f7c39f data/lavaplus/recipes/battery.json
 e853c608977085e01bb12185c615f46efe50fe0e data/lavaplus/recipes/beaconcomp.json
 91b359372d285e1bddc76803cb120f5696211643 data/lavaplus/recipes/blockburner.json
-889fd3673d387d9f92f4b5416de24555289fcd52 data/lavaplus/recipes/carboninfuser.json
+a78d4b7a441cf30d18336dc6bee317701172a9e4 data/lavaplus/recipes/carboninfuser.json
 f843864bbcf7f47c1295ab3e2b289bad7593a7f4 data/lavaplus/recipes/centrifuge.json
 8c44c25cef84fc6023d09979247233a5e6dd592d data/lavaplus/recipes/coalinfuser.json
 51ba31b36e5e650e61275102f70999a8c73657fa data/lavaplus/recipes/compressor.json
@@ -216,6 +220,7 @@ b0cab274afaa9a4bfeaa12f3a8e0f8279aa41b27 data/lavaplus/recipes/crank.json
 a35d91ded147b5d4cc2479ed990602354817788d data/lavaplus/recipes/healer.json
 9812276a773999fea7d19e3c516ed49b2d390713 data/lavaplus/recipes/heatedmagmablock.json
 a8ef7b1cf387a8e054f9a71f9f68e35dde6c7772 data/lavaplus/recipes/heater.json
+7925fa6231f904313fb8778de24dc9254b661b14 data/lavaplus/recipes/heatring.json
 88bf635434a4e2710d71060e271dd1cf09a49a21 data/lavaplus/recipes/hydroponics.json
 f3877bf4f6f22f0afb20bfb4f8dcfd018850c02e data/lavaplus/recipes/inductionfurnace.json
 5a602bf6f5bd83f39ef4ec6490f14994d9cfd0bf data/lavaplus/recipes/irondrill.json
@@ -229,6 +234,7 @@ d44d2d8b375704e64f1345c038eb8bb4b0f707af data/lavaplus/recipes/reactorglass.json
 6542477b5000a67d8c055210188139876fd82b4b data/lavaplus/recipes/reactorpanel.json
 676bbecc79dab7742fa55a15ced6ad1cf7b6147e data/lavaplus/recipes/reactorport.json
 83a11f1feae2e78f318a03804772da7414de0c0b data/lavaplus/recipes/reinforcedframe.json
+abb419c8631502b63135f22b93e0bebe6bdfa2c0 data/lavaplus/recipes/ring.json
 6df631f0b244e7a77408641e353027265786ca63 data/lavaplus/recipes/simplebeacon.json
 453a394536f04eec0b04864351739027367f9cef data/lavaplus/recipes/stonegear.json
 3bb7dcd5aa0191cf309363cba06e28a437369fd2 data/lavaplus/recipes/upgrader.json

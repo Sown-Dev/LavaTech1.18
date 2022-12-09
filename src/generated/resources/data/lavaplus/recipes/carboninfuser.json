@@ -2,11 +2,14 @@
   "type": "minecraft:crafting_shaped",
   "group": "carbfuser",
   "pattern": [
-    "mcm",
+    "mrm",
     "cbc",
     "mcm"
   ],
   "key": {
+    "r": {
+      "tag": "forge:dusts/redstone"
+    },
     "c": {
       "tag": "forge:ingots/copper"
     },

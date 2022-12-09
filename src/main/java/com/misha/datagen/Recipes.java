@@ -554,6 +554,7 @@ public class Recipes extends RecipeProvider {
                 .pattern(" r ")
                 .pattern("   ")
                 .define('m', Registration.MAGMACOAL.get().asItem())
+                .define('r', Registration.RING.get().asItem())
 
                 .group("ring")
                 .unlockedBy("magmacoal", InventoryChangeTrigger.TriggerInstance.hasItems(Items.DIAMOND))
