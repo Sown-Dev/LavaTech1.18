@@ -326,9 +326,10 @@ public class Recipes extends RecipeProvider {
                 .save(consumer);
 
         ShapedRecipeBuilder.shaped(Registration.CARBONINFUSER.get())
-                .pattern("mcm")
+                .pattern("mrm")
                 .pattern("cbc")
                 .pattern("mcm")
+                .define('r', Tags.Items.DUSTS_REDSTONE)
                 .define('c', Tags.Items.INGOTS_COPPER)
                 .define('b',Blocks.COAL_BLOCK)
                 .define('m', Registration.BASICFRAME.get())

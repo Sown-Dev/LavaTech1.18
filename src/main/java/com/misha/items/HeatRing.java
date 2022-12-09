@@ -38,6 +38,7 @@ public class HeatRing extends Item implements ICurioItem {
     public Multimap<Attribute, AttributeModifier> getAttributeModifiers(SlotContext slotContext, UUID uuid, ItemStack stack) {
         ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
         builder.put(Attributes.ATTACK_SPEED, new AttributeModifier(uuid, "Attack Speed", 4F, AttributeModifier.Operation.ADDITION));
+        builder.put(Attributes.ARMOR, new AttributeModifier(uuid, "Armor", 1F, AttributeModifier.Operation.ADDITION));
 
         return builder.build();
     }

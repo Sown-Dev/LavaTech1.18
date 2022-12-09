@@ -37,7 +37,7 @@ public class Ring extends Item implements ICurioItem {
     @Override
     public Multimap<Attribute, AttributeModifier> getAttributeModifiers(SlotContext slotContext, UUID uuid, ItemStack stack) {
         ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
-        builder.put(Attributes.ARMOR, new AttributeModifier(uuid, "Armor", 2F, AttributeModifier.Operation.ADDITION));
+        builder.put(Attributes.ARMOR, new AttributeModifier(uuid, "Armor", 1F, AttributeModifier.Operation.ADDITION));
 
         return builder.build();
     }

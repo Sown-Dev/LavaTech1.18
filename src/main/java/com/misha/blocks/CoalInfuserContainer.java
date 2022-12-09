@@ -60,20 +60,20 @@ public class CoalInfuserContainer extends AbstractContainerMenu {
             ItemStack stack = slot.getItem();
             itemstack = stack.copy();
             if (index == 0) {
-                if (!this.moveItemStackTo(stack, 1, 37, true)) {
+                if (!this.moveItemStackTo(stack, 2, 37, true)) {
                     return ItemStack.EMPTY;
                 }
                 slot.onQuickCraft(stack, itemstack);
             } else {
                 if (stack.getItem() == Items.COAL) {
-                    if (!this.moveItemStackTo(stack, 0, 1, false)) {
+                    if (!this.moveItemStackTo(stack, 1, 1, false)) {
                         return ItemStack.EMPTY;
                     }
                 } else if (index < 28) {
                     if (!this.moveItemStackTo(stack, 28, 37, false)) {
                         return ItemStack.EMPTY;
                     }
-                } else if (index < 37 && !this.moveItemStackTo(stack, 1, 28, false)) {
+                } else if (index < 37 && !this.moveItemStackTo(stack, 2, 28, false)) {
                     return ItemStack.EMPTY;
                 }
             }

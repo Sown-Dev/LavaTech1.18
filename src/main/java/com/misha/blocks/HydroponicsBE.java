@@ -33,10 +33,10 @@ public class HydroponicsBE extends BlockEntity {
 
     int transfer = 200;
     boolean hasPower = false;
-    public static final int baseUsage = 10;
+    public static final int baseUsage = 15;
 
     public int usage = baseUsage;
-    static int basetime = 500;
+    static int basetime = 800;
     short sun = 0;
 
     int yield = 1;

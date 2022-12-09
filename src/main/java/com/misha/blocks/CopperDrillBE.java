@@ -168,7 +168,6 @@ public class CopperDrillBE extends BlockEntity {
     public ClientboundBlockEntityDataPacket getUpdatePacket() {
         CompoundTag tag = new CompoundTag();
         tag.putInt("counter", counter);
-        tag.putInt("depth",depth);
         return ClientboundBlockEntityDataPacket.create(this);
     }
 
@@ -202,7 +201,7 @@ public class CopperDrillBE extends BlockEntity {
             energyStorage.deserializeNBT(tag.get("energy"));
         }
         counter = tag.getInt("counter");
-        depth = tag.getShort("depth");
+
         super.load(tag);
     }
 
