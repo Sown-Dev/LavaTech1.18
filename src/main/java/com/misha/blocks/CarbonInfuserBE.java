@@ -125,8 +125,8 @@ public class CarbonInfuserBE extends BlockEntity {
             }
 
             if(input.is(Items.IRON_INGOT)){
-                if(counter>=time && (output.getItem()==Items.COAL ||output.isEmpty()) && carbon>=100){
-                    if(output.getItem()==Registration.STEEL.get()){
+                if(counter>=time && (output.getItem()==Registration.STEEL.get().asItem() ||output.isEmpty()) && carbon>=100){
+                    if(output.getItem()==Registration.STEEL.get().asItem()){
                         ItemStack newItem = new ItemStack(Registration.STEEL.get(), 1);
                         itemHandler.insertItem(2, newItem, false);
 
