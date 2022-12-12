@@ -56,6 +56,7 @@ public class CrateContainer extends AbstractContainerMenu {
 
     @Override
     public ItemStack quickMoveStack(Player playerIn, int index) {
+        
         System.out.println(index);
         ItemStack itemstack = ItemStack.EMPTY;
         Slot slot = this.slots.get(index);
